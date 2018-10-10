@@ -179,6 +179,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &244085909 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1475034180161794, guid: 1dfee7a57ee3efc46abcb0b9c7e2d922,
+    type: 2}
+  m_PrefabInternal: {fileID: 1971747717}
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0
@@ -302,7 +307,7 @@ MonoBehaviour:
   m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 244085909}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &853205626
@@ -318,7 +323,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1031081667
+--- !u!1001 &1971747717
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
