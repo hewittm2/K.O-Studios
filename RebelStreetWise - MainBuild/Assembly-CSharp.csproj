@@ -61,6 +61,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\BaseMovement.cs" />
     <Compile Include="Assets\Scripts\ControllerInputs.cs" />
     <Compile Include="Assets\Scripts\PlayerJoin.cs" />
     <None Include="Assets\Audio\DELETETHIS.txt" />
