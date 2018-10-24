@@ -130,12 +130,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
-  jumpForce: 0.3
-  verticalVelocity: 0
   gravity: -0.7
+  jumpForce: 0.3
+  jumpCD: 0
   dashSpeed: 25.9
   maxDashTime: 0.2
   dashStopSpeed: 0.1
+  character: {fileID: 0}
+  fighter: {fileID: 0}
 --- !u!143 &73653620
 CharacterController:
   m_ObjectHideFlags: 0
@@ -146,11 +148,11 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 1
-  m_Radius: 0.5
+  m_Height: 1.98
+  m_Radius: 0.7
   m_SlopeLimit: 45
   m_StepOffset: 0.2
-  m_SkinWidth: 0.0001
+  m_SkinWidth: 1
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &73653621
@@ -288,6 +290,11 @@ Prefab:
     - target: {fileID: 114040011502215420, guid: 557f9c030333af94bb7b5de182607ea3,
         type: 2}
       propertyPath: canInput
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114040011502215420, guid: 557f9c030333af94bb7b5de182607ea3,
+        type: 2}
+      propertyPath: canAttack
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -450,8 +457,36 @@ Transform:
   m_GameObject: {fileID: 1655189644}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 1, z: 1}
+  m_LocalScale: {x: 20, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1727387280
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1727387281}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1727387281
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1727387280}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
