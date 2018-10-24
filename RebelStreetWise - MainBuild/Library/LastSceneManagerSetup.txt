@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/TestScenes/FighterTest.unity
+=======
+- path: Assets/TestScenes/StageSelect.unity
+>>>>>>> master
   isLoaded: 1
   isActive: 1
