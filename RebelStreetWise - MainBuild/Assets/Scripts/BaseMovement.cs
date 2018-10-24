@@ -16,19 +16,19 @@ public class BaseMovement : MonoBehaviour
     private float currDashTime;
 
     private CharacterController character;
-
+	FighterClass fighter;
     private Vector3[] centerArray = new Vector3[2];
     private float[] radiusArray = new float[2];
     private float[] heightArray = new float[2];
     private float centerOffset = 0;
 
-    public bool facingRight = false;
+    //public bool facingRight = false;
     bool dashing;
 
-    private void Start()
-    {
+    private void Start(){
+		
         character = gameObject.GetComponent<CharacterController>();
-
+		fighter = gameObject.GetComponent<FighterClass> ();
         for(int i = 0; i < 2; i++)
         {
             centerArray[i] = character.center - new Vector3(0, centerOffset, 0);
@@ -38,50 +38,63 @@ public class BaseMovement : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        Walk();
-        Jump();
-        Dash();
+    private void Update(){
+
+
+		character.Move (new Vector2(0,verticalVelocity));
+		//print(Debug.)
+        //Walk();
+        //Jump();
+        //Dash();
+		ApplyGravOnly();
         Duck();
         Block();
     }
 
+	public void ApplyGravOnly(){
+	verticalVelocity += gravity * Time.deltaTime / 2;
+	character.Move (new Vector2(0,verticalVelocity));
+	}
+
     public void Walk()
     {
-        float deltaX = Input.GetAxis("Horizontal") * moveSpeed;
-        float deltaY = Input.GetAxis("Vertical") * moveSpeed;
-        Vector2 movement = new Vector2(deltaX, deltaY);
+		float deltaX = Input.GetAxis(fighter.horiInput) * moveSpeed;
+		//float deltaY = Input.GetAxis(fighter.vertInput) * moveSpeed;
+        Vector2 movement = new Vector2(deltaX, verticalVelocity);
+		//Debug.Log (movement + " Unclamped");
         movement = Vector2.ClampMagnitude(movement, moveSpeed);
-        movement.y = gravity;
+		//Debug.Log (movement + " Clamped");
+        //movement.y = gravity;
 
         movement *= Time.deltaTime;
-        movement = transform.TransformDirection(movement);
+        //movement = transform.TransformDirection(movement);
+		//Debug.Log (movement + " final");
         
         character.Move(movement);
 
-        if (deltaX > 0)
-        {
-            facingRight = true;
-        }
-        else if (deltaX < 0)
-        {
-            facingRight = false;
-        }
+//        if (deltaX > 0)
+//        {
+//            facingRight = true;
+//        }
+//        else if (deltaX < 0)
+//        {
+//            facingRight = false;
+//        }
     }
 
     //DO NOT TOUCH THIS IT JUST WORKS
     public void Jump()
     {
-        if (character.isGrounded && Input.GetKeyDown(KeyCode.W))
-        {
-            verticalVelocity = jumpForce;
-        }
-        else
-        {
-            verticalVelocity += gravity * Time.deltaTime;
-        }
+		
+		if (character.isGrounded)
+		{
 
+			verticalVelocity = jumpForce;
+		}
+		else
+		{
+			verticalVelocity += gravity * Time.deltaTime;
+		}
         Vector2 jump = new Vector2(0, verticalVelocity);
         character.Move(jump);
     }
@@ -90,19 +103,35 @@ public class BaseMovement : MonoBehaviour
     public void Dash()
     {
         //Dash Left
-        if (Input.GetKeyDown(KeyCode.Q) && !dashing)
-        {
-            StartCoroutine(Dashing(-1));
-        }
-        if (Input.GetKeyDown(KeyCode.E) && !dashing)
-        {
-            StartCoroutine(Dashing(1));
-        }
+//        if (Input.GetKeyDown(KeyCode.Q) && !dashing)
+//        {
+//            StartCoroutine(Dashing(-1));
+//        }
+//        if (Input.GetKeyDown(KeyCode.E) && !dashing)
+//        {
+//            StartCoroutine(Dashing(1));
+//        }
+		if(!dashing){
+			if (fighter.facingRight) {
+				if (Input.GetAxis (fighter.horiInput) > 0) {
+					StartCoroutine (Dashing (1));
+				} else {
+					StartCoroutine (Dashing (-1));
+				}
+			} else {
+				if (Input.GetAxis (fighter.horiInput) < 0) {
+					StartCoroutine (Dashing (-1));
+				} else {
+					StartCoroutine (Dashing (1));
+				}
+			}
+		}
+
     }
 
     //Part of Dash
-    IEnumerator Dashing(int direction)
-    {
+    IEnumerator Dashing(int direction){
+		
         dashing = true;
         character.enabled = false;
         this.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
@@ -114,6 +143,7 @@ public class BaseMovement : MonoBehaviour
         character.enabled = true;
         yield return new WaitForSeconds(2);
         dashing = false;
+		fighter.canInput = true;
 
     }
 
