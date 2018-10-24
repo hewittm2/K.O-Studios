@@ -188,11 +188,6 @@ Prefab:
     m_Modifications:
     - target: {fileID: 224789893334656742, guid: 4de1b41af2198be4f82a13af8f327bd5,
         type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 224789893334656742, guid: 4de1b41af2198be4f82a13af8f327bd5,
-        type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -283,38 +278,13 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 223549283313928730, guid: 4de1b41af2198be4f82a13af8f327bd5,
         type: 2}
-      propertyPath: m_RenderMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 223549283313928730, guid: 4de1b41af2198be4f82a13af8f327bd5,
-        type: 2}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1775478716}
-    - target: {fileID: 114526319643346018, guid: 4de1b41af2198be4f82a13af8f327bd5,
+    - target: {fileID: 114086526993947044, guid: 4de1b41af2198be4f82a13af8f327bd5,
         type: 2}
-      propertyPath: m_UiScaleMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114526319643346018, guid: 4de1b41af2198be4f82a13af8f327bd5,
-        type: 2}
-      propertyPath: m_ReferenceResolution.x
-      value: 1025
-      objectReference: {fileID: 0}
-    - target: {fileID: 114526319643346018, guid: 4de1b41af2198be4f82a13af8f327bd5,
-        type: 2}
-      propertyPath: m_ReferenceResolution.y
-      value: 1025
-      objectReference: {fileID: 0}
-    - target: {fileID: 223549283313928730, guid: 4de1b41af2198be4f82a13af8f327bd5,
-        type: 2}
-      propertyPath: m_PixelPerfect
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114526319643346018, guid: 4de1b41af2198be4f82a13af8f327bd5,
-        type: 2}
-      propertyPath: m_MatchWidthOrHeight
-      value: 0
+      propertyPath: m_CancelButton
+      value: B_1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4de1b41af2198be4f82a13af8f327bd5, type: 2}
