@@ -415,6 +415,51 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 224243527556197396, guid: 1dfee7a57ee3efc46abcb0b9c7e2d922,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 224291058437631444, guid: 1dfee7a57ee3efc46abcb0b9c7e2d922,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 224521725901802476, guid: 1dfee7a57ee3efc46abcb0b9c7e2d922,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 224019551344213496, guid: 1dfee7a57ee3efc46abcb0b9c7e2d922,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 224009205768249922, guid: 1dfee7a57ee3efc46abcb0b9c7e2d922,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224289568235290566, guid: 1dfee7a57ee3efc46abcb0b9c7e2d922,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224801293239709590, guid: 1dfee7a57ee3efc46abcb0b9c7e2d922,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 224096639992325672, guid: 1dfee7a57ee3efc46abcb0b9c7e2d922,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 224804529564127654, guid: 1dfee7a57ee3efc46abcb0b9c7e2d922,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1dfee7a57ee3efc46abcb0b9c7e2d922, type: 2}
   m_IsPrefabAsset: 0
