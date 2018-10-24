@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
-  jumpForce: 0.3
+  jumpForce: 0.15
   verticalVelocity: 0
   gravity: -0.7
   dashSpeed: 25.9
@@ -397,6 +397,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b16462774486060498b9ccd8a959d7ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterOne: {fileID: 0}
+  characterTwo: {fileID: 0}
+  characterThree: {fileID: 0}
+  characterFour: {fileID: 0}
 --- !u!4 &1535703623
 Transform:
   m_ObjectHideFlags: 0
