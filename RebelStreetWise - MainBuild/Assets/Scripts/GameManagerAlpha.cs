@@ -1,4 +1,5 @@
 ﻿// Jake P. & Chris B.
+// 10/24/18
 
 using System.Collections;
 using System.Collections.Generic;
@@ -9,10 +10,10 @@ public class GameManagerAlpha : MonoBehaviour {
 
     private static GameManagerAlpha gma = null;
 
-    public GameObject characterOne;
-    public GameObject characterTwo;
-    public GameObject characterThree;
-    public GameObject characterFour;
+    public GameObject[] players = new GameObject[4];
+    public GameObject[] characters;
+
+    public string[] characterNames = new string[4];
 
     public static GameManagerAlpha Gma
     {
@@ -24,6 +25,9 @@ public class GameManagerAlpha : MonoBehaviour {
 
     private void Awake()
     {
+        // Loads the list of character prefabs in to an array
+        characters = Resources.LoadAll<GameObject>("Characters");
+
         if (gma != null && gma != this)
         {
             Destroy(this.gameObject);
@@ -34,12 +38,6 @@ public class GameManagerAlpha : MonoBehaviour {
 
         DontDestroyOnLoad(this);
     }
-
-    // Use this for initialization
-    void Start ()
-    {
-		
-	}
 	
 	// Update is called once per frame
 	void Update ()
@@ -52,6 +50,35 @@ public class GameManagerAlpha : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.B))
         {
             SceneManager.LoadScene("FighterTest");
+        }
+
+        if(Input.GetKeyDown(KeyCode.D))
+        {
+            SceneManager.LoadScene("CharacterSpawnTest");
+        }
+    }
+
+    public void AssignCharacterToPlayer(int characterIndex)
+    {
+        if (Input.GetButtonDown("A_1"))
+        {
+            players[0] = characters[characterIndex];
+        }
+
+        if
+        (Input.GetButtonDown("A_2"))
+        {
+            players[1] = characters[characterIndex];
+        }
+
+        if (Input.GetButtonDown("A_3"))
+        {
+            players[2] = characters[characterIndex];
+        }
+
+        if (Input.GetButtonDown("A_4"))
+        {
+            players[3] = characters[characterIndex];
         }
     }
 
