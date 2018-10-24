@@ -1,4 +1,12 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/TestScenes/UITest.unity
+=======
+<<<<<<< HEAD
+- path: Assets/TestScenes/FighterTest.unity
+=======
+- path: Assets/TestScenes/StageSelect.unity
+>>>>>>> master
+>>>>>>> 071c242844ddc263c9041b4dfd9bedd933667e18
   isLoaded: 1
   isActive: 1
