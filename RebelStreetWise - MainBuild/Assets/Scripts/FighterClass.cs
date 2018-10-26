@@ -47,7 +47,7 @@ public class FighterClass : MonoBehaviour {
     public string medInput;
     public string heavyInput;
     public string specialInput;
-	public string grabInput;
+	public string throwInput;
 	public string dashInput;
 
 	//Controller Inputs: Need to Implement
@@ -209,91 +209,105 @@ public class FighterClass : MonoBehaviour {
 
 	public void QueueAttackInput(){
 		//Light Attack
-		if (Input.GetButtonDown(lightInput)) {
+		if (Input.GetButtonDown (lightInput)) {
 			if (facingRight) {
 				if (movement.character.isGrounded) {
 					if (Input.GetAxis (vertInput) < -0.1f) {
 						//inputQueue += "Crouch_LightAttack(R),";
-						Debug.Log("Crouch_LightAttack(R),");
+						Debug.Log ("Crouch_LightAttack(R),");
 					} else {
 						//inputQueue += "LightAttack(R),";
-						Debug.Log("LightAttack(R),");
+						Debug.Log ("LightAttack(R),");
 					}
 				} else {
 					//inputQueue += "Jump_lightAttack(R)";
-					Debug.Log("Jump_LightAttack(R),");
+					Debug.Log ("Jump_LightAttack(R),");
 				}
 			} else {
 				if (movement.character.isGrounded) {
 					if (Input.GetAxis (vertInput) < -0.1f) {
 						//inputQueue += "Crouch_LightAttack(L)";
-						Debug.Log("Crouch_LightAttack(L),");
+						Debug.Log ("Crouch_LightAttack(L),");
 					} else {
 						//inputQueue += "LightAttack(L)";
-						Debug.Log("LightAttack(L),");
+						Debug.Log ("LightAttack(L),");
 					}
 				} else {
 					//inputQueue += "Jump_LightAttack(L)";
-					Debug.Log("Jump_LightAttack(L),");
+					Debug.Log ("Jump_LightAttack(L),");
 				}
 			}
-		//Medium Attack
-		} else if (Input.GetButtonDown(medInput)) {
+			//Medium Attack
+		} else if (Input.GetButtonDown (medInput)) {
 			if (facingRight) {
 				if (movement.character.isGrounded) {
 					if (Input.GetAxis (vertInput) < -0.1f) {
 						//inputQueue += "Crouch_MedAttack(R)";
-						Debug.Log("Crouch_MedAttack(R),");
+						Debug.Log ("Crouch_MedAttack(R),");
 					} else {
 						//inputQueue += "MedAttack(R)";
-						Debug.Log("MedAttack(R),");
+						Debug.Log ("MedAttack(R),");
 					}
 				} else {
 					//inputQueue += "Jump_MedAttack(R)";
-					Debug.Log("Jump_MedAttack(R),");
+					Debug.Log ("Jump_MedAttack(R),");
 				}
 			} else {
 				if (movement.character.isGrounded) {
 					if (Input.GetAxis (vertInput) < -0.1f) {
 						//inputQueue += "Crouch_MedAttack(L)";
-						Debug.Log("Crouch_MedAttack(L),");
+						Debug.Log ("Crouch_MedAttack(L),");
 					} else {
 						//inputQueue += "MedAttack(L)";
-						Debug.Log("MedAttack(L),");
+						Debug.Log ("MedAttack(L),");
 					}
 
 				} else {
 					//inputQueue += "Jump_MedAttack(L)";
-					Debug.Log("Jump_MedAttack(L),");
+					Debug.Log ("Jump_MedAttack(L),");
 				}
 			}
-		//Heavy Attack
-		} else if (Input.GetButtonDown(heavyInput)) {
+			//Heavy Attack
+		} else if (Input.GetButtonDown (heavyInput)) {
 			if (facingRight) {
 				if (movement.character.isGrounded) {
 					if (Input.GetAxis (vertInput) < -0.1f) {
 						//inputQueue += "Crouch_HeavyAttack(R)";
-						Debug.Log("Crouch_HeavyAttack(R),");
+						Debug.Log ("Crouch_HeavyAttack(R),");
 					} else {
 						//inputQueue += "HeavyAttack(R)";
-						Debug.Log("HeavyAttack(R),");
+						Debug.Log ("HeavyAttack(R),");
 					}
 				} else {
 					//inputQueue += "Jump_HeavyAttack(R)";
-					Debug.Log("Jump_HeavyAttack(R),");
+					Debug.Log ("Jump_HeavyAttack(R),");
 				}
 			} else {
 				if (movement.character.isGrounded) {
 					if (Input.GetAxis (vertInput) < -0.1f) {
 						//inputQueue += "Crouch_HeavyAttack(L)";
-						Debug.Log("Crouch_HeavyAttack(L),");
+						Debug.Log ("Crouch_HeavyAttack(L),");
 					} else {
 						//inputQueue += "HeavyAttack(L)";
-						Debug.Log("HeavyAttack(L),");
+						Debug.Log ("HeavyAttack(L),");
 					}
 				} else {
 					//inputQueue += "Jump_HeavyAttack(L)";
-					Debug.Log("Jump_HeavyAttack(L),");
+					Debug.Log ("Jump_HeavyAttack(L),");
+				}
+			}
+		} else if ((Input.GetButtonDown (heavyInput) && Input.GetButtonDown (lightInput))||Input.GetButtonDown(throwInput)) {
+			if (facingRight) {
+				if (Input.GetAxis (horiInput) < -0.1f) {
+					Debug.Log ("BackwardThrow(R),");
+				} else {
+					Debug.Log ("ForwardThrow(R)");
+				}
+			} else {
+				if (Input.GetAxis (horiInput) > 0.1f) {
+					Debug.Log ("BackwardThrow(L),");
+				} else {
+					Debug.Log ("ForwardThrow(L)");
 				}
 			}
 		}
