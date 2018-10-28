@@ -300,6 +300,16 @@ Prefab:
     - target: {fileID: 114040011502215420, guid: 557f9c030333af94bb7b5de182607ea3,
         type: 2}
       propertyPath: throwInput
+      value: LBump_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114040011502215420, guid: 557f9c030333af94bb7b5de182607ea3,
+        type: 2}
+      propertyPath: medInput
+      value: X_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114040011502215420, guid: 557f9c030333af94bb7b5de182607ea3,
+        type: 2}
+      propertyPath: dashInput
       value: RBump_1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

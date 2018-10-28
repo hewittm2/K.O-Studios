@@ -208,8 +208,23 @@ public class FighterClass : MonoBehaviour {
 	}
 
 	public void QueueAttackInput(){
+		//Grab/Throw
+		if ((Input.GetButton (lightInput) && Input.GetButton (medInput))||Input.GetButtonDown(throwInput)) {
+			if (facingRight) {
+				if (Input.GetAxis (horiInput) < -0.1f) {
+					Debug.Log ("BackwardThrow(R),");
+				} else {
+					Debug.Log ("ForwardThrow(R)");
+				}
+			} else {
+				if (Input.GetAxis (horiInput) > 0.1f) {
+					Debug.Log ("BackwardThrow(L),");
+				} else {
+					Debug.Log ("ForwardThrow(L)");
+				}
+			}
 		//Light Attack
-		if (Input.GetButtonDown (lightInput)) {
+		}else if (Input.GetButtonDown (lightInput)) {
 			if (facingRight) {
 				if (movement.character.isGrounded) {
 					if (Input.GetAxis (vertInput) < -0.1f) {
@@ -296,21 +311,7 @@ public class FighterClass : MonoBehaviour {
 					Debug.Log ("Jump_HeavyAttack(L),");
 				}
 			}
-		} else if ((Input.GetButtonDown (heavyInput) && Input.GetButtonDown (lightInput))||Input.GetButtonDown(throwInput)) {
-			if (facingRight) {
-				if (Input.GetAxis (horiInput) < -0.1f) {
-					Debug.Log ("BackwardThrow(R),");
-				} else {
-					Debug.Log ("ForwardThrow(R)");
-				}
-			} else {
-				if (Input.GetAxis (horiInput) > 0.1f) {
-					Debug.Log ("BackwardThrow(L),");
-				} else {
-					Debug.Log ("ForwardThrow(L)");
-				}
-			}
-		}
+		} 
 		//Debug.Log (inputQueue);
 	}
 
