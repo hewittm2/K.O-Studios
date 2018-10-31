@@ -7,31 +7,36 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider))]
 public class BaseMovement : MonoBehaviour
 {
+    //Movement
     public float moveSpeed = 3;
-    public float jumpForce = .25f;
-    public float verticalVelocity;
     public float gravity = -.7f;
+    //Jump
+    public float jumpForce = .25f;
+    public float jumpCD;
+    private float verticalVelocity;
+    //Dash
+    bool dashing;
     public float dashSpeed = 3;
     public float maxDashTime = 2;
     public float dashStopSpeed = 0.1f;
-
     private float currDashTime;
-
+    [HideInInspector]
     public CharacterController character;
-	FighterClass fighter;
+    [HideInInspector]
+    public FighterClass fighter;
+    Rigidbody rigid;
     private Vector3[] centerArray = new Vector3[2];
     private float[] radiusArray = new float[2];
     private float[] heightArray = new float[2];
     private float centerOffset = 0;
 
-    //public bool facingRight = false;
-    bool dashing;
 
-    private void Start(){
-		
+    private void Start()
+    {
+        rigid = gameObject.GetComponent<Rigidbody>();
         character = gameObject.GetComponent<CharacterController>();
-		fighter = gameObject.GetComponent<FighterClass> ();
-        for(int i = 0; i < 2; i++)
+        fighter = gameObject.GetComponent<FighterClass>();
+        for (int i = 0; i < 2; i++)
         {
             centerArray[i] = character.center - new Vector3(0, centerOffset, 0);
             radiusArray[i] = character.radius / (i + 1);
@@ -40,116 +45,100 @@ public class BaseMovement : MonoBehaviour
         }
     }
 
-    private void Update(){
-
-
-		character.Move (new Vector2(0,verticalVelocity));
-		//print(Debug.)
-        //Walk();
-        //Jump();
-        //Dash();
-		ApplyGravOnly();
-        Duck();
-        Block();
+    private void Update()
+    {
+        if (character.isGrounded)
+        {
+            verticalVelocity = gravity;
+        }
+        else
+        {
+            verticalVelocity += gravity * Time.deltaTime;
+        }
+        ApplyGravOnly();
     }
 
-	public void ApplyGravOnly(){
-	verticalVelocity += gravity * Time.deltaTime / 2;
-	character.Move (new Vector2(0,verticalVelocity));
-	}
+    public void ApplyGravOnly()
+    {
+        verticalVelocity += gravity * Time.deltaTime / 2;
+        if (!dashing)
+            character.Move(new Vector2(0, verticalVelocity));
+    }
 
     public void Walk()
     {
-		float deltaX = Input.GetAxis(fighter.horiInput) * moveSpeed;
-		//float deltaY = Input.GetAxis(fighter.vertInput) * moveSpeed;
+        float deltaX = Input.GetAxis(fighter.horiInput) * moveSpeed;
         Vector2 movement = new Vector2(deltaX, verticalVelocity);
-		//Debug.Log (movement + " Unclamped");
         movement = Vector2.ClampMagnitude(movement, moveSpeed);
-		//Debug.Log (movement + " Clamped");
-        //movement.y = gravity;
-
         movement *= Time.deltaTime;
-        //movement = transform.TransformDirection(movement);
-		//Debug.Log (movement + " final");
-        
         character.Move(movement);
-
-//        if (deltaX > 0)
-//        {
-//            facingRight = true;
-//        }
-//        else if (deltaX < 0)
-//        {
-//            facingRight = false;
-//        }
+        fighter.canMove = true;
     }
 
-    //DO NOT TOUCH THIS IT JUST WORKS
     public void Jump()
     {
-		
-		if (character.isGrounded)
-		{
-
-			verticalVelocity = jumpForce;
-		}
-		else
-		{
-			verticalVelocity += gravity * Time.deltaTime;
-		}
+        StartCoroutine(Jumping());
+    }
+    IEnumerator Jumping()
+    {
+        verticalVelocity = jumpForce;
         Vector2 jump = new Vector2(0, verticalVelocity);
         character.Move(jump);
+        yield return new WaitForSeconds(jumpCD);
+        fighter.canMove = true;
     }
 
     //HEY THIS WORKS TOO! //Mike, Jacob, Cale, Too Awesome, Put me in the credits, I want royalties
     public void Dash()
     {
-        //Dash Left
-//        if (Input.GetKeyDown(KeyCode.Q) && !dashing)
-//        {
-//            StartCoroutine(Dashing(-1));
-//        }
-//        if (Input.GetKeyDown(KeyCode.E) && !dashing)
-//        {
-//            StartCoroutine(Dashing(1));
-//        }
-		if(!dashing){
-			if (fighter.facingRight) {
-				if (Input.GetAxis (fighter.horiInput) > 0) {
-					StartCoroutine (Dashing (1));
-				} else {
-					StartCoroutine (Dashing (-1));
-				}
-			} else {
-				if (Input.GetAxis (fighter.horiInput) < 0) {
-					StartCoroutine (Dashing (-1));
-				} else {
-					StartCoroutine (Dashing (1));
-				}
-			}
-		}
-
+        if (!dashing)
+        {
+            if (fighter.facingRight)
+            {
+                if (Input.GetAxis(fighter.horiInput) > 0)
+                {
+                    StartCoroutine(Dashing(1));
+                }
+                else
+                {
+                    StartCoroutine(Dashing(-1));
+                }
+            }
+            else
+            {
+                if (Input.GetAxis(fighter.horiInput) < 0)
+                {
+                    StartCoroutine(Dashing(-1));
+                }
+                else
+                {
+                    StartCoroutine(Dashing(1));
+                }
+            }
+        }
     }
 
     //Part of Dash
-    IEnumerator Dashing(int direction){
-		
+    IEnumerator Dashing(int direction)
+    {
         dashing = true;
         character.enabled = false;
-        this.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
-        this.GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 0, 0);
-        this.GetComponent<Rigidbody>().velocity += (new Vector3(dashSpeed * direction, 0, 0));
+        rigid.constraints = RigidbodyConstraints.None;
+        rigid.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionZ;
+        rigid.velocity = new Vector3(0, 0, 0);
+        rigid.angularVelocity = new Vector3(0, 0, 0);
+        rigid.velocity += (new Vector3(dashSpeed * direction, 0, 0));
         yield return new WaitForSeconds(maxDashTime);
-        this.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
-        this.GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 0, 0);
+        rigid.velocity = new Vector3(0, 0, 0);
+        rigid.angularVelocity = new Vector3(0, 0, 0);
+        yield return new WaitForSeconds(.3f);
+        rigid.constraints = RigidbodyConstraints.FreezeAll;
         character.enabled = true;
-        yield return new WaitForSeconds(2);
         dashing = false;
-		fighter.canInput = true;
-
+        fighter.canMove = true;
     }
 
-    public void Duck() //ha
+    public void Duck()
     {
         if (Input.GetKey(KeyCode.S))
         {

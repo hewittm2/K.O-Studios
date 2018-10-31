@@ -318,7 +318,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!65 &1227109552
 BoxCollider:
@@ -402,12 +402,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
-  jumpForce: 0.25
-  verticalVelocity: 0
   gravity: -0.7
+  jumpForce: 0.25
+  jumpCD: 0
   dashSpeed: 3
   maxDashTime: 2
   dashStopSpeed: 0.1
+  character: {fileID: 0}
+  fighter: {fileID: 0}
 --- !u!114 &1227109557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -423,34 +425,26 @@ MonoBehaviour:
   totalHealth: 0
   defValue: 0
   canRecieveDamage: 0
-  jumpHeight: 0
-  jumpTime: 0
-  moveSpeed: 0
-  jumping: 0
-  canAttack: 0
   facingRight: 1
-  canInput: 0
+  canMove: 1
+  canAttack: 0
   wholeBody: {fileID: 0}
   upperBody: {fileID: 0}
   lowerBody: {fileID: 0}
   highHit: {fileID: 0}
   midHit: {fileID: 0}
   lowHit: {fileID: 0}
-  comboTimer: 0
   horiInput: L_XAxis_1
-  rightDpad: 
-  leftDpad: 
   vertInput: L_YAxis_1
-  downInput: 
-  upInput: 
   lightInput: 
   medInput: 
   heavyInput: 
   specialInput: 
-  grabInput: 
+  throwInput: 
   dashInput: 
   comboNames: []
   comboInputs: []
+  comboTimer: 0
 --- !u!1 &1297111528
 GameObject:
   m_ObjectHideFlags: 0
