@@ -255,7 +255,7 @@ public class FighterClass : MonoBehaviour
             //			} else {
             inputQueue += "Crouch,";
         }
-        Debug.Log(inputQueue);
+        //Debug.Log(inputQueue);
     }
 
     public void QueueAttackInput()
