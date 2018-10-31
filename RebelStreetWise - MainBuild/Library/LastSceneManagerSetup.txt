@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/TestScenes/EndScene.unity
+- path: Assets/TestScenes/UITest.unity
   isLoaded: 1
   isActive: 1
