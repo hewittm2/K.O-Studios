@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/TestScenes/UITest.unity
+=======
+- path: Assets/TestScenes/FighterTest.unity
+>>>>>>> CharacterTeam
   isLoaded: 1
   isActive: 1
