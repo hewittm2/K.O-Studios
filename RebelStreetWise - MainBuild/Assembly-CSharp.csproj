@@ -67,8 +67,8 @@
     <Compile Include="Assets\Scripts\FrameLimit.cs" />
     <Compile Include="Assets\Scripts\GameManagerAlpha.cs" />
     <Compile Include="Assets\Scripts\HealthUI.cs" />
+    <Compile Include="Assets\Scripts\OptionsMenu.cs" />
     <Compile Include="Assets\Scripts\PlayerJoin.cs" />
-    <None Include="Assets\Audio\DELETETHIS.txt" />
     <None Include="Assets\Art\DELETETHIS.txt" />
     <None Include="Assets\OfficialScenes\DELETETHIS.txt" />
     <Reference Include="UnityEditor.StandardEvents">
