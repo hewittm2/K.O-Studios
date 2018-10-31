@@ -61,6 +61,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Attack.cs" />
     <Compile Include="Assets\Scripts\BaseMovement.cs" />
     <Compile Include="Assets\Scripts\ControllerInputs.cs" />
     <Compile Include="Assets\Scripts\FighterClass.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="Assets\Scripts\GameManagerAlpha.cs" />
     <Compile Include="Assets\Scripts\HealthUI.cs" />
     <Compile Include="Assets\Scripts\PlayerJoin.cs" />
+    <Compile Include="Assets\Scripts\TakeDamage.cs" />
     <None Include="Assets\Audio\DELETETHIS.txt" />
     <None Include="Assets\Art\DELETETHIS.txt" />
     <None Include="Assets\OfficialScenes\DELETETHIS.txt" />

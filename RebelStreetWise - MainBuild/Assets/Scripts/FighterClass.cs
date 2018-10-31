@@ -118,13 +118,13 @@ public class FighterClass : MonoBehaviour
             {
                 inputQueue += "Forward+Up(R),";
             }
-            //else if (Input.GetButtonDown(dashInput))
-            //{
-            //    canMove = false;
-            //    movement.Dash();
-            //    inputQueue += "Forward+Dash(R),";
-            //    //Down Input
-            //}
+            else if (Input.GetButtonDown(dashInput))
+            {
+                canMove = false;
+                movement.Dash();
+                inputQueue += "Forward+Dash(R),";
+                //Down Input
+            }
             else
             {
                 canMove = false;
@@ -139,13 +139,13 @@ public class FighterClass : MonoBehaviour
             {
                 inputQueue += "Backward+Up(L),";
             }
-            //else if (Input.GetButtonDown(dashInput))
-            //{
-            //    canMove = false;
-            //    movement.Dash();
-            //    inputQueue += "Backward+Dash(L)";
-            //    //Down Input
-            //}
+            else if (Input.GetButtonDown(dashInput))
+            {
+                canMove = false;
+                movement.Dash();
+                inputQueue += "Backward+Dash(L)";
+                //Down Input
+            }
             else
             {
                 canMove = false;
@@ -160,13 +160,13 @@ public class FighterClass : MonoBehaviour
             {
                 inputQueue += "Backward+Up(R),";
             }
-            //else if (Input.GetButtonDown(dashInput))
-            //{
-            //    canMove = false;
-            //    movement.Dash();
-            //    inputQueue += "Backward+Dash(R),";
-            //    //Down Input
-            //}
+            else if (Input.GetButtonDown(dashInput))
+            {
+                canMove = false;
+                movement.Dash();
+                inputQueue += "Backward+Dash(R),";
+                //Down Input
+            }
             else
             {
                 canMove = false;
@@ -181,13 +181,13 @@ public class FighterClass : MonoBehaviour
             {
                 inputQueue += "Forward+Up(L),";
             }
-            //else if (Input.GetButtonDown(dashInput))
-            //{
-            //    canMove = false;
-            //    movement.Dash();
-            //    inputQueue += "Forward+Dash(L)";
-            //    //Down Input
-            //}
+            else if (Input.GetButtonDown(dashInput))
+            {
+                canMove = false;
+                movement.Dash();
+                inputQueue += "Forward+Dash(L)";
+                //Down Input
+            }
             else
             {
                 canMove = false;
