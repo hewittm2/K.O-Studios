@@ -19,6 +19,7 @@ public class BaseMovement : MonoBehaviour
     public float dashSpeed = 3;
     public float maxDashTime = 2;
     public float dashStopSpeed = 0.1f;
+    public float dashSpeed1 = 5;
     private float currDashTime;
     [HideInInspector]
     public CharacterController character;
@@ -121,19 +122,32 @@ public class BaseMovement : MonoBehaviour
     //Part of Dash
     IEnumerator Dashing(int direction)
     {
+        //dashing = true;
+        //character.enabled = false;
+        //rigid.constraints = RigidbodyConstraints.None;
+        //rigid.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionZ;
+        //rigid.velocity = new Vector3(0, 0, 0);
+        //rigid.angularVelocity = new Vector3(0, 0, 0);
+        //rigid.velocity += (new Vector3(dashSpeed * direction, 0, 0));
+        //yield return new WaitForSeconds(maxDashTime);
+        //rigid.velocity = new Vector3(0, 0, 0);
+        //rigid.angularVelocity = new Vector3(0, 0, 0);
+        //yield return new WaitForSeconds(.3f);
+        //rigid.constraints = RigidbodyConstraints.FreezeAll;
+        //character.enabled = true;
+        //dashing = false;
+        //fighter.canMove = true;
+
         dashing = true;
         character.enabled = false;
-        rigid.constraints = RigidbodyConstraints.None;
-        rigid.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionZ;
-        rigid.velocity = new Vector3(0, 0, 0);
-        rigid.angularVelocity = new Vector3(0, 0, 0);
-        rigid.velocity += (new Vector3(dashSpeed * direction, 0, 0));
+        this.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+        this.GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 0, 0);
+        this.GetComponent<Rigidbody>().velocity += (new Vector3(dashSpeed1 * direction, 0, 0));
         yield return new WaitForSeconds(maxDashTime);
-        rigid.velocity = new Vector3(0, 0, 0);
-        rigid.angularVelocity = new Vector3(0, 0, 0);
-        yield return new WaitForSeconds(.3f);
-        rigid.constraints = RigidbodyConstraints.FreezeAll;
+        this.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+        this.GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 0, 0);
         character.enabled = true;
+        yield return new WaitForSeconds(2);
         dashing = false;
         fighter.canMove = true;
     }

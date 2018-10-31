@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 65956344441355688}
   - component: {fileID: 54880772093836820}
   - component: {fileID: 143768965778699724}
+  - component: {fileID: 114580407402906640}
   m_Layer: 0
   m_Name: FighterTest
   m_TagString: Untagged
@@ -408,6 +409,24 @@ MonoBehaviour:
   comboNames: []
   comboInputs: []
   comboTimer: 0
+--- !u!114 &114580407402906640
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1216915096049254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7768cadc073a4e8429b9172372accccf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  lightDamage: 5
+  mediumDamage: 10
+  heavyDamage: 20
+  hurtHigh: {fileID: 65852043706946518}
+  hurtMid: {fileID: 65007881558362370}
+  hurtLow: {fileID: 65167624472481846}
 --- !u!114 &114971049550710822
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -423,7 +442,7 @@ MonoBehaviour:
   gravity: -0.7
   jumpForce: 0.3
   jumpCD: 0
-  dashSpeed: 3
+  dashSpeed: 1000
   maxDashTime: 2
   dashStopSpeed: 0.1
   character: {fileID: 0}
