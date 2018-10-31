@@ -302,7 +302,7 @@ CharacterController:
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
-  m_SkinWidth: 0.08
+  m_SkinWidth: 0.0001
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1227109551
@@ -401,9 +401,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fc0484c8a8e3ac4a805fe427cd1dcbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  moveSpeed: 5
   gravity: -0.7
-  jumpForce: 0.25
+  jumpForce: 0.3
   jumpCD: 0
   dashSpeed: 3
   maxDashTime: 2
@@ -436,9 +436,9 @@ MonoBehaviour:
   lowHit: {fileID: 0}
   horiInput: L_XAxis_1
   vertInput: L_YAxis_1
-  lightInput: 
-  medInput: 
-  heavyInput: 
+  lightInput: A_1
+  medInput: B_1
+  heavyInput: Y_1
   specialInput: 
   throwInput: 
   dashInput: 
@@ -536,7 +536,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: 0
   m_CullingMask:
