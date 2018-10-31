@@ -22,6 +22,7 @@ public class HealthUI : MonoBehaviour {
     public Toggle team2Toggle1;
     public Toggle team2Toggle2;
 
+
     // Use this for initialization
     void Start () {
         fighterClass1.currentHealth = fighterClass1.totalHealth;
@@ -34,24 +35,24 @@ public class HealthUI : MonoBehaviour {
         team2Toggle2.isOn = false;
     }
 	
-	public void TakeDamage (int ammount)
+	public void TakeDamage (int ammount, int PlayerNum)
     {
         player1Slider.value = fighterClass1.currentHealth;
         if (fighterClass1.currentHealth <= 0 || fighterClass2.currentHealth <= 0)
         {
             Team2Win();
-            fighterClass1.currentHealth = 100;
-            fighterClass2.currentHealth = 100;
-            fighterClass3.currentHealth = 100;
-            fighterClass4.currentHealth = 100;
+            fighterClass1.currentHealth = fighterClass1.totalHealth;
+            fighterClass2.currentHealth = fighterClass2.totalHealth;
+            fighterClass3.currentHealth = fighterClass3.totalHealth;
+            fighterClass4.currentHealth = fighterClass4.totalHealth;
         }
         if (fighterClass3.currentHealth <= 0 || fighterClass4.currentHealth <= 0)
         {
             Team1Win();
-            fighterClass1.currentHealth = 100;
-            fighterClass2.currentHealth = 100;
-            fighterClass3.currentHealth = 100;
-            fighterClass4.currentHealth = 100;
+            fighterClass1.currentHealth = fighterClass1.totalHealth;
+            fighterClass2.currentHealth = fighterClass2.totalHealth;
+            fighterClass3.currentHealth = fighterClass3.totalHealth;
+            fighterClass4.currentHealth = fighterClass4.totalHealth;
         }
     }
     public void Update()
@@ -62,7 +63,7 @@ public class HealthUI : MonoBehaviour {
         player4Slider.value = fighterClass4.currentHealth;
 
 
-        // Ignore For actual Build for Testing only
+        // Ignore This is For Testing Only
         if (Input.GetKeyDown("1"))
         {
             fighterClass1.currentHealth -= 10;
@@ -79,6 +80,8 @@ public class HealthUI : MonoBehaviour {
         {
             fighterClass4.currentHealth -= 10;
         }
+
+        //Whenever Someone's Health Reaches 0, The Other Team Wins
         if (fighterClass1.currentHealth <= 0 || fighterClass2.currentHealth <= 0)
         {
             Team2Win();
@@ -96,34 +99,33 @@ public class HealthUI : MonoBehaviour {
             fighterClass4.currentHealth = 100;
         }
     }
+    // If Team 1 Wins
     public void Team1Win()
     {
         if (!team1Toggle1.isOn)
         {
             team1Toggle1.isOn = true;
+            //Reset();
         }
         else if(team1Toggle1.isOn)
         {
             team1Toggle2.isOn = true;
-        }
-        else if (team1Toggle1 && team1Toggle2)
-        {
             //MatchEnd();
         }
 
     }
+    // If Team 2 Wins
     public void Team2Win()
     {
         if (!team2Toggle1.isOn)
         {
             team2Toggle1.isOn = true;
+
+            //Reset();
         }
         else if (team2Toggle1.isOn)
         {
             team2Toggle2.isOn = true;
-        }
-        else if (team2Toggle1 && team2Toggle2)
-        {
             //MatchEnd();
         }
     }

@@ -77,7 +77,12 @@ public class FighterClass : MonoBehaviour {
 	private string inputQueue = "";
 	private List<string> possibleComboQueue = new List<string> ();
 
-	BaseMovement movement;
+    //Links to the Super Meter UI
+    public SuperMeter superMeter;
+    public HealthUI health;
+    public int PlayerNum;
+
+    BaseMovement movement;
 	//private bool checkForCombo = false;
 
 	// Use this for initialization
@@ -105,20 +110,24 @@ public class FighterClass : MonoBehaviour {
 			RegisterQueue ();
 		}
 
+        //Ignore This is For Testing Only
+        if (Input.GetKeyDown("7"))
+        {
+            LightAtt();
+        }
 
-
-	}
+    }
 	//Class Functions
 	//Recieve Damage
 	public virtual void TakeDamage(){
-	
+
 	}
 	//Block Damage
 	public virtual void Block(){
-	
-	}
-	//Stop attacking Combo
-	public virtual void ComboBreak(){
+
+    }
+    //Stop attacking Combo
+    public virtual void ComboBreak(){
 		
 	}
 	//Lower Stance
@@ -147,50 +156,64 @@ public class FighterClass : MonoBehaviour {
 	}
 	//Light Attack
 	public virtual void LightAtt(){
-	
-	}
-	//Medium Attack
-	public virtual void MediumAtt(){
-	
-	}
-	//Heavy Attack
-	public virtual void HeavyAtt(){
-	
-	}
-	//Crouching Light Attack
-	public virtual void CrouchLightAtt(){
-	
-	}
-	//Crouching Medium Attack
-	public virtual void CrouchMedAtt(){
-	
-	}
-	//Crouching Heavy Attack
-	public virtual void CrouchHeavyAtt(){
-	
-	}
-	//Jumping Light Attack
-	public virtual void JumpLightAtt(){
-		
-	}
-	//Jumping Medium Attack
-	public virtual void  JumpMedAtt(){
-		
-	}
-	//Jumping Heavy Attack
-	public virtual void JumpHeavyAtt(){
-		
-	}
-	//Grab Opponent
-	public virtual void Grab(){
-	
-	}
+        //superMeter.GainCharge(int, PlayerNum);
+        //healthUI.TakeDamage(int, PlayerNum);
+        superMeter.GainCharge(5, PlayerNum);
+    }
+    //Medium Attack
+    public virtual void MediumAtt(){
+        //superMeter.GainCharge(int, PlayerNum);
+        //healthUI.TakeDamage(int, PlayerNum);
+    }
+    //Heavy Attack
+    public virtual void HeavyAtt(){
+        //superMeter.GainCharge(int, PlayerNum);
+        //healthUI.TakeDamage(int, PlayerNum);
+    }
+    //Crouching Light Attack
+    public virtual void CrouchLightAtt(){
+        //superMeter.GainCharge(int, PlayerNum);
+        //healthUI.TakeDamage(int, PlayerNum);
+    }
+    //Crouching Medium Attack
+    public virtual void CrouchMedAtt(){
+        //superMeter.GainCharge(int, PlayerNum);
+        //healthUI.TakeDamage(int, PlayerNum);
+    }
+    //Crouching Heavy Attack
+    public virtual void CrouchHeavyAtt(){
+        //superMeter.GainCharge(int, PlayerNum);
+        //healthUI.TakeDamage(int, PlayerNum);
+    }
+    //Jumping Light Attack
+    public virtual void JumpLightAtt(){
+        //superMeter.GainCharge(int, PlayerNum);
+        //healthUI.TakeDamage(int, PlayerNum);
+    }
+    //Jumping Medium Attack
+    public virtual void  JumpMedAtt(){
+        //superMeter.GainCharge(int, PlayerNum);
+        //healthUI.TakeDamage(int, PlayerNum);
+    }
+    //Jumping Heavy Attack
+    public virtual void JumpHeavyAtt(){
+        //superMeter.GainCharge(int, PlayerNum);
+        //healthUI.TakeDamage(int, PlayerNum);
+    }
+    //Grab Opponent
+    public virtual void Grab(){
+        //superMeter.GainCharge(int, PlayerNum);
+        //healthUI.TakeDamage(int, PlayerNum);
+    }
+    //Breakdown Special Moves
+    public virtual void BreakDown()
+    {
+        //superMeter.GainCharge(int, PlayerNum);
+        //healthUI.TakeDamage(int, PlayerNum);
+    }
 
 
-
-
-
-	public void QueueInput(){
+    public void QueueInput(){
 		//TODO change to be called on input press
 		//Right Input Facing Right
 		if(Input.GetKeyDown(KeyCode.Space)){
