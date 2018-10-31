@@ -17,7 +17,7 @@ public class BaseMovement : MonoBehaviour
 
     private float currDashTime;
 
-    private CharacterController character;
+    public CharacterController character;
 	FighterClass fighter;
     private Vector3[] centerArray = new Vector3[2];
     private float[] radiusArray = new float[2];
