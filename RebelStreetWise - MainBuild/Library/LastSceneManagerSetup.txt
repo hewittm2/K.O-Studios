@@ -1,8 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
-- path: Assets/TestScenes/CharacterSpawnTest.unity
-=======
-- path: Assets/TestScenes/UITest.unity
->>>>>>> master
+- path: Assets/TestScenes/EndScene.unity
   isLoaded: 1
   isActive: 1

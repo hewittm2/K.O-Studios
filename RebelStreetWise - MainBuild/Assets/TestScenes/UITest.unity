@@ -687,6 +687,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
+=======
 --- !u!1001 &1575302872
 Prefab:
   m_ObjectHideFlags: 0
@@ -1014,3 +1016,4 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db668710f5cfce147886d86d8938af31, type: 2}
   m_IsPrefabAsset: 0
+>>>>>>> master
