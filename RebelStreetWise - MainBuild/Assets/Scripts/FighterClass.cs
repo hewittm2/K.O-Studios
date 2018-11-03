@@ -209,7 +209,7 @@ public class FighterClass : MonoBehaviour {
 
 	public void QueueAttackInput(){
 		//Grab/Throw
-		if ((Input.GetButton (lightInput) && Input.GetButton (medInput))||Input.GetButtonDown(throwInput)) {
+		if ((Input.GetButton (lightInput) && Input.GetButton (medInput))||Input.GetAxis(throwInput) > .1) {
 			if (facingRight) {
 				if (Input.GetAxis (horiInput) < -0.1f) {
 					Debug.Log ("BackwardThrow(R),");
