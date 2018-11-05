@@ -1,8 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
-- path: Assets/TestScenes/UITest.unity
-=======
-- path: Assets/TestScenes/Camera System.unity
->>>>>>> Camera-System
+- path: Assets/TestScenes/CharacterSpawnTest.unity
   isLoaded: 1
   isActive: 1
