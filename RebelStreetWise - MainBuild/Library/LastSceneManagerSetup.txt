@@ -1,4 +1,0 @@
-sceneSetups:
-- path: Assets/TestScenes/CharacterSpawnTest.unity
-  isLoaded: 1
-  isActive: 1
