@@ -23,6 +23,7 @@ ExportedObj/
 *.svd
 *.pdb
 *.opendb
+*.VC.db
 
 # Unity3D generated meta files
 *.pidb.meta
@@ -34,4 +35,3 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
-RebelStreetWise - MainBuild/Library/CurrentLayout.dwlt
