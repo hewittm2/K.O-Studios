@@ -1015,15 +1015,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 224803112212494470}
-<<<<<<< HEAD:RebelStreetWise - MainBuild/Assets/UI/Prefabs/Pause Menu.prefab
-  - {fileID: 4804895782117956}
-=======
-  - {fileID: 224968804650084284}
-  - {fileID: 224869850695149622}
-  - {fileID: 224526803165915984}
-  - {fileID: 224071206069456972}
-  - {fileID: 224729731530432338}
->>>>>>> origin/Tyler'sUI:RebelStreetWise - MainBuild/Assets/UI/Pause Menu.prefab
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
