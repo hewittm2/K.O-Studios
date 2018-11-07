@@ -6,6 +6,7 @@ TagManager:
   tags:
   - attack
   - hurtbox
+  - attackBall
   layers:
   - Default
   - TransparentFX

@@ -53,10 +53,27 @@ public class TakeDamageV2 : MonoBehaviour
     //when this hurtbox is hit
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "attack") //TAG CHECK WILL NEED CHANGING, TESTING PURPOSES ONLY
+        GameObject o = other.gameObject;
+        AttackV2 av2 = o.GetComponent<AttackV2>();
+
+        //TAG CHECK WILL NEED CHANGING, TESTING PURPOSES ONLY
+        //if (o.tag == "attack")
+        //{
+        //    ReceiveDamage(other.gameObject.GetComponent<AttackV2>().Damage);
+        //}
+
+        if (o.tag == "attackBall" && av2.attack.canHit)
         {
-            ReceiveDamage(other.gameObject.GetComponent<AttackV2>().Damage);
+            if (!av2.attack.hasHit)
+            {
+                av2.attack.CallDelay();
+                ReceiveDamage(av2.Damage);
+            }
+            else
+                return;
         }
+        else
+            return;
     }
 
     //apply damage to the player health

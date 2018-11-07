@@ -7,6 +7,8 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider))]
 public class AttackV2 : MonoBehaviour
 {
+    public Attack attack;
+
     [SerializeField] private int damage = 10;
 
     public int Damage { get { return damage; } set { damage = value; } }
