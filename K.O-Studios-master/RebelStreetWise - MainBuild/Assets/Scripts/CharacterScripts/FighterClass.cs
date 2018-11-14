@@ -65,13 +65,16 @@ public class FighterClass : MonoBehaviour
 
 	private List<string> possibleComboQueue = new List<string> ();
 	public float comboTimer;
-	//private bool checkForCombo = false;
+    //private bool checkForCombo = false;
+
+    public PauseGame pauseGame;
+    public SuperMeter superMeter;
+    public HealthUI health;
+    public int PlayerNum;
 
 
-
-
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		CurrFrameType = FrameType.Regular;
 		movement = GetComponent<BaseMovement> ();
 	}
@@ -105,7 +108,11 @@ public class FighterClass : MonoBehaviour
         {
             QuickGetup();
         }
-	}
+        if (Input.GetButtonDown("Start_" + PlayerNum))
+            {
+            pauseGame.Pause(PlayerNum);
+        }
+    }
 
 	public void QueueMovementInput(){
 		

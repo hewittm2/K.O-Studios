@@ -79,6 +79,7 @@
     <Compile Include="Assets\Scripts\Inputs\DropDownScroll.cs" />
     <Compile Include="Assets\Scripts\Inputs\EventSystemFetch.cs" />
     <Compile Include="Assets\Scripts\Inputs\UniversalCharInput.cs" />
+    <Compile Include="Assets\Scripts\PauseGame.cs" />
     <Compile Include="Assets\Scripts\UI\HealthUI.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenuManager.cs" />
     <Compile Include="Assets\Scripts\UI\MatchTimer.cs" />
