@@ -65,17 +65,13 @@ public class FighterClass : MonoBehaviour
 
 	private List<string> possibleComboQueue = new List<string> ();
 	public float comboTimer;
-    //private bool checkForCombo = false;
-
-    public PauseGame pauseGame;
-    public SuperMeter superMeter;
-    public HealthUI health;
-    public int PlayerNum;
+	//private bool checkForCombo = false;
 
 
 
-    // Use this for initialization
-    void Start () {
+
+	// Use this for initialization
+	void Start () {
 		CurrFrameType = FrameType.Regular;
 		movement = GetComponent<BaseMovement> ();
 	}
@@ -103,19 +99,11 @@ public class FighterClass : MonoBehaviour
 			QueueAttackInput ();
 		}
 		RegisterQueue ();
-<<<<<<< HEAD:K.O-Studios-master/RebelStreetWise - MainBuild/Assets/Scripts/CharacterScripts/FighterClass.cs
         //Debug.Log (inputQueue);
 
         if (knockedDown)
         {
             QuickGetup();
-=======
-		//Debug.Log (inputQueue);
-
-        if (Input.GetButtonDown("Start_" + PlayerNum))
-        {
-            pauseGame.Pause(PlayerNum);
->>>>>>> UI_Team:K.O-Studios-master/RebelStreetWise - MainBuild/Assets/Scripts/FighterClass.cs
         }
 	}
 
@@ -459,52 +447,42 @@ public class FighterClass : MonoBehaviour
 	}
 	//Light Attack
 	public virtual void LightAtt(){
-        //superMeter.GainCharge(int, PlayerNum);
-        //healthUI.TakeDamage(int, PlayerNum);
-    }
-    //Medium Attack
-    public virtual void MediumAtt(){
-        //superMeter.GainCharge(int, PlayerNum);
-        //healthUI.TakeDamage(int, PlayerNum);
-    }
-    //Heavy Attack
-    public virtual void HeavyAtt(){
-        //superMeter.GainCharge(int, PlayerNum);
-        //healthUI.TakeDamage(int, PlayerNum);
-    }
-    //Crouching Light Attack
-    public virtual void CrouchLightAtt(){
-        //superMeter.GainCharge(int, PlayerNum);
-        //healthUI.TakeDamage(int, PlayerNum);
-    }
-    //Crouching Medium Attack
-    public virtual void CrouchMedAtt(){
-        //superMeter.GainCharge(int, PlayerNum);
-        //healthUI.TakeDamage(int, PlayerNum);
-    }
-    //Crouching Heavy Attack
-    public virtual void CrouchHeavyAtt(){
-        //superMeter.GainCharge(int, PlayerNum);
-        //healthUI.TakeDamage(int, PlayerNum);
-    }
-    //Jumping Light Attack
-    public virtual void JumpLightAtt(){
-        //superMeter.GainCharge(int, PlayerNum);
-        //healthUI.TakeDamage(int, PlayerNum);
-    }
-    //Jumping Medium Attack
-    public virtual void  JumpMedAtt(){
-        //superMeter.GainCharge(int, PlayerNum);
-        //healthUI.TakeDamage(int, PlayerNum);
-    }
-    //Jumping Heavy Attack
-    public virtual void JumpHeavyAtt(){
-        //superMeter.GainCharge(int, PlayerNum);
-        //healthUI.TakeDamage(int, PlayerNum);
-    }
-    //Grab Opponent
-    public virtual void Grab(){
-        //superMeter.GainCharge(int, PlayerNum);
-        //healthUI.TakeDamage(int, PlayerNum);
-    }
+
+	}
+	//Medium Attack
+	public virtual void MediumAtt(){
+
+	}
+	//Heavy Attack
+	public virtual void HeavyAtt(){
+
+	}
+	//Crouching Light Attack
+	public virtual void CrouchLightAtt(){
+
+	}
+	//Crouching Medium Attack
+	public virtual void CrouchMedAtt(){
+
+	}
+	//Crouching Heavy Attack
+	public virtual void CrouchHeavyAtt(){
+
+	}
+	//Jumping Light Attack
+	public virtual void JumpLightAtt(){
+
+	}
+	//Jumping Medium Attack
+	public virtual void  JumpMedAtt(){
+
+	}
+	//Jumping Heavy Attack
+	public virtual void JumpHeavyAtt(){
+
+	}
+	//Grab Opponent
+	public virtual void Grab(){
+
+	}
 }
