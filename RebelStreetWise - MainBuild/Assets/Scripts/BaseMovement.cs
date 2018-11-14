@@ -14,6 +14,7 @@ public class BaseMovement : MonoBehaviour
     public float jumpForce = .25f;
 	public float jumpCD;
     private float verticalVelocity;
+	public Vector2 jump;
     //Dash
 	bool dashing;
     public float dashSpeed = 3;
@@ -42,30 +43,37 @@ public class BaseMovement : MonoBehaviour
             heightArray[i] = character.height / (i + 1);
             centerOffset = 0.25f;
         }
+
     }
 
     private void Update(){
 		input = new Vector2 (Input.GetAxis(fighter.horiInput), Input.GetAxis(fighter.vertInput));
-		if (character.isGrounded) {
-			
-			verticalVelocity = gravity;
-		} else {
-			verticalVelocity += gravity * Time.deltaTime;
-		}
+		movement = new Vector2(input.x * moveSpeed, verticalVelocity);
+		movement = Vector2.ClampMagnitude(movement, moveSpeed);
+		movement *= Time.deltaTime;
 		ApplyGravOnly();
     }
 
 	public void ApplyGravOnly(){
 		//verticalVelocity += gravity * Time.deltaTime / 2;
-		if(!dashing)
-			character.Move (new Vector2(0,verticalVelocity));
+		if (character.isGrounded) {
+			verticalVelocity = gravity;
+		} else {
+			verticalVelocity += gravity * Time.deltaTime;
+		}
+		if(!dashing){
+			if (character.isGrounded) {
+				character.Move (new Vector2 (0, verticalVelocity));
+			} else {
+				character.Move (new Vector2 (jump.x, verticalVelocity));
+				print (character.velocity.x);
+			}
+		}
 	}
 
     public void Walk(){
 		//float deltaX = Input.GetAxis(fighter.horiInput) * moveSpeed;
-		movement = new Vector2(input.x * moveSpeed, verticalVelocity);
-        movement = Vector2.ClampMagnitude(movement, moveSpeed);
-        movement *= Time.deltaTime;
+
         character.Move(movement);
 		fighter.canMove = true;
     }
@@ -75,7 +83,7 @@ public class BaseMovement : MonoBehaviour
     }
 	IEnumerator Jumping(){
 		verticalVelocity = jumpForce;
-		Vector2 jump = new Vector2(0, verticalVelocity);
+		jump = new Vector2(0, verticalVelocity);
 		character.Move(jump);
 		yield return new WaitForSeconds (jumpCD);
 		fighter.canMove = true;
@@ -85,7 +93,20 @@ public class BaseMovement : MonoBehaviour
 	}
 	IEnumerator DiagonalJumping(){
 		verticalVelocity = jumpForce;
-		Vector2 jump = new Vector2(movement.x, verticalVelocity);
+		jump.y = verticalVelocity;
+		if (fighter.facingRight) {
+			if (input.x < 0) {
+				jump.x = -jumpForce/2;
+			} else if (input.x > 0) {
+				jump.x = jumpForce/2;
+			}
+		} else {
+			if (input.x < 0) {
+				jump.x = -jumpForce/2;
+			} else if (input.x > 0) {
+				jump.x = jumpForce/2;
+			}
+		}
 		character.Move(jump);
 		yield return new WaitForSeconds (jumpCD);
 		fighter.canMove = true;
@@ -94,13 +115,13 @@ public class BaseMovement : MonoBehaviour
 	public void Dash(){
 		if(!dashing){
 			if (fighter.facingRight) {
-				if (Input.GetAxis (fighter.horiInput) > 0) {
+				if (input.x > 0) {
 					StartCoroutine (Dashing (1));
 				} else {
 					StartCoroutine (Dashing (-1));
 				}
 			} else {
-				if (Input.GetAxis (fighter.horiInput) < 0) {
+				if (input.x < 0) {
 					StartCoroutine (Dashing (-1));
 				} else {
 					StartCoroutine (Dashing (1));
