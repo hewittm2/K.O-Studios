@@ -41,36 +41,22 @@ public class HealthUI : MonoBehaviour {
         if (fighterClass1.currentHealth <= 0 || fighterClass2.currentHealth <= 0)
         {
             Team2Win();
-<<<<<<< HEAD:RebelStreetWise - MainBuild/Assets/Scripts/HealthUI.cs
-            fighterClass1.currentHealth = fighterClass1.totalHealth;
-            fighterClass2.currentHealth = fighterClass2.totalHealth;
-            fighterClass3.currentHealth = fighterClass3.totalHealth;
-            fighterClass4.currentHealth = fighterClass4.totalHealth;
-=======
-
-            //Move to Reset
-            fighterClass1.currentHealth = 100;
-            fighterClass2.currentHealth = 100;
-            fighterClass3.currentHealth = 100;
-            fighterClass4.currentHealth = 100;
->>>>>>> master:K.O-Studios-master/RebelStreetWise - MainBuild/Assets/Scripts/HealthUI.cs
         }
         if (fighterClass3.currentHealth <= 0 || fighterClass4.currentHealth <= 0)
         {
             Team1Win();
-<<<<<<< HEAD:RebelStreetWise - MainBuild/Assets/Scripts/HealthUI.cs
+
             fighterClass1.currentHealth = fighterClass1.totalHealth;
             fighterClass2.currentHealth = fighterClass2.totalHealth;
             fighterClass3.currentHealth = fighterClass3.totalHealth;
             fighterClass4.currentHealth = fighterClass4.totalHealth;
-=======
+
 
             //Move to Reset
             fighterClass1.currentHealth = 100;
             fighterClass2.currentHealth = 100;
             fighterClass3.currentHealth = 100;
             fighterClass4.currentHealth = 100;
->>>>>>> master:K.O-Studios-master/RebelStreetWise - MainBuild/Assets/Scripts/HealthUI.cs
         }
     }
     public void Update()
