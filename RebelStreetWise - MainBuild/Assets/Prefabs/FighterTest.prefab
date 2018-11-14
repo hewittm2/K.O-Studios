@@ -163,8 +163,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 6
   gravity: -0.7
+  input: {x: 0, y: 0}
+  movement: {x: 0, y: 0}
   jumpForce: 0.3
-  jumpCD: 0
+  jumpCD: 1
   dashSpeed: 25.9
   maxDashTime: 0.2
   dashStopSpeed: 0.1

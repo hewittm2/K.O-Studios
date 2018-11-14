@@ -86,6 +86,7 @@ public class FighterClass : MonoBehaviour {
 //			RegisterQueue ();
 //			break;
 //		}
+		Debug.Log(canMove);
 		if (canMove) {
 			QueueMovementInput ();
 
@@ -107,75 +108,87 @@ public class FighterClass : MonoBehaviour {
 		if (Input.GetAxis (horiInput) > 0.1f && facingRight) {
 			if (Input.GetAxis (vertInput) > 0.1f) {
 				inputQueue += "Forward+Up(R),";
+				canMove = false;
+				movement.DiagonalJump ();
 			} else if (Input.GetButtonDown (dashInput)) {
+				inputQueue += "Forward+Dash(R),";
 				canMove = false;
 				movement.Dash ();
-				inputQueue += "Forward+Dash(R),";
-				//Down Input
 			} else {
-				canMove = false;
 				inputQueue += "Forward(R),";
+				canMove = false;
 				movement.Walk ();
 			}
 			//Right Input Facing Left
 		} else if (Input.GetAxis (horiInput) > 0.1f && !facingRight) {
 			if (Input.GetAxis (vertInput) > 0.1f) {
 				inputQueue += "Backward+Up(L),";
+				canMove = false;
+				movement.DiagonalJump ();
 			} else if (Input.GetButtonDown (dashInput)) {
+				inputQueue += "Backward+Dash(L)";
 				canMove = false;
 				movement.Dash ();
-				inputQueue += "Backward+Dash(L)";
-				//Down Input
 			} else {
-				canMove = false;
 				inputQueue += "Backward(L),";
+				canMove = false;
 				movement.Walk ();
 			}
 			//Left Input Facing Right
 		} else if (Input.GetAxis (horiInput) < -0.1f && facingRight) {
 			if (Input.GetAxis (vertInput) > 0.1f) {
 				inputQueue += "Backward+Up(R),";
+				canMove = false;
+				movement.DiagonalJump ();
 			} else if (Input.GetButtonDown (dashInput)) {
+				inputQueue += "Backward+Dash(R),";
 				canMove = false;
 				movement.Dash ();
-				inputQueue += "Backward+Dash(R),";
-				//Down Input
 			} else {
-				canMove = false;
 				inputQueue += "Backward(R),";
+				canMove = false;
 				movement.Walk ();
 			}        
 			//Left Input Facing Left
 		} else if (Input.GetAxis (horiInput) < -0.1f && !facingRight) {
-			if (Input.GetAxis (vertInput) > 0.1f) {
+			if (Input.GetAxis (vertInput) > 0.1f && movement.character.isGrounded) {
 				inputQueue += "Forward+Up(L),";
+				canMove = false;
+				movement.DiagonalJump ();
 			} else if (Input.GetButtonDown (dashInput)) {
+				inputQueue += "Forward+Dash(L)";
 				canMove = false;
 				movement.Dash ();
-				inputQueue += "Forward+Dash(L)";
-				//Down Input
 			} else {
-				canMove = false;
 				inputQueue += "Forward(L),";
+				canMove = false;
 				movement.Walk ();
 			}
 			//Up input Facing Right
 		} else if (Input.GetAxis (vertInput) > 0.1f && facingRight && movement.character.isGrounded) {
-			if (Input.GetAxis (horiInput) > 0.1f) {
+			if (Input.GetAxis (horiInput) > 0.1f && movement.character.isGrounded) {
 				inputQueue += "Up+Forward(R),";
+				canMove = false;
+				movement.DiagonalJump ();
 			} else if (Input.GetAxis (horiInput) < -0.1f) {
 				inputQueue += "Up+Backward(R),";
-			} else {
 				canMove = false;
+				movement.DiagonalJump ();
+			} else {
 				inputQueue += "Up(R),";
+				canMove = false;
 				movement.Jump ();
 			}
 			//Up Input Facing Left
 		} else if (Input.GetAxis (vertInput) > 0.1f && !facingRight && movement.character.isGrounded) {
 			if (Input.GetAxis (horiInput) > 0.1f) {
 				inputQueue += "Up+Backward(L),";
+				canMove = false;
+				movement.DiagonalJump ();
 			} else if (Input.GetAxis (horiInput) < -0.1f) {
 				inputQueue += "Up+Forward(L),";
+				canMove = false;
+				movement.DiagonalJump ();
 			} else {
 				inputQueue += "Up(L),";
 				canMove = false;

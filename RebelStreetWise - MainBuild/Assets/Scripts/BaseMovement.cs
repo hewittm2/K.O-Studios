@@ -8,6 +8,8 @@ public class BaseMovement : MonoBehaviour
 	//Movement
     public float moveSpeed = 3;
 	public float gravity = -.7f;
+	public Vector2 input;
+	public Vector2 movement;
 	//Jump
     public float jumpForce = .25f;
 	public float jumpCD;
@@ -43,7 +45,9 @@ public class BaseMovement : MonoBehaviour
     }
 
     private void Update(){
+		input = new Vector2 (Input.GetAxis(fighter.horiInput), Input.GetAxis(fighter.vertInput));
 		if (character.isGrounded) {
+			
 			verticalVelocity = gravity;
 		} else {
 			verticalVelocity += gravity * Time.deltaTime;
@@ -52,14 +56,14 @@ public class BaseMovement : MonoBehaviour
     }
 
 	public void ApplyGravOnly(){
-		verticalVelocity += gravity * Time.deltaTime / 2;
+		//verticalVelocity += gravity * Time.deltaTime / 2;
 		if(!dashing)
 			character.Move (new Vector2(0,verticalVelocity));
 	}
 
     public void Walk(){
-		float deltaX = Input.GetAxis(fighter.horiInput) * moveSpeed;
-        Vector2 movement = new Vector2(deltaX, verticalVelocity);
+		//float deltaX = Input.GetAxis(fighter.horiInput) * moveSpeed;
+		movement = new Vector2(input.x * moveSpeed, verticalVelocity);
         movement = Vector2.ClampMagnitude(movement, moveSpeed);
         movement *= Time.deltaTime;
         character.Move(movement);
@@ -76,7 +80,16 @@ public class BaseMovement : MonoBehaviour
 		yield return new WaitForSeconds (jumpCD);
 		fighter.canMove = true;
 	}
-
+	public void DiagonalJump(){
+		StartCoroutine (DiagonalJumping());
+	}
+	IEnumerator DiagonalJumping(){
+		verticalVelocity = jumpForce;
+		Vector2 jump = new Vector2(movement.x, verticalVelocity);
+		character.Move(jump);
+		yield return new WaitForSeconds (jumpCD);
+		fighter.canMove = true;
+	}
     //HEY THIS WORKS TOO! //Mike, Jacob, Cale, Too Awesome, Put me in the credits, I want royalties
 	public void Dash(){
 		if(!dashing){
