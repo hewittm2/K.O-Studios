@@ -61,26 +61,27 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Attack.cs" />
-    <Compile Include="Assets\Scripts\AttackV2.cs" />
-    <Compile Include="Assets\Scripts\BaseMovement.cs" />
-    <Compile Include="Assets\Scripts\CameraSystem.cs" />
-    <Compile Include="Assets\Scripts\CharacterSpawning.cs" />
-    <Compile Include="Assets\Scripts\ControllerInputs.cs" />
-    <Compile Include="Assets\Scripts\DropDownScroll.cs" />
-    <Compile Include="Assets\Scripts\FighterClass.cs" />
-    <Compile Include="Assets\Scripts\FightManager.cs" />
-    <Compile Include="Assets\Scripts\FrameLimit.cs" />
-    <Compile Include="Assets\Scripts\GameManagerAlpha.cs" />
-    <Compile Include="Assets\Scripts\HealthUI.cs" />
-    <Compile Include="Assets\Scripts\MatchTimer.cs" />
-    <Compile Include="Assets\Scripts\OptionsMenu.cs" />
-    <Compile Include="Assets\Scripts\PlayerHealth.cs" />
-    <Compile Include="Assets\Scripts\PlayerJoin.cs" />
-    <Compile Include="Assets\Scripts\SuperMeter.cs" />
-    <Compile Include="Assets\Scripts\TakeDamage.cs" />
-    <Compile Include="Assets\Scripts\TakeDamageV2.cs" />
-    <Compile Include="Assets\Scripts\UniversalCharInput.cs" />
+    <Compile Include="Assets\Scripts\CharacterScripts\Attack.cs" />
+    <Compile Include="Assets\Scripts\CharacterScripts\AttackV2.cs" />
+    <Compile Include="Assets\Scripts\CharacterScripts\BaseMovement.cs" />
+    <Compile Include="Assets\Scripts\CharacterScripts\CharacterSpawning.cs" />
+    <Compile Include="Assets\Scripts\CharacterScripts\FighterClass.cs" />
+    <Compile Include="Assets\Scripts\CharacterScripts\FightManager.cs" />
+    <Compile Include="Assets\Scripts\CharacterScripts\FrameLimit.cs" />
+    <Compile Include="Assets\Scripts\CharacterScripts\PlayerHealth.cs" />
+    <Compile Include="Assets\Scripts\CharacterScripts\TakeDamage.cs" />
+    <Compile Include="Assets\Scripts\CharacterScripts\TakeDamageV2.cs" />
+    <Compile Include="Assets\Scripts\GameManagement\CameraSystem.cs" />
+    <Compile Include="Assets\Scripts\GameManagement\GameManagerAlpha.cs" />
+    <Compile Include="Assets\Scripts\GameManagement\OptionsMenu.cs" />
+    <Compile Include="Assets\Scripts\GameManagement\PlayerJoin.cs" />
+    <Compile Include="Assets\Scripts\Inputs\ControllerInputs.cs" />
+    <Compile Include="Assets\Scripts\Inputs\DropDownScroll.cs" />
+    <Compile Include="Assets\Scripts\Inputs\UniversalCharInput.cs" />
+    <Compile Include="Assets\Scripts\UI\HealthUI.cs" />
+    <Compile Include="Assets\Scripts\UI\MainMenuManager.cs" />
+    <Compile Include="Assets\Scripts\UI\MatchTimer.cs" />
+    <Compile Include="Assets\Scripts\UI\SuperMeter.cs" />
     <None Include="Assets\OfficialScenes\DELETETHIS.txt" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/hewittm2/Documents/GitHub/K.O-Studios/K.O-Studios-master/RebelStreetWise - MainBuild/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
