@@ -11,7 +11,8 @@ public class BaseMovement : MonoBehaviour
 	public Vector2 input;
 	public Vector2 movement;
 	//Jump
-    public float jumpForce = .25f;
+    public float vertJumpForce = .25f;
+	public float horiJumpForce = .125f;
 	public float jumpCD;
     private float verticalVelocity;
 	public Vector2 jump;
@@ -82,7 +83,7 @@ public class BaseMovement : MonoBehaviour
 		StartCoroutine(Jumping());
     }
 	IEnumerator Jumping(){
-		verticalVelocity = jumpForce;
+		verticalVelocity = vertJumpForce;
 		jump = new Vector2(0, verticalVelocity);
 		character.Move(jump);
 		yield return new WaitForSeconds (jumpCD);
@@ -92,19 +93,19 @@ public class BaseMovement : MonoBehaviour
 		StartCoroutine (DiagonalJumping());
 	}
 	IEnumerator DiagonalJumping(){
-		verticalVelocity = jumpForce;
+		verticalVelocity = vertJumpForce;
 		jump.y = verticalVelocity;
 		if (fighter.facingRight) {
 			if (input.x < 0) {
-				jump.x = -jumpForce/2;
+				jump.x = -horiJumpForce;
 			} else if (input.x > 0) {
-				jump.x = jumpForce/2;
+				jump.x = horiJumpForce;
 			}
 		} else {
 			if (input.x < 0) {
-				jump.x = -jumpForce/2;
+				jump.x = -horiJumpForce;
 			} else if (input.x > 0) {
-				jump.x = jumpForce/2;
+				jump.x = horiJumpForce;
 			}
 		}
 		character.Move(jump);
