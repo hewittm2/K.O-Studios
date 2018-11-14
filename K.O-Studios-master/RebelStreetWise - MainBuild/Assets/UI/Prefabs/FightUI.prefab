@@ -286,23 +286,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1300904865717094
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4195622443199626}
-  - component: {fileID: 114641466561875226}
-  - component: {fileID: 114910927844858998}
-  m_Layer: 0
-  m_Name: EventSystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1333640956901686
 GameObject:
   m_ObjectHideFlags: 1
@@ -856,6 +839,7 @@ GameObject:
   - component: {fileID: 114409523063161120}
   - component: {fileID: 114735621171293922}
   - component: {fileID: 114466382661411736}
+  - component: {fileID: 114544317139016348}
   m_Layer: 5
   m_Name: FightUI
   m_TagString: Untagged
@@ -897,19 +881,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4195622443199626
-Transform:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1300904865717094}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -400, y: -225.1928, z: 0}
-  m_LocalScale: {x: 2.0565553, y: 2.0565553, z: 2.0565553}
-  m_Children: []
-  m_Father: {fileID: 224995033865901368}
-  m_RootOrder: 19
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114013752649231046
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1785,6 +1756,28 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114544317139016348
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1982108588534476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7376c12e2c294c44f92f320e35e7ef3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  team1Meter: {fileID: 114943924064409952}
+  meterCharge1: 0
+  maxCharge1: 300
+  meterSpent: 75
+  team2Meter: {fileID: 114496576387575204}
+  meterCharge2: 0
+  maxCharge2: 300
+  fighterClass1: {fileID: 0}
+  fighterClass2: {fileID: 0}
+  fighterClass3: {fileID: 0}
+  fighterClass4: {fileID: 0}
 --- !u!114 &114603181808514604
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1812,20 +1805,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114641466561875226
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1300904865717094}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 10
 --- !u!114 &114681886125647628
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2115,24 +2094,6 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_IsOn: 1
---- !u!114 &114910927844858998
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1300904865717094}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
 --- !u!114 &114919644273464020
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3520,7 +3481,6 @@ RectTransform:
   - {fileID: 224365635018569604}
   - {fileID: 224310601754934290}
   - {fileID: 224507719095797140}
-  - {fileID: 4195622443199626}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
