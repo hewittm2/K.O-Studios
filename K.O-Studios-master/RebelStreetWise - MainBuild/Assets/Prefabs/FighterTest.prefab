@@ -515,18 +515,6 @@ MonoBehaviour:
   input: {x: 0, y: 0}
   movement: {x: 0, y: 0}
   jumpForce: 0.3
-<<<<<<< HEAD
-  jumpCD: 0
-  dashSpeed: 35
-  maxDashTime: 0.1
-  dashStopSpeed: 0
-  dashSpeed1: 5
-=======
-  jumpCD: 1
-  dashSpeed: 25.9
-  maxDashTime: 0.2
-  dashStopSpeed: 0.1
->>>>>>> ScriptTieUp
   character: {fileID: 0}
   fighter: {fileID: 0}
 --- !u!143 &143768965778699724
