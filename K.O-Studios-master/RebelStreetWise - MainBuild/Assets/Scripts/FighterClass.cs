@@ -99,7 +99,12 @@ public class FighterClass : MonoBehaviour
 			QueueAttackInput ();
 		}
 		RegisterQueue ();
-		//Debug.Log (inputQueue);
+        //Debug.Log (inputQueue);
+
+        if (knockedDown)
+        {
+            QuickGetup();
+        }
 	}
 
 	public void QueueMovementInput(){
@@ -355,9 +360,57 @@ public class FighterClass : MonoBehaviour
 		inputQueue = "";
 		possibleComboQueue = comboInputs;
 	}
-	//Class Functions
-	//Recieve Damage
-	public virtual void TakeDamage(){
+
+    //Quick Get Up from knockdown
+    public void QuickGetup()
+    {
+        int playerIndex = 1;
+
+        // Once Game Manager is fully implemented, this will work
+        //for (int i = 0; i < 4; i++)
+        //{
+        //    if (GameManagerAlpha.Gma.players[i] == this.gameObject)
+        //    {
+        //        playerIndex = i+1;
+        //        break;
+        //    }
+        //}
+
+        knockedDown = false;
+
+        ImmunityFrames();
+
+
+        if (Input.GetButtonDown("A_" + playerIndex))
+        {
+            CurrFrameType = FrameType.Immunity;
+        }
+        if (Input.GetButtonDown("B_" + playerIndex))
+        {
+            CurrFrameType = FrameType.Immunity;
+        }
+        if (Input.GetButtonDown("X_" + playerIndex))
+        {
+            CurrFrameType = FrameType.Immunity;
+        }
+        if (Input.GetButtonDown("Y_" + playerIndex))
+        {
+            CurrFrameType = FrameType.Immunity;
+        }
+    }
+
+    // Immunity frames that run after quick get up
+    public void ImmunityFrames()
+    {
+        transform.GetChild(0).gameObject.SetActive(false);
+        // ===== Run Immunity Frames =====
+        knockedDown = false;
+        //transform.GetChild(0).gameObject.SetActive(true);         ===== Can be uncommented when animations are implemented for delay
+    }
+
+    //Class Functions
+    //Recieve Damage
+    public virtual void TakeDamage(){
 
 	}
 	//Block Damage

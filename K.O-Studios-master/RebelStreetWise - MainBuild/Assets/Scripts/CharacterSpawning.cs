@@ -24,19 +24,12 @@ public class CharacterSpawning : MonoBehaviour {
     //SpawnedCharacters
     public GameObject[] spawnedCharacters  = new GameObject[4];
 
-
-   
-
-
     private GameManagerAlpha characterSelection;
     private UniversalCharInput controllerAssign;
  
-
     // Use this for initialization
-    void Start () {
-
-
-      
+    void Start ()
+    {
         characterSelection = GetComponent<GameManagerAlpha>();
         character1 = characterOne.name;
         character2 = characterTwo.name;

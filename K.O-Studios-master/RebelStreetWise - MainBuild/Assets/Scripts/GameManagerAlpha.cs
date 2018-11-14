@@ -25,16 +25,10 @@ public class GameManagerAlpha : MonoBehaviour {
     public string player2Selected;
     public string player3Selected;
     public string player4Selected;
-  
-
-    //
-
 
     //Characte select UI Event system
     public EventSystem CharacterSelectUIEvent;
     
-
-
     public static GameManagerAlpha Gma
     {
         get

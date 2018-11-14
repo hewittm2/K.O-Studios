@@ -282,8 +282,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 791a6d1d89731c74caa11f8b17627967, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: {fileID: 0}
-  damage: 10
 --- !u!1 &681255558
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,8 +384,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 791a6d1d89731c74caa11f8b17627967, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: {fileID: 0}
-  damage: 10
 --- !u!1 &1190883837
 GameObject:
   m_ObjectHideFlags: 0
@@ -810,8 +806,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 791a6d1d89731c74caa11f8b17627967, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: {fileID: 0}
-  damage: 10
 --- !u!1 &1979254495
 GameObject:
   m_ObjectHideFlags: 0
@@ -909,8 +903,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 791a6d1d89731c74caa11f8b17627967, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: {fileID: 1383073576}
-  damage: 10
 --- !u!1001 &2115293117
 Prefab:
   m_ObjectHideFlags: 0

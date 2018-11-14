@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\CameraSystem.cs" />
     <Compile Include="Assets\Scripts\CharacterSpawning.cs" />
     <Compile Include="Assets\Scripts\ControllerInputs.cs" />
+    <Compile Include="Assets\Scripts\DropDownScroll.cs" />
     <Compile Include="Assets\Scripts\FighterClass.cs" />
     <Compile Include="Assets\Scripts\FightManager.cs" />
     <Compile Include="Assets\Scripts\FrameLimit.cs" />
