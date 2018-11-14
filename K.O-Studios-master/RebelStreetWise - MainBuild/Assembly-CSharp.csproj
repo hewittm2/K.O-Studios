@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\AttackV2.cs" />
     <Compile Include="Assets\Scripts\BaseMovement.cs" />
     <Compile Include="Assets\Scripts\CameraSystem.cs" />
+    <Compile Include="Assets\Scripts\CharacterSpawning.cs" />
     <Compile Include="Assets\Scripts\ControllerInputs.cs" />
     <Compile Include="Assets\Scripts\FighterClass.cs" />
     <Compile Include="Assets\Scripts\FightManager.cs" />
@@ -78,6 +79,7 @@
     <Compile Include="Assets\Scripts\SuperMeter.cs" />
     <Compile Include="Assets\Scripts\TakeDamage.cs" />
     <Compile Include="Assets\Scripts\TakeDamageV2.cs" />
+    <Compile Include="Assets\Scripts\UniversalCharInput.cs" />
     <None Include="Assets\OfficialScenes\DELETETHIS.txt" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/hewittm2/Documents/GitHub/K.O-Studios/K.O-Studios-master/RebelStreetWise - MainBuild/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
