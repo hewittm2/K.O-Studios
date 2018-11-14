@@ -5,7 +5,7 @@ using UnityEngine;
 //Place this script on a HIT BOX
 
 [RequireComponent(typeof(BoxCollider))]
-public class AttackV2 : MonoBehaviour
+public class HitBoxDamage : MonoBehaviour
 {
     public Attack attack;
 

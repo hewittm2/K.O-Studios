@@ -54,7 +54,7 @@ public class TakeDamageV2 : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         GameObject o = other.gameObject;
-        AttackV2 av2 = o.GetComponent<AttackV2>();
+        HitBoxDamage av2 = o.GetComponent<HitBoxDamage>();
 
         //TAG CHECK WILL NEED CHANGING, TESTING PURPOSES ONLY
         //if (o.tag == "attack")
