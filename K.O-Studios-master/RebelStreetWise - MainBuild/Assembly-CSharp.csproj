@@ -75,6 +75,7 @@
     <Compile Include="Assets\Scripts\OptionsMenu.cs" />
     <Compile Include="Assets\Scripts\PlayerHealth.cs" />
     <Compile Include="Assets\Scripts\PlayerJoin.cs" />
+    <Compile Include="Assets\Scripts\SuperMeter.cs" />
     <Compile Include="Assets\Scripts\TakeDamage.cs" />
     <Compile Include="Assets\Scripts\TakeDamageV2.cs" />
     <None Include="Assets\OfficialScenes\DELETETHIS.txt" />

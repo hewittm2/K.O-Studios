@@ -327,9 +327,6 @@ public class FighterClass : MonoBehaviour {
 		if (possibleComboQueue.Count == 1 && possibleComboQueue.Count != comboInputs.Count) {
 			//do combo
 			Debug.Log("Combo Met = " + possibleComboQueue[0]);
-//			foreach(){
-//				
-//			}
 		}
 		if (possibleComboQueue.Count == 0) {
 			ResetQueue ();
