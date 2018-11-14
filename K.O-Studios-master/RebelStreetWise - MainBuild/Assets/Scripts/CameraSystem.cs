@@ -77,6 +77,9 @@ public class CameraSystem : MonoBehaviour {
 				if (transform.position.z - resizeIncrement > MaxCloseness) {
 					a = transform.position.z;
 					b = transform.position.z - resizeIncrement;
+					if (t != 0) {
+						t = 0;
+					}
 					CanLerp = true;
 					Debug.Log ("Zoomout");
 					MaxDistanceToResize += 1f;
@@ -86,10 +89,12 @@ public class CameraSystem : MonoBehaviour {
 			} else {
 	//check zoom in condition
 				if(currDist < MinDistanceToResize){
-					Debug.Log ("Here");
 					if (transform.position.z + resizeIncrement < MinCloseness) {
 						a = transform.position.z;
 						b = transform.position.z + resizeIncrement;
+						if (t != 0) {
+							t = 0;
+						}
 						CanLerp = true;
 						Debug.Log ("Zoomin");
 						MaxDistanceToResize -= 1f;

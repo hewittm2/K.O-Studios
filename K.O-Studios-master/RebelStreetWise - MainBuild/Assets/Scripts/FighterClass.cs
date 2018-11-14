@@ -63,7 +63,7 @@ public class FighterClass : MonoBehaviour {
 	public float comboTimer;
 	//private bool checkForCombo = false;
 
-
+	public Animator anim;
 
 
 	// Use this for initialization
@@ -98,6 +98,8 @@ public class FighterClass : MonoBehaviour {
 	}
 
 	public void QueueMovementInput(){
+		//test
+		anim.SetBool ("Walking", false);
 		
 		if(Input.GetKeyDown(KeyCode.Space)){
 			facingRight = !facingRight;
@@ -115,6 +117,7 @@ public class FighterClass : MonoBehaviour {
 			} else {
 				canMove = false;
 				inputQueue += "Forward(R),";
+				anim.SetBool ("Walking", true);
 				movement.Walk ();
 			}
 			//Right Input Facing Left
@@ -129,6 +132,7 @@ public class FighterClass : MonoBehaviour {
 			} else {
 				canMove = false;
 				inputQueue += "Backward(L),";
+				anim.SetBool ("Walking", true);
 				movement.Walk ();
 			}
 			//Left Input Facing Right
@@ -143,6 +147,7 @@ public class FighterClass : MonoBehaviour {
 			} else {
 				canMove = false;
 				inputQueue += "Backward(R),";
+				anim.SetBool ("Walking", true);
 				movement.Walk ();
 			}        
 			//Left Input Facing Left
@@ -157,6 +162,7 @@ public class FighterClass : MonoBehaviour {
 			} else {
 				canMove = false;
 				inputQueue += "Forward(L),";
+				anim.SetBool ("Walking", true);
 				movement.Walk ();
 			}
 			//Up input Facing Right
@@ -213,14 +219,22 @@ public class FighterClass : MonoBehaviour {
 			if (facingRight) {
 				if (Input.GetAxis (horiInput) < -0.1f) {
 					Debug.Log ("BackwardThrow(R),");
+					canAttack = false;
+					StartCoroutine (AttackDelay());
 				} else {
 					Debug.Log ("ForwardThrow(R)");
+					canAttack = false;
+					StartCoroutine (AttackDelay());
 				}
 			} else {
 				if (Input.GetAxis (horiInput) > 0.1f) {
 					Debug.Log ("BackwardThrow(L),");
+					canAttack = false;
+					StartCoroutine (AttackDelay());
 				} else {
 					Debug.Log ("ForwardThrow(L)");
+					canAttack = false;
+					StartCoroutine (AttackDelay());
 				}
 			}
 		//Light Attack
@@ -230,26 +244,40 @@ public class FighterClass : MonoBehaviour {
 					if (Input.GetAxis (vertInput) < -0.1f) {
 						//inputQueue += "Crouch_LightAttack(R),";
 						Debug.Log ("Crouch_LightAttack(R),");
+						canAttack = false;
+						StartCoroutine (AttackDelay());
 					} else {
 						//inputQueue += "LightAttack(R),";
+						anim.SetTrigger("Light Attack");
 						Debug.Log ("LightAttack(R),");
+						canAttack = false;
+						StartCoroutine (AttackDelay());
 					}
 				} else {
 					//inputQueue += "Jump_lightAttack(R)";
 					Debug.Log ("Jump_LightAttack(R),");
+					canAttack = false;
+					StartCoroutine (AttackDelay());
 				}
 			} else {
 				if (movement.character.isGrounded) {
 					if (Input.GetAxis (vertInput) < -0.1f) {
 						//inputQueue += "Crouch_LightAttack(L)";
 						Debug.Log ("Crouch_LightAttack(L),");
+						canAttack = false;
+						StartCoroutine (AttackDelay());
 					} else {
 						//inputQueue += "LightAttack(L)";
+						anim.SetTrigger("Light Attack");
 						Debug.Log ("LightAttack(L),");
+						canAttack = false;
+						StartCoroutine (AttackDelay());
 					}
 				} else {
 					//inputQueue += "Jump_LightAttack(L)";
 					Debug.Log ("Jump_LightAttack(L),");
+					canAttack = false;
+					StartCoroutine (AttackDelay());
 				}
 			}
 			//Medium Attack
@@ -259,27 +287,41 @@ public class FighterClass : MonoBehaviour {
 					if (Input.GetAxis (vertInput) < -0.1f) {
 						//inputQueue += "Crouch_MedAttack(R)";
 						Debug.Log ("Crouch_MedAttack(R),");
+						canAttack = false;
+						StartCoroutine (AttackDelay());
 					} else {
 						//inputQueue += "MedAttack(R)";
+						anim.SetTrigger("Medium Attack");
 						Debug.Log ("MedAttack(R),");
+						canAttack = false;
+						StartCoroutine (AttackDelay());
 					}
 				} else {
 					//inputQueue += "Jump_MedAttack(R)";
 					Debug.Log ("Jump_MedAttack(R),");
+					canAttack = false;
+					StartCoroutine (AttackDelay());
 				}
 			} else {
 				if (movement.character.isGrounded) {
 					if (Input.GetAxis (vertInput) < -0.1f) {
 						//inputQueue += "Crouch_MedAttack(L)";
 						Debug.Log ("Crouch_MedAttack(L),");
+						canAttack = false;
+						StartCoroutine (AttackDelay());
 					} else {
 						//inputQueue += "MedAttack(L)";
+						anim.SetTrigger("Medium Attack");
 						Debug.Log ("MedAttack(L),");
+						canAttack = false;
+						StartCoroutine (AttackDelay());
 					}
 
 				} else {
 					//inputQueue += "Jump_MedAttack(L)";
 					Debug.Log ("Jump_MedAttack(L),");
+					canAttack = false;
+					StartCoroutine (AttackDelay());
 				}
 			}
 			//Heavy Attack
@@ -289,26 +331,40 @@ public class FighterClass : MonoBehaviour {
 					if (Input.GetAxis (vertInput) < -0.1f) {
 						//inputQueue += "Crouch_HeavyAttack(R)";
 						Debug.Log ("Crouch_HeavyAttack(R),");
+						canAttack = false;
+						StartCoroutine (AttackDelay());
 					} else {
 						//inputQueue += "HeavyAttack(R)";
+						anim.SetTrigger("Heavy Attack");
 						Debug.Log ("HeavyAttack(R),");
+						canAttack = false;
+						StartCoroutine (AttackDelay());
 					}
 				} else {
 					//inputQueue += "Jump_HeavyAttack(R)";
 					Debug.Log ("Jump_HeavyAttack(R),");
+					canAttack = false;
+					StartCoroutine (AttackDelay());
 				}
 			} else {
 				if (movement.character.isGrounded) {
 					if (Input.GetAxis (vertInput) < -0.1f) {
 						//inputQueue += "Crouch_HeavyAttack(L)";
 						Debug.Log ("Crouch_HeavyAttack(L),");
+						canAttack = false;
+						StartCoroutine (AttackDelay());
 					} else {
 						//inputQueue += "HeavyAttack(L)";
+						anim.SetTrigger("Heavy Attack");
 						Debug.Log ("HeavyAttack(L),");
+						canAttack = false;
+						StartCoroutine (AttackDelay());
 					}
 				} else {
 					//inputQueue += "Jump_HeavyAttack(L)";
 					Debug.Log ("Jump_HeavyAttack(L),");
+					canAttack = false;
+					StartCoroutine (AttackDelay());
 				}
 			}
 		} 
@@ -332,6 +388,12 @@ public class FighterClass : MonoBehaviour {
 			ResetQueue ();
 		}
 
+	}
+
+	public IEnumerator AttackDelay (){
+		yield return new WaitForSeconds(anim.GetCurrentAnimatorClipInfo(0).Length);
+		Debug.Log ("Can attack again");
+		canAttack = true;
 	}
 
 	public void ResetQueue(){

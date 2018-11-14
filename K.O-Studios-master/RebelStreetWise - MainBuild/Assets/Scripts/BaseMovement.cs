@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
 [RequireComponent(typeof(Rigidbody))]
-[RequireComponent(typeof(BoxCollider))]
+[RequireComponent(typeof(Collider))]
 public class BaseMovement : MonoBehaviour
 {
     //Movement
@@ -30,6 +30,7 @@ public class BaseMovement : MonoBehaviour
     private float[] radiusArray = new float[2];
     private float[] heightArray = new float[2];
     private float centerOffset = 0;
+
 
 
     private void Start()

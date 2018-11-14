@@ -1,0 +1,327 @@
+fileFormatVersion: 2
+guid: ca9e55ff81735e24184de72b739b9d4c
+timeCreated: 1542213338
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: BoneRoot
+    100002: Bra
+    100004: Camisole
+    100006: CC_Base_Body
+    100008: CC_Base_Eye
+    100010: CC_Base_Teeth
+    100012: CC_Base_Tongue
+    100014: FacialBone
+    100016: Hair
+    100018: Head
+    100020: Hip
+    100022: JawRoot
+    100024: L_BigToe1
+    100026: L_Breast
+    100028: L_Calf
+    100030: L_CalfTwist01
+    100032: L_CalfTwist02
+    100034: L_Clavicle
+    100036: L_ElbowShareBone
+    100038: L_Eye
+    100040: L_Foot
+    100042: L_Forearm
+    100044: L_ForearmTwist01
+    100046: L_ForearmTwist02
+    100048: L_Hand
+    100050: L_Index1
+    100052: L_Index2
+    100054: L_Index3
+    100056: L_IndexToe1
+    100058: L_KneeShareBone
+    100060: L_Mid1
+    100062: L_Mid2
+    100064: L_Mid3
+    100066: L_MidToe1
+    100068: L_Pinky1
+    100070: L_Pinky2
+    100072: L_Pinky3
+    100074: L_PinkyToe1
+    100076: L_RibsTwist
+    100078: L_Ring1
+    100080: L_Ring2
+    100082: L_Ring3
+    100084: L_RingToe1
+    100086: L_Thigh
+    100088: L_ThighTwist01
+    100090: L_ThighTwist02
+    100092: L_Thumb1
+    100094: L_Thumb2
+    100096: L_Thumb3
+    100098: L_ToeBase
+    100100: L_ToeBaseShareBone
+    100102: L_Upperarm
+    100104: L_UpperarmTwist01
+    100106: L_UpperarmTwist02
+    100108: Loose_Biker_Boots
+    100110: NeckTwist01
+    100112: NeckTwist02
+    100114: Pelvis
+    100116: Punk Belt
+    100118: //RootNode
+    100120: R_BigToe1
+    100122: R_Breast
+    100124: R_Calf
+    100126: R_CalfTwist01
+    100128: R_CalfTwist02
+    100130: R_Clavicle
+    100132: R_ElbowShareBone
+    100134: R_Eye
+    100136: R_Foot
+    100138: R_Forearm
+    100140: R_ForearmTwist01
+    100142: R_ForearmTwist02
+    100144: R_Hand
+    100146: R_Index1
+    100148: R_Index2
+    100150: R_Index3
+    100152: R_IndexToe1
+    100154: R_KneeShareBone
+    100156: R_Mid1
+    100158: R_Mid2
+    100160: R_Mid3
+    100162: R_MidToe1
+    100164: R_Pinky1
+    100166: R_Pinky2
+    100168: R_Pinky3
+    100170: R_PinkyToe1
+    100172: R_RibsTwist
+    100174: R_Ring1
+    100176: R_Ring2
+    100178: R_Ring3
+    100180: R_RingToe1
+    100182: R_Thigh
+    100184: R_ThighTwist01
+    100186: R_ThighTwist02
+    100188: R_Thumb1
+    100190: R_Thumb2
+    100192: R_Thumb3
+    100194: R_ToeBase
+    100196: R_ToeBaseShareBone
+    100198: R_Upperarm
+    100200: R_UpperarmTwist01
+    100202: R_UpperarmTwist02
+    100204: Rocker_Jeans
+    100206: Spine01
+    100208: Spine02
+    100210: Teeth01
+    100212: Teeth02
+    100214: Tongue01
+    100216: Tongue02
+    100218: Tongue03
+    100220: Underwear Bottoms
+    100222: UpperJaw
+    100224: Waist
+    400000: BoneRoot
+    400002: Bra
+    400004: Camisole
+    400006: CC_Base_Body
+    400008: CC_Base_Eye
+    400010: CC_Base_Teeth
+    400012: CC_Base_Tongue
+    400014: FacialBone
+    400016: Hair
+    400018: Head
+    400020: Hip
+    400022: JawRoot
+    400024: L_BigToe1
+    400026: L_Breast
+    400028: L_Calf
+    400030: L_CalfTwist01
+    400032: L_CalfTwist02
+    400034: L_Clavicle
+    400036: L_ElbowShareBone
+    400038: L_Eye
+    400040: L_Foot
+    400042: L_Forearm
+    400044: L_ForearmTwist01
+    400046: L_ForearmTwist02
+    400048: L_Hand
+    400050: L_Index1
+    400052: L_Index2
+    400054: L_Index3
+    400056: L_IndexToe1
+    400058: L_KneeShareBone
+    400060: L_Mid1
+    400062: L_Mid2
+    400064: L_Mid3
+    400066: L_MidToe1
+    400068: L_Pinky1
+    400070: L_Pinky2
+    400072: L_Pinky3
+    400074: L_PinkyToe1
+    400076: L_RibsTwist
+    400078: L_Ring1
+    400080: L_Ring2
+    400082: L_Ring3
+    400084: L_RingToe1
+    400086: L_Thigh
+    400088: L_ThighTwist01
+    400090: L_ThighTwist02
+    400092: L_Thumb1
+    400094: L_Thumb2
+    400096: L_Thumb3
+    400098: L_ToeBase
+    400100: L_ToeBaseShareBone
+    400102: L_Upperarm
+    400104: L_UpperarmTwist01
+    400106: L_UpperarmTwist02
+    400108: Loose_Biker_Boots
+    400110: NeckTwist01
+    400112: NeckTwist02
+    400114: Pelvis
+    400116: Punk Belt
+    400118: //RootNode
+    400120: R_BigToe1
+    400122: R_Breast
+    400124: R_Calf
+    400126: R_CalfTwist01
+    400128: R_CalfTwist02
+    400130: R_Clavicle
+    400132: R_ElbowShareBone
+    400134: R_Eye
+    400136: R_Foot
+    400138: R_Forearm
+    400140: R_ForearmTwist01
+    400142: R_ForearmTwist02
+    400144: R_Hand
+    400146: R_Index1
+    400148: R_Index2
+    400150: R_Index3
+    400152: R_IndexToe1
+    400154: R_KneeShareBone
+    400156: R_Mid1
+    400158: R_Mid2
+    400160: R_Mid3
+    400162: R_MidToe1
+    400164: R_Pinky1
+    400166: R_Pinky2
+    400168: R_Pinky3
+    400170: R_PinkyToe1
+    400172: R_RibsTwist
+    400174: R_Ring1
+    400176: R_Ring2
+    400178: R_Ring3
+    400180: R_RingToe1
+    400182: R_Thigh
+    400184: R_ThighTwist01
+    400186: R_ThighTwist02
+    400188: R_Thumb1
+    400190: R_Thumb2
+    400192: R_Thumb3
+    400194: R_ToeBase
+    400196: R_ToeBaseShareBone
+    400198: R_Upperarm
+    400200: R_UpperarmTwist01
+    400202: R_UpperarmTwist02
+    400204: Rocker_Jeans
+    400206: Spine01
+    400208: Spine02
+    400210: Teeth01
+    400212: Teeth02
+    400214: Tongue01
+    400216: Tongue02
+    400218: Tongue03
+    400220: Underwear Bottoms
+    400222: UpperJaw
+    400224: Waist
+    4300000: CC_Base_Tongue
+    4300002: CC_Base_Teeth
+    4300004: CC_Base_Eye
+    4300006: CC_Base_Body
+    4300008: Bra
+    4300010: Underwear Bottoms
+    4300012: Camisole
+    4300014: Rocker_Jeans
+    4300016: Loose_Biker_Boots
+    4300018: Punk Belt
+    4300020: Hair
+    7400000: punkgirl_001_TempMotion
+    9500000: //RootNode
+    13700000: Bra
+    13700002: Camisole
+    13700004: CC_Base_Body
+    13700006: CC_Base_Eye
+    13700008: CC_Base_Teeth
+    13700010: CC_Base_Tongue
+    13700012: Hair
+    13700014: Loose_Biker_Boots
+    13700016: Punk Belt
+    13700018: Rocker_Jeans
+    13700020: Underwear Bottoms
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
