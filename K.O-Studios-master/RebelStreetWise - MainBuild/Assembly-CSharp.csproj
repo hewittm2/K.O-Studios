@@ -77,6 +77,7 @@
     <Compile Include="Assets\Scripts\GameManagement\PlayerJoin.cs" />
     <Compile Include="Assets\Scripts\Inputs\ControllerInputs.cs" />
     <Compile Include="Assets\Scripts\Inputs\DropDownScroll.cs" />
+    <Compile Include="Assets\Scripts\Inputs\EventSystemFetch.cs" />
     <Compile Include="Assets\Scripts\Inputs\UniversalCharInput.cs" />
     <Compile Include="Assets\Scripts\UI\HealthUI.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenuManager.cs" />

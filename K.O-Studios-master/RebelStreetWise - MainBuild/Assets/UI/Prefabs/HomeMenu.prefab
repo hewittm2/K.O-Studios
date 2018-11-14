@@ -129,6 +129,7 @@ GameObject:
   - component: {fileID: 223662379692829666}
   - component: {fileID: 114346574488953948}
   - component: {fileID: 114313097436440714}
+  - component: {fileID: 114188748110278510}
   m_Layer: 5
   m_Name: HomeMenu
   m_TagString: Untagged
@@ -693,6 +694,17 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114188748110278510
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1491168136579122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c67894a4fd8fa4e4e8a42e2da5493492, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114223730350805652
 MonoBehaviour:
   m_ObjectHideFlags: 1
