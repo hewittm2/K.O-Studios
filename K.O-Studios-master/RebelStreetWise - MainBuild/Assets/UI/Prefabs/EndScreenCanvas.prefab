@@ -109,14 +109,13 @@ GameObject:
   - component: {fileID: 223549283313928730}
   - component: {fileID: 114526319643346018}
   - component: {fileID: 114040207184620562}
-  - component: {fileID: 114408040815795758}
   m_Layer: 5
   m_Name: EndScreenCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1459338781258714
 GameObject:
   m_ObjectHideFlags: 1
@@ -378,17 +377,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114408040815795758
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1444267329627806}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c67894a4fd8fa4e4e8a42e2da5493492, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114461112007412670
 MonoBehaviour:
   m_ObjectHideFlags: 1

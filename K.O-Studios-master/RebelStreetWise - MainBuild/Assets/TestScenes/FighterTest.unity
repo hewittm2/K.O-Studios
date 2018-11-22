@@ -188,9 +188,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &964815762
+--- !u!1001 &718957955
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -235,7 +235,7 @@ Prefab:
     - target: {fileID: 224995033865901368, guid: 9bce705a9f7fe4046b7b7a38d7962a14,
         type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224995033865901368, guid: 9bce705a9f7fe4046b7b7a38d7962a14,
         type: 2}
@@ -287,24 +287,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114883889508677040, guid: 9bce705a9f7fe4046b7b7a38d7962a14,
-        type: 2}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 114664635312190572, guid: dd9ee4d491ed7684db244bdee8d741a7,
-        type: 2}
-    - target: {fileID: 114463329035330238, guid: 9bce705a9f7fe4046b7b7a38d7962a14,
-        type: 2}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 114664635312190572, guid: dd9ee4d491ed7684db244bdee8d741a7,
-        type: 2}
-    - target: {fileID: 114606018577282718, guid: 9bce705a9f7fe4046b7b7a38d7962a14,
-        type: 2}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 114664635312190572, guid: dd9ee4d491ed7684db244bdee8d741a7,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bce705a9f7fe4046b7b7a38d7962a14, type: 2}
   m_IsPrefabAsset: 0
@@ -372,5 +354,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
