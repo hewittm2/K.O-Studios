@@ -40,6 +40,8 @@ public class HealthUI : MonoBehaviour {
         if (fighterClass1.currentHealth <= 0 || fighterClass2.currentHealth <= 0)
         {
             Team2Win();
+
+            //Move to Reset
             fighterClass1.currentHealth = 100;
             fighterClass2.currentHealth = 100;
             fighterClass3.currentHealth = 100;
@@ -48,6 +50,8 @@ public class HealthUI : MonoBehaviour {
         if (fighterClass3.currentHealth <= 0 || fighterClass4.currentHealth <= 0)
         {
             Team1Win();
+
+            //Move to Reset
             fighterClass1.currentHealth = 100;
             fighterClass2.currentHealth = 100;
             fighterClass3.currentHealth = 100;
