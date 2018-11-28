@@ -26,6 +26,8 @@ GameObject:
   - component: {fileID: 143062223373086588}
   - component: {fileID: 65580401032516078}
   - component: {fileID: 114926677355208594}
+  - component: {fileID: 114388366025269594}
+  - component: {fileID: 114681607978650266}
   m_Layer: 0
   m_Name: 4-Gunther
   m_TagString: Untagged
@@ -121,7 +123,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1935679546178128}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2cd22f2e94aae874396c97ccae5d3598, type: 3}
   m_Name: 
@@ -130,34 +132,71 @@ MonoBehaviour:
   totalHealth: 0
   defValue: 0
   canRecieveDamage: 0
-  jumpHeight: 1
-  jumpTime: 1
-  moveSpeed: 0
-  jumping: 0
-  canAttack: 0
   facingRight: 1
-  canInput: 1
+  canMove: 1
+  canAttack: 0
   wholeBody: {fileID: 0}
   upperBody: {fileID: 0}
   lowerBody: {fileID: 0}
   highHit: {fileID: 0}
   midHit: {fileID: 0}
   lowHit: {fileID: 0}
-  comboTimer: 0
   horiInput: L_XAxis_1
-  rightDpad: 
-  leftDpad: 
   vertInput: L_YAxis_1
-  downInput: 
-  upInput: 
   lightInput: A_1
   medInput: B_1
   heavyInput: Y_1
   specialInput: 
-  grabInput: 
+  throwInput: 
   dashInput: LBump_1
   comboNames: []
   comboInputs: []
+  comboTimer: 0
+  anim: {fileID: 0}
+--- !u!114 &114388366025269594
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1935679546178128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c502e158d670e74888c5528bda953bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerOne: 0
+  PlayerTwo: 0
+  PlayerThree: 0
+  PlayerFour: 0
+  aButton: 
+  bButton: 
+  yButton: 
+  xButton: 
+  startButton: 
+  backButton: 
+  rightBumper: 
+  leftBumper: 
+  leftTrigger: 
+  rightTrigger: 
+  dpadY: 
+  dpadX: 
+  lStickY: 
+  lStickX: 
+  rStickY: 
+  rStickX: 
+--- !u!114 &114681607978650266
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1935679546178128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5475a1e9d5faff143a9060f59689ef37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealth: 0
+  team: 0
 --- !u!114 &114926677355208594
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -170,12 +209,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
-  jumpForce: 0.15
-  verticalVelocity: 0
   gravity: -0.7
+  jumpForce: 0.15
+  jumpCD: 0
   dashSpeed: 25.9
   maxDashTime: 0.2
   dashStopSpeed: 0.1
+  dashSpeed1: 5
+  character: {fileID: 0}
+  fighter: {fileID: 0}
 --- !u!143 &143062223373086588
 CharacterController:
   m_ObjectHideFlags: 1

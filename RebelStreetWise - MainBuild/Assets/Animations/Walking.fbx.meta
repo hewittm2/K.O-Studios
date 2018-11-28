@@ -69,17 +69,6 @@ ModelImporter:
     100126: mixamorig:Spine1
     100128: mixamorig:Spine2
     100130: //RootNode
-    100132: Bra
-    100134: Camisole
-    100136: CC_Base_Body
-    100138: CC_Base_Eye
-    100140: CC_Base_Teeth
-    100142: CC_Base_Tongue
-    100144: Hair
-    100146: Loose_Biker_Boots
-    100148: Punk_Belt
-    100150: Rocker_Jeans
-    100152: Underwear_Bottoms
     400000: mixamorig:Head
     400002: mixamorig:HeadTop_End
     400004: mixamorig:Hips
@@ -146,42 +135,8 @@ ModelImporter:
     400126: mixamorig:Spine1
     400128: mixamorig:Spine2
     400130: //RootNode
-    400132: Bra
-    400134: Camisole
-    400136: CC_Base_Body
-    400138: CC_Base_Eye
-    400140: CC_Base_Teeth
-    400142: CC_Base_Tongue
-    400144: Hair
-    400146: Loose_Biker_Boots
-    400148: Punk_Belt
-    400150: Rocker_Jeans
-    400152: Underwear_Bottoms
-    2100000: No Name
-    4300000: CC_Base_Tongue
-    4300002: CC_Base_Teeth
-    4300004: CC_Base_Eye
-    4300006: CC_Base_Body
-    4300008: Bra
-    4300010: Underwear_Bottoms
-    4300012: Camisole
-    4300014: Rocker_Jeans
-    4300016: Loose_Biker_Boots
-    4300018: Punk_Belt
-    4300020: Hair
     7400000: mixamo.com
     9500000: //RootNode
-    13700000: Bra
-    13700002: Camisole
-    13700004: CC_Base_Body
-    13700006: CC_Base_Eye
-    13700008: CC_Base_Teeth
-    13700010: CC_Base_Tongue
-    13700012: Hair
-    13700014: Loose_Biker_Boots
-    13700016: Punk_Belt
-    13700018: Rocker_Jeans
-    13700020: Underwear_Bottoms
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -209,35 +164,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations:
-    - serializedVersion: 16
-      name: mixamo.com
-      takeName: mixamo.com
-      firstFrame: 0
-      lastFrame: 18
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+    clipAnimations: []
     isReadable: 1
   meshes:
     lODScreenPercentages: []

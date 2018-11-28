@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class HealthUI : MonoBehaviour {
 
-    public Slider player1Slider;
+   /* public Slider player1Slider;
     public FighterClass fighterClass1;
 
     public Slider player2Slider;
@@ -131,4 +131,5 @@ public class HealthUI : MonoBehaviour {
             //MatchEnd();
         }
     }
+    */
 }

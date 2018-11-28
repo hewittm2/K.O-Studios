@@ -9,10 +9,10 @@ public class Selectors : MonoBehaviour {
     public GameObject playerThree;
     public GameObject playerFour;
 
-    public bool inputDelayed1;
-    public bool inputDelayed2;
-    public bool inputDelayed3;
-    public bool inputDelayed4;
+    private bool inputDelayed1;
+    private bool inputDelayed2;
+    private bool inputDelayed3;
+    private bool inputDelayed4;
 
     public bool player1Ready;
     public bool player2Ready;
@@ -329,22 +329,22 @@ public class Selectors : MonoBehaviour {
     //------------------------------------------------------------------------------------------
     IEnumerator OneWait()
     {
-        yield return new WaitForSeconds(0.05f);
+        yield return new WaitForSeconds(0.075f);
         inputDelayed1 = false;
     }
     IEnumerator TwoWait()
     {
-        yield return new WaitForSeconds(0.05f);
+        yield return new WaitForSeconds(0.075f);
         inputDelayed2 = false;
     }
     IEnumerator ThreeWait()
     {
-        yield return new WaitForSeconds(0.05f);
+        yield return new WaitForSeconds(0.075f);
         inputDelayed3 = false;
     }
     IEnumerator FourWait()
     {
-        yield return new WaitForSeconds(0.05f);
+        yield return new WaitForSeconds(0.075f);
         inputDelayed4 = false;
     }
 
