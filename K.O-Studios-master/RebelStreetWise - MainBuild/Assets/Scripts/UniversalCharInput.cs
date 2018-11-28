@@ -131,7 +131,7 @@ public class UniversalCharInput : MonoBehaviour {
         cAssign.medInput = xButton;
         cAssign.heavyInput = yButton;
         cAssign.specialInput = bButton;
-        cAssign.dashInput = leftBumper;
+        //cAssign.dashInput = leftBumper;
         //cAssign.grabInput = rightBumper;
         cAssign.horiInput = lStickX;
         cAssign.vertInput = rStickX;

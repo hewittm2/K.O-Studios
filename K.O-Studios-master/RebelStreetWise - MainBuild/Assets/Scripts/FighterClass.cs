@@ -16,17 +16,13 @@ public class FighterClass : MonoBehaviour {
 	private FrameType CurrFrameType;
 
 
-	//Health
+	//Variables For Designers
 	public int currentHealth;
 	public int totalHealth;
 	public float defValue;
-	public bool canRecieveDamage;
-
-	//Movement Variables
-	BaseMovement movement;
-	public bool facingRight = true;
-	public bool canMove = true;
-	public bool canAttack = true;
+	public float horiDeadZone;
+	public float vertDeadZone;
+	public float comboTimeOut;
 
 	//Parts
 	public GameObject wholeBody;
@@ -48,23 +44,32 @@ public class FighterClass : MonoBehaviour {
     public string heavyInput;
     public string specialInput;
 	public string throwInput;
-	public string dashInput;
+	public string teamInput;
 
 	//Controller Inputs: Need to Implement
 	//public string horiDpad;
 	//public string vertDpad;
+	[HideInInspector]
+	public bool facingRight = true;
+	[HideInInspector]
+	public bool canMove = true;
+	[HideInInspector]
+	public bool canAttack = true;
+	[HideInInspector]
+	public bool canRecieveDamage;
 
-    //combo list / registering
-    public List<string> comboNames = new List<string>();
-	public List<string> comboInputs = new List<string>();
-	private string inputQueue = "";
+	bool breakDownStep1L = false;
+	bool breakDownStep1R = false;
+	bool breakDownStep2 = false;
+	bool breakDownStep3 = false;
+	bool coupDeGraceStep1 = false;
+	bool coupDeGraceStep2 = false;
+	bool coupDeGraceStep3 = false;
+	bool comboTimerStarted = false;
+	bool dashReset = false;
 
-	private List<string> possibleComboQueue = new List<string> ();
-	public float comboTimer;
-	//private bool checkForCombo = false;
-
-
-
+	float comboTimerEnd = 0;
+	BaseMovement movement;
 
 	// Use this for initialization
 	void Start () {
@@ -86,16 +91,13 @@ public class FighterClass : MonoBehaviour {
 //			RegisterQueue ();
 //			break;
 //		}
-		Debug.Log(canMove);
 		if (canMove) {
 			QueueMovementInput ();
-
 		}
 		if (canAttack) {
 			QueueAttackInput ();
 		}
-		RegisterQueue ();
-		//Debug.Log (inputQueue);
+		CheckForCombo ();
 	}
 
 	public void QueueMovementInput(){
@@ -105,132 +107,181 @@ public class FighterClass : MonoBehaviour {
 			gameObject.transform.Rotate (new Vector3 (0, 180, 0));
 		}
 		//Right Input Facing Right
-		if (Input.GetAxis (horiInput) > 0.1f && facingRight) {
-			if (Input.GetAxis (vertInput) > 0.1f) {
-				inputQueue += "Forward+Up(R),";
+		if (Input.GetAxis (horiInput) > horiDeadZone && facingRight) {
+			//Forward+Up(R)
+			if (Input.GetAxis (vertInput) > vertDeadZone && movement.character.isGrounded) {
 				canMove = false;
 				movement.DiagonalJump ();
-			} else if (Input.GetButtonDown (dashInput)) {
-				inputQueue += "Forward+Dash(R),";
-				canMove = false;
-				movement.Dash ();
+			//Forward+Down(R)
+			}else if(Input.GetAxis(vertInput)< -vertDeadZone){
+				if (breakDownStep1R) {
+					comboTimerStarted = true;
+					comboTimerEnd = Time.time + comboTimeOut;
+					breakDownStep2 = true;
+				}
+			//Forward(R)
 			} else {
-				inputQueue += "Forward(R),";
-				canMove = false;
-				movement.Walk ();
+				if (!comboTimerStarted) {
+					comboTimerStarted = true;
+					comboTimerEnd = Time.time + comboTimeOut;
+					breakDownStep1R = true;
+				} else if (coupDeGraceStep2) {
+					comboTimerStarted = true;
+					comboTimerEnd = Time.time + comboTimeOut;
+					coupDeGraceStep3 = true;
+				} else if (dashReset && breakDownStep1R) {
+					canMove = false;
+					movement.Dash ();
+				} else {
+					movement.Walk ();
+				}
 			}
-			//Right Input Facing Left
-		} else if (Input.GetAxis (horiInput) > 0.1f && !facingRight) {
-			if (Input.GetAxis (vertInput) > 0.1f) {
-				inputQueue += "Backward+Up(L),";
+		//Left Input Facing Left
+		} else if (Input.GetAxis (horiInput) < -horiDeadZone && !facingRight) {
+			//Forward+Up(L)
+			if (Input.GetAxis (vertInput) > vertDeadZone && movement.character.isGrounded) {
 				canMove = false;
 				movement.DiagonalJump ();
-			} else if (Input.GetButtonDown (dashInput)) {
-				inputQueue += "Backward+Dash(L)";
-				canMove = false;
-				movement.Dash ();
+			//Forward+Down(L)
+			}else if(Input.GetAxis(vertInput)< -vertDeadZone){
+				if (breakDownStep1L) {
+					breakDownStep2 = true;
+				}
+			//Forward(L)
 			} else {
-				inputQueue += "Backward(L),";
-				canMove = false;
-				movement.Walk ();
+				if (!comboTimerStarted) {
+					comboTimerStarted = true;
+					comboTimerEnd = Time.time + comboTimeOut;
+					breakDownStep1L = true;
+				} else if (coupDeGraceStep2) {
+					comboTimerStarted = true;
+					comboTimerEnd = Time.time + comboTimeOut;
+					coupDeGraceStep3 = true;
+				} else if (dashReset && breakDownStep1L) {
+					canMove = false;
+					movement.Dash ();
+				} else {
+					movement.Walk ();
+				}
 			}
-			//Left Input Facing Right
-		} else if (Input.GetAxis (horiInput) < -0.1f && facingRight) {
-			if (Input.GetAxis (vertInput) > 0.1f) {
-				inputQueue += "Backward+Up(R),";
+		
+		//Left Input Facing Right
+		} else if (Input.GetAxis (horiInput) < -horiDeadZone && facingRight) {
+			//Backward+Up(R)
+			if (Input.GetAxis (vertInput) > horiDeadZone) {
 				canMove = false;
 				movement.DiagonalJump ();
-			} else if (Input.GetButtonDown (dashInput)) {
-				inputQueue += "Backward+Dash(R),";
-				canMove = false;
-				movement.Dash ();
+				if (breakDownStep3) {
+					comboTimerStarted = true;
+					comboTimerEnd = Time.time + comboTimeOut;
+					coupDeGraceStep1 = true;
+				}
+			//Backward+Down(R)
+			}else if(Input.GetAxis(vertInput) < -vertDeadZone && breakDownStep3){
+				comboTimerStarted = true;
+				comboTimerEnd = Time.time + comboTimeOut;
+				coupDeGraceStep1 = true;
+			//Backward(R)
 			} else {
-				inputQueue += "Backward(R),";
-				canMove = false;
-				movement.Walk ();
-			}        
-			//Left Input Facing Left
-		} else if (Input.GetAxis (horiInput) < -0.1f && !facingRight) {
-			if (Input.GetAxis (vertInput) > 0.1f && movement.character.isGrounded) {
-				inputQueue += "Forward+Up(L),";
-				canMove = false;
-				movement.DiagonalJump ();
-			} else if (Input.GetButtonDown (dashInput)) {
-				inputQueue += "Forward+Dash(L)";
-				canMove = false;
-				movement.Dash ();
-			} else {
-				inputQueue += "Forward(L),";
-				canMove = false;
-				movement.Walk ();
+				if (!comboTimerStarted) {
+					comboTimerStarted = true;
+					comboTimerEnd = Time.time + comboTimeOut;
+					breakDownStep1L = true;
+				} else if (coupDeGraceStep1) {
+					comboTimerStarted = true;
+					comboTimerEnd = Time.time + comboTimeOut;
+					coupDeGraceStep2 = true;
+				} else if (dashReset && breakDownStep1L) {
+					canMove = false;
+					movement.Dash ();
+
+				} else {
+					movement.Walk ();
+				}
 			}
-			//Up input Facing Right
-		} else if (Input.GetAxis (vertInput) > 0.1f && facingRight && movement.character.isGrounded) {
-			if (Input.GetAxis (horiInput) > 0.1f && movement.character.isGrounded) {
-				inputQueue += "Up+Forward(R),";
+		//Right Input Facing Left
+		} else if (Input.GetAxis (horiInput) > horiDeadZone && !facingRight) {
+			//Backward+Up(L)
+			if (Input.GetAxis (vertInput) > vertDeadZone) {
 				canMove = false;
 				movement.DiagonalJump ();
-			} else if (Input.GetAxis (horiInput) < -0.1f) {
-				inputQueue += "Up+Backward(R),";
+				if (breakDownStep3) {
+					comboTimerStarted = true;
+					comboTimerEnd = Time.time + comboTimeOut;
+					coupDeGraceStep1 = true;
+				}
+			//Backward+Down(L)
+			} else if(Input.GetAxis(vertInput)< -vertDeadZone && breakDownStep3){
+				comboTimerStarted = true;
+				comboTimerEnd = Time.time + comboTimeOut;
+				coupDeGraceStep1 = true;
+			//Backward(L)
+			}else {
+				if (!comboTimerStarted) {
+					comboTimerStarted = true;
+					comboTimerEnd = Time.time + comboTimeOut;
+					breakDownStep1R = true;
+				} else if (coupDeGraceStep1) {
+					comboTimerStarted = true;
+					comboTimerEnd = Time.time + comboTimeOut;
+					coupDeGraceStep2 = true;
+				} else if (dashReset && breakDownStep1R) {
+					canMove = false;
+					movement.Dash ();
+				} else {
+					movement.Walk ();
+				}
+			}
+		//Up input Facing Right
+		} else if (Input.GetAxis (vertInput) > vertDeadZone && facingRight && movement.character.isGrounded) {
+			if (Input.GetAxis (horiInput) > horiDeadZone) {
+				canMove = false;
+				movement.DiagonalJump ();
+			} else if (Input.GetAxis (horiInput) < -horiDeadZone) {
 				canMove = false;
 				movement.DiagonalJump ();
 			} else {
-				inputQueue += "Up(R),";
 				canMove = false;
 				movement.Jump ();
 			}
-			//Up Input Facing Left
-		} else if (Input.GetAxis (vertInput) > 0.1f && !facingRight && movement.character.isGrounded) {
-			if (Input.GetAxis (horiInput) > 0.1f) {
-				inputQueue += "Up+Backward(L),";
+		//Up Input Facing Left
+		} else if (Input.GetAxis (vertInput) > vertDeadZone && !facingRight && movement.character.isGrounded) {
+			if (Input.GetAxis (horiInput) > horiDeadZone) {
 				canMove = false;
 				movement.DiagonalJump ();
-			} else if (Input.GetAxis (horiInput) < -0.1f) {
-				inputQueue += "Up+Forward(L),";
+			} else if (Input.GetAxis (horiInput) < -horiDeadZone) {
 				canMove = false;
 				movement.DiagonalJump ();
 			} else {
-				inputQueue += "Up(L),";
 				canMove = false;
 				movement.Jump ();
 			}
-			//Crouch Input
-		} else if (Input.GetAxis (vertInput) < -0.1f && movement.character.isGrounded) {
-//			if (Input.GetButtonDown (lightInput)) {
-//				if (facingRight) {
-//					inputQueue += "CrouchLightAttack(R),";
-//				} else {
-//					inputQueue += "CrouchLightAttack(L),";
-//				}
-//			} else if (Input.GetButtonDown (medInput)) {
-//				if (facingRight) {
-//					inputQueue += "CrouchMedAtt(R),";
-//				} else {
-//					inputQueue += "CrouchMedAtt(L),";
-//				}
-//			} else if (Input.GetButtonDown (heavyInput)) {
-//				if (facingRight) {
-//					inputQueue += "CrouchHeavyAtt(R),";
-//				} else {
-//					inputQueue += "CrouchHeavyAtt(L),";
-//				}
-//			} else {
-				inputQueue += "Crouch,";
+		//Crouch Input
+		} else if (Input.GetAxis (vertInput) < -vertDeadZone && Input.GetAxis(horiInput) < horiDeadZone && Input.GetAxis(horiInput) > -horiDeadZone && movement.character.isGrounded) {
+			if (breakDownStep2) {
+				breakDownStep3 = true;
 			}
-		Debug.Log (inputQueue);
+		}
 	}
 
 	public void QueueAttackInput(){
+		//TeamButton
+		if(Input.GetButtonDown(teamInput)){
+			if (coupDeGraceStep3) {
+				Debug.Log ("CoupDeGrace");
+			} else {
+				Debug.Log ("Parry");
+			}
 		//Grab/Throw
-		if ((Input.GetButton (lightInput) && Input.GetButton (medInput))||Input.GetAxis(throwInput) > .1) {
+		} if ((Input.GetButton (lightInput) && Input.GetButton (medInput))||Input.GetAxis(throwInput) > horiDeadZone) {
 			if (facingRight) {
-				if (Input.GetAxis (horiInput) < -0.1f) {
+				if (Input.GetAxis (horiInput) < -horiDeadZone) {
 					Debug.Log ("BackwardThrow(R),");
 				} else {
 					Debug.Log ("ForwardThrow(R)");
 				}
 			} else {
-				if (Input.GetAxis (horiInput) > 0.1f) {
+				if (Input.GetAxis (horiInput) > horiDeadZone) {
 					Debug.Log ("BackwardThrow(L),");
 				} else {
 					Debug.Log ("ForwardThrow(L)");
@@ -240,116 +291,95 @@ public class FighterClass : MonoBehaviour {
 		}else if (Input.GetButtonDown (lightInput)) {
 			if (facingRight) {
 				if (movement.character.isGrounded) {
-					if (Input.GetAxis (vertInput) < -0.1f) {
-						//inputQueue += "Crouch_LightAttack(R),";
+					if (breakDownStep3) {
+						Debug.Log ("BreakDown");
+					}else if (Input.GetAxis (vertInput) < -vertDeadZone) {
 						Debug.Log ("Crouch_LightAttack(R),");
 					} else {
-						//inputQueue += "LightAttack(R),";
 						Debug.Log ("LightAttack(R),");
 					}
 				} else {
-					//inputQueue += "Jump_lightAttack(R)";
 					Debug.Log ("Jump_LightAttack(R),");
 				}
 			} else {
 				if (movement.character.isGrounded) {
-					if (Input.GetAxis (vertInput) < -0.1f) {
-						//inputQueue += "Crouch_LightAttack(L)";
+					if (breakDownStep3) {
+						Debug.Log ("BreakDown");
+					}else if (Input.GetAxis (vertInput) < -vertDeadZone) {
 						Debug.Log ("Crouch_LightAttack(L),");
 					} else {
-						//inputQueue += "LightAttack(L)";
 						Debug.Log ("LightAttack(L),");
 					}
 				} else {
-					//inputQueue += "Jump_LightAttack(L)";
 					Debug.Log ("Jump_LightAttack(L),");
 				}
 			}
-			//Medium Attack
+		//Medium Attack
 		} else if (Input.GetButtonDown (medInput)) {
 			if (facingRight) {
 				if (movement.character.isGrounded) {
-					if (Input.GetAxis (vertInput) < -0.1f) {
-						//inputQueue += "Crouch_MedAttack(R)";
+					if (Input.GetAxis (vertInput) < -vertDeadZone) {
 						Debug.Log ("Crouch_MedAttack(R),");
 					} else {
-						//inputQueue += "MedAttack(R)";
 						Debug.Log ("MedAttack(R),");
 					}
 				} else {
-					//inputQueue += "Jump_MedAttack(R)";
 					Debug.Log ("Jump_MedAttack(R),");
 				}
 			} else {
 				if (movement.character.isGrounded) {
-					if (Input.GetAxis (vertInput) < -0.1f) {
-						//inputQueue += "Crouch_MedAttack(L)";
+					if (Input.GetAxis (vertInput) < -vertDeadZone) {
 						Debug.Log ("Crouch_MedAttack(L),");
 					} else {
-						//inputQueue += "MedAttack(L)";
 						Debug.Log ("MedAttack(L),");
 					}
 
 				} else {
-					//inputQueue += "Jump_MedAttack(L)";
 					Debug.Log ("Jump_MedAttack(L),");
 				}
 			}
-			//Heavy Attack
+		//Heavy Attack
 		} else if (Input.GetButtonDown (heavyInput)) {
 			if (facingRight) {
 				if (movement.character.isGrounded) {
-					if (Input.GetAxis (vertInput) < -0.1f) {
-						//inputQueue += "Crouch_HeavyAttack(R)";
+					if (Input.GetAxis (vertInput) < -vertDeadZone) {
 						Debug.Log ("Crouch_HeavyAttack(R),");
 					} else {
-						//inputQueue += "HeavyAttack(R)";
 						Debug.Log ("HeavyAttack(R),");
 					}
 				} else {
-					//inputQueue += "Jump_HeavyAttack(R)";
 					Debug.Log ("Jump_HeavyAttack(R),");
 				}
 			} else {
 				if (movement.character.isGrounded) {
-					if (Input.GetAxis (vertInput) < -0.1f) {
-						//inputQueue += "Crouch_HeavyAttack(L)";
+					if (Input.GetAxis (vertInput) < -vertDeadZone) {
 						Debug.Log ("Crouch_HeavyAttack(L),");
 					} else {
-						//inputQueue += "HeavyAttack(L)";
 						Debug.Log ("HeavyAttack(L),");
 					}
 				} else {
-					//inputQueue += "Jump_HeavyAttack(L)";
 					Debug.Log ("Jump_HeavyAttack(L),");
 				}
 			}
 		} 
-		//Debug.Log (inputQueue);
 	}
-
-	public void RegisterQueue(){
-		List<string> temp = possibleComboQueue;
-		foreach (string _Combo in possibleComboQueue) {
-			if (!_Combo.Contains (inputQueue)) {
-				temp.Remove(_Combo);
-			}
+		
+	public void CheckForCombo(){
+		if (Input.GetAxis (horiInput) == 0 &&( breakDownStep1L || breakDownStep1R) && !breakDownStep3) {
+			dashReset = true;
 		}
-		possibleComboQueue = temp;
-		temp = null;
-		if (possibleComboQueue.Count == 1 && possibleComboQueue.Count != comboInputs.Count) {
-			//do combo
-			Debug.Log("Combo Met = " + possibleComboQueue[0]);
+		if (Time.time >= comboTimerEnd && comboTimerStarted) {
+			breakDownStep1R = false;
+			breakDownStep1L = false;
+			breakDownStep2 = false;
+			breakDownStep3 = false;
+			coupDeGraceStep1 = false;
+			coupDeGraceStep2 = false;
+			coupDeGraceStep3 = false;
+			comboTimerStarted = false;
+			dashReset = false;
+			comboTimerEnd = 0;
 		}
-		if (possibleComboQueue.Count == 0) {
-			ResetQueue ();
-		}
-
-	}
-
-	public void ResetQueue(){
-		inputQueue = "";
-		possibleComboQueue = comboInputs;
 	}
 	//Class Functions
 	//Recieve Damage
