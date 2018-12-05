@@ -1,113 +1,56 @@
-﻿//Jake Poshepny
-//10 31 18 (spooky)
-
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Place this script on a HURT BOX
+
+[RequireComponent(typeof(BoxCollider))]
 public class TakeDamage : MonoBehaviour
 {
-    public int health = 100;
+    #region Variables
 
-    public int lightDamage = 5;
-    public int mediumDamage = 10;
-    public int heavyDamage = 20;
+    //the player this hurtbox belongs to
+    public PlayerInfo playerInfo;
+    [HideInInspector] public GameObject player;
+    #endregion
 
-    public BoxCollider hurtHigh;
-    public BoxCollider hurtMid;
-    public BoxCollider hurtLow;
-
-    public void DamageReceived(string attackType, string heightTag)
+    #region Functions
+    private void Start()
     {
-        if (attackType == null)
+        player = playerInfo.transform.gameObject;
+    }
+
+    //when this hurtbox is hit
+    private void OnTriggerEnter(Collider hitbox)
+    {
+        GameObject o = hitbox.gameObject;
+        AttackDamage atkdmg = o.GetComponent<AttackDamage>();
+
+        if (o.tag == "attackBall" && atkdmg.attack.canHit && atkdmg.playerInfo.team != player.GetComponent<PlayerInfo>().team)
         {
-            return;
-        }
-        
-        else if (attackType != null)
-        {
-            switch (attackType)
+            if (!atkdmg.attack.hasHit)
             {
-                case "Light":
-                    switch (heightTag)
-                    {
-                        case "High":
-                            health -= lightDamage;
-                            tag = null;
-                            Debug.Log("Light - High");
-                            break;
-
-                        case "Mid":
-                            health -= lightDamage;
-                            tag = null;
-                            Debug.Log("Light - Mid");
-                            break;
-
-                        case "Low":
-                            health -= lightDamage;
-                            tag = null;
-                            Debug.Log("Light - Low");
-                            break;
-                    }
-                    attackType = null;
-                    break;
-
-                case "Medium":
-                    switch (heightTag)
-                    {
-                        case "High":
-                            health -= mediumDamage;
-                            tag = null;
-                            Debug.Log("Medium - High");
-                            break;
-
-                        case "Mid":
-                            health -= mediumDamage;
-                            tag = null;
-                            Debug.Log("Medium - Mid");
-                            break;
-
-                        case "Low":
-                            health -= mediumDamage;
-                            tag = null;
-                            Debug.Log("Medium - Low");
-                            break;
-                    }
-                    attackType = null;
-                    break;
-
-                case "Heavy":
-                    switch (heightTag)
-                    {
-                        case "High":
-                            health -= heavyDamage;
-                            tag = null;
-                            Debug.Log("Heavy - High");
-                            break;
-
-                        case "Mid":
-                            health -= heavyDamage;
-                            tag = null;
-                            Debug.Log("Heavy - Mid");
-                            break;
-
-                        case "Low":
-                            health -= heavyDamage;
-                            tag = null;
-                            Debug.Log("Heavy - Low");
-                            break;
-                    }
-                    attackType = null;
-                    break;
+                atkdmg.attack.CallDelay();
+                ReceiveDamage(atkdmg.Damage);
             }
+            else
+                return;
         }
+        else
+            return;
     }
 
-    private void OnTriggerEnter(Collider other)
+    //apply damage to the player health
+    private void ReceiveDamage(int baseDamage)
     {
-        if (other.gameObject.tag == "Attack")
-        {
-            //DamageReceived(other.gameObject.GetComponent<Attack>().)
-        }
+        //store damage in a variable for easy debug log, can be changed later
+        float damageToDeal = baseDamage;
+
+        //reduce the player health and round it to a whole number
+        playerInfo.health -= damageToDeal;
+        Mathf.RoundToInt(playerInfo.health);
+
+        Debug.Log("HitBox of Team " + playerInfo.team + " Hit for " + damageToDeal + " points of damage");
     }
+    #endregion
 }

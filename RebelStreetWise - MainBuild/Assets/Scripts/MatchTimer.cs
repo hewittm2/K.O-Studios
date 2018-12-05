@@ -30,6 +30,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+#pragma warning disable 0414
+
 public class MatchTimer : MonoBehaviour {
 
     #region(vars)

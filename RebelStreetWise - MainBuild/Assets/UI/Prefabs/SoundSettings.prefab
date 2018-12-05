@@ -210,7 +210,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1586405183314804
 GameObject:
   m_ObjectHideFlags: 1
@@ -782,12 +782,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   masterMixer: {fileID: 24300002, guid: 94d57425fc8630a489e9837e26404a6a, type: 2}
-  musicMixer: {fileID: 243142078484366404, guid: 94d57425fc8630a489e9837e26404a6a,
-    type: 2}
-  effectsMixer: {fileID: 0}
   musicSlider: {fileID: 0}
   effectsSlider: {fileID: 0}
   masterSlider: {fileID: 0}
+  dropDown: {fileID: 0}
+  fullScreen: 0
+  fullToggle: {fileID: 0}
+  res: 0
 --- !u!114 &114702075444672656
 MonoBehaviour:
   m_ObjectHideFlags: 1

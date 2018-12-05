@@ -7,38 +7,16 @@ public class Attack : MonoBehaviour
     public bool canHit = true;
     public bool hasHit = false;
 
-    public BoxCollider[] hitboxes = new BoxCollider[0];
+    public BoxCollider[] hurtboxes = new BoxCollider[0];
 
     [HideInInspector] public int attackTime = 1;
 
-    private void Update()
-    {
-        PlayerAttack();
-    }
-
-    public void PlayerAttack()
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha1) && canHit)
-        {
-            StartCoroutine(AttackDelay(hitboxes[0], attackTime));
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha2) && canHit)
-        {
-            StartCoroutine(AttackDelay(hitboxes[1], attackTime));
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha3) && canHit)
-        {
-            StartCoroutine(AttackDelay(hitboxes[2], attackTime));
-        }
-    }
-
     public void CallDelay()
     {
-        StartCoroutine(AttackDelay(hitboxes[0], attackTime));
+        StartCoroutine(AttackDelay(hurtboxes[0], attackTime));
     }
 
+    //DONT CHANGE THIS IT WORKS 
     public IEnumerator AttackDelay(BoxCollider hitbox, int cooldown)
     {
         canHit = false;

@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class PlayerInfo : MonoBehaviour
 {
-    public float playerHealth;
+    public float health;
     public int team;
 }

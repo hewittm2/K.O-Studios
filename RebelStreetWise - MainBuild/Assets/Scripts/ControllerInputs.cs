@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+#pragma warning disable 0414
+
 public class ControllerInputs : MonoBehaviour {
     //drop whatever Playerjoin is attached to in this slot
     public GameObject GameManger;

@@ -21,11 +21,11 @@ GameObject:
   - component: {fileID: 4563018999211208}
   - component: {fileID: 33944857319021156}
   - component: {fileID: 23000065259967526}
+  - component: {fileID: 114741640390960698}
   - component: {fileID: 114040011502215420}
   - component: {fileID: 54186829595289376}
   - component: {fileID: 143838671706845946}
   - component: {fileID: 65127650196188864}
-  - component: {fileID: 114741640390960698}
   m_Layer: 0
   m_Name: FighterTest
   m_TagString: Untagged
@@ -128,11 +128,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 0
   totalHealth: 0
-  defValue: 0
-  canRecieveDamage: 0
-  facingRight: 1
-  canMove: 1
-  canAttack: 1
+  defValue: 0.99
+  horiDeadZone: 0.3
+  vertDeadZone: 0.3
+  comboTimeOut: 0.2
   wholeBody: {fileID: 0}
   upperBody: {fileID: 0}
   lowerBody: {fileID: 0}
@@ -146,10 +145,11 @@ MonoBehaviour:
   heavyInput: Y_1
   specialInput: 
   throwInput: TriggersR_1
-  dashInput: RBump_1
-  comboNames: []
-  comboInputs: []
-  comboTimer: 0
+  teamInput: RBump_1
+  facingRight: 1
+  canMove: 1
+  canAttack: 1
+  canRecieveDamage: 0
 --- !u!114 &114741640390960698
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -161,13 +161,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fc0484c8a8e3ac4a805fe427cd1dcbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 6
-  gravity: -0.7
-  jumpForce: 0.3
-  jumpCD: 0
-  dashSpeed: 25.9
-  maxDashTime: 0.2
-  dashStopSpeed: 0.1
+  forwardMoveSpeed: 6
+  backMoveSpeed: 4
+  forwardDashSpeed: 18
+  backDashSpeed: 12
+  vertJumpForce: 0.25
+  horiJumpForce: 0.125
+  jumpCD: 1
   character: {fileID: 0}
   fighter: {fileID: 0}
 --- !u!143 &143838671706845946
