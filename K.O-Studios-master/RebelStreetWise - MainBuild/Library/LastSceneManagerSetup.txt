@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/TestScenes/Camera System.unity
+  isLoaded: 1
+  isActive: 1
