@@ -11,7 +11,7 @@ public class MapSelectManager : MonoBehaviour
 
     public string[] stageNames;
     //current scene name selected
-    public string selectedMap;
+    private string selectedMap;
 
     void Update()
     {
@@ -21,7 +21,6 @@ public class MapSelectManager : MonoBehaviour
             mapSlector = GameObject.FindWithTag("MapSelector").GetComponent<Slider>();
             mapSelectButton = GameObject.FindWithTag("MapButton").GetComponent<Button>();
             mapSlector.onValueChanged.AddListener(delegate { StageSelect(); });
-            mapSelectButton.onClick.AddListener(StageSelect);
         }
     }
 
@@ -30,13 +29,13 @@ public class MapSelectManager : MonoBehaviour
     public void StageSelect()
     {
         int q = Mathf.RoundToInt(mapSlector.value);
-        Debug.Log(q);
-
+      
         if (Input.GetButtonDown("A_1"))
         {
-            Debug.Log("yes");
+            
             selectedMap = stageNames[q];
-            SceneManager.LoadScene(selectedMap);
+            print(selectedMap);
+            FindObjectOfType<LoadingScene>().LoadScene(selectedMap);
         }
     }
 }

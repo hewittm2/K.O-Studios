@@ -15,11 +15,13 @@ public class FighterClass : MonoBehaviour {
 		Recovery,
 		Regular
 	}
+	public Sprite charSprite;
 	private FrameType CurrFrameType;
-
-
-	//Variables For Designers
-	public int currentHealth;
+	public bool flip;
+    public int playerNumber;
+	public int teamNumber;
+    //Variables For Designers
+    public int currentHealth;
 	public int totalHealth;
 	public float defValue;
 	public float horiDeadZone;
@@ -33,7 +35,8 @@ public class FighterClass : MonoBehaviour {
 	public GameObject highHit;
 	public GameObject midHit;
 	public GameObject lowHit;
-
+	public List<GameObject> lockOnTargets;
+	public GameObject lockOnTarget;
 	//Attacks
 
     //Controller Inputs
@@ -47,13 +50,13 @@ public class FighterClass : MonoBehaviour {
     public string specialInput;
 	public string throwInput;
 	public string teamInput;
-    public string dashInput;
-
+    public string lockOnInput;
+	public string startButton;
 	//Controller Inputs: Need to Implement
 	//public string horiDpad;
 	//public string vertDpad;
-	[HideInInspector]
-	public bool facingRight = true;
+	//[HideInInspector]
+	public bool facingRight;
 	[HideInInspector]
 	public bool canMove = true;
 	[HideInInspector]
@@ -70,18 +73,28 @@ public class FighterClass : MonoBehaviour {
 	bool coupDeGraceStep3 = false;
 	bool comboTimerStarted = false;
 	bool dashReset = false;
-
 	float comboTimerEnd = 0;
 	BaseMovement movement;
-
+	public Animator anim;
 	// Use this for initialization
 	void Start () {
 		CurrFrameType = FrameType.Regular;
 		movement = GetComponent<BaseMovement> ();
+		currentHealth = totalHealth;
+		if (teamNumber == 1) {
+			lockOnTargets.AddRange(FindObjectOfType<StageManager> ().team2);
+			lockOnTarget = lockOnTargets [0];
+		}else if(teamNumber == 2){
+			lockOnTargets.AddRange(FindObjectOfType<StageManager> ().team1);
+			lockOnTarget = lockOnTargets [0];
+		}
+
+
 	}
 
 	// Update is called once per frame
 	void Update () {
+		//print ("hor = " + horiInput);
 //		switch(CurrFrameType){
 //		case FrameType.Active:
 //			break;
@@ -94,27 +107,58 @@ public class FighterClass : MonoBehaviour {
 //			RegisterQueue ();
 //			break;
 //		}
-		if (canMove) {
-			QueueMovementInput ();
+		if(flip){
+			ToggleDirection ();
 		}
 		if (canAttack) {
 			QueueAttackInput ();
 		}
-		CheckForCombo ();
-	}
+		if (canMove) {
+			QueueMovementInput ();
+		}
 
+		CheckForCombo ();
+		if (lockOnTargets.Count != 0){
+			if (Input.GetButtonDown (lockOnInput)) {
+				if (lockOnTarget == lockOnTargets [0]) {
+					lockOnTarget = lockOnTargets [1];
+				} else {
+					lockOnTarget = lockOnTargets [0];
+				}
+				CheckTarget (lockOnTarget);
+			}
+//			if (checkDelay < 10) {
+//				print ("check");
+//
+//			}
+//			checkDelay++;
+		}
+        if (Input.GetButtonDown(startButton))
+        {
+            Debug.Log("yes");
+            PauseGame pauseGame = FindObjectOfType<PauseGame>();
+            pauseGame.Pause(playerNumber);
+        }
+    }
+	void FixedUpdate(){
+		if (lockOnTarget != null) {
+			CheckTarget (lockOnTarget);
+		}
+
+	}
 	public void QueueMovementInput(){
 		
-		if(Input.GetKeyDown(KeyCode.Space)){
-			facingRight = !facingRight;
-			gameObject.transform.Rotate (new Vector3 (0, 180, 0));
-		}
+		//Assume Idle
+		anim.SetBool("Walking",false);
+		anim.SetBool ("Walking Backwards", false);
+		anim.SetBool ("Crouching Idle", false);
 		//Right Input Facing Right
 		if (Input.GetAxis (horiInput) > horiDeadZone && facingRight) {
 			//Forward+Up(R)
 			if (Input.GetAxis (vertInput) > vertDeadZone && movement.character.isGrounded) {
 				canMove = false;
 				movement.DiagonalJump ();
+				anim.SetTrigger ("Jumping");
 			//Forward+Down(R)
 			}else if(Input.GetAxis(vertInput)< -vertDeadZone){
 				if (breakDownStep1R) {
@@ -134,9 +178,11 @@ public class FighterClass : MonoBehaviour {
 					coupDeGraceStep3 = true;
 				} else if (dashReset && breakDownStep1R) {
 					canMove = false;
-					movement.Dash ();
+					movement.Dash (Input.GetAxis(horiInput));
+					anim.SetTrigger ("Dash");
 				} else {
 					movement.Walk ();
+					anim.SetBool ("Walking", true);
 				}
 			}
 		//Left Input Facing Left
@@ -145,6 +191,7 @@ public class FighterClass : MonoBehaviour {
 			if (Input.GetAxis (vertInput) > vertDeadZone && movement.character.isGrounded) {
 				canMove = false;
 				movement.DiagonalJump ();
+				anim.SetTrigger ("Jumping");
 			//Forward+Down(L)
 			}else if(Input.GetAxis(vertInput)< -vertDeadZone){
 				if (breakDownStep1L) {
@@ -162,9 +209,11 @@ public class FighterClass : MonoBehaviour {
 					coupDeGraceStep3 = true;
 				} else if (dashReset && breakDownStep1L) {
 					canMove = false;
-					movement.Dash ();
+					movement.Dash (Input.GetAxis(horiInput));
+					anim.SetTrigger ("Dash");
 				} else {
 					movement.Walk ();
+					anim.SetBool ("Walking", true);
 				}
 			}
 		
@@ -174,6 +223,7 @@ public class FighterClass : MonoBehaviour {
 			if (Input.GetAxis (vertInput) > horiDeadZone) {
 				canMove = false;
 				movement.DiagonalJump ();
+				anim.SetTrigger ("Jumping");
 				if (breakDownStep3) {
 					comboTimerStarted = true;
 					comboTimerEnd = Time.time + comboTimeOut;
@@ -196,10 +246,12 @@ public class FighterClass : MonoBehaviour {
 					coupDeGraceStep2 = true;
 				} else if (dashReset && breakDownStep1L) {
 					canMove = false;
-					movement.Dash ();
+					movement.Dash (Input.GetAxis(horiInput));
+					anim.SetTrigger ("Dash");
 
 				} else {
 					movement.Walk ();
+					anim.SetBool ("Walking Backwards", true);
 				}
 			}
 		//Right Input Facing Left
@@ -208,6 +260,7 @@ public class FighterClass : MonoBehaviour {
 			if (Input.GetAxis (vertInput) > vertDeadZone) {
 				canMove = false;
 				movement.DiagonalJump ();
+				anim.SetTrigger ("Jumping");
 				if (breakDownStep3) {
 					comboTimerStarted = true;
 					comboTimerEnd = Time.time + comboTimeOut;
@@ -230,9 +283,11 @@ public class FighterClass : MonoBehaviour {
 					coupDeGraceStep2 = true;
 				} else if (dashReset && breakDownStep1R) {
 					canMove = false;
-					movement.Dash ();
+					movement.Dash (Input.GetAxis(horiInput));
+					anim.SetTrigger ("Dash");
 				} else {
 					movement.Walk ();
+					anim.SetBool ("Walking Backwards", true);
 				}
 			}
 		//Up input Facing Right
@@ -240,30 +295,37 @@ public class FighterClass : MonoBehaviour {
 			if (Input.GetAxis (horiInput) > horiDeadZone) {
 				canMove = false;
 				movement.DiagonalJump ();
+				anim.SetTrigger ("Jumping");
 			} else if (Input.GetAxis (horiInput) < -horiDeadZone) {
 				canMove = false;
 				movement.DiagonalJump ();
+				anim.SetTrigger ("Jumping");
 			} else {
 				canMove = false;
 				movement.Jump ();
+				anim.SetTrigger ("Jumping");
 			}
 		//Up Input Facing Left
 		} else if (Input.GetAxis (vertInput) > vertDeadZone && !facingRight && movement.character.isGrounded) {
 			if (Input.GetAxis (horiInput) > horiDeadZone) {
 				canMove = false;
 				movement.DiagonalJump ();
+				anim.SetTrigger ("Jumping");
 			} else if (Input.GetAxis (horiInput) < -horiDeadZone) {
 				canMove = false;
 				movement.DiagonalJump ();
+				anim.SetTrigger ("Jumping");
 			} else {
 				canMove = false;
 				movement.Jump ();
+				anim.SetTrigger ("Jumping");
 			}
 		//Crouch Input
 		} else if (Input.GetAxis (vertInput) < -vertDeadZone && Input.GetAxis(horiInput) < horiDeadZone && Input.GetAxis(horiInput) > -horiDeadZone && movement.character.isGrounded) {
 			if (breakDownStep2) {
 				breakDownStep3 = true;
 			}
+			anim.SetBool ("Crouching Idle", true);
 		}
 	}
 
@@ -272,8 +334,12 @@ public class FighterClass : MonoBehaviour {
 		if(Input.GetButtonDown(teamInput)){
 			if (coupDeGraceStep3) {
 				Debug.Log ("CoupDeGrace");
+				anim.SetTrigger ("Coup De Grace");
+				StartCoroutine (attackDelay ());
 			} else {
+				//Address this semester 2
 				Debug.Log ("Parry");
+				anim.SetTrigger ("Block");
 			}
 		//Grab/Throw
 		} if ((Input.GetButton (lightInput) && Input.GetButton (medInput))||Input.GetAxis(throwInput) > horiDeadZone) {
@@ -296,25 +362,41 @@ public class FighterClass : MonoBehaviour {
 				if (movement.character.isGrounded) {
 					if (breakDownStep3) {
 						Debug.Log ("BreakDown");
+						anim.SetTrigger("Break Down");
+						StartCoroutine (attackDelay ());
 					}else if (Input.GetAxis (vertInput) < -vertDeadZone) {
 						Debug.Log ("Crouch_LightAttack(R),");
+						anim.SetTrigger ("Crouching Light Attack");
+						StartCoroutine (attackDelay ());
 					} else {
 						Debug.Log ("LightAttack(R),");
+						anim.SetTrigger ("Light Attack");
+						StartCoroutine (attackDelay ());
 					}
 				} else {
 					Debug.Log ("Jump_LightAttack(R),");
+					anim.SetTrigger ("Jumping Light Attack");
+					StartCoroutine (attackDelay ());
 				}
 			} else {
 				if (movement.character.isGrounded) {
 					if (breakDownStep3) {
 						Debug.Log ("BreakDown");
+						anim.SetTrigger ("Break Down");
+						StartCoroutine (attackDelay ());
 					}else if (Input.GetAxis (vertInput) < -vertDeadZone) {
 						Debug.Log ("Crouch_LightAttack(L),");
+						anim.SetTrigger ("Crouching Light Attack");
+						StartCoroutine (attackDelay ());
 					} else {
 						Debug.Log ("LightAttack(L),");
+						anim.SetTrigger ("Light Attack");
+						StartCoroutine (attackDelay ());
 					}
 				} else {
 					Debug.Log ("Jump_LightAttack(L),");
+					anim.SetTrigger ("Jumping Light Attack");
+					StartCoroutine (attackDelay ());
 				}
 			}
 		//Medium Attack
@@ -323,22 +405,34 @@ public class FighterClass : MonoBehaviour {
 				if (movement.character.isGrounded) {
 					if (Input.GetAxis (vertInput) < -vertDeadZone) {
 						Debug.Log ("Crouch_MedAttack(R),");
+						anim.SetTrigger ("Crouching Medium Attack");
+						StartCoroutine (attackDelay ());
 					} else {
 						Debug.Log ("MedAttack(R),");
+						anim.SetTrigger ("Medium Attack");
+						StartCoroutine (attackDelay ());
 					}
 				} else {
 					Debug.Log ("Jump_MedAttack(R),");
+					anim.SetTrigger ("Jumping Medium Attack");
+					StartCoroutine (attackDelay ());
 				}
 			} else {
 				if (movement.character.isGrounded) {
 					if (Input.GetAxis (vertInput) < -vertDeadZone) {
 						Debug.Log ("Crouch_MedAttack(L),");
+						anim.SetTrigger ("Crouching Medium Attack");
+						StartCoroutine (attackDelay ());
 					} else {
 						Debug.Log ("MedAttack(L),");
+						anim.SetTrigger ("Medium Attack");
+						StartCoroutine (attackDelay ());
 					}
 
 				} else {
 					Debug.Log ("Jump_MedAttack(L),");
+					anim.SetTrigger ("Jumpimg Medium Attack");
+					StartCoroutine (attackDelay ());
 				}
 			}
 		//Heavy Attack
@@ -347,21 +441,33 @@ public class FighterClass : MonoBehaviour {
 				if (movement.character.isGrounded) {
 					if (Input.GetAxis (vertInput) < -vertDeadZone) {
 						Debug.Log ("Crouch_HeavyAttack(R),");
+						anim.SetTrigger ("Crouching Heavy Attack");
+						StartCoroutine (attackDelay ());
 					} else {
 						Debug.Log ("HeavyAttack(R),");
+						anim.SetTrigger ("Heavy Attack");
+						StartCoroutine (attackDelay ());
 					}
 				} else {
 					Debug.Log ("Jump_HeavyAttack(R),");
+					anim.SetTrigger ("Jumping Heavy Attack");
+					StartCoroutine (attackDelay ());
 				}
 			} else {
 				if (movement.character.isGrounded) {
 					if (Input.GetAxis (vertInput) < -vertDeadZone) {
 						Debug.Log ("Crouch_HeavyAttack(L),");
+						anim.SetTrigger ("Crouching Heavy Attack");
+						StartCoroutine (attackDelay ());
 					} else {
 						Debug.Log ("HeavyAttack(L),");
+						anim.SetTrigger ("Heavy Attack");
+						StartCoroutine (attackDelay ());
 					}
 				} else {
 					Debug.Log ("Jump_HeavyAttack(L),");
+					anim.SetTrigger ("Jumping Heavy Attack");
+					StartCoroutine (attackDelay ());
 				}
 			}
 		} 
@@ -384,6 +490,82 @@ public class FighterClass : MonoBehaviour {
 			comboTimerEnd = 0;
 		}
 	}
+	public void ToggleDirection(){
+		flip = false;
+		facingRight = !facingRight;
+		gameObject.transform.Rotate (new Vector3 (0, 180, 0));
+	}
+	public void CheckTarget(GameObject target){
+		if (gameObject.transform.position.x > target.transform.position.x) {
+			facingRight = false;
+			gameObject.transform.rotation = Quaternion.Euler(0,270,0);
+
+		}else if(gameObject.transform.position.x < target.transform.position.x){
+			facingRight = true;
+			gameObject.transform.rotation = Quaternion.Euler(0, 90, 0);
+		}
+	}
+
+
+
+
+
+
+
+	//Temp Location, move to attackFramework;
+	IEnumerator attackDelay(){
+		canAttack = false;
+		yield return new WaitForSeconds (anim.GetCurrentAnimatorClipInfo (0).Length);
+		canAttack = true;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	//Class Functions
 	//Recieve Damage
 	public virtual void TakeDamage(){

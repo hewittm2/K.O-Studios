@@ -6,7 +6,7 @@ using UnityEngine;
 public class BaseMovement : MonoBehaviour
 {
 	//Movement
-	Vector2 input;
+	public Vector2 input;
 	Vector2 movement;
 	public float forwardMoveSpeed;
     public float backMoveSpeed;
@@ -27,7 +27,7 @@ public class BaseMovement : MonoBehaviour
 	//RequiredComponents
 	[HideInInspector]
     public CharacterController character;
-	[HideInInspector]
+	//[HideInInspector]
 	public FighterClass fighter;
 	Rigidbody rigid;
 	//Hit/Hurt Boxes
@@ -40,7 +40,8 @@ public class BaseMovement : MonoBehaviour
     private void Start(){
 		rigid = gameObject.GetComponent<Rigidbody>();
         character = gameObject.GetComponent<CharacterController>();
-		fighter = gameObject.GetComponent<FighterClass> ();
+		fighter = this.gameObject.GetComponent<FighterClass> ();
+
         for(int i = 0; i < 2; i++){
             centerArray[i] = character.center - new Vector3(0, centerOffset, 0);
             radiusArray[i] = character.radius / (i + 1);
@@ -98,7 +99,7 @@ public class BaseMovement : MonoBehaviour
 		jump = new Vector2(0, verticalVelocity);
 		character.Move(jump);
 		yield return new WaitForSeconds (jumpCD);
-		fighter.canMove = true;
+		fighter.canAction = true;
 	}
 	public void DiagonalJump(){
 		StartCoroutine (DiagonalJumping());
@@ -121,19 +122,21 @@ public class BaseMovement : MonoBehaviour
 		}
 		character.Move(jump);
 		yield return new WaitForSeconds (jumpCD);
-		fighter.canMove = true;
+		fighter.canAction = true;
 	}
     //HEY THIS WORKS TOO! //Ethan, Mike, Jacob, Cale, Too Awesome, Put me in the credits, I want royalties
-	public void Dash(){
+	public void Dash(float input){
+		//print ("x = " + input);
 		if(!dashing){
 			if (fighter.facingRight) {
-				if (input.x > 0) {
+				if (input > 0) {
 					StartCoroutine (Dashing (1,forwardDashSpeed));
+					return;
 				} else {
 					StartCoroutine (Dashing (-1,backDashSpeed));
 				}
 			} else {
-				if (input.x < 0) {
+				if (input < 0) {
 					StartCoroutine (Dashing (-1,forwardDashSpeed));
 				} else {
 					StartCoroutine (Dashing (1,backDashSpeed));
@@ -150,7 +153,7 @@ public class BaseMovement : MonoBehaviour
 		rigid.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionZ;
 		rigid.velocity = new Vector3(0, 0, 0);
 		rigid.angularVelocity = new Vector3(0, 0, 0);
-		rigid.velocity += (new Vector3(dashSpeed * direction, 0, 0));
+		rigid.velocity += (new Vector3(dashSpeed * direction,0, 0));
         yield return new WaitForSeconds(dashSpeed/100);
 		rigid.velocity = new Vector3(0, 0, 0);
         rigid.angularVelocity = new Vector3(0, 0, 0);
@@ -158,7 +161,7 @@ public class BaseMovement : MonoBehaviour
 		rigid.constraints = RigidbodyConstraints.FreezeAll;
 		character.enabled = true;
         dashing = false;
-		fighter.canMove = true;
+		fighter.canAction = true;
     }
 
     public void Duck(){

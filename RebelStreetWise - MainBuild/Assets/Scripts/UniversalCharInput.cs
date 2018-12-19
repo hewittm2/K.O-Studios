@@ -14,27 +14,28 @@ public class UniversalCharInput : MonoBehaviour
     private FighterClass cAssign;
 
     //Buttons
-    public string aButton;
-    public string bButton;
-    public string yButton;
-    public string xButton;
-    public string startButton;
-    public string backButton;
-    public string rightBumper;
-    public string leftBumper;
-    public string leftTrigger;
-    public string rightTrigger;
-    public string dpadY;
-    public string dpadX;
-    public string lStickY;
-    public string lStickX;
-    public string rStickY;
-    public string rStickX;
+    string aButton;
+    string bButton;
+    string yButton;
+    string xButton;
+    string startButton;
+    string backButton;
+    string rightBumper;
+    string leftBumper;
+    string leftTrigger;
+    string rightTrigger;
+    string dpadY;
+    string dpadX;
+    string lStickY;
+    string lStickX;
+    string rStickY;
+    string rStickX;
 
     void Start()
     {
         cAssign = GetComponent<FighterClass>();
-        StartCoroutine(AssignDelay());
+		CheckPlayer ();
+        //StartCoroutine(AssignDelay());
     }
 
     private IEnumerator AssignDelay()
@@ -84,8 +85,10 @@ public class UniversalCharInput : MonoBehaviour
         cAssign.medInput = xButton;
         cAssign.heavyInput = yButton;
         cAssign.specialInput = bButton;
-        cAssign.dashInput = leftBumper;
+        cAssign.lockOnInput = leftBumper;
+		cAssign.teamInput = rightBumper;
         cAssign.horiInput = lStickX;
         cAssign.vertInput = lStickY;
+		cAssign.startButton = startButton;
     }
 }

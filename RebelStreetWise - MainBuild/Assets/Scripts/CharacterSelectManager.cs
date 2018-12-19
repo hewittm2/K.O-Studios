@@ -24,16 +24,16 @@ public class CharacterSelectManager : MonoBehaviour
         switch (player)
         {
             case 1:
-                cs.playerOne = character;
+                cs.players[0] = character;
                 break;
             case 2:
-                cs.playerTwo = character;
+                cs.players[1] = character;
                 break;
             case 3:
-                cs.playerThree = character;
+                cs.players[2] = character;
                 break;
             case 4:
-                cs.playerFour = character;
+                cs.players[3] = character;
                 break;
         }
     }
