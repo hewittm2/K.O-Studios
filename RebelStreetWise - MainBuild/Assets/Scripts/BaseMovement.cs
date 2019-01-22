@@ -99,7 +99,7 @@ public class BaseMovement : MonoBehaviour
 		jump = new Vector2(0, verticalVelocity);
 		character.Move(jump);
 		yield return new WaitForSeconds (jumpCD);
-		fighter.canAction = true;
+		fighter.canMove = true;
 	}
 	public void DiagonalJump(){
 		StartCoroutine (DiagonalJumping());
@@ -122,7 +122,7 @@ public class BaseMovement : MonoBehaviour
 		}
 		character.Move(jump);
 		yield return new WaitForSeconds (jumpCD);
-		fighter.canAction = true;
+		fighter.canMove = true;
 	}
     //HEY THIS WORKS TOO! //Ethan, Mike, Jacob, Cale, Too Awesome, Put me in the credits, I want royalties
 	public void Dash(float input){
@@ -161,7 +161,7 @@ public class BaseMovement : MonoBehaviour
 		rigid.constraints = RigidbodyConstraints.FreezeAll;
 		character.enabled = true;
         dashing = false;
-		fighter.canAction = true;
+		fighter.canMove = true;
     }
 
     public void Duck(){
