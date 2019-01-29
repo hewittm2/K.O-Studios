@@ -27,6 +27,7 @@ public class CameraSystem : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		//Characters.Add (FindObjectOfType<FighterClass>().transform);
+		Characters.Clear();
 		foreach(FighterClass  f in FindObjectsOfType<FighterClass>()){
 			Characters.Add (f.transform);
 		}
@@ -132,7 +133,7 @@ public class CameraSystem : MonoBehaviour {
 					t = 0.0f;
 				}
 			}
-			Debug.Log (b);
+			//Debug.Log (b);
 			transform.position = new Vector3 (center.x, center.y, Mathf.Clamp(transform.position.z, MaxCloseness, MinCloseness));
 			//transform.position = new Vector3(center.x , center.y, 0);
 		}

@@ -3745,7 +3745,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1487764832636296
 GameObject:
   m_ObjectHideFlags: 1
@@ -4511,6 +4511,7 @@ GameObject:
   - component: {fileID: 4609735382663456}
   - component: {fileID: 33115249324672670}
   - component: {fileID: 23592101480113006}
+  - component: {fileID: 65833896960980618}
   m_Layer: 0
   m_Name: Bar Floor
   m_TagString: Untagged
@@ -30566,6 +30567,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65833896960980618
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1576877248611462}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.8072224, y: 1.6618036, z: 0.021658612}
+  m_Center: {x: 0.000000014901161, y: 0, z: 0.010829291}
 --- !u!65 &65923949721142654
 BoxCollider:
   m_ObjectHideFlags: 1
