@@ -106,9 +106,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   MinCloseness: -10
-  MaxCloseness: -40
+  MaxCloseness: -30
   ReadyToTrack: 1
-  MaxDistanceToResize: 17
-  MinDistanceToResize: 12
-  resizeIncrement: 2
-  LerpSpeed: 1
+  MaxDistanceToResize: 20
+  MinDistanceToResize: 16
+  resizeIncrement: 3
+  furtherstApartPair: []
+  LerpSpeed: 2

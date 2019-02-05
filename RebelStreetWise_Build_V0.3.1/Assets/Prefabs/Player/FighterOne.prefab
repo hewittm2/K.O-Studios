@@ -52,9 +52,10 @@ GameObject:
   - component: {fileID: 33954186843139136}
   - component: {fileID: 23499414811512616}
   - component: {fileID: 135569461701838550}
+  - component: {fileID: 114467947128496816}
   m_Layer: 0
   m_Name: LeftFoot
-  m_TagString: Untagged
+  m_TagString: attackBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -133,6 +134,7 @@ GameObject:
   - component: {fileID: 33163604610870602}
   - component: {fileID: 23565957068427306}
   - component: {fileID: 65402739224674330}
+  - component: {fileID: 114276971265847322}
   m_Layer: 0
   m_Name: LeftArm HurtBox Upper
   m_TagString: Untagged
@@ -468,8 +470,9 @@ GameObject:
   - component: {fileID: 33864764074375300}
   - component: {fileID: 23661928623456868}
   - component: {fileID: 65304857688847652}
+  - component: {fileID: 114837201921753244}
   m_Layer: 0
-  m_Name: Chest HitBox
+  m_Name: Chest HurtBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -486,6 +489,7 @@ GameObject:
   - component: {fileID: 33308842475929834}
   - component: {fileID: 23268929800639788}
   - component: {fileID: 65936713827761006}
+  - component: {fileID: 114765241008354840}
   m_Layer: 0
   m_Name: LeftLeg Hurt Box Upper
   m_TagString: Untagged
@@ -519,9 +523,10 @@ GameObject:
   - component: {fileID: 33915444044996602}
   - component: {fileID: 23772433574169690}
   - component: {fileID: 135613833523680112}
+  - component: {fileID: 114941605148323226}
   m_Layer: 0
   m_Name: LeftHand
-  m_TagString: Untagged
+  m_TagString: attackBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -617,6 +622,8 @@ GameObject:
   - component: {fileID: 114395752225279186}
   - component: {fileID: 136521435956463136}
   - component: {fileID: 114112122534753446}
+  - component: {fileID: 114043728906146284}
+  - component: {fileID: 114974295838064034}
   m_Layer: 0
   m_Name: FighterOne
   m_TagString: Untagged
@@ -680,9 +687,10 @@ GameObject:
   - component: {fileID: 33075541950681882}
   - component: {fileID: 23741011102880494}
   - component: {fileID: 135671549284355658}
+  - component: {fileID: 114710438890153124}
   m_Layer: 0
   m_Name: RightFoot
-  m_TagString: Untagged
+  m_TagString: attackBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -773,6 +781,7 @@ GameObject:
   - component: {fileID: 33064728900712070}
   - component: {fileID: 23655007917790736}
   - component: {fileID: 65400278361536332}
+  - component: {fileID: 114294754732051482}
   m_Layer: 0
   m_Name: LeftLeg Hurt Box Lower
   m_TagString: Untagged
@@ -851,9 +860,10 @@ GameObject:
   - component: {fileID: 33457193476576938}
   - component: {fileID: 23313798254933480}
   - component: {fileID: 135634759354167270}
+  - component: {fileID: 114607322344121666}
   m_Layer: 0
   m_Name: RightHand
-  m_TagString: Untagged
+  m_TagString: attackBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -884,6 +894,7 @@ GameObject:
   - component: {fileID: 33516519803776786}
   - component: {fileID: 23618849894558968}
   - component: {fileID: 65078342920160988}
+  - component: {fileID: 114500245653916922}
   m_Layer: 0
   m_Name: RightArm Hurt Box Upper
   m_TagString: Untagged
@@ -1009,6 +1020,7 @@ GameObject:
   - component: {fileID: 33879279908055396}
   - component: {fileID: 23476066415704186}
   - component: {fileID: 65337646550777354}
+  - component: {fileID: 114973477514631432}
   m_Layer: 0
   m_Name: RightLeg Hurtbox Upper
   m_TagString: Untagged
@@ -1027,6 +1039,7 @@ GameObject:
   - component: {fileID: 33196207727343290}
   - component: {fileID: 23865958868424310}
   - component: {fileID: 65086825694949048}
+  - component: {fileID: 114353653943872162}
   m_Layer: 0
   m_Name: LeftArm Hurt Box Lower
   m_TagString: Untagged
@@ -1154,6 +1167,7 @@ GameObject:
   - component: {fileID: 33695683458065846}
   - component: {fileID: 23832009735354068}
   - component: {fileID: 65562805547944836}
+  - component: {fileID: 114828594208413568}
   m_Layer: 0
   m_Name: Head HurtBox
   m_TagString: Untagged
@@ -1324,6 +1338,7 @@ GameObject:
   - component: {fileID: 33727515185036884}
   - component: {fileID: 23884069659295908}
   - component: {fileID: 65896768921288468}
+  - component: {fileID: 114367894999583618}
   m_Layer: 0
   m_Name: RightArm Hurt Box Lower
   m_TagString: Untagged
@@ -1372,9 +1387,10 @@ GameObject:
   - component: {fileID: 33775411614244106}
   - component: {fileID: 23490333343564602}
   - component: {fileID: 135400201892080470}
+  - component: {fileID: 114910008529806108}
   m_Layer: 0
   m_Name: LeftElbow
-  m_TagString: Untagged
+  m_TagString: attackBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1435,9 +1451,10 @@ GameObject:
   - component: {fileID: 33515213231777448}
   - component: {fileID: 23154622979162602}
   - component: {fileID: 135084726834320114}
+  - component: {fileID: 114004101713533148}
   m_Layer: 0
   m_Name: LeftKnee
-  m_TagString: Untagged
+  m_TagString: attackBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1498,6 +1515,7 @@ GameObject:
   - component: {fileID: 33915309389714228}
   - component: {fileID: 23317276375078692}
   - component: {fileID: 65287419677045400}
+  - component: {fileID: 114651150782725668}
   m_Layer: 0
   m_Name: RightLeg HurtBox Lower
   m_TagString: Untagged
@@ -1784,8 +1802,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1481295989715284}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: 0, y: 2.06, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4063022258868904}
   m_Father: {fileID: 0}
@@ -3570,7 +3588,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1626684178167100}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -3582,7 +3600,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1723287068216026}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 6, z: 1}
@@ -3594,7 +3612,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1987866643706286}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -3606,7 +3624,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1416826963576606}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -3618,7 +3636,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1722879097870884}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -3630,7 +3648,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1560771646484280}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -3642,7 +3660,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1086483964920468}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 6, z: 1}
@@ -3654,7 +3672,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1796796147863588}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -3666,7 +3684,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1910187657867308}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -3678,7 +3696,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1426084209958984}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -3713,6 +3731,33 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114004101713533148
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1953910580531952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 791a6d1d89731c74caa11f8b17627967, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attack: {fileID: 114974295838064034}
+  playerInfo: {fileID: 114043728906146284}
+  damage: 10
+--- !u!114 &114043728906146284
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1481295989715284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5475a1e9d5faff143a9060f59689ef37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  team: 0
 --- !u!114 &114112122534753446
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3728,6 +3773,45 @@ MonoBehaviour:
   PlayerTwo: 0
   PlayerThree: 0
   PlayerFour: 0
+--- !u!114 &114276971265847322
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1086483964920468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 711acfa667295664880af64962a52955, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInfo: {fileID: 114043728906146284}
+  player: {fileID: 0}
+--- !u!114 &114294754732051482
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1560771646484280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 711acfa667295664880af64962a52955, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInfo: {fileID: 114043728906146284}
+  player: {fileID: 0}
+--- !u!114 &114353653943872162
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1723287068216026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 711acfa667295664880af64962a52955, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInfo: {fileID: 114043728906146284}
+  player: {fileID: 0}
 --- !u!114 &114363539303638534
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3772,6 +3856,19 @@ MonoBehaviour:
   canAttack: 1
   canRecieveDamage: 0
   anim: {fileID: 95022428563942064}
+--- !u!114 &114367894999583618
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1910187657867308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 711acfa667295664880af64962a52955, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInfo: {fileID: 114043728906146284}
+  player: {fileID: 0}
 --- !u!114 &114395752225279186
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3793,6 +3890,179 @@ MonoBehaviour:
   jumpCD: 1
   character: {fileID: 0}
   fighter: {fileID: 0}
+--- !u!114 &114467947128496816
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1032956214240322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 791a6d1d89731c74caa11f8b17627967, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attack: {fileID: 114974295838064034}
+  playerInfo: {fileID: 114043728906146284}
+  damage: 10
+--- !u!114 &114500245653916922
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1626684178167100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 711acfa667295664880af64962a52955, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInfo: {fileID: 114043728906146284}
+  player: {fileID: 0}
+--- !u!114 &114607322344121666
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1604946775772630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 791a6d1d89731c74caa11f8b17627967, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attack: {fileID: 114974295838064034}
+  playerInfo: {fileID: 114043728906146284}
+  damage: 10
+--- !u!114 &114651150782725668
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1987866643706286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 711acfa667295664880af64962a52955, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInfo: {fileID: 114043728906146284}
+  player: {fileID: 0}
+--- !u!114 &114710438890153124
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1514583314489652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 791a6d1d89731c74caa11f8b17627967, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attack: {fileID: 114974295838064034}
+  playerInfo: {fileID: 114043728906146284}
+  damage: 10
+--- !u!114 &114765241008354840
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1426084209958984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 711acfa667295664880af64962a52955, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInfo: {fileID: 114043728906146284}
+  player: {fileID: 0}
+--- !u!114 &114828594208413568
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1796796147863588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 711acfa667295664880af64962a52955, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInfo: {fileID: 114043728906146284}
+  player: {fileID: 0}
+--- !u!114 &114837201921753244
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1416826963576606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 711acfa667295664880af64962a52955, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInfo: {fileID: 114043728906146284}
+  player: {fileID: 0}
+--- !u!114 &114910008529806108
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1917722415575156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 791a6d1d89731c74caa11f8b17627967, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attack: {fileID: 114974295838064034}
+  playerInfo: {fileID: 114043728906146284}
+  damage: 10
+--- !u!114 &114941605148323226
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1442476982344796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 791a6d1d89731c74caa11f8b17627967, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attack: {fileID: 114974295838064034}
+  playerInfo: {fileID: 114043728906146284}
+  damage: 10
+--- !u!114 &114973477514631432
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1722879097870884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 711acfa667295664880af64962a52955, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInfo: {fileID: 114043728906146284}
+  player: {fileID: 0}
+--- !u!114 &114974295838064034
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1481295989715284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 499417641fa323048923111e792588a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canHit: 1
+  hasHit: 0
+  hurtboxes:
+  - {fileID: 65562805547944836}
+  - {fileID: 65304857688847652}
+  - {fileID: 65086825694949048}
+  - {fileID: 65402739224674330}
+  - {fileID: 65896768921288468}
+  - {fileID: 65078342920160988}
+  - {fileID: 65400278361536332}
+  - {fileID: 65936713827761006}
+  - {fileID: 65287419677045400}
+  - {fileID: 65337646550777354}
+  attackTime: 1
 --- !u!135 &135084726834320114
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -3800,7 +4070,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1953910580531952}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -3812,7 +4082,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1917722415575156}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -3824,7 +4094,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1032956214240322}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -3836,7 +4106,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1442476982344796}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -3848,7 +4118,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1604946775772630}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -3860,7 +4130,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1514583314489652}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5

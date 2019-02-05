@@ -10,7 +10,7 @@ public class TakeDamage : MonoBehaviour
     #region Variables
 
     //the player this hurtbox belongs to
-    public PlayerInfo playerInfo;
+    public FighterClass playerInfo;
     [HideInInspector] public GameObject player;
     #endregion
 
@@ -26,7 +26,7 @@ public class TakeDamage : MonoBehaviour
         GameObject o = hitbox.gameObject;
         AttackDamage atkdmg = o.GetComponent<AttackDamage>();
 
-        if (o.tag == "attackBall" && atkdmg.attack.canHit && atkdmg.playerInfo.team != player.GetComponent<PlayerInfo>().team)
+        if (o.tag == "attackBall" && atkdmg.attack.canHit && atkdmg.playerInfo.team != player.GetComponent<FighterClass>().teamNumber)
         {
             if (!atkdmg.attack.hasHit)
             {
@@ -44,13 +44,13 @@ public class TakeDamage : MonoBehaviour
     private void ReceiveDamage(int baseDamage)
     {
         //store damage in a variable for easy debug log, can be changed later
-        float damageToDeal = baseDamage;
+        int damageToDeal = baseDamage;
 
         //reduce the player health and round it to a whole number
-        playerInfo.health -= damageToDeal;
-        Mathf.RoundToInt(playerInfo.health);
+        playerInfo.currentHealth -= damageToDeal;
+        Mathf.RoundToInt(playerInfo.currentHealth);
 
-        Debug.Log("HitBox of Team " + playerInfo.team + " Hit for " + damageToDeal + " points of damage");
+        Debug.Log("HitBox of Team " + playerInfo.teamNumber + " Hit for " + damageToDeal + " points of damage");
     }
     #endregion
 }
