@@ -27,6 +27,7 @@ public class FighterClass : MonoBehaviour {
 	public float horiDeadZone;
 	public float vertDeadZone;
 	public float comboTimeOut;
+	public int damage;
 
 	//Parts
 	public GameObject wholeBody;
@@ -61,8 +62,8 @@ public class FighterClass : MonoBehaviour {
 	public bool canMove = true;
 	[HideInInspector]
 	public bool canAttack = true;
-	[HideInInspector]
-	public bool canRecieveDamage;
+
+	public bool canRecieveDamage = true;
 
 	bool breakDownStep1L = false;
 	bool breakDownStep1R = false;
@@ -75,11 +76,13 @@ public class FighterClass : MonoBehaviour {
 	bool dashReset = false;
 	float comboTimerEnd = 0;
 	BaseMovement movement;
+	HitBoxes hitBoxes;
 	public Animator anim;
 	// Use this for initialization
 	void Start () {
 		CurrFrameType = FrameType.Regular;
 		movement = GetComponent<BaseMovement> ();
+		hitBoxes = GetComponent<HitBoxes> ();
 		currentHealth = totalHealth;
 		if (teamNumber == 1) {
 			lockOnTargets.AddRange(FindObjectOfType<StageManager> ().team2);
@@ -371,7 +374,7 @@ public class FighterClass : MonoBehaviour {
 					} else {
 						Debug.Log ("LightAttack(R),");
 						anim.SetTrigger ("Light Attack");
-						StartCoroutine (attackDelay ());
+						StartCoroutine (attackDelay (hitBoxes.rightHand, 10));
 					}
 				} else {
 					Debug.Log ("Jump_LightAttack(R),");
@@ -406,11 +409,11 @@ public class FighterClass : MonoBehaviour {
 					if (Input.GetAxis (vertInput) < -vertDeadZone) {
 						Debug.Log ("Crouch_MedAttack(R),");
 						anim.SetTrigger ("Crouching Medium Attack");
-						StartCoroutine (attackDelay ());
+						StartCoroutine (attackDelay (hitBoxes.leftElbow, hitBoxes.leftHand, 10));
 					} else {
 						Debug.Log ("MedAttack(R),");
 						anim.SetTrigger ("Medium Attack");
-						StartCoroutine (attackDelay ());
+						StartCoroutine (attackDelay (hitBoxes.leftElbow, 10));
 					}
 				} else {
 					Debug.Log ("Jump_MedAttack(R),");
@@ -422,11 +425,11 @@ public class FighterClass : MonoBehaviour {
 					if (Input.GetAxis (vertInput) < -vertDeadZone) {
 						Debug.Log ("Crouch_MedAttack(L),");
 						anim.SetTrigger ("Crouching Medium Attack");
-						StartCoroutine (attackDelay ());
+						StartCoroutine (attackDelay (hitBoxes.leftElbow, hitBoxes.leftHand, 10));
 					} else {
 						Debug.Log ("MedAttack(L),");
 						anim.SetTrigger ("Medium Attack");
-						StartCoroutine (attackDelay ());
+						StartCoroutine (attackDelay (hitBoxes.leftElbow, 10));
 					}
 
 				} else {
@@ -442,11 +445,11 @@ public class FighterClass : MonoBehaviour {
 					if (Input.GetAxis (vertInput) < -vertDeadZone) {
 						Debug.Log ("Crouch_HeavyAttack(R),");
 						anim.SetTrigger ("Crouching Heavy Attack");
-						StartCoroutine (attackDelay ());
+						StartCoroutine (attackDelay (hitBoxes.rightFoot, 10));
 					} else {
 						Debug.Log ("HeavyAttack(R),");
 						anim.SetTrigger ("Heavy Attack");
-						StartCoroutine (attackDelay ());
+						StartCoroutine (attackDelay (hitBoxes.leftElbow, hitBoxes.leftHand, 10));
 					}
 				} else {
 					Debug.Log ("Jump_HeavyAttack(R),");
@@ -458,11 +461,11 @@ public class FighterClass : MonoBehaviour {
 					if (Input.GetAxis (vertInput) < -vertDeadZone) {
 						Debug.Log ("Crouch_HeavyAttack(L),");
 						anim.SetTrigger ("Crouching Heavy Attack");
-						StartCoroutine (attackDelay ());
+						StartCoroutine (attackDelay (hitBoxes.rightFoot, 10));
 					} else {
 						Debug.Log ("HeavyAttack(L),");
 						anim.SetTrigger ("Heavy Attack");
-						StartCoroutine (attackDelay ());
+						StartCoroutine (attackDelay (hitBoxes.leftElbow, hitBoxes.leftHand, 10));
 					}
 				} else {
 					Debug.Log ("Jump_HeavyAttack(L),");
@@ -515,8 +518,34 @@ public class FighterClass : MonoBehaviour {
 	//Temp Location, move to attackFramework;
 	IEnumerator attackDelay(){
 		canAttack = false;
+		canMove = false;
 		yield return new WaitForSeconds (anim.GetCurrentAnimatorClipInfo (0).Length);
 		canAttack = true;
+		canMove = true;
+	}
+	IEnumerator attackDelay(GameObject activeHit1, int damageToDo){
+		canAttack = false;
+		canMove = false;
+		damage = damageToDo;
+		activeHit1.SetActive (true);
+		yield return new WaitForSeconds (anim.GetCurrentAnimatorClipInfo (0).Length);
+		activeHit1.SetActive (false);
+		damage = 0;
+		canAttack = true;
+		canMove = true;
+	}
+	IEnumerator attackDelay(GameObject activeHit1, GameObject activeHit2, int damageToDo){
+		canAttack = false;
+		canMove = false;
+		damage = damageToDo;
+		activeHit1.SetActive (true);
+		activeHit2.SetActive (true);
+		yield return new WaitForSeconds (anim.GetCurrentAnimatorClipInfo (0).Length);
+		activeHit1.SetActive (false);
+		activeHit2.SetActive (false);
+		damage = 0;
+		canAttack = true;
+		canMove = true;
 	}
 
 

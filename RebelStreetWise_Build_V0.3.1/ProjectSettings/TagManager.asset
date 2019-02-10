@@ -13,6 +13,11 @@ TagManager:
   - Player2
   - Player3
   - Player4
+  - MainCanvas
+  - MainFirst
+  - EventSystem
+  - attack1
+  - attack2
   layers:
   - Default
   - TransparentFX
