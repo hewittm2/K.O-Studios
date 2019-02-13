@@ -17,7 +17,10 @@ public class HitBoxes : MonoBehaviour {
 	public GameObject rightElbow;
 	public GameObject chest;
 	public GameObject head;
+
 	public List<GameObject> hitBoxes;
+
+
 
 	private void Start(){
 		playerInfo = GetComponent<FighterClass>();
@@ -52,7 +55,5 @@ public class HitBoxes : MonoBehaviour {
 	
 	}
 	// Update is called once per frame
-	void Update () {
 
-	}
 }

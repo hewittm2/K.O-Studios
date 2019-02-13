@@ -8,6 +8,8 @@ using UnityEngine;
 public class FighterClass : MonoBehaviour {
 	
 	//Class Variables
+	BaseMovement movement;
+	HitBoxes hitBoxes;
 	//Frame Data
 	public enum FrameType{
 		Startup,
@@ -27,15 +29,38 @@ public class FighterClass : MonoBehaviour {
 	public float horiDeadZone;
 	public float vertDeadZone;
 	public float comboTimeOut;
+	[HideInInspector]
 	public int damage;
+	//Attack Specific Damage Values 
+//	public int lightAttDam;
+//	public int crouchLightAttDam;
+//	public int jumpLightAttDam;
+//	public int medAttDam;
+//	public int crouchMedAttDam;
+//	public int jumpMedAttDam;
+//	public int heavyAttDam;
+//	public int crouchHeavyAttDam;
+//	public int jumpHeavyAttDam;
+//	//HitBoxes to use for attack
+//	public GameObject lightHB1;
+//	public GameObject lightHB2;
+//	public GameObject crouchLightHB1;
+//	public GameObject crouchLightHB2;
+//	public GameObject jumpLightHB1;
+//	public GameObject jumpLightHB2;
+//	public GameObject medHB1;
+//	public GameObject medHB2;
+//	public GameObject crouchMedHB1;
+//	public GameObject crouchMedHB2;
+//	public GameObject jumpMedHB1;
+//	public GameObject jumpMedHB2;
+//	public GameObject heavyHB1;
+//	public GameObject heavyHB2;
+//	public GameObject crouchHeavyHB1;
+//	public GameObject crouchHeavyHB2;
+//	public GameObject jumpHeavyHB1;
+//	public GameObject jumpHeavyHB2;
 
-	//Parts
-	public GameObject wholeBody;
-	public GameObject upperBody;
-	public GameObject lowerBody;
-	public GameObject highHit;
-	public GameObject midHit;
-	public GameObject lowHit;
 	public List<GameObject> lockOnTargets;
 	public GameObject lockOnTarget;
 	//Attacks
@@ -56,13 +81,13 @@ public class FighterClass : MonoBehaviour {
 	//Controller Inputs: Need to Implement
 	//public string horiDpad;
 	//public string vertDpad;
-	//[HideInInspector]
+	[HideInInspector]
 	public bool facingRight;
 	[HideInInspector]
 	public bool canMove = true;
 	[HideInInspector]
 	public bool canAttack = true;
-
+	[HideInInspector]
 	public bool canRecieveDamage = true;
 
 	bool breakDownStep1L = false;
@@ -75,8 +100,7 @@ public class FighterClass : MonoBehaviour {
 	bool comboTimerStarted = false;
 	bool dashReset = false;
 	float comboTimerEnd = 0;
-	BaseMovement movement;
-	HitBoxes hitBoxes;
+
 	public Animator anim;
 	// Use this for initialization
 	void Start () {

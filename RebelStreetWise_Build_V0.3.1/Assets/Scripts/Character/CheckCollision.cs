@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CheckCollision : MonoBehaviour {
 	private FighterClass player;
+	[HideInInspector]
 	public string attacker;
 	// Use this for initialization
 	void Start () {
