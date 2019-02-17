@@ -30,7 +30,7 @@ public class FighterClass : MonoBehaviour {
 	public float vertDeadZone;
 	public float comboTimeOut;
 	[HideInInspector]
-	public int damage;
+	public float damage;
 	//Attack Specific Damage Values 
 //	public int lightAttDam;
 //	public int crouchLightAttDam;
@@ -89,6 +89,7 @@ public class FighterClass : MonoBehaviour {
 	public bool canAttack = true;
 	[HideInInspector]
 	public bool canRecieveDamage = true;
+	public bool blocking;
 
 	bool breakDownStep1L = false;
 	bool breakDownStep1R = false;

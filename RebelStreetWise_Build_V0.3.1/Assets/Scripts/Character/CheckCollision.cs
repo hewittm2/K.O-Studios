@@ -6,6 +6,8 @@ public class CheckCollision : MonoBehaviour {
 	private FighterClass player;
 	[HideInInspector]
 	public string attacker;
+	public GameObject hitSpark;
+	public GameObject blockSpark;
 	// Use this for initialization
 	void Start () {
 		player = GetComponentInParent<FighterClass>();
@@ -24,19 +26,36 @@ public class CheckCollision : MonoBehaviour {
 		foreach (ContactPoint contact in col.contacts) {
 			if (player.canRecieveDamage) {
 				if (contact.otherCollider.tag == attacker) {
-					ReceiveDamage (col.gameObject.GetComponentInParent<FighterClass> ().damage);
+					if (!player.blocking) {
+						ReceiveDamage (col.gameObject.GetComponentInParent<FighterClass> ().damage);
+						Instantiate (hitSpark, col.gameObject.transform.position, Quaternion.identity);
+					} else {
+						ReceiveDamage (col.gameObject.GetComponentInParent<FighterClass> ().damage);
+						Instantiate (blockSpark, col.gameObject.transform.position, Quaternion.identity);
+					}
+
 				}
 			}
 		}
 	}
-
-	public void ReceiveDamage(int damage){
+	public void RecieveBlockedDamage(float damage){
 		player.canRecieveDamage = false;
 		player.canMove = false;
 		player.canAttack = false;
-		player.currentHealth -= damage;
-		Mathf.RoundToInt(player.currentHealth);
+		player.currentHealth -= Mathf.RoundToInt(damage/player.defValue);
 
+
+		Debug.Log("HitBox of Team " + player.teamNumber + " Hit for " + damage + " points of damage");
+		player.canRecieveDamage = true;
+		player.canMove = true;
+		player.canAttack = true;
+	}
+	public void ReceiveDamage(float damage){
+		
+		player.canRecieveDamage = false;
+		player.canMove = false;
+		player.canAttack = false;
+		player.currentHealth -= Mathf.RoundToInt(damage);
 		Debug.Log("HitBox of Team " + player.teamNumber + " Hit for " + damage + " points of damage");
 		player.canRecieveDamage = true;
 		player.canMove = true;
