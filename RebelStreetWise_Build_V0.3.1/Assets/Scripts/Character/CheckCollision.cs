@@ -28,27 +28,26 @@ public class CheckCollision : MonoBehaviour {
 				if (contact.otherCollider.tag == attacker) {
 					if (!player.blocking) {
 						ReceiveDamage (col.gameObject.GetComponentInParent<FighterClass> ().damage);
-						Instantiate (hitSpark, col.gameObject.transform.position, Quaternion.identity);
+						Instantiate (hitSpark,contact.otherCollider.transform.position, Quaternion.identity);
 					} else {
-						ReceiveDamage (col.gameObject.GetComponentInParent<FighterClass> ().damage);
-						Instantiate (blockSpark, col.gameObject.transform.position, Quaternion.identity);
+						ReceiveBlockedDamage (col.gameObject.GetComponentInParent<FighterClass> ().damage);
+						Instantiate (blockSpark, contact.otherCollider.transform.position, Quaternion.identity);
 					}
 
 				}
 			}
 		}
 	}
-	public void RecieveBlockedDamage(float damage){
+	public void ReceiveBlockedDamage(float damage){
 		player.canRecieveDamage = false;
 		player.canMove = false;
 		player.canAttack = false;
-		player.currentHealth -= Mathf.RoundToInt(damage/player.defValue);
+		damage *= player.defValue;
+		player.currentHealth -= Mathf.RoundToInt(damage);
 
 
 		Debug.Log("HitBox of Team " + player.teamNumber + " Hit for " + damage + " points of damage");
-		player.canRecieveDamage = true;
-		player.canMove = true;
-		player.canAttack = true;
+		StartCoroutine (hitDelay (player));
 	}
 	public void ReceiveDamage(float damage){
 		
@@ -57,6 +56,11 @@ public class CheckCollision : MonoBehaviour {
 		player.canAttack = false;
 		player.currentHealth -= Mathf.RoundToInt(damage);
 		Debug.Log("HitBox of Team " + player.teamNumber + " Hit for " + damage + " points of damage");
+		StartCoroutine (hitDelay (player));
+
+	}
+	IEnumerator hitDelay(FighterClass player){
+		yield return new WaitForSeconds (1f);
 		player.canRecieveDamage = true;
 		player.canMove = true;
 		player.canAttack = true;

@@ -388,11 +388,11 @@ GameObject:
   - component: {fileID: 135724565088868290}
   m_Layer: 0
   m_Name: LeftElbow
-  m_TagString: attackBall
+  m_TagString: attack1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1289451699432002
 GameObject:
   m_ObjectHideFlags: 1
@@ -482,11 +482,11 @@ GameObject:
   - component: {fileID: 135285881776287756}
   m_Layer: 0
   m_Name: LeftHand
-  m_TagString: attackBall
+  m_TagString: attack1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1331496953301210
 GameObject:
   m_ObjectHideFlags: 1
@@ -699,11 +699,11 @@ GameObject:
   - component: {fileID: 135055046793929480}
   m_Layer: 0
   m_Name: LeftFoot
-  m_TagString: attackBall
+  m_TagString: attack1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1465960502093098
 GameObject:
   m_ObjectHideFlags: 1
@@ -788,14 +788,14 @@ GameObject:
   m_Component:
   - component: {fileID: 4585087350740060}
   - component: {fileID: 114482602755484894}
+  - component: {fileID: 114623824644441460}
+  - component: {fileID: 114576310286415380}
+  - component: {fileID: 114478192672366024}
+  - component: {fileID: 114176483401608478}
   - component: {fileID: 54049853709860458}
   - component: {fileID: 143396400174310730}
-  - component: {fileID: 114576310286415380}
   - component: {fileID: 136118249190908410}
-  - component: {fileID: 114176483401608478}
   - component: {fileID: 65001919694149242}
-  - component: {fileID: 114623824644441460}
-  - component: {fileID: 114478192672366024}
   m_Layer: 0
   m_Name: EthanFighterTest
   m_TagString: Untagged
@@ -878,11 +878,11 @@ GameObject:
   - component: {fileID: 135091385360955678}
   m_Layer: 0
   m_Name: LeftKnee
-  m_TagString: attackBall
+  m_TagString: attack1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1632582716159072
 GameObject:
   m_ObjectHideFlags: 1
@@ -896,11 +896,11 @@ GameObject:
   - component: {fileID: 135037572892053860}
   m_Layer: 0
   m_Name: RightHand
-  m_TagString: attackBall
+  m_TagString: attack1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1650965786211644
 GameObject:
   m_ObjectHideFlags: 1
@@ -1218,11 +1218,11 @@ GameObject:
   - component: {fileID: 135105198904860242}
   m_Layer: 0
   m_Name: RightFoot
-  m_TagString: attackBall
+  m_TagString: attack1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1933909868913110
 GameObject:
   m_ObjectHideFlags: 1
@@ -1957,7 +1957,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1523036563279898}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 10, y: 0, z: 0}
+  m_LocalPosition: {x: -10, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4476493474308540}
@@ -2879,7 +2879,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c502e158d670e74888c5528bda953bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerOne: 0
+  PlayerOne: 1
   PlayerTwo: 0
   PlayerThree: 0
   PlayerFour: 0
@@ -2895,6 +2895,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attacker: 
+  hitSpark: {fileID: 1000011797152326, guid: 9d5174622bb02664ead924a4df30b524, type: 2}
+  blockSpark: {fileID: 1000011945391522, guid: 04c5aff7663920d4ea92ad9c0e33a9f2, type: 2}
 --- !u!114 &114482602755484894
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2907,59 +2909,70 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charSprite: {fileID: 21300000, guid: 7a2eaa7dbb1e05b4d971adf4bcab0a07, type: 3}
-  flip: 0
   playerNumber: 1
   teamNumber: 1
   currentHealth: 0
   totalHealth: 200
   defValue: 0.99
-  horiDeadZone: 0.3
-  vertDeadZone: 0.3
-  comboTimeOut: 0.2
+  attackVariables:
+    lightAttack:
+      attDam: 5
+      hitBox1: {fileID: 1632582716159072}
+      hitBox2: {fileID: 0}
+    mediumAttack:
+      attDam: 10
+      hitBox1: {fileID: 1285118888194094}
+      hitBox2: {fileID: 0}
+    heavyAttack:
+      attDam: 15
+      hitBox1: {fileID: 1285118888194094}
+      hitBox2: {fileID: 1322280413454850}
+    jumpLightAttack:
+      attDam: 0
+      hitBox1: {fileID: 0}
+      hitBox2: {fileID: 0}
+    jumpMediumAttack:
+      attDam: 0
+      hitBox1: {fileID: 0}
+      hitBox2: {fileID: 0}
+    jumpHeavyAttack:
+      attDam: 0
+      hitBox1: {fileID: 0}
+      hitBox2: {fileID: 0}
+    crouchLightAttack:
+      attDam: 5
+      hitBox1: {fileID: 0}
+      hitBox2: {fileID: 0}
+    crouchMediumAttack:
+      attDam: 10
+      hitBox1: {fileID: 1285118888194094}
+      hitBox2: {fileID: 1322280413454850}
+    crouchHeavyAttack:
+      attDam: 15
+      hitBox1: {fileID: 1926387576162852}
+      hitBox2: {fileID: 0}
+  controllerVariables:
+    horiDeadZone: 0.3
+    vertDeadZone: 0.3
+    comboTimeOut: 0.2
+    horiInput: 
+    vertInput: 
+    lightInput: 
+    medInput: 
+    heavyInput: 
+    specialInput: 
+    throwInput: 
+    teamInput: 
+    lockOnInput: 
+    startButton: 
   damage: 0
-  lightAttDam: 0
-  crouchLightAttDam: 0
-  jumpLightAttDam: 0
-  medAttDam: 0
-  crouchMedAttDam: 0
-  jumpMedAttDam: 0
-  heavyAttDam: 0
-  crouchHeavyAttDam: 0
-  jumpHeavyAttDam: 0
-  lightHB1: {fileID: 0}
-  lightHB2: {fileID: 0}
-  crouchLightHB1: {fileID: 0}
-  crouchLightHB2: {fileID: 0}
-  jumpLightHB1: {fileID: 0}
-  jumpLightHB2: {fileID: 0}
-  medHB1: {fileID: 0}
-  medHB2: {fileID: 0}
-  crouchMedHB1: {fileID: 0}
-  crouchMedHB2: {fileID: 0}
-  jumpMedHB1: {fileID: 0}
-  jumpMedHB2: {fileID: 0}
-  heavyHB1: {fileID: 0}
-  heavyHB2: {fileID: 0}
-  crouchHeavyHB1: {fileID: 0}
-  crouchHeavyHB2: {fileID: 0}
-  jumpHeavyHB1: {fileID: 0}
-  jumpHeavyHB2: {fileID: 0}
   lockOnTargets: []
   lockOnTarget: {fileID: 0}
-  horiInput: L_XAxis_1
-  vertInput: L_YAxis_1
-  lightInput: A_1
-  medInput: X_1
-  heavyInput: Y_1
-  specialInput: B_1
-  throwInput: TriggersR_1
-  teamInput: RBump_1
-  lockOnInput: LBump_1
-  startButton: Start_1
   facingRight: 1
   canMove: 1
   canAttack: 1
   canRecieveDamage: 1
+  blocking: 0
   anim: {fileID: 95109858396116898}
 --- !u!114 &114576310286415380
 MonoBehaviour:

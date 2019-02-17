@@ -81,14 +81,15 @@ public class UniversalCharInput : MonoBehaviour
 
     void CAssignment()
     {
-        cAssign.lightInput = aButton;
-        cAssign.medInput = xButton;
-        cAssign.heavyInput = yButton;
-        cAssign.specialInput = bButton;
-        cAssign.lockOnInput = leftBumper;
-		cAssign.teamInput = rightBumper;
-        cAssign.horiInput = lStickX;
-        cAssign.vertInput = lStickY;
-		cAssign.startButton = startButton;
+		cAssign.controllerVariables.lightInput = aButton;
+		cAssign.controllerVariables.medInput = xButton;
+		cAssign.controllerVariables.heavyInput = yButton;
+		cAssign.controllerVariables.specialInput = bButton;
+		cAssign.controllerVariables.lockOnInput = leftBumper;
+		cAssign.controllerVariables.teamInput = rightBumper;
+		cAssign.controllerVariables.horiInput = lStickX;
+		cAssign.controllerVariables.vertInput = lStickY;
+		cAssign.controllerVariables.startButton = startButton;
+		cAssign.controllerVariables.throwInput = leftTrigger;
     }
 }

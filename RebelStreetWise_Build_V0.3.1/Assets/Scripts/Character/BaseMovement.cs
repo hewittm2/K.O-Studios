@@ -52,7 +52,7 @@ public class BaseMovement : MonoBehaviour
     }
 
     private void Update(){
-		input = new Vector2 (Input.GetAxis(fighter.horiInput), Input.GetAxis(fighter.vertInput));
+		input = new Vector2 (Input.GetAxis(fighter.controllerVariables.horiInput), Input.GetAxis(fighter.controllerVariables.horiInput));
 		if (fighter.facingRight) {
 			if (input.x < 0) {
 				moveSpeed = backMoveSpeed;
