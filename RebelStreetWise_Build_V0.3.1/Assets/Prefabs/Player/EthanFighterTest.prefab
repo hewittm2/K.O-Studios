@@ -2895,8 +2895,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attacker: 
-  hitSpark: {fileID: 1000011797152326, guid: 9d5174622bb02664ead924a4df30b524, type: 2}
-  blockSpark: {fileID: 1000011945391522, guid: 04c5aff7663920d4ea92ad9c0e33a9f2, type: 2}
+  hitSpark: {fileID: 1021111067890572, guid: 85828bf6af64d0d41bbd16097b1693d5, type: 2}
+  blockSpark: {fileID: 1263285659770724, guid: 8f4dd867f3b78744b8a5c16afe35e0a9, type: 2}
 --- !u!114 &114482602755484894
 MonoBehaviour:
   m_ObjectHideFlags: 1

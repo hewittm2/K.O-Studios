@@ -188,4 +188,10 @@ public class BaseMovement : MonoBehaviour
             this.GetComponent<Rigidbody>().AddForce(GetComponent<Rigidbody>().velocity.x * -1, 0, 0);
         }
     }
+	// ===== Needed for RoundTracker Movement Reset ===== \\
+	public void ResetMovement()
+	{
+		verticalVelocity = 0;
+		movement = new Vector2(0, 0);
+	}
 }

@@ -6,15 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/TestScenes/StageSelect.unity
-    guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
-    path: Assets/TestScenes/Main Menu.unity
-    guid: 9f3e27bf7ec413346bbcd8870a2a1f15
-  - enabled: 1
-    path: Assets/TestScenes/CharacterSpawnTest.unity
+    path: Assets/Scenes/TestScenes/CharacterSpawnTest.unity
     guid: 715ec0d45847f6d43829990e2ef4e4e2
   - enabled: 1
-    path: Assets/TestScenes/FighterTest.unity
+    path: Assets/Scenes/TestScenes/FighterTest.unity
     guid: 15508c4caf26bac4caa823627089ab8d
+  - enabled: 1
+    path: Assets/Scenes/TestScenes/Main Menu.unity
+    guid: 9f3e27bf7ec413346bbcd8870a2a1f15
+  - enabled: 1
+    path: Assets/Scenes/TestScenes/StageSelect.unity
+    guid: 99c9720ab356a0642a771bea13969a05
   m_configObjects: {}
