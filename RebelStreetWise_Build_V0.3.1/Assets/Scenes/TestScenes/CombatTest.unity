@@ -382,6 +382,71 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: fighterHitBoxes.leftFoot
+      value: 
+      objectReference: {fileID: 1021478473}
+    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: fighterHitBoxes.rightFoot
+      value: 
+      objectReference: {fileID: 1021478472}
+    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: fighterHitBoxes.leftKnee
+      value: 
+      objectReference: {fileID: 1021478471}
+    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: fighterHitBoxes.leftHand
+      value: 
+      objectReference: {fileID: 1021478470}
+    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: fighterHitBoxes.rightHand
+      value: 
+      objectReference: {fileID: 1021478469}
+    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: fighterHitBoxes.leftElbow
+      value: 
+      objectReference: {fileID: 1021478468}
+    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: attackVariables.lightAttack.hitType
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9e0f72a30bb0454f812f474322f41cf, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1021478468 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1285118888194094, guid: d9e0f72a30bb0454f812f474322f41cf,
+    type: 2}
+  m_PrefabInternal: {fileID: 1021478467}
+--- !u!1 &1021478469 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1632582716159072, guid: d9e0f72a30bb0454f812f474322f41cf,
+    type: 2}
+  m_PrefabInternal: {fileID: 1021478467}
+--- !u!1 &1021478470 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1322280413454850, guid: d9e0f72a30bb0454f812f474322f41cf,
+    type: 2}
+  m_PrefabInternal: {fileID: 1021478467}
+--- !u!1 &1021478471 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1632230720293074, guid: d9e0f72a30bb0454f812f474322f41cf,
+    type: 2}
+  m_PrefabInternal: {fileID: 1021478467}
+--- !u!1 &1021478472 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1926387576162852, guid: d9e0f72a30bb0454f812f474322f41cf,
+    type: 2}
+  m_PrefabInternal: {fileID: 1021478467}
+--- !u!1 &1021478473 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1462372413458422, guid: d9e0f72a30bb0454f812f474322f41cf,
+    type: 2}
+  m_PrefabInternal: {fileID: 1021478467}

@@ -29,6 +29,12 @@ public class FighterClass : MonoBehaviour {
 	// Use this for initialization
 	[System.Serializable]
 	public class AttackStats{
+		public enum HitType{
+			High, 
+			Mid,
+			Low
+		}
+		public HitType hitType;
 		public int attDam;
 		public GameObject hitBox1;
 		public GameObject hitBox2;
