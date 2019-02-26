@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -309,6 +309,50 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e302f12001c9e8643923c77af28eb3a9, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &214830317 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1209676014809970, guid: e302f12001c9e8643923c77af28eb3a9,
+    type: 2}
+  m_PrefabInternal: {fileID: 214830316}
+--- !u!114 &214830318 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114876150089731918, guid: e302f12001c9e8643923c77af28eb3a9,
+    type: 2}
+  m_PrefabInternal: {fileID: 214830316}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &214830319 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114896477662334058, guid: e302f12001c9e8643923c77af28eb3a9,
+    type: 2}
+  m_PrefabInternal: {fileID: 214830316}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &214830320 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114036835741343212, guid: e302f12001c9e8643923c77af28eb3a9,
+    type: 2}
+  m_PrefabInternal: {fileID: 214830316}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &214830321 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114825088580363122, guid: e302f12001c9e8643923c77af28eb3a9,
+    type: 2}
+  m_PrefabInternal: {fileID: 214830316}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &214830322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 214830317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff7b035f667590a44bcabee02556fa76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite1: {fileID: 214830321}
+  sprite2: {fileID: 214830320}
+  sprite3: {fileID: 214830319}
+  sprite4: {fileID: 214830318}
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0

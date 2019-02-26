@@ -9,6 +9,7 @@ public class CharacterSpawning : MonoBehaviour
     public GameObject player3;
     public GameObject player4;
 	public List<GameObject> players;
+    public List<Sprite> portraits;
     public void CallSpawn(List<Transform> spawns)
     {
         StartCoroutine(Spawn(spawns));
