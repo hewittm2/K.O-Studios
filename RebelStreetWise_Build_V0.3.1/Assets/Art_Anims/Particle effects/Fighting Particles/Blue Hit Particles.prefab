@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4737566820383666}
   - component: {fileID: 198798833333141416}
   - component: {fileID: 199066740263876802}
-  - component: {fileID: 114888298681289146}
   m_Layer: 0
   m_Name: Blue Hit Particles
   m_TagString: Untagged
@@ -42,18 +41,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114888298681289146
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1174138942220196}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ef3dbe90e1444241aafd94c9f616d85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  duration: 1
 --- !u!198 &198798833333141416
 ParticleSystem:
   m_ObjectHideFlags: 1

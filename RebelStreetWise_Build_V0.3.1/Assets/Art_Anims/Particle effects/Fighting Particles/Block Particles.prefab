@@ -21,14 +21,13 @@ GameObject:
   - component: {fileID: 4113798340775338}
   - component: {fileID: 198361270454655532}
   - component: {fileID: 199393398816435248}
-  - component: {fileID: 114483677223966952}
   m_Layer: 0
   m_Name: Block Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4113798340775338
 Transform:
   m_ObjectHideFlags: 1
@@ -42,18 +41,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -0.016, y: -21.029001, z: 92.701004}
---- !u!114 &114483677223966952
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1263285659770724}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ef3dbe90e1444241aafd94c9f616d85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  duration: 1
 --- !u!198 &198361270454655532
 ParticleSystem:
   m_ObjectHideFlags: 1
