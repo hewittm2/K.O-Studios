@@ -31,6 +31,7 @@ public class FighterClass : MonoBehaviour {
 	public class AttackStats{
 		public enum HitType{High, Mid,Low}
 		public HitType hitType;
+		public Vector3 knockBack;
 		public int attDam;
 		public GameObject hitBox1;
 		public GameObject hitBox2;
@@ -73,7 +74,7 @@ public class FighterClass : MonoBehaviour {
 
 	[HideInInspector]
 	public float damage;
-
+	public Vector3 knockBack;
 	public List<GameObject> lockOnTargets;
 	public GameObject lockOnTarget;
 	//Attacks
