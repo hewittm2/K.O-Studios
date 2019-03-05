@@ -787,11 +787,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4585087350740060}
-  - component: {fileID: 114482602755484894}
-  - component: {fileID: 114623824644441460}
-  - component: {fileID: 114576310286415380}
-  - component: {fileID: 114478192672366024}
   - component: {fileID: 114176483401608478}
+  - component: {fileID: 114482602755484894}
+  - component: {fileID: 114374788195630766}
+  - component: {fileID: 114576310286415380}
   - component: {fileID: 54049853709860458}
   - component: {fileID: 143396400174310730}
   - component: {fileID: 136118249190908410}
@@ -2883,7 +2882,7 @@ MonoBehaviour:
   PlayerTwo: 0
   PlayerThree: 0
   PlayerFour: 0
---- !u!114 &114478192672366024
+--- !u!114 &114374788195630766
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2891,12 +2890,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 1523036563279898}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f43d9185c0f0d241b5e4a25b40e9b14, type: 3}
+  m_Script: {fileID: 11500000, guid: ebe8d14184a33734b9867fcdc548ab54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attacker: 
   hitSpark: {fileID: 1021111067890572, guid: 85828bf6af64d0d41bbd16097b1693d5, type: 2}
   blockSpark: {fileID: 1263285659770724, guid: 8f4dd867f3b78744b8a5c16afe35e0a9, type: 2}
+  leftFoot: {fileID: 1462372413458422}
+  rightFoot: {fileID: 1926387576162852}
+  leftKnee: {fileID: 1632230720293074}
+  rightKnee: {fileID: 0}
+  leftHand: {fileID: 1322280413454850}
+  rightHand: {fileID: 1632582716159072}
+  leftElbow: {fileID: 1285118888194094}
+  rightElbow: {fileID: 0}
+  chest: {fileID: 0}
+  head: {fileID: 0}
+  hitBoxes: []
+  attacker: 
 --- !u!114 &114482602755484894
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2916,38 +2926,47 @@ MonoBehaviour:
   defValue: 0.99
   attackVariables:
     lightAttack:
+      hitType: 2
       attDam: 5
       hitBox1: {fileID: 1632582716159072}
       hitBox2: {fileID: 0}
     mediumAttack:
+      hitType: 0
       attDam: 10
       hitBox1: {fileID: 1285118888194094}
       hitBox2: {fileID: 0}
     heavyAttack:
+      hitType: 0
       attDam: 15
       hitBox1: {fileID: 1285118888194094}
       hitBox2: {fileID: 1322280413454850}
     jumpLightAttack:
+      hitType: 0
       attDam: 0
       hitBox1: {fileID: 0}
       hitBox2: {fileID: 0}
     jumpMediumAttack:
+      hitType: 0
       attDam: 0
       hitBox1: {fileID: 0}
       hitBox2: {fileID: 0}
     jumpHeavyAttack:
+      hitType: 0
       attDam: 0
       hitBox1: {fileID: 0}
       hitBox2: {fileID: 0}
     crouchLightAttack:
+      hitType: 0
       attDam: 5
       hitBox1: {fileID: 0}
       hitBox2: {fileID: 0}
     crouchMediumAttack:
+      hitType: 0
       attDam: 10
       hitBox1: {fileID: 1285118888194094}
       hitBox2: {fileID: 1322280413454850}
     crouchHeavyAttack:
+      hitType: 0
       attDam: 15
       hitBox1: {fileID: 1926387576162852}
       hitBox2: {fileID: 0}
@@ -2995,28 +3014,6 @@ MonoBehaviour:
   jumpCD: 1
   character: {fileID: 0}
   fighter: {fileID: 0}
---- !u!114 &114623824644441460
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1523036563279898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06dd7ba23cb5dcb4c939dc448882859d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leftFoot: {fileID: 1462372413458422}
-  rightFoot: {fileID: 1926387576162852}
-  leftKnee: {fileID: 1632230720293074}
-  rightKnee: {fileID: 0}
-  leftHand: {fileID: 1322280413454850}
-  rightHand: {fileID: 1632582716159072}
-  leftElbow: {fileID: 1285118888194094}
-  rightElbow: {fileID: 0}
-  chest: {fileID: 0}
-  head: {fileID: 0}
-  hitBoxes: []
 --- !u!135 &135037572892053860
 SphereCollider:
   m_ObjectHideFlags: 1
