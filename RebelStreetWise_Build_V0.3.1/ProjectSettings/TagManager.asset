@@ -18,6 +18,7 @@ TagManager:
   - EventSystem
   - attack1
   - attack2
+  - OptionsFirst
   layers:
   - Default
   - TransparentFX
@@ -54,4 +55,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Front
+    uniqueID: 3123675095
     locked: 0
