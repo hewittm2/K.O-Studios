@@ -25,11 +25,12 @@ public class HitDetection : MonoBehaviour {
 	[HideInInspector]
 	public string attacker;
 
-
+	public BaseMovement movement;
 
 
 	private void Start(){
 		player = GetComponent<FighterClass>();
+		movement = GetComponent<BaseMovement> ();
 		hitSpark = Instantiate (hitSpark,player.gameObject.transform.position, Quaternion.identity);
 		blockSpark = Instantiate (blockSpark, player.gameObject.transform.position, Quaternion.identity);
 		hitSpark.SetActive (false);
@@ -73,23 +74,20 @@ public class HitDetection : MonoBehaviour {
 			if (player.canRecieveDamage) {
 				if (contact.otherCollider.tag == attacker) {
 					if (!player.blocking) {
+						ReceiveDamage (col.gameObject.GetComponentInParent<FighterClass> ().damage,col.gameObject.GetComponentInParent<FighterClass> ().knockBack, col.gameObject.GetComponentInParent<FighterClass> ().knockBackForce);
 						hitSpark.transform.position = contact.otherCollider.transform.position;
 						hitSpark.SetActive(true);
-						ReceiveDamage (col.gameObject.GetComponentInParent<FighterClass> ().damage);
-						//Instantiate (hitSpark,contact.otherCollider.transform.position, Quaternion.identity);
 
 					} else {
-						ReceiveBlockedDamage (col.gameObject.GetComponentInParent<FighterClass> ().damage);
-						//Instantiate (blockSpark, contact.otherCollider.transform.position, Quaternion.identity);
+						ReceiveBlockedDamage (col.gameObject.GetComponentInParent<FighterClass> ().damage,col.gameObject.GetComponentInParent<FighterClass> ().knockBack, col.gameObject.GetComponentInParent<FighterClass> ().knockBackForce);
 						blockSpark.transform.position = contact.otherCollider.transform.position;
 						blockSpark.SetActive(true);
 					}
-
 				}
 			}
 		}
 	}
-	public void ReceiveBlockedDamage(float damage){
+	public void ReceiveBlockedDamage(float damage, Vector3 direction, float force){
 		player.canRecieveDamage = false;
 		player.canMove = false;
 		player.canAttack = false;
@@ -101,7 +99,7 @@ public class HitDetection : MonoBehaviour {
 		StartCoroutine (hitDelay (player));
 
 	}
-	public void ReceiveDamage(float damage){
+	public void ReceiveDamage(float damage, Vector3 direction, float force){
 
 		player.canRecieveDamage = false;
 		player.canMove = false;
@@ -113,6 +111,21 @@ public class HitDetection : MonoBehaviour {
 
 	}
 	IEnumerator hitDelay(FighterClass player){
+		movement.dashing = true;
+		movement.character.enabled = false;
+		movement.rigid.constraints = RigidbodyConstraints.None;
+		movement.rigid.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionZ;
+		movement.rigid.velocity = new Vector3(0, 0, 0);
+		movement.rigid.angularVelocity = new Vector3(0, 0, 0);
+		//movement.rigid.velocity += (new Vector3(dashSpeed * direction,0, 0));
+		//yield return new WaitForSeconds(dashSpeed/100);
+		movement.rigid.velocity = new Vector3(0, 0, 0);
+		movement.rigid.angularVelocity = new Vector3(0, 0, 0);
+		yield return new WaitForSeconds(.01f);
+		movement.rigid.constraints = RigidbodyConstraints.FreezeAll;
+		movement.character.enabled = true;
+		movement.dashing = false;
+		movement.fighter.canMove = true;
 		yield return new WaitForSeconds (1f);
 		player.canRecieveDamage = true;
 		player.canMove = true;
@@ -120,4 +133,5 @@ public class HitDetection : MonoBehaviour {
 		blockSpark.SetActive (false);
 		hitSpark.SetActive (false);
 	}
+
 }
