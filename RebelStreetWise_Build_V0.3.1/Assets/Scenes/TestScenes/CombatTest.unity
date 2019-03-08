@@ -292,6 +292,7 @@ GameObject:
   - component: {fileID: 416564342}
   - component: {fileID: 416564341}
   - component: {fileID: 416564340}
+  - component: {fileID: 416564343}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -305,13 +306,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 416564338}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.556, z: 0}
+  m_LocalRotation: {x: -0.003909914, y: -0.000000036069462, z: -0.00000016507323,
+    w: 0.99999243}
+  m_LocalPosition: {x: -0.00022449218, y: 0.55601174, z: 0.0003142055}
   m_LocalScale: {x: 2, y: 0.2, z: 2}
   m_Children: []
   m_Father: {fileID: 439917082}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -0.448, y: 0, z: 0}
 --- !u!65 &416564340
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -366,6 +368,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 416564338}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &416564343
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 416564338}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &439917078
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,6 +394,8 @@ GameObject:
   - component: {fileID: 439917081}
   - component: {fileID: 439917080}
   - component: {fileID: 439917079}
+  - component: {fileID: 439917083}
+  - component: {fileID: 439917084}
   m_Layer: 0
   m_Name: ThrownObject
   m_TagString: Untagged
@@ -444,15 +463,42 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 439917078}
-  m_LocalRotation: {x: 0.000000022351731, y: -0, z: -0.00000001303851, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.038461644, y: 0.3846157, z: 0.038461585}
+  m_LocalRotation: {x: -0.947548, y: -0.00000041723243, z: -0.00000019418071, w: 0.3196135}
+  m_LocalPosition: {x: -0.00005727337, y: -0.0034538435, z: -0.0011627849}
+  m_LocalScale: {x: 0.03846167, y: 0.38461566, z: 0.038461678}
   m_Children:
   - {fileID: 416564339}
   - {fileID: 1497686671}
   m_Father: {fileID: 216123440}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -142.721, y: -0.000015258789, z: 0}
+--- !u!54 &439917083
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 439917078}
+  serializedVersion: 2
+  m_Mass: 0.0000001
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!114 &439917084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 439917078}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 765ee058adf9e6f48926601e8be81408, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RotationSpeed: 16.5
 --- !u!1001 &556623489
 Prefab:
   m_ObjectHideFlags: 0
@@ -638,6 +684,7 @@ GameObject:
   - component: {fileID: 1497686674}
   - component: {fileID: 1497686673}
   - component: {fileID: 1497686672}
+  - component: {fileID: 1497686675}
   m_Layer: 0
   m_Name: Cube (2)
   m_TagString: Untagged
@@ -712,6 +759,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1497686670}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &1497686675
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1497686670}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &1554558900 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1523036563279898, guid: d9e0f72a30bb0454f812f474322f41cf,
@@ -807,9 +869,9 @@ MonoBehaviour:
   damageBuff: 1.1
   maxEmpowerTime: 5
   thrownObject: {fileID: 439917078}
-  throwDistance: 1
-  maxThrowDistance: 0
-  maxThrowTime: 1
+  throwSpeed: 30
+  totalThrowTime: 1
+  rotationSpeed: 300
 --- !u!198 &1716296681 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 198000012368742472, guid: 04c5aff7663920d4ea92ad9c0e33a9f2,
