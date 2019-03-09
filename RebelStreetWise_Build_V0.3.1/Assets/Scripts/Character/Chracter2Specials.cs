@@ -6,14 +6,22 @@ using UnityEngine;
 //Ryan Van Dusen
 // 3/5/19
 
+//Chris B.
+// 3/9/19
+
 //Inhertaing from FIGHTCLASS
 public class Chracter2Specials : FighterClass {
 
+    #region Neutral Special Variables
 
     public ParticleSystem empoweredParticle;
     public float damageBuff = 1.1f;
     public int maxEmpowerTime;
     private float currentEmpowerTime = 0;
+
+    #endregion
+
+    #region Back Special Variables
 
     public GameObject thrownObject;
     private GameObject clone;
@@ -28,19 +36,37 @@ public class Chracter2Specials : FighterClass {
     private bool throwing = false;
     private bool throwSetUp = false;
 
+    #endregion
 
+    #region ForwardSpecialVars
 
-	// Use this for initialization
-	void Start () {
+    public ParticleSystem coneOfFire;
+    public float breathWaitTime = 2f;
 
+    List<ParticleCollisionEvent> collisionEvents;
+
+    #endregion
+
+    // Use this for initialization
+    void Start ()
+    {
+        collisionEvents = new List<ParticleCollisionEvent>();
+
+        coneOfFire.Stop();
 
         damage = 5;
 
 	}
 	
 	// Update is called once per frame
-	void Update () {
-        if(throwing == false)
+	void Update ()
+    {
+        if (Input.GetButtonDown("X_1"))
+        {
+            StartCoroutine("ForwardSpecialWait");
+        }
+
+        if (throwing == false)
         {
            
         }
@@ -118,4 +144,32 @@ public class Chracter2Specials : FighterClass {
 
     }
 
+    void ForwardSpecial()
+    {
+        if (Input.GetButtonDown("X_1"))
+        {
+            StartCoroutine("ForwardSpecialWait");
+        }
+    }
+
+
+    // ----- Never Triggers -----
+    void OnParticleCollision(GameObject other)
+    {
+        Debug.Log("Hello!");
+
+        ParticlePhysicsExtensions.GetCollisionEvents(coneOfFire, other, collisionEvents);
+
+        for (int i = 0; i < collisionEvents.Count; i++)
+        {
+            Debug.Log("FFFF");
+        }
+
+    }
+
+    IEnumerator ForwardSpecialWait()
+    {
+        yield return new WaitForSeconds(breathWaitTime);
+        coneOfFire.Play(); 
+    }
 }

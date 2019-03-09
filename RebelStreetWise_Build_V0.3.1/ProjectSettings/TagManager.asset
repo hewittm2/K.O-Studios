@@ -18,6 +18,8 @@ TagManager:
   - EventSystem
   - attack1
   - attack2
+  - OptionsFirst
+  - OptionsCanvas
   layers:
   - Default
   - TransparentFX
@@ -28,8 +30,8 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - 
-  - 
+  - Team1
+  - Team2
   - 
   - 
   - 
