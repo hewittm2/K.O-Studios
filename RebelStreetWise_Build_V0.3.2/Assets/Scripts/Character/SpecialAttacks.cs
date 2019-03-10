@@ -63,31 +63,31 @@ public class SpecialAttacks : MonoBehaviour
     //Apollo
     IEnumerator ApolloNSA() //Apollo Netural Special Attack
     {
-        self.knockBack = apolloSpecial.knockback;
+        //self.knockBack = apolloSpecial.knockback;
         yield return new WaitForSeconds(self.anim.GetCurrentAnimatorClipInfo(0).Length);
 		//self.knockBack = 0;
     }
     IEnumerator ApolloFSA() //Apollo Forward Special Attack
     {
-        self.knockBack = apolloSpecial.knockback;
+       // self.knockBack = apolloSpecial.knockback;
         yield return new WaitForSeconds(self.anim.GetCurrentAnimatorClipInfo(0).Length);
         //self.knockBack = 0;
     }
     IEnumerator ApolloBSA() //Apollo Back Special Attack
     {
-        self.knockBack = apolloSpecial.knockback;
+        //self.knockBack = apolloSpecial.knockback;
         yield return new WaitForSeconds(self.anim.GetCurrentAnimatorClipInfo(0).Length);
         //self.knockBack = 0;
     }
     IEnumerator ApolloDSA() //Apollo Down Special Attack
     {
-        self.knockBack = apolloSpecial.knockback;
+        //self.knockBack = apolloSpecial.knockback;
         yield return new WaitForSeconds(self.anim.GetCurrentAnimatorClipInfo(0).Length);
         //self.knockBack = 0;
     }
     IEnumerator ApolloJSA() //Apollo Jump Special Attack
     {
-        self.knockBack = apolloSpecial.knockback;
+       // self.knockBack = apolloSpecial.knockback;
         yield return new WaitForSeconds(self.anim.GetCurrentAnimatorClipInfo(0).Length);
         //self.knockBack = 0;
     }

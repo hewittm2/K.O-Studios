@@ -74,12 +74,12 @@ public class HitDetection : MonoBehaviour {
 			if (player.canRecieveDamage) {
 				if (contact.otherCollider.tag == attacker) {
 					if (!player.blocking) {
-						ReceiveDamage (col.gameObject.GetComponentInParent<FighterClass> ().damage,col.gameObject.GetComponentInParent<FighterClass> ().knockBack, col.gameObject.GetComponentInParent<FighterClass> ().knockBackForce);
+						ReceiveDamage (col.gameObject.GetComponentInParent<FighterClass> ().damage,col.gameObject.GetComponentInParent<FighterClass> ().knockBackDirection, col.gameObject.GetComponentInParent<FighterClass> ().knockBackForce);
 						hitSpark.transform.position = contact.otherCollider.transform.position;
 						hitSpark.SetActive(true);
 
 					} else {
-						ReceiveBlockedDamage (col.gameObject.GetComponentInParent<FighterClass> ().damage,col.gameObject.GetComponentInParent<FighterClass> ().knockBack, col.gameObject.GetComponentInParent<FighterClass> ().knockBackForce);
+						ReceiveBlockedDamage (col.gameObject.GetComponentInParent<FighterClass> ().damage,col.gameObject.GetComponentInParent<FighterClass> ().knockBackDirection, col.gameObject.GetComponentInParent<FighterClass> ().knockBackForce);
 						blockSpark.transform.position = contact.otherCollider.transform.position;
 						blockSpark.SetActive(true);
 					}
@@ -87,7 +87,7 @@ public class HitDetection : MonoBehaviour {
 			}
 		}
 	}
-	public void ReceiveBlockedDamage(float damage, Vector3 direction, float force){
+	public void ReceiveBlockedDamage(float damage, Vector3 kbDirection, float kbForce){
 		player.canRecieveDamage = false;
 		player.canMove = false;
 		player.canAttack = false;
@@ -96,40 +96,43 @@ public class HitDetection : MonoBehaviour {
 
 
 		Debug.Log("HitBox of Team " + player.teamNumber + " Hit for " + damage + " points of damage");
-		StartCoroutine (hitDelay (player));
+		StartCoroutine (hitDelay (player, kbDirection,kbForce));
 
 	}
-	public void ReceiveDamage(float damage, Vector3 direction, float force){
+	public void ReceiveDamage(float damage, Vector3 kbDirection, float kbForce){
 
 		player.canRecieveDamage = false;
 		player.canMove = false;
 		player.canAttack = false;
 		player.currentHealth -= Mathf.RoundToInt(damage);
 		Debug.Log("HitBox of Team " + player.teamNumber + " Hit for " + damage + " points of damage");
-		StartCoroutine (hitDelay (player));
+		StartCoroutine (hitDelay (player,kbDirection, kbForce));
 
 
 	}
-	IEnumerator hitDelay(FighterClass player){
+	IEnumerator hitDelay(FighterClass player, Vector3 kbDirection, float kbForce){
 		movement.dashing = true;
 		movement.character.enabled = false;
 		movement.rigid.constraints = RigidbodyConstraints.None;
 		movement.rigid.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionZ;
 		movement.rigid.velocity = new Vector3(0, 0, 0);
 		movement.rigid.angularVelocity = new Vector3(0, 0, 0);
-		//movement.rigid.velocity += (new Vector3(dashSpeed * direction,0, 0));
-		//yield return new WaitForSeconds(dashSpeed/100);
+		movement.rigid.velocity += (new Vector3(kbDirection.x,kbDirection.y, 0)*kbForce);
+		yield return new WaitForSeconds(.2f);
 		movement.rigid.velocity = new Vector3(0, 0, 0);
 		movement.rigid.angularVelocity = new Vector3(0, 0, 0);
 		yield return new WaitForSeconds(.01f);
 		movement.rigid.constraints = RigidbodyConstraints.FreezeAll;
-		movement.character.enabled = true;
-		movement.dashing = false;
+
+
+
+		yield return new WaitForSeconds (.2f);
 		movement.fighter.canMove = true;
-		yield return new WaitForSeconds (1f);
 		player.canRecieveDamage = true;
 		player.canMove = true;
 		player.canAttack = true;
+		movement.character.enabled = true;
+		movement.dashing = false;
 		blockSpark.SetActive (false);
 		hitSpark.SetActive (false);
 	}

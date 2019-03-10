@@ -2907,6 +2907,7 @@ MonoBehaviour:
   head: {fileID: 0}
   hitBoxes: []
   attacker: 
+  movement: {fileID: 0}
 --- !u!114 &114482602755484894
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2927,49 +2928,79 @@ MonoBehaviour:
   attackVariables:
     lightAttack:
       hitType: 2
+      knockBackDirection: {x: 1, y: 1, z: 0}
+      knockBackForce: 1
       attDam: 5
       hitBox1: {fileID: 1632582716159072}
       hitBox2: {fileID: 0}
     mediumAttack:
       hitType: 0
+      knockBackDirection: {x: 1, y: 1, z: 0}
+      knockBackForce: 2
       attDam: 10
       hitBox1: {fileID: 1285118888194094}
       hitBox2: {fileID: 0}
     heavyAttack:
       hitType: 0
+      knockBackDirection: {x: 1, y: 1, z: 0}
+      knockBackForce: 5
       attDam: 15
       hitBox1: {fileID: 1285118888194094}
       hitBox2: {fileID: 1322280413454850}
     jumpLightAttack:
       hitType: 0
-      attDam: 0
+      knockBackDirection: {x: 1, y: 1, z: 0}
+      knockBackForce: 1
+      attDam: 5
       hitBox1: {fileID: 0}
       hitBox2: {fileID: 0}
     jumpMediumAttack:
       hitType: 0
-      attDam: 0
+      knockBackDirection: {x: 1, y: 1, z: 0}
+      knockBackForce: 2
+      attDam: 10
       hitBox1: {fileID: 0}
       hitBox2: {fileID: 0}
     jumpHeavyAttack:
       hitType: 0
-      attDam: 0
+      knockBackDirection: {x: 1, y: 1, z: 0}
+      knockBackForce: 5
+      attDam: 15
       hitBox1: {fileID: 0}
       hitBox2: {fileID: 0}
     crouchLightAttack:
       hitType: 0
+      knockBackDirection: {x: 1, y: 1, z: 0}
+      knockBackForce: 1
       attDam: 5
       hitBox1: {fileID: 0}
       hitBox2: {fileID: 0}
     crouchMediumAttack:
       hitType: 0
+      knockBackDirection: {x: 1, y: 1, z: 0}
+      knockBackForce: 2
       attDam: 10
       hitBox1: {fileID: 1285118888194094}
       hitBox2: {fileID: 1322280413454850}
     crouchHeavyAttack:
       hitType: 0
+      knockBackDirection: {x: 1, y: 1, z: 0}
+      knockBackForce: 5
       attDam: 15
       hitBox1: {fileID: 1926387576162852}
       hitBox2: {fileID: 0}
+  moveAnimSpeeds:
+    forwardWalk: 1
+    backwardWalk: 1
+    forwardDash: 1
+    backwardDash: 1
+    crouch: 1
+    jump: 1
+    forwardJump: 1
+    backwardJump: 1
+    block: 1
+    takeDamage: 1
+    idle: 1
   controllerVariables:
     horiDeadZone: 0.3
     vertDeadZone: 0.3
@@ -2985,6 +3016,8 @@ MonoBehaviour:
     lockOnInput: 
     startButton: 
   damage: 0
+  knockBackDirection: {x: 0, y: 0, z: 0}
+  knockBackForce: 0
   lockOnTargets: []
   lockOnTarget: {fileID: 0}
   facingRight: 1
@@ -3009,11 +3042,13 @@ MonoBehaviour:
   backMoveSpeed: 15
   forwardDashSpeed: 25
   backDashSpeed: 20
+  dashing: 0
   vertJumpForce: 0.4
   horiJumpForce: 0.4
   jumpCD: 1
   character: {fileID: 0}
   fighter: {fileID: 0}
+  rigid: {fileID: 0}
 --- !u!135 &135037572892053860
 SphereCollider:
   m_ObjectHideFlags: 1

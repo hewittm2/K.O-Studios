@@ -103,14 +103,17 @@ public class FighterClass : MonoBehaviour {
 		//Controller Inputs: Need to Implement
 	}
 	public ControllerVariables controllerVariables = new ControllerVariables ();
-
+	//HiddenVariables
 	[HideInInspector]
 	public float damage;
-	public Vector3 knockBack;
+	[HideInInspector]
+	public Vector3 knockBackDirection;
+	[HideInInspector]
 	public float knockBackForce;
+	[HideInInspector]
 	public List<GameObject> lockOnTargets;
+	[HideInInspector]
 	public GameObject lockOnTarget;
-
 	[HideInInspector]
 	public bool facingRight;
 	[HideInInspector]
@@ -596,6 +599,12 @@ public class FighterClass : MonoBehaviour {
 		canAttack = false;
 		canMove = false;
 		damage = attack.attDam;
+		if (facingRight) {
+			knockBackDirection = attack.knockBackDirection;
+		}else{
+			knockBackDirection = -attack.knockBackDirection;
+		}
+		knockBackForce = attack.knockBackForce;
 		if (attack.hitBox1 != null) {
 			attack.hitBox1.SetActive (true);
 		}

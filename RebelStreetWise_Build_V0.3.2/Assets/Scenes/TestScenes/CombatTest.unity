@@ -269,6 +269,101 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: moveAnimSpeeds.forwardWalking
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: moveAnimSpeeds.backwardWalking
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: moveAnimSpeeds.forwardDash
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: moveAnimSpeeds.backwardDash
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: moveAnimSpeeds.crouch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: moveAnimSpeeds.jumping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: moveAnimSpeeds.forwardJumping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: moveAnimSpeeds.backwardJumping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: moveAnimSpeeds.block
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: moveAnimSpeeds.takeDamage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: moveAnimSpeeds.idle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: moveAnimSpeeds.backwardWalk
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: moveAnimSpeeds.forwardWalk
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: moveAnimSpeeds.jump
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: moveAnimSpeeds.forwardJump
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: moveAnimSpeeds.backwardJump
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: attackVariables.lightAttack.knockBackDirection.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: attackVariables.lightAttack.knockBackDirection.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: attackVariables.lightAttack.knockBackForce
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9e0f72a30bb0454f812f474322f41cf, type: 2}
   m_IsPrefabAsset: 0
@@ -339,6 +434,71 @@ Prefab:
         type: 2}
       propertyPath: defValue
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: moveAnimSpeeds.forwardWalk
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: moveAnimSpeeds.backwardWalk
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: moveAnimSpeeds.forwardDash
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: moveAnimSpeeds.backwardDash
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: moveAnimSpeeds.crouch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: moveAnimSpeeds.jump
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: moveAnimSpeeds.forwardJump
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: moveAnimSpeeds.backwardJump
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: moveAnimSpeeds.block
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: moveAnimSpeeds.takeDamage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: moveAnimSpeeds.idle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: attackVariables.heavyAttack.knockBackDirection.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: attackVariables.heavyAttack.knockBackForce
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9e0f72a30bb0454f812f474322f41cf, type: 2}
