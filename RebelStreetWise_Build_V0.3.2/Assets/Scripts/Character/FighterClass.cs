@@ -29,6 +29,8 @@ public class FighterClass : MonoBehaviour {
 	//Individual Attack Variables
 	[System.Serializable]
 	public class AttackStats{
+		[Range(.1f, 2f)]
+		public float animSpeed;
 		public enum HitType{High, Mid,Low}
 		public HitType hitType;
 		public Vector3 knockBackDirection;
@@ -445,15 +447,18 @@ public class FighterClass : MonoBehaviour {
 						StartCoroutine (attackDelay ());
 					}else if (Input.GetAxis (controllerVariables.vertInput) < -controllerVariables.vertDeadZone) {
 						Debug.Log ("Crouch_LightAttack(R),");
+						anim.speed = attackVariables.crouchLightAttack.animSpeed;
 						anim.SetTrigger ("Crouching Light Attack");
 						StartCoroutine (attackDelay (attackVariables.crouchLightAttack));
 					} else {
 						Debug.Log ("LightAttack(R),");
+						anim.speed = attackVariables.lightAttack.animSpeed;
 						anim.SetTrigger ("Light Attack");
 						StartCoroutine (attackDelay (attackVariables.lightAttack));
 					}
 				} else {
 					Debug.Log ("Jump_LightAttack(R),");
+					anim.speed = attackVariables.jumpLightAttack.animSpeed;
 					anim.SetTrigger ("Jumping Light Attack");
 					StartCoroutine (attackDelay (attackVariables.jumpLightAttack));
 				}
@@ -465,15 +470,18 @@ public class FighterClass : MonoBehaviour {
 						StartCoroutine (attackDelay ());
 					}else if (Input.GetAxis (controllerVariables.vertInput) < -controllerVariables.vertDeadZone) {
 						Debug.Log ("Crouch_LightAttack(L),");
+						anim.speed = attackVariables.crouchLightAttack.animSpeed;
 						anim.SetTrigger ("Crouching Light Attack");
 						StartCoroutine (attackDelay (attackVariables.crouchLightAttack));
 					} else {
 						Debug.Log ("LightAttack(L),");
+						anim.speed = attackVariables.lightAttack.animSpeed;
 						anim.SetTrigger ("Light Attack");
 						StartCoroutine (attackDelay (attackVariables.lightAttack));
 					}
 				} else {
 					Debug.Log ("Jump_LightAttack(L),");
+					anim.speed = attackVariables.jumpLightAttack.animSpeed;
 					anim.SetTrigger ("Jumping Light Attack");
 					StartCoroutine (attackDelay (attackVariables.jumpLightAttack));
 				}
@@ -484,15 +492,18 @@ public class FighterClass : MonoBehaviour {
 				if (movement.character.isGrounded) {
 					if (Input.GetAxis (controllerVariables.vertInput) < -controllerVariables.vertDeadZone) {
 						Debug.Log ("Crouch_MedAttack(R),");
+						anim.speed = attackVariables.crouchMediumAttack.animSpeed;
 						anim.SetTrigger ("Crouching Medium Attack");
 						StartCoroutine (attackDelay (attackVariables.crouchMediumAttack));
 					} else {
 						Debug.Log ("MedAttack(R),");
+						anim.speed = attackVariables.mediumAttack.animSpeed;
 						anim.SetTrigger ("Medium Attack");
 						StartCoroutine (attackDelay (attackVariables.mediumAttack));
 					}
 				} else {
 					Debug.Log ("Jump_MedAttack(R),");
+					anim.speed = attackVariables.jumpMediumAttack.animSpeed;
 					anim.SetTrigger ("Jumping Medium Attack");
 					StartCoroutine (attackDelay (attackVariables.jumpMediumAttack));
 				}
@@ -500,16 +511,19 @@ public class FighterClass : MonoBehaviour {
 				if (movement.character.isGrounded) {
 					if (Input.GetAxis (controllerVariables.vertInput) < -controllerVariables.vertDeadZone) {
 						Debug.Log ("Crouch_MedAttack(L),");
+						anim.speed = attackVariables.crouchMediumAttack.animSpeed;
 						anim.SetTrigger ("Crouching Medium Attack");
 						StartCoroutine (attackDelay (attackVariables.crouchMediumAttack));
 					} else {
 						Debug.Log ("MedAttack(L),");
+						anim.speed = attackVariables.mediumAttack.animSpeed;
 						anim.SetTrigger ("Medium Attack");
 						StartCoroutine (attackDelay (attackVariables.mediumAttack));
 					}
 
 				} else {
 					Debug.Log ("Jump_MedAttack(L),");
+					anim.speed = attackVariables.jumpMediumAttack.animSpeed;
 					anim.SetTrigger ("Jumpimg Medium Attack");
 					StartCoroutine (attackDelay (attackVariables.jumpMediumAttack));
 				}
@@ -520,15 +534,18 @@ public class FighterClass : MonoBehaviour {
 				if (movement.character.isGrounded) {
 					if (Input.GetAxis (controllerVariables.vertInput) < -controllerVariables.vertDeadZone) {
 						Debug.Log ("Crouch_HeavyAttack(R),");
+						anim.speed = attackVariables.crouchHeavyAttack.animSpeed;
 						anim.SetTrigger ("Crouching Heavy Attack");
 						StartCoroutine (attackDelay (attackVariables.crouchHeavyAttack));
 					} else {
 						Debug.Log ("HeavyAttack(R),");
+						anim.speed = attackVariables.heavyAttack.animSpeed;
 						anim.SetTrigger ("Heavy Attack");
 						StartCoroutine (attackDelay (attackVariables.heavyAttack));
 					}
 				} else {
 					Debug.Log ("Jump_HeavyAttack(R),");
+					anim.speed = attackVariables.jumpHeavyAttack.animSpeed;
 					anim.SetTrigger ("Jumping Heavy Attack");
 					StartCoroutine (attackDelay (attackVariables.jumpHeavyAttack));
 				}
@@ -536,15 +553,18 @@ public class FighterClass : MonoBehaviour {
 				if (movement.character.isGrounded) {
 					if (Input.GetAxis (controllerVariables.vertInput) < -controllerVariables.vertDeadZone) {
 						Debug.Log ("Crouch_HeavyAttack(L),");
+						anim.speed = attackVariables.crouchHeavyAttack.animSpeed;
 						anim.SetTrigger ("Crouching Heavy Attack");
 						StartCoroutine (attackDelay (attackVariables.crouchHeavyAttack));
 					} else {
 						Debug.Log ("HeavyAttack(L),");
+						anim.speed = attackVariables.heavyAttack.animSpeed;
 						anim.SetTrigger ("Heavy Attack");
 						StartCoroutine (attackDelay (attackVariables.heavyAttack));
 					}
 				} else {
 					Debug.Log ("Jump_HeavyAttack(L),");
+					anim.speed = attackVariables.jumpHeavyAttack.animSpeed;
 					anim.SetTrigger ("Jumping Heavy Attack");
 					StartCoroutine (attackDelay (attackVariables.jumpHeavyAttack));
 				}
@@ -590,7 +610,7 @@ public class FighterClass : MonoBehaviour {
 	IEnumerator attackDelay(){
 		canAttack = false;
 		canMove = false;
-		yield return new WaitForSeconds (anim.GetCurrentAnimatorClipInfo (0).Length);
+		yield return new WaitForSeconds (anim.GetCurrentAnimatorClipInfo (0).Length / anim.speed);
 		canAttack = true;
 		canMove = true;
 	}
@@ -611,7 +631,7 @@ public class FighterClass : MonoBehaviour {
 		if (attack.hitBox2 != null) {
 			attack.hitBox2.SetActive (true);
 		}
-		yield return new WaitForSeconds (anim.GetCurrentAnimatorClipInfo (0).Length);
+		yield return new WaitForSeconds (anim.GetCurrentAnimatorClipInfo (0).Length/ anim.speed);
 		if (attack.hitBox1 != null) {
 			attack.hitBox1.SetActive (false);
 		}

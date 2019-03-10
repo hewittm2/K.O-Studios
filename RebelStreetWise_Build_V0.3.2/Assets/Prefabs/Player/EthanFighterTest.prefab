@@ -2927,6 +2927,7 @@ MonoBehaviour:
   defValue: 0.99
   attackVariables:
     lightAttack:
+      animSpeed: 1
       hitType: 2
       knockBackDirection: {x: 1, y: 1, z: 0}
       knockBackForce: 1
@@ -2934,6 +2935,7 @@ MonoBehaviour:
       hitBox1: {fileID: 1632582716159072}
       hitBox2: {fileID: 0}
     mediumAttack:
+      animSpeed: 1
       hitType: 0
       knockBackDirection: {x: 1, y: 1, z: 0}
       knockBackForce: 2
@@ -2941,6 +2943,7 @@ MonoBehaviour:
       hitBox1: {fileID: 1285118888194094}
       hitBox2: {fileID: 0}
     heavyAttack:
+      animSpeed: 1
       hitType: 0
       knockBackDirection: {x: 1, y: 1, z: 0}
       knockBackForce: 5
@@ -2948,6 +2951,7 @@ MonoBehaviour:
       hitBox1: {fileID: 1285118888194094}
       hitBox2: {fileID: 1322280413454850}
     jumpLightAttack:
+      animSpeed: 1
       hitType: 0
       knockBackDirection: {x: 1, y: 1, z: 0}
       knockBackForce: 1
@@ -2955,6 +2959,7 @@ MonoBehaviour:
       hitBox1: {fileID: 0}
       hitBox2: {fileID: 0}
     jumpMediumAttack:
+      animSpeed: 1
       hitType: 0
       knockBackDirection: {x: 1, y: 1, z: 0}
       knockBackForce: 2
@@ -2962,6 +2967,7 @@ MonoBehaviour:
       hitBox1: {fileID: 0}
       hitBox2: {fileID: 0}
     jumpHeavyAttack:
+      animSpeed: 1
       hitType: 0
       knockBackDirection: {x: 1, y: 1, z: 0}
       knockBackForce: 5
@@ -2969,6 +2975,7 @@ MonoBehaviour:
       hitBox1: {fileID: 0}
       hitBox2: {fileID: 0}
     crouchLightAttack:
+      animSpeed: 1
       hitType: 0
       knockBackDirection: {x: 1, y: 1, z: 0}
       knockBackForce: 1
@@ -2976,6 +2983,7 @@ MonoBehaviour:
       hitBox1: {fileID: 0}
       hitBox2: {fileID: 0}
     crouchMediumAttack:
+      animSpeed: 1
       hitType: 0
       knockBackDirection: {x: 1, y: 1, z: 0}
       knockBackForce: 2
@@ -2983,6 +2991,7 @@ MonoBehaviour:
       hitBox1: {fileID: 1285118888194094}
       hitBox2: {fileID: 1322280413454850}
     crouchHeavyAttack:
+      animSpeed: 1
       hitType: 0
       knockBackDirection: {x: 1, y: 1, z: 0}
       knockBackForce: 5
