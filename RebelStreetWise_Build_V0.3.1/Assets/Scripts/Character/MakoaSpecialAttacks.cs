@@ -51,20 +51,33 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
 
     void Update()
     {
-        if(Input.GetButton("X_1"))
+        // ===================================
+        // ===== REMOVE WHEN IMPLEMENTED =====
+        // ===================================
+        if (Input.GetButton("X_1"))
         {
             ForwardSA(specialAttackStats.SpecialForward);
         }
+        if(Input.GetButton("B_1"))
+        {
+            BackSA(specialAttackStats.SpecialBack);
+        }
+        if(Input.GetButton("A_1"))
+        {
+            NeutralSA(specialAttackStats.SpecialNeutral);
+        }
+        // ===================================
+        // ===================================
+        // ===================================
 
-
-
-
-        if(breathCooldown > 0)
+        if (breathCooldown > 0)
         {
             breathCooldown -= Time.deltaTime;
 
             if (fireCone.doFireDmg)
             {
+                Debug.Log("OW! FIRE DAMAGE!");
+                fireCone.doFireDmg = false;
                 // Add code for ranged damage. Waiting on Ethan/Torrell for more info
             }
         }
@@ -165,6 +178,7 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
     {
         yield return new WaitForSeconds(wait);
 
+        fireCone.fireHit = false;
         coneOfFire.Play();
 
         breathCooldown = fireBreathCooldown;

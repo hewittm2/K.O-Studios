@@ -7,7 +7,9 @@ using UnityEngine;
 
 public class FireScript : MonoBehaviour
 {
-    private bool fireHit;
+    [HideInInspector]
+    public bool fireHit;
+    [HideInInspector]
     public bool doFireDmg;
 
     public void OnParticleCollision(GameObject other)
