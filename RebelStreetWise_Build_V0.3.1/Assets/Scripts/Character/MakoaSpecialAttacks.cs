@@ -38,20 +38,37 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
     public ParticleSystem coneOfFire;
     public float breathWaitTime = 2f;
     public float fireDamage;
-
-    List<ParticleCollisionEvent> collisionEvents;
+    public float fireBreathCooldown = 9f;
+    private float breathCooldown = 0f;
+    private FireScript fireCone;
 
     #endregion
 
     void Start()
     {
-        collisionEvents = new List<ParticleCollisionEvent>();
-
-        coneOfFire.Stop();
+        fireCone = coneOfFire.GetComponent<FireScript>();
     }
 
     void Update()
     {
+        if(Input.GetButton("X_1"))
+        {
+            ForwardSA(specialAttackStats.SpecialForward);
+        }
+
+
+
+
+        if(breathCooldown > 0)
+        {
+            breathCooldown -= Time.deltaTime;
+
+            if (fireCone.doFireDmg)
+            {
+                // Add code for ranged damage. Waiting on Ethan/Torrell for more info
+            }
+        }
+
         if (throwing == false)
         {
 
@@ -121,8 +138,10 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
     }
     public override void ForwardSA(SpecialAttacks forward)
     {
-        StartCoroutine("WaitTime", breathWaitTime);
-        coneOfFire.Play();
+        if(breathCooldown <= 0)
+        {
+            StartCoroutine("BreathFire", breathWaitTime);
+        }
     }
     public override void JumpSA(SpecialAttacks jump)
     {
@@ -137,23 +156,17 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
 
     }
 
-    // ----- Never Triggers -----
-    void OnParticleCollision(GameObject other)
-    {
-        Debug.Log("Hello!");
-
-        ParticlePhysicsExtensions.GetCollisionEvents(coneOfFire, other, collisionEvents);
-
-        for (int i = 0; i < collisionEvents.Count; i++)
-        {
-            Debug.Log("FFFF");
-            specialAttackVars.damage = fireDamage;
-        }
-
-    }
-
     IEnumerator WaitTime(float wait)
     {
         yield return new WaitForSeconds(wait);
+    }
+
+    IEnumerator BreathFire(float wait)
+    {
+        yield return new WaitForSeconds(wait);
+
+        coneOfFire.Play();
+
+        breathCooldown = fireBreathCooldown;
     }
 }

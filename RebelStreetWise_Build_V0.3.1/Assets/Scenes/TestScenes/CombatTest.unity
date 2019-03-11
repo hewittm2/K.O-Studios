@@ -164,91 +164,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b638f5b78d1e56449f13f6f7bf21db8, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &96016223
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 96016227}
-  - component: {fileID: 96016226}
-  - component: {fileID: 96016225}
-  - component: {fileID: 96016224}
-  m_Layer: 10
-  m_Name: Cube
-  m_TagString: Player4
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!65 &96016224
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 96016223}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &96016225
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 96016223}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!33 &96016226
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 96016223}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &96016227
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 96016223}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 1.68, z: 0.15619946}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &216123440 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4565140828906036, guid: d9e0f72a30bb0454f812f474322f41cf,
@@ -1573,6 +1488,92 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1523036563279898, guid: d9e0f72a30bb0454f812f474322f41cf,
     type: 2}
   m_PrefabInternal: {fileID: 368109534}
+--- !u!114 &1554558901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1554558900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf1d9545a914b844188b1318bb2fa599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  specialAttackVars:
+    knockback: {x: 0, y: 0, z: 0}
+    knockbackForce: 0
+    startUpTime: 0
+    activeTime: 0
+    recoveryTime: 0
+    stunTime: 0
+    damage: 0
+    partEffect: {fileID: 0}
+  specialAttackStats:
+    SpecialForward:
+      knockback: {x: 0, y: 0, z: 0}
+      knockbackForce: 0
+      startUpTime: 0
+      activeTime: 0
+      recoveryTime: 0
+      stunTime: 0
+      damage: 0
+      partEffect: {fileID: 0}
+    SpecialBack:
+      knockback: {x: 0, y: 0, z: 0}
+      knockbackForce: 0
+      startUpTime: 0
+      activeTime: 0
+      recoveryTime: 0
+      stunTime: 0
+      damage: 0
+      partEffect: {fileID: 0}
+    SpecialDown:
+      knockback: {x: 0, y: 0, z: 0}
+      knockbackForce: 0
+      startUpTime: 0
+      activeTime: 0
+      recoveryTime: 0
+      stunTime: 0
+      damage: 0
+      partEffect: {fileID: 0}
+    SpecialNeutral:
+      knockback: {x: 0, y: 0, z: 0}
+      knockbackForce: 0
+      startUpTime: 0
+      activeTime: 0
+      recoveryTime: 0
+      stunTime: 0
+      damage: 0
+      partEffect: {fileID: 0}
+    SpecialJump:
+      knockback: {x: 0, y: 0, z: 0}
+      knockbackForce: 0
+      startUpTime: 0
+      activeTime: 0
+      recoveryTime: 0
+      stunTime: 0
+      damage: 0
+      partEffect: {fileID: 0}
+    SpecialBreakdown:
+      knockback: {x: 0, y: 0, z: 0}
+      knockbackForce: 0
+      startUpTime: 0
+      activeTime: 0
+      recoveryTime: 0
+      stunTime: 0
+      damage: 0
+      partEffect: {fileID: 0}
+  empoweredParticle: {fileID: 0}
+  damageBuff: 1.1
+  maxEmpowerTime: 0
+  thrownObject: {fileID: 0}
+  throwSpeed: 0
+  totalThrowTime: 0
+  rotationSpeed: 0
+  coneOfFire: {fileID: 1827819502}
+  breathWaitTime: 2
+  fireDamage: 0
+  fireBreathCooldown: 9
 --- !u!4 &1554558909 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4585087350740060, guid: d9e0f72a30bb0454f812f474322f41cf,
@@ -1584,7 +1585,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1554558900}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 607ef351ce7a0d34ea8d5ca2074bfdff, type: 3}
   m_Name: 
@@ -1688,6 +1689,7 @@ GameObject:
   - component: {fileID: 1827819500}
   - component: {fileID: 1827819502}
   - component: {fileID: 1827819501}
+  - component: {fileID: 1827819503}
   m_Layer: 9
   m_Name: ConeOfFire
   m_TagString: attack1
@@ -6298,6 +6300,18 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &1827819503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1827819499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 151c82bd43c94634396036bcf12620f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberOfHits: 0
 --- !u!4 &2144693752 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4585087350740060, guid: d9e0f72a30bb0454f812f474322f41cf,
