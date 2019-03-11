@@ -34,7 +34,6 @@ public class Chracter2Specials : FighterClass {
     private Vector3 rotation;
     private float throwTime;
     private bool throwing = false;
-    private bool throwSetUp = false;
 
     #endregion
 
@@ -72,44 +71,7 @@ public class Chracter2Specials : FighterClass {
         }
 
         //player pushes button
-        if (Input.GetButtonDown("B_1") && throwing == false)
-        {
-        
-            //spawns a clone of the thrownobject gameobject
-            clone = Instantiate(thrownObject);
-            //sets clone position to orginal position
-            clone.transform.position = thrownObject.transform.position;
-            //sets the orginal gameobject to not active (so it appears the object is thrown)
-            thrownObject.SetActive(false);
-            //sets clone's own scale and angles since the orginal is parented to the model
-            clone.transform.localScale = new Vector3(0.5f, 5, 0.5f);
-            clone.transform.eulerAngles = new Vector3(0, 0, 0);
-                
-            throwing = true;
-            
-        }
-        if (throwing == true)
-        {
-           
-            //rotates clone
-            clone.transform.Rotate(0, 0, rotationSpeed * Time.deltaTime);
-            //starts a counter
-            throwTime = throwTime + Time.deltaTime;
-            //moves clone
-            clone.transform.position += (transform.forward *throwSpeed) * Time.deltaTime ;
-            
-            //once the counter is >= to the time set in the inspecter the clone destroys and the orginal object is set back to active
-            if(throwTime >= totalThrowTime)
-            {
-                
-                throwing = false;
-                throwSetUp = false;
-                throwTime = 0;
-                Destroy(clone);
-                thrownObject.SetActive(true);
-                   
-            }
-        }
+
     }
 
     void NeutralSpecial()
@@ -141,7 +103,43 @@ public class Chracter2Specials : FighterClass {
     }
     void BackSpecial()
     {
+        if (Input.GetButtonDown("B_1") && throwing == false)
+        {
 
+            //spawns a clone of the thrownobject gameobject
+            clone = Instantiate(thrownObject);
+            //sets clone position to orginal position
+            clone.transform.position = thrownObject.transform.position;
+            //sets the orginal gameobject to not active (so it appears the object is thrown)
+            thrownObject.SetActive(false);
+            //sets clone's own scale and angles since the orginal is parented to the model
+            clone.transform.localScale = new Vector3(0.5f, 5, 0.5f);
+            clone.transform.eulerAngles = new Vector3(0, 0, 0);
+
+            throwing = true;
+
+        }
+        if (throwing == true)
+        {
+
+            //rotates clone
+            clone.transform.Rotate(0, 0, rotationSpeed * Time.deltaTime);
+            //starts a counter
+            throwTime = throwTime + Time.deltaTime;
+            //moves clone
+            clone.transform.position += (transform.forward * throwSpeed) * Time.deltaTime;
+
+            //once the counter is >= to the time set in the inspecter the clone destroys and the orginal object is set back to active
+            if (throwTime >= totalThrowTime)
+            {
+
+                throwing = false;
+                throwTime = 0;
+                Destroy(clone);
+                thrownObject.SetActive(true);
+
+            }
+        }
     }
 
     void ForwardSpecial()
