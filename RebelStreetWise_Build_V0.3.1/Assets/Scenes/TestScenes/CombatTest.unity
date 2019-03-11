@@ -1673,7 +1673,6 @@ MonoBehaviour:
   rotationSpeed: 300
   coneOfFire: {fileID: 1827819502}
   breathWaitTime: 2
-  enemy: {fileID: 2063566978}
 --- !u!198 &1716296681 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 198000012368742472, guid: 04c5aff7663920d4ea92ad9c0e33a9f2,
@@ -5169,7 +5168,7 @@ ParticleSystem:
     enabled: 1
     serializedVersion: 3
     type: 1
-    collisionMode: 1
+    collisionMode: 0
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
     multiplyColliderForceByParticleSpeed: 0
@@ -5346,7 +5345,7 @@ ParticleSystem:
       serializedVersion: 2
       m_Bits: 1335
     maxCollisionShapes: 256
-    quality: 1
+    quality: 0
     voxelSize: 0.5
     collisionMessages: 1
     collidesWithDynamic: 1
@@ -6299,11 +6298,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!1 &2063566978 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1523036563279898, guid: d9e0f72a30bb0454f812f474322f41cf,
-    type: 2}
-  m_PrefabInternal: {fileID: 556623489}
 --- !u!4 &2144693752 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4585087350740060, guid: d9e0f72a30bb0454f812f474322f41cf,
