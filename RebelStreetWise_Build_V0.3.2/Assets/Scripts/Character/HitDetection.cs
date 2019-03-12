@@ -24,7 +24,7 @@ public class HitDetection : MonoBehaviour {
 
 	[HideInInspector]
 	public string attacker;
-
+	[HideInInspector]
 	public BaseMovement movement;
 
 
