@@ -206,10 +206,22 @@ public class FighterClass : MonoBehaviour {
 	public void QueueMovementInput(){
 		
 		//Assume Idle
-		anim.SetBool("Walking",false);
-		anim.SetBool ("Walking Backwards", false);
-		anim.SetBool ("Crouching Idle", false);
-		anim.speed = moveAnimSpeeds.idle;
+		if (movement.character.isGrounded) {
+			if (Input.GetAxis (controllerVariables.horiInput) < controllerVariables.horiDeadZone && Input.GetAxis (controllerVariables.horiInput) > -controllerVariables.horiDeadZone) {
+				if (anim.GetBool ("Walking") == true)
+					anim.SetBool ("Walking", false);
+				if (anim.GetBool ("Walking Backwards") == true)
+					anim.SetBool ("Walking Backwards", false);
+				anim.speed = moveAnimSpeeds.idle;
+			}
+			if (Input.GetAxis (controllerVariables.vertInput) > -controllerVariables.vertDeadZone) {
+				if (anim.GetBool ("Crouching Idle") == true)
+					anim.SetBool ("Crouching Idle", false);
+				anim.speed = moveAnimSpeeds.idle;
+			}
+
+
+		}
 		//Right Input Facing Right
 		if (Input.GetAxis (controllerVariables.horiInput) > controllerVariables.horiDeadZone && facingRight) {
 			//Forward+Up(R)
@@ -569,7 +581,68 @@ public class FighterClass : MonoBehaviour {
 					StartCoroutine (attackDelay (attackVariables.jumpHeavyAttack));
 				}
 			}
-		} 
+			//SpecialAttacks
+		} else if (Input.GetButtonDown (controllerVariables.specialInput)) {
+			if (facingRight) {
+				if (movement.character.isGrounded) {
+					if (Input.GetAxis (controllerVariables.horiInput) < -controllerVariables.horiDeadZone) {
+						Debug.Log ("Back_Special(R),");
+						//anim.speed = 
+						anim.SetTrigger ("Back Special");
+						StartCoroutine (attackDelay ());
+					} else if(Input.GetAxis (controllerVariables.horiInput) > controllerVariables.horiDeadZone) {
+						Debug.Log ("Forward_Special(R),");
+						//anim.speed = 
+						anim.SetTrigger ("Forward Special");
+						StartCoroutine (attackDelay ());
+					}else if(Input.GetAxis (controllerVariables.vertInput) < -controllerVariables.vertDeadZone){
+						Debug.Log("Down Special(R)");
+						//anim.speed = 
+						anim.SetTrigger ("Down Special");
+						StartCoroutine (attackDelay ());
+					}else{
+						Debug.Log("Neutral Special(L)");
+						//anim.speed = 
+						anim.SetTrigger ("Special");
+						StartCoroutine (attackDelay ());
+					}
+				} else {
+					Debug.Log ("Jump_Special(R),");
+					//anim.speed = 
+					anim.SetTrigger ("Jump Special");
+					StartCoroutine (attackDelay ());
+				}
+			} else {
+				if (movement.character.isGrounded) {
+					if (Input.GetAxis (controllerVariables.horiInput) > controllerVariables.horiDeadZone) {
+						Debug.Log ("Back_Special(L),");
+						//anim.speed = attackVariables.crouchHeavyAttack.animSpeed;
+						anim.SetTrigger ("Back Special");
+						StartCoroutine (attackDelay ());
+					} else if(Input.GetAxis (controllerVariables.horiInput) < -controllerVariables.horiDeadZone) {
+						Debug.Log ("Forward_Special(L),");
+						//anim.speed = attackVariables.heavyAttack.animSpeed;
+						anim.SetTrigger ("Forward Special");
+						StartCoroutine (attackDelay ());
+					}else if(Input.GetAxis (controllerVariables.vertInput) < -controllerVariables.vertDeadZone){
+						Debug.Log("Down Special(L)");
+						//anim.speed = 
+						anim.SetTrigger ("Down Special");
+						StartCoroutine (attackDelay ());
+					}else{
+						Debug.Log("Neutral Special(L)");
+						//anim.speed = 
+						anim.SetTrigger ("Special");
+						StartCoroutine (attackDelay());
+					}
+				} else {
+					Debug.Log ("Jump_Special(L),");
+					//anim.speed = attackVariables.jumpHeavyAttack.animSpeed;
+					anim.SetTrigger ("Jump Special");
+					StartCoroutine (attackDelay());
+				}
+			} 
+		}
 	}
 		
 	public void CheckForCombo(){
