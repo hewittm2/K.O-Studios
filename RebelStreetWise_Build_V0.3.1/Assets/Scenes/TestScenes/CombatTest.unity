@@ -1553,11 +1553,11 @@ MonoBehaviour:
       partEffect: {fileID: 0}
   empoweredParticle: {fileID: 1716296681}
   damageBuff: 1.1
-  maxEmpowerTime: 0
+  maxEmpowerTime: 3
   thrownObject: {fileID: 439917078}
-  throwSpeed: 0
-  totalThrowTime: 0
-  rotationSpeed: 0
+  throwSpeed: 30
+  totalThrowTime: 50
+  rotationSpeed: 300
   coneOfFire: {fileID: 1827819502}
   breathWaitTime: 2
   fireDamage: 0

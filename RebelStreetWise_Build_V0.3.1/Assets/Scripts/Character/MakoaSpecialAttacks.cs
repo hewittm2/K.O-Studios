@@ -29,7 +29,7 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
     private Vector3 rotation;
     private float throwTime;
     private bool throwing = false;
-    private bool throwSetUp = false;
+   
 
     #endregion
 
@@ -54,15 +54,15 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
         // ===================================
         // ===== REMOVE WHEN IMPLEMENTED =====
         // ===================================
-        if (Input.GetButton("X_1"))
+        if (Input.GetButtonDown("X_1"))
         {
             ForwardSA(specialAttackStats.SpecialForward);
         }
-        if(Input.GetButton("B_1"))
+        if(Input.GetButtonDown("B_1"))
         {
             BackSA(specialAttackStats.SpecialBack);
         }
-        if(Input.GetButton("A_1"))
+        if(Input.GetButtonDown("A_1"))
         {
             NeutralSA(specialAttackStats.SpecialNeutral);
         }
@@ -82,10 +82,7 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
             }
         }
 
-        if (throwing == false)
-        {
-
-        }
+  
 
         if (throwing == true)
         {
@@ -95,18 +92,18 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
             throwTime = throwTime + Time.deltaTime;
             //moves clone
             clone.transform.position += (transform.forward * throwSpeed) * Time.deltaTime;
-
+       
             //once the counter is >= to the time set in the inspecter the clone destroys and the orginal object is set back to active
-            if (throwTime >= totalThrowTime)
-            {
+            //if (throwTime >= totalThrowTime)
+            //{
 
-                throwing = false;
-                throwSetUp = false;
-                throwTime = 0;
-                Destroy(clone);
-                thrownObject.SetActive(true);
+            //    throwing = false;
+            //    throwSetUp = false;
+            //    throwTime = 0;
+            //    Destroy(clone);
+            //    thrownObject.SetActive(true);
 
-            }
+            //}
         }
 
         //once timer is as big as value set in inspector
@@ -137,17 +134,21 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
     }
     public override void BackSA(SpecialAttacks back)
     {
-        //spawns a clone of the thrownobject gameobject
-        clone = Instantiate(thrownObject);
-        //sets clone position to orginal position
-        clone.transform.position = thrownObject.transform.position;
-        //sets the orginal gameobject to not active (so it appears the object is thrown)
-        thrownObject.SetActive(false);
-        //sets clone's own scale and angles since the orginal is parented to the model
-        clone.transform.localScale = new Vector3(0.5f, 5, 0.5f);
-        clone.transform.eulerAngles = new Vector3(0, 0, 0);
+        if (throwing != true)
+        {
+            //spawns a clone of the thrownobject gameobject
+            clone = Instantiate(thrownObject);
+            //sets clone position to orginal position
+            clone.transform.position = thrownObject.transform.position;
+            //sets the orginal gameobject to not active (so it appears the object is thrown)
+            thrownObject.SetActive(false);
+            //sets clone's own scale and angles since the orginal is parented to the model
+            clone.transform.localScale = new Vector3(0.5f, 5, 0.5f);
+            clone.transform.eulerAngles = new Vector3(0, 0, 0);
+            throwing = true;
+            StartCoroutine(ThrownReturn());
+        }
 
-        throwing = true;
     }
     public override void ForwardSA(SpecialAttacks forward)
     {
@@ -167,6 +168,17 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
     public override void BreakdownSA(SpecialAttacks breakdown)
     {
 
+    }
+    IEnumerator ThrownReturn()
+    {
+        for (int i = 0; i < 30; i++)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+        throwing = false;
+        throwTime = 0;
+        Destroy(clone);
+        thrownObject.SetActive(true);
     }
 
     IEnumerator WaitTime(float wait)

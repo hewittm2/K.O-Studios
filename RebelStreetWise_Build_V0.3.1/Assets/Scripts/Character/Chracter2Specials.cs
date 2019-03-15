@@ -64,12 +64,6 @@ public class Chracter2Specials : FighterClass {
         {
             StartCoroutine("ForwardSpecialWait");
         }
-
-        if (throwing == false)
-        {
-           
-        }
-
         //player pushes button
 
     }
