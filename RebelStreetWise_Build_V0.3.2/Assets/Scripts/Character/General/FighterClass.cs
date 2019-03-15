@@ -9,7 +9,7 @@ public class FighterClass : MonoBehaviour {
 	
 	//Class Variables
 	BaseMovement movement;
-	HitBoxes hitBoxes;
+	HitDetection hitBoxes;
 	//Frame Data
 	public enum FrameType{
 		Startup,
@@ -26,13 +26,17 @@ public class FighterClass : MonoBehaviour {
     public int currentHealth;
 	public int totalHealth;
 	public float defValue;
-	// Use this for initialization
+	//Individual Attack Variables
 	[System.Serializable]
 	public class AttackStats{
+		public enum HitType{High, Mid,Low}
+		public HitType hitType;
+		public Vector3 knockBack;
 		public int attDam;
 		public GameObject hitBox1;
 		public GameObject hitBox2;
 	}
+	//List of Variables Per Attack
 	[System.Serializable]
 	public class AttackVariables{
 		public AttackStats lightAttack = new AttackStats ();
@@ -70,7 +74,7 @@ public class FighterClass : MonoBehaviour {
 
 	[HideInInspector]
 	public float damage;
-
+	public Vector3 knockBack;
 	public List<GameObject> lockOnTargets;
 	public GameObject lockOnTarget;
 	//Attacks
@@ -106,7 +110,7 @@ public class FighterClass : MonoBehaviour {
 	void Start () {
 		CurrFrameType = FrameType.Regular;
 		movement = GetComponent<BaseMovement> ();
-		hitBoxes = GetComponent<HitBoxes> ();
+		hitBoxes = GetComponent<HitDetection> ();
 		currentHealth = totalHealth;
 		try{
 			stageManager = FindObjectOfType<StageManager>();
@@ -118,7 +122,6 @@ public class FighterClass : MonoBehaviour {
 				lockOnTarget = lockOnTargets [0];
 			}
 		}catch{
-			//lockOnTargets.Add (FindObjectsOfType<FighterClass>);
 			foreach (FighterClass fighter in FindObjectsOfType<FighterClass>()) {
 				if (fighter.teamNumber != teamNumber) {
 					lockOnTargets.Add(fighter.gameObject);
@@ -129,36 +132,15 @@ public class FighterClass : MonoBehaviour {
 		if (teamNumber == 2) {
 			ToggleDirection ();
 		}
-
-
-
 	}
-
-	// Update is called once per frame
+		
 	void Update () {
-		//print ("hor = " + horiInput);
-//		switch(CurrFrameType){
-//		case FrameType.Active:
-//			break;
-//		case FrameType.Recovery:
-//			break;
-//		case FrameType.Startup:
-//			break;
-//		case FrameType.Regular:
-//			QueueInput ();
-//			RegisterQueue ();
-//			break;
-//		}
-		//if(flip){
-		//	ToggleDirection ();
-		//}
 		if (canAttack) {
 			QueueAttackInput ();
 		}
 		if (canMove) {
 			QueueMovementInput ();
 		}
-
 		CheckForCombo ();
 		if (lockOnTargets.Count != 0){
 			if (Input.GetButtonDown (controllerVariables.lockOnInput)) {
@@ -169,11 +151,6 @@ public class FighterClass : MonoBehaviour {
 				}
 				CheckTarget (lockOnTarget);
 			}
-//			if (checkDelay < 10) {
-//				print ("check");
-//
-//			}
-//			checkDelay++;
 		}
 		if (Input.GetButtonDown(controllerVariables.startButton))
         {
@@ -182,12 +159,15 @@ public class FighterClass : MonoBehaviour {
             pauseGame.Pause(playerNumber);
         }
     }
+
+
 	void FixedUpdate(){
 		if (lockOnTarget != null) {
 			CheckTarget (lockOnTarget);
 		}
-
 	}
+
+
 	public void QueueMovementInput(){
 		
 		//Assume Idle
@@ -532,11 +512,13 @@ public class FighterClass : MonoBehaviour {
 			comboTimerEnd = 0;
 		}
 	}
+
 	public void ToggleDirection(){
 		//flip = false;
 		facingRight = !facingRight;
 		gameObject.transform.Rotate (new Vector3 (0, 180, 0));
 	}
+		
 	public void CheckTarget(GameObject target){
 		if (gameObject.transform.position.x > target.transform.position.x) {
 			facingRight = false;
@@ -547,14 +529,7 @@ public class FighterClass : MonoBehaviour {
 			gameObject.transform.rotation = Quaternion.Euler(0, 90, 0);
 		}
 	}
-
-
-
-
-
-
-
-	//Temp Location, move to attackFramework;
+		
 	IEnumerator attackDelay(){
 		canAttack = false;
 		canMove = false;
@@ -562,17 +537,7 @@ public class FighterClass : MonoBehaviour {
 		canAttack = true;
 		canMove = true;
 	}
-	IEnumerator attackDelay(GameObject activeHit1, int damageToDo){
-		canAttack = false;
-		canMove = false;
-		damage = damageToDo;
-		activeHit1.SetActive (true);
-		yield return new WaitForSeconds (anim.GetCurrentAnimatorClipInfo (0).Length);
-		activeHit1.SetActive (false);
-		damage = 0;
-		canAttack = true;
-		canMove = true;
-	}
+
 	IEnumerator attackDelay(AttackStats attack){
 		canAttack = false;
 		canMove = false;
@@ -593,130 +558,5 @@ public class FighterClass : MonoBehaviour {
 		damage = 0;
 		canAttack = true;
 		canMove = true;
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	//Class Functions
-	//Recieve Damage
-	public virtual void TakeDamage(){
-
-	}
-	//Block Damage
-	public virtual void Block(){
-
-	}
-	//Stop attacking Combo
-	public virtual void ComboBreak(){
-
-	}
-	//Lower Stance
-	public virtual void Crouch(){
-
-	}
-	//Move Character Left and Right
-	public virtual void Move(){
-
-	}
-	//Jump
-	public virtual void Jump(){
-
-	}
-	//Jump Forward
-	public virtual void JumpForward(){
-
-	}
-	//Jump Backward
-	public virtual void JumpBackward(){
-
-	}
-	//Dash
-	public virtual void Dash(){
-
-	}
-	//Light Attack
-	public virtual void LightAtt(){
-
-	}
-	//Medium Attack
-	public virtual void MediumAtt(){
-
-	}
-	//Heavy Attack
-	public virtual void HeavyAtt(){
-
-	}
-	//Crouching Light Attack
-	public virtual void CrouchLightAtt(){
-
-	}
-	//Crouching Medium Attack
-	public virtual void CrouchMedAtt(){
-
-	}
-	//Crouching Heavy Attack
-	public virtual void CrouchHeavyAtt(){
-
-	}
-	//Jumping Light Attack
-	public virtual void JumpLightAtt(){
-
-	}
-	//Jumping Medium Attack
-	public virtual void  JumpMedAtt(){
-
-	}
-	//Jumping Heavy Attack
-	public virtual void JumpHeavyAtt(){
-
-	}
-	//Grab Opponent
-	public virtual void Grab(){
-
 	}
 }
