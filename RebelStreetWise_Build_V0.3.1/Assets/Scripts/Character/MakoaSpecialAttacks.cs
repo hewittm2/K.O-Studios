@@ -29,7 +29,9 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
     private Vector3 rotation;
     private float throwTime;
     private bool throwing = false;
-   
+
+
+
 
     #endregion
 
@@ -44,24 +46,93 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
 
     #endregion
 
+
+
+
+    private GameObject spinClone;
+    private GameObject fire;
+    public float spinTimeout = 1;
+    public float spinSpeed;
+    public GameObject spinObject;
+    public GameObject Player;
+    public GameObject box;
+    private bool spawned = false;
+    private bool fireSpawned = false;
+    private FireScript groundFire;
+    private float fireCountDown;
+
+
     void Start()
     {
+    
         fireCone = coneOfFire.GetComponent<FireScript>();
+        
     }
 
     void Update()
     {
+        Debug.Log(fireCountDown);
+
+        if (spawned == true)
+        {
+            spinTimeout = spinTimeout - Time.deltaTime;
+            if (spinTimeout <= 0)
+            {
+                Destroy(spinClone);
+                spinObject.SetActive(true);
+
+                spawned = false;
+        
+
+            }
+
+            
+
+        }
+        if(fireSpawned == true)
+        {
+            fireCountDown = fireCountDown - Time.deltaTime;
+            if (fireCountDown <= 0)
+            {
+                Destroy(fire);
+                fireSpawned = false;
+            }
+        }
+        if (spinClone != null)
+        {
+            spinClone.transform.Rotate(-spinSpeed * Time.deltaTime, 0, 0);
+        }
+        if (fire != null)
+        {
+            groundFire = fire.GetComponent<FireScript>();
+
+            if (groundFire.doFireDmg)
+            {
+                Debug.Log("THE FLOOR IS LAVA");
+                groundFire.doFireDmg = false;
+
+
+            }
+        }
+
+
+
+
         // ===================================
         // ===== REMOVE WHEN IMPLEMENTED =====
         // ===================================
+        if (Input.GetButtonDown("B_1"))
+        {
+            DownSA(specialAttackStats.SpecialDown);
+        }
         if (Input.GetButtonDown("X_1"))
         {
             ForwardSA(specialAttackStats.SpecialForward);
         }
-        if(Input.GetButtonDown("B_1"))
-        {
-            BackSA(specialAttackStats.SpecialBack);
-        }
+        //if(Input.GetButtonDown("B_1"))
+        //{
+        //    BackSA(specialAttackStats.SpecialBack);
+        //}
         if(Input.GetButtonDown("A_1"))
         {
             NeutralSA(specialAttackStats.SpecialNeutral);
@@ -81,6 +152,7 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
                 // Add code for ranged damage. Waiting on Ethan/Torrell for more info
             }
         }
+   
 
   
 
@@ -105,7 +177,7 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
 
             //}
         }
-
+  
         //once timer is as big as value set in inspector
         if (currentEmpowerTime >= maxEmpowerTime)
         {
@@ -163,6 +235,30 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
     }
     public override void DownSA(SpecialAttacks down)
     {
+        if (spawned == false)
+        {
+   
+            spinTimeout = 1;
+            if (fire != null)
+            {
+                Destroy(fire);
+                fireCountDown = 5;
+            }
+            fire = Instantiate(box);
+            fireCountDown = 5;
+            spinClone = Instantiate(spinObject);
+            spinObject.SetActive(false);
+            spinClone.transform.position = Player.transform.position;
+            spinClone.transform.Translate(new Vector3(5, 0, 0));
+            spinClone.transform.eulerAngles = new Vector3(0, 0, 0);
+            spinClone.transform.localScale = new Vector3(0.5f, 5, 0.5f);
+            fire.transform.position = new Vector3(spinClone.transform.position.x, 0, 0);
+            spawned = true;
+            fireSpawned = true;
+
+
+        }
+
 
     }
     public override void BreakdownSA(SpecialAttacks breakdown)
@@ -195,4 +291,6 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
 
         breathCooldown = fireBreathCooldown;
     }
+
+
 }
