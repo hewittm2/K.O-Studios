@@ -62,6 +62,10 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
     private float fireCountDown;
 
 
+    private FireSpitTracking firescript;
+    private FireSpitTracking fireSpitScript;
+   
+
     void Start()
     {
     
@@ -71,6 +75,48 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
 
     void Update()
     {
+
+        // Checks for Damage to be done with the Up/Jump special attack
+        if (firescript.fireSpitHit)
+        {
+            Debug.Log("FIRE Spit Hit!");
+
+            // If the knockdown is true and damage is not true from the particle effect, Knockdown enemy
+            if (fireSpitScript.knockdown && fireSpitScript.doFireSpitDmg == false)
+            {
+                // === Add code for knocking down enemy. Waiting to hear back from Ethan ===\\
+                Debug.Log("Knocked Down Enemy");
+                fireSpitScript.knockdown = false;
+            }
+
+            // If the knockdown is true and damage is also true from the particle effect, Knockdown enemy, and do damage
+            else if (fireSpitScript.knockdown && fireSpitScript.doFireSpitDmg)
+            {
+                Debug.Log("Knocked Down and Damage Dealt");
+                // === Add code for knocking down enemy. Waiting to hear back from Ethan ===\\
+                fireSpitScript.knockdown = false;
+                fireSpitScript.doFireSpitDmg = false;
+            }
+
+            // If the enemy is blocking, knock them back without doing damage
+            else if (fireSpitScript.knockback)
+            {
+                Debug.Log("Enemy Blocked. Push them back");
+                specialAttackStats.SpecialJump.knockbackForce = 5f;
+                fireSpitScript.knockback = false;
+            }
+
+            // Enemy is on the ground and fire hit them, do damage
+            else
+            {
+                Debug.Log("Enemy Down. Damage Him");
+                // Add code for ranged attack damage. Need to talk to Ethan/Torrell
+                fireSpitScript.doFireSpitDmg = false;
+            }
+        }
+
+
+
         Debug.Log(fireCountDown);
 
         if (spawned == true)
@@ -231,7 +277,12 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
     }
     public override void JumpSA(SpecialAttacks jump)
     {
+        //if (!movement.character.isGrounded)
+        //{
+        //    fireSpitScript.fireSpitHit = false;
+        //    spitFire.Play();
 
+        //}
     }
     public override void DownSA(SpecialAttacks down)
     {
