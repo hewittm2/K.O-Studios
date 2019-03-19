@@ -73,21 +73,24 @@ public class HitDetection : MonoBehaviour {
 		foreach (ContactPoint contact in col.contacts) {
 			if (player.canRecieveDamage) {
 				if (contact.otherCollider.tag == attacker) {
+					FighterClass attacker = col.gameObject.GetComponentInParent<FighterClass>();
 					if (!player.blocking) {
-						ReceiveDamage (col.gameObject.GetComponentInParent<FighterClass> ().damage,col.gameObject.GetComponentInParent<FighterClass> ().knockBackDirection, col.gameObject.GetComponentInParent<FighterClass> ().knockBackForce);
+						ReceiveDamage (attacker.damage,attacker.knockBackDirection, attacker.knockBackForce);
 						hitSpark.transform.position = contact.otherCollider.transform.position;
 						hitSpark.SetActive(true);
-
+						attacker.superMeter += attacker.meterGain;
 					} else {
 						ReceiveBlockedDamage (col.gameObject.GetComponentInParent<FighterClass> ().damage,col.gameObject.GetComponentInParent<FighterClass> ().knockBackDirection, col.gameObject.GetComponentInParent<FighterClass> ().knockBackForce);
 						blockSpark.transform.position = contact.otherCollider.transform.position;
 						blockSpark.SetActive(true);
+						attacker.superMeter += (attacker.meterGain*player.defValue);
 					}
 				}
 			}
 		}
 	}
 	public void ReceiveBlockedDamage(float damage, Vector3 kbDirection, float kbForce){
+		player.anim.SetTrigger("GetHit");
 		player.canRecieveDamage = false;
 		player.canMove = false;
 		player.canAttack = false;
@@ -100,7 +103,7 @@ public class HitDetection : MonoBehaviour {
 
 	}
 	public void ReceiveDamage(float damage, Vector3 kbDirection, float kbForce){
-
+		player.anim.SetTrigger("GetHit");
 		player.canRecieveDamage = false;
 		player.canMove = false;
 		player.canAttack = false;

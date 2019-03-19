@@ -26,11 +26,14 @@ public class FighterClass : MonoBehaviour {
     public int currentHealth;
 	public int totalHealth;
 	public float defValue;
+	public float superMeter;
+
 	//Individual Attack Variables
 	[System.Serializable]
 	public class AttackStats{
 		[Range(.1f, 2f)]
 		public float animSpeed;
+		public float meterGain;
 		public enum HitType{High, Mid,Low}
 		public HitType hitType;
 		public Vector3 knockBackDirection;
@@ -53,6 +56,9 @@ public class FighterClass : MonoBehaviour {
 		public AttackStats crouchHeavyAttack = new AttackStats();
 	}
 	public AttackVariables attackVariables = new AttackVariables();
+
+	SpecialAttackTemplate specials;
+
 	//Movement Animation Variables
 	[System.Serializable]
 	public class MovementAnimationSpeeds{
@@ -113,6 +119,8 @@ public class FighterClass : MonoBehaviour {
 	[HideInInspector]
 	public float knockBackForce;
 	[HideInInspector]
+	public float meterGain;
+	[HideInInspector]
 	public List<GameObject> lockOnTargets;
 	[HideInInspector]
 	public GameObject lockOnTarget;
@@ -142,7 +150,9 @@ public class FighterClass : MonoBehaviour {
 
 
 	void Start () {
+		specials = GetComponent<SpecialAttackTemplate> ();
 		CurrFrameType = FrameType.Regular;
+
 		movement = GetComponent<BaseMovement> ();
 		hitBoxes = GetComponent<HitDetection> ();
 		currentHealth = totalHealth;
@@ -587,58 +597,68 @@ public class FighterClass : MonoBehaviour {
 				if (movement.character.isGrounded) {
 					if (Input.GetAxis (controllerVariables.horiInput) < -controllerVariables.horiDeadZone) {
 						Debug.Log ("Back_Special(R),");
-						//anim.speed = 
+						anim.speed = specials.SpecialBack.animSpeed;
 						anim.SetTrigger ("Back Special");
+						specials.BackSA (specials.SpecialBack);
 						StartCoroutine (attackDelay ());
 					} else if(Input.GetAxis (controllerVariables.horiInput) > controllerVariables.horiDeadZone) {
 						Debug.Log ("Forward_Special(R),");
-						//anim.speed = 
+						anim.speed = specials.SpecialForward.animSpeed;
 						anim.SetTrigger ("Forward Special");
+						specials.ForwardSA (specials.SpecialForward);
 						StartCoroutine (attackDelay ());
 					}else if(Input.GetAxis (controllerVariables.vertInput) < -controllerVariables.vertDeadZone){
 						Debug.Log("Down Special(R)");
-						//anim.speed = 
+						anim.speed = specials.SpecialDown.animSpeed;
 						anim.SetTrigger ("Down Special");
+						specials.DownSA (specials.SpecialDown);
 						StartCoroutine (attackDelay ());
 					}else{
 						Debug.Log("Neutral Special(L)");
-						//anim.speed = 
+						anim.speed = specials.SpecialNeutral.animSpeed;
 						anim.SetTrigger ("Special");
+						specials.NeutralSA (specials.SpecialNeutral);
 						StartCoroutine (attackDelay ());
 					}
 				} else {
 					Debug.Log ("Jump_Special(R),");
-					//anim.speed = 
+					anim.speed = specials.SpecialJump.animSpeed;
 					anim.SetTrigger ("Jump Special");
+					specials.JumpSA (specials.SpecialJump);
 					StartCoroutine (attackDelay ());
 				}
 			} else {
 				if (movement.character.isGrounded) {
 					if (Input.GetAxis (controllerVariables.horiInput) > controllerVariables.horiDeadZone) {
 						Debug.Log ("Back_Special(L),");
-						//anim.speed = attackVariables.crouchHeavyAttack.animSpeed;
+						anim.speed = specials.SpecialBack.animSpeed;
 						anim.SetTrigger ("Back Special");
+						specials.BackSA (specials.SpecialBack);
 						StartCoroutine (attackDelay ());
 					} else if(Input.GetAxis (controllerVariables.horiInput) < -controllerVariables.horiDeadZone) {
 						Debug.Log ("Forward_Special(L),");
-						//anim.speed = attackVariables.heavyAttack.animSpeed;
+						anim.speed = specials.SpecialForward.animSpeed;
 						anim.SetTrigger ("Forward Special");
+						specials.ForwardSA (specials.SpecialForward);
 						StartCoroutine (attackDelay ());
 					}else if(Input.GetAxis (controllerVariables.vertInput) < -controllerVariables.vertDeadZone){
 						Debug.Log("Down Special(L)");
-						//anim.speed = 
+						anim.speed = specials.SpecialDown.animSpeed;
 						anim.SetTrigger ("Down Special");
+						specials.DownSA (specials.SpecialDown);
 						StartCoroutine (attackDelay ());
 					}else{
 						Debug.Log("Neutral Special(L)");
-						//anim.speed = 
+						anim.speed = specials.SpecialNeutral.animSpeed;
 						anim.SetTrigger ("Special");
+						specials.NeutralSA (specials.SpecialNeutral);
 						StartCoroutine (attackDelay());
 					}
 				} else {
 					Debug.Log ("Jump_Special(L),");
-					//anim.speed = attackVariables.jumpHeavyAttack.animSpeed;
+					anim.speed = specials.SpecialJump.animSpeed;
 					anim.SetTrigger ("Jump Special");
+					specials.JumpSA (specials.SpecialJump);
 					StartCoroutine (attackDelay());
 				}
 			} 
@@ -692,6 +712,7 @@ public class FighterClass : MonoBehaviour {
 		canAttack = false;
 		canMove = false;
 		damage = attack.attDam;
+		meterGain = attack.meterGain;
 		if (facingRight) {
 			knockBackDirection = attack.knockBackDirection;
 		}else{
