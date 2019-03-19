@@ -190,23 +190,26 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
         }
         if(spinClone != null)
         {
-            if(opponent.character.isGrounded == false)
+            if (spinClone.GetComponent<TriggerCheck>().opponent != null)
             {
-                if (opponent.GetComponent<FighterClass>().canRecieveDamage != false)
-                opponent.GetComponent<FighterClass>().canRecieveDamage = false;
-               
-            }
-            else
-            {
-                opponent.GetComponent<FighterClass>().canRecieveDamage = true;
-                if (opponent.GetComponent<FighterClass>().blocking == true)
+                if (opponent.character.isGrounded == false)
                 {
-                    opponent.GetComponent<FighterClass>().damage = downDamage - opponent.GetComponent<FighterClass>().defValue;
-                    opponent.transform.Translate(new Vector3(-2, 0, 0));
+                    if (opponent.GetComponent<FighterClass>().canRecieveDamage != false)
+                        opponent.GetComponent<FighterClass>().canRecieveDamage = false;
+
                 }
                 else
                 {
-                    opponent.GetComponent<FighterClass>().damage = downDamage;
+                    opponent.GetComponent<FighterClass>().canRecieveDamage = true;
+                    if (opponent.GetComponent<FighterClass>().blocking == true)
+                    {
+                        opponent.GetComponent<FighterClass>().damage = downDamage - opponent.GetComponent<FighterClass>().defValue;
+                        opponent.transform.Translate(new Vector3(-2, 0, 0));
+                    }
+                    else
+                    {
+                        opponent.GetComponent<FighterClass>().damage = downDamage;
+                    }
                 }
             }
         
@@ -365,7 +368,7 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
             fire = Instantiate(box);
             fireCountDown = 5;
             //spawns spinning object
-            spinClone = Instantiate(spinObject);
+            spinClone = Instantiate(spinObject, gameObject.transform.parent);
             spinObject.SetActive(false);
             //translates to positions (most should be able to me removed after animations are IMPLEMENTED
             spinClone.transform.position = Player.transform.position;
@@ -412,15 +415,5 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
         breathCooldown = fireBreathCooldown;
     }
 
-    private void OnTriggerEnter(Collider attackCollider)
-    {
-        if(attackCollider.gameObject.GetComponent<BaseMovement>())
-        {
-            
-            opponent = attackCollider.gameObject.GetComponent<BaseMovement>();
-
-        }
-
-       
-    }
+ 
 }
