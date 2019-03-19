@@ -72,9 +72,11 @@ public class HitDetection : MonoBehaviour {
 		foreach (ContactPoint contact in col.contacts) {
 			if (player.canRecieveDamage) {
 				if (contact.otherCollider.tag == attacker) {
+					col.gameObject.GetComponentInParent<FighterClass> ().target = this.gameObject;
 					if (!player.blocking) {
 						hitSpark.transform.position = contact.otherCollider.transform.position;
 						hitSpark.SetActive(true);
+
 						ReceiveDamage (col.gameObject.GetComponentInParent<FighterClass> ().damage);
 						//Instantiate (hitSpark,contact.otherCollider.transform.position, Quaternion.identity);
 

@@ -76,6 +76,7 @@ public class FighterClass : MonoBehaviour {
 
 	public List<GameObject> lockOnTargets;
 	public GameObject lockOnTarget;
+	public GameObject target;
 	//Attacks
 
     
