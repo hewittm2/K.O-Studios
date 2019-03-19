@@ -132,6 +132,7 @@ public class FighterClass : MonoBehaviour {
 	public bool canAttack = true;
 	[HideInInspector]
 	public bool canRecieveDamage = true;
+	public bool isGrabbed = false;
 	public bool blocking;
 
 	bool breakDownStep1L = false;
