@@ -17,7 +17,7 @@ public class SpecialAttackTemplate : MonoBehaviour
         public float recoveryTime;
         public int stunTime;
         public float damage;
-        public GameObject partEffect;
+        public ParticleSystem partEffect;
     }
     public SpecialAttacks specialAttackVars = new SpecialAttacks();
     

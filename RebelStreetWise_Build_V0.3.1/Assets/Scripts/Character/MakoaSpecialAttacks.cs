@@ -37,7 +37,7 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
 
     #region ForwardSpecialVars
 
-    public ParticleSystem coneOfFire;
+    private ParticleSystem coneOfFire;
     public float breathWaitTime = 2f;
     public float fireDamage;
     public float fireBreathCooldown = 9f;
@@ -46,7 +46,13 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
 
     #endregion
 
+    #region Jump Special Variables
 
+    private ParticleSystem fireSpitParticles;
+    private FireSpitTracking fireSpitTracking;
+    private BaseMovement movement;
+
+    #endregion
 
 
     private GameObject spinClone;
@@ -63,47 +69,50 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
 
 
     private FireSpitTracking firescript;
-    private FireSpitTracking fireSpitScript;
    
 
     void Start()
     {
-    
+        fireSpitTracking = fireSpitParticles.GetComponent<FireSpitTracking>();
         fireCone = coneOfFire.GetComponent<FireScript>();
-        
+
+        fireSpitParticles = specialAttackStats.SpecialJump.partEffect;
+        coneOfFire = specialAttackStats.SpecialForward.partEffect;
+
+        movement = GetComponent<BaseMovement>();
     }
 
     void Update()
     {
 
         // Checks for Damage to be done with the Up/Jump special attack
-        if (firescript.fireSpitHit)
+        if (fireSpitTracking.fireSpitHit)
         {
             Debug.Log("FIRE Spit Hit!");
 
             // If the knockdown is true and damage is not true from the particle effect, Knockdown enemy
-            if (fireSpitScript.knockdown && fireSpitScript.doFireSpitDmg == false)
+            if (fireSpitTracking.knockdown && fireSpitTracking.doFireSpitDmg == false)
             {
                 // === Add code for knocking down enemy. Waiting to hear back from Ethan ===\\
                 Debug.Log("Knocked Down Enemy");
-                fireSpitScript.knockdown = false;
+                fireSpitTracking.knockdown = false;
             }
 
             // If the knockdown is true and damage is also true from the particle effect, Knockdown enemy, and do damage
-            else if (fireSpitScript.knockdown && fireSpitScript.doFireSpitDmg)
+            else if (fireSpitTracking.knockdown && fireSpitTracking.doFireSpitDmg)
             {
                 Debug.Log("Knocked Down and Damage Dealt");
                 // === Add code for knocking down enemy. Waiting to hear back from Ethan ===\\
-                fireSpitScript.knockdown = false;
-                fireSpitScript.doFireSpitDmg = false;
+                fireSpitTracking.knockdown = false;
+                fireSpitTracking.doFireSpitDmg = false;
             }
 
             // If the enemy is blocking, knock them back without doing damage
-            else if (fireSpitScript.knockback)
+            else if (fireSpitTracking.knockback)
             {
                 Debug.Log("Enemy Blocked. Push them back");
                 specialAttackStats.SpecialJump.knockbackForce = 5f;
-                fireSpitScript.knockback = false;
+                fireSpitTracking.knockback = false;
             }
 
             // Enemy is on the ground and fire hit them, do damage
@@ -111,7 +120,7 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
             {
                 Debug.Log("Enemy Down. Damage Him");
                 // Add code for ranged attack damage. Need to talk to Ethan/Torrell
-                fireSpitScript.doFireSpitDmg = false;
+                fireSpitTracking.doFireSpitDmg = false;
             }
         }
 
@@ -173,7 +182,7 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
         }
         if (Input.GetButtonDown("X_1"))
         {
-            ForwardSA(specialAttackStats.SpecialForward);
+            JumpSA(specialAttackStats.SpecialForward);
         }
         //if(Input.GetButtonDown("B_1"))
         //{
@@ -277,12 +286,12 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
     }
     public override void JumpSA(SpecialAttacks jump)
     {
-        //if (!movement.character.isGrounded)
-        //{
-        //    fireSpitScript.fireSpitHit = false;
-        //    spitFire.Play();
+        if (!movement.character.isGrounded)
+        {
+            fireSpitTracking.fireSpitHit = false;
+            fireSpitParticles.Play();
 
-        //}
+        }
     }
     public override void DownSA(SpecialAttacks down)
     {
