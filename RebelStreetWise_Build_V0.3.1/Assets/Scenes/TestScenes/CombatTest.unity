@@ -737,7 +737,7 @@ GameObject:
   - component: {fileID: 439917083}
   m_Layer: 9
   m_Name: ThrownObject
-  m_TagString: Untagged
+  m_TagString: attack1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6185,6 +6185,7 @@ MonoBehaviour:
       stunTime: 0
       damage: 0
       partEffect: {fileID: 0}
+  opponent: {fileID: 0}
   empoweredParticle: {fileID: 1716296681}
   damageBuff: 1.1
   maxEmpowerTime: 3
@@ -6200,6 +6201,7 @@ MonoBehaviour:
   spinObject: {fileID: 439917078}
   Player: {fileID: 1554558900}
   box: {fileID: 1536867912922306, guid: 5bbabec7811cf1d4c899b57eafffc7b1, type: 2}
+  downDamage: 0
 --- !u!4 &1554558909 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4585087350740060, guid: d9e0f72a30bb0454f812f474322f41cf,
@@ -6221,6 +6223,7 @@ GameObject:
   - component: {fileID: 1827819502}
   - component: {fileID: 1827819501}
   - component: {fileID: 1827819503}
+  - component: {fileID: 1827819504}
   m_Layer: 9
   m_Name: ConeOfFire
   m_TagString: attack1
@@ -10844,6 +10847,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireHit: 0
   doFireDmg: 0
+--- !u!136 &1827819504
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1827819499}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1
+  m_Height: 0.00002
+  m_Direction: 1
+  m_Center: {x: 0.000000029802322, y: 0, z: 0}
 --- !u!4 &2144693752 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4585087350740060, guid: d9e0f72a30bb0454f812f474322f41cf,

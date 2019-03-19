@@ -6,6 +6,12 @@ using UnityEngine;
 // 3/10/2019
 
 public class MakoaSpecialAttacks : SpecialAttackTemplate {
+    #region general Vars
+    private BaseMovement movement;
+    private HitDetection hitDetection;
+    private FighterClass fighterClass;
+    public BaseMovement opponent;
+    #endregion
 
     #region Neutral Special Variables
 
@@ -50,11 +56,11 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
 
     private ParticleSystem fireSpitParticles;
     private FireSpitTracking fireSpitTracking;
-    private BaseMovement movement;
+
 
     #endregion
 
-
+    #region Down Special Variables
     private GameObject spinClone;
     private GameObject fire;
     public float spinTimeout = 1;
@@ -66,19 +72,19 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
     private bool fireSpawned = false;
     private FireScript groundFire;
     private float fireCountDown;
+    public float downDamage;
+    #endregion
 
 
-    private FireSpitTracking firescript;
+
    
 
     void Start()
     {
-        fireSpitTracking = fireSpitParticles.GetComponent<FireSpitTracking>();
-        fireCone = coneOfFire.GetComponent<FireScript>();
-
         fireSpitParticles = specialAttackStats.SpecialJump.partEffect;
         coneOfFire = specialAttackStats.SpecialForward.partEffect;
-
+        fireSpitTracking = fireSpitParticles.GetComponent<FireSpitTracking>();
+        fireCone = coneOfFire.GetComponent<FireScript>();
         movement = GetComponent<BaseMovement>();
     }
 
@@ -86,53 +92,61 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
     {
 
         // Checks for Damage to be done with the Up/Jump special attack
-        if (fireSpitTracking.fireSpitHit)
+        if (fireSpitTracking != null)
         {
-            Debug.Log("FIRE Spit Hit!");
-
-            // If the knockdown is true and damage is not true from the particle effect, Knockdown enemy
-            if (fireSpitTracking.knockdown && fireSpitTracking.doFireSpitDmg == false)
+            if (fireSpitTracking.fireSpitHit)
             {
-                // === Add code for knocking down enemy. Waiting to hear back from Ethan ===\\
-                Debug.Log("Knocked Down Enemy");
-                fireSpitTracking.knockdown = false;
-            }
+                Debug.Log("FIRE Spit Hit!");
 
-            // If the knockdown is true and damage is also true from the particle effect, Knockdown enemy, and do damage
-            else if (fireSpitTracking.knockdown && fireSpitTracking.doFireSpitDmg)
-            {
-                Debug.Log("Knocked Down and Damage Dealt");
-                // === Add code for knocking down enemy. Waiting to hear back from Ethan ===\\
-                fireSpitTracking.knockdown = false;
-                fireSpitTracking.doFireSpitDmg = false;
-            }
+                // If the knockdown is true and damage is not true from the particle effect, Knockdown enemy
+                if (fireSpitTracking.knockdown && fireSpitTracking.doFireSpitDmg == false)
+                {
+                    // === Add code for knocking down enemy. Waiting to hear back from Ethan ===\\
+                    Debug.Log("Knocked Down Enemy");
+                    fireSpitTracking.knockdown = false;
+                }
 
-            // If the enemy is blocking, knock them back without doing damage
-            else if (fireSpitTracking.knockback)
-            {
-                Debug.Log("Enemy Blocked. Push them back");
-                specialAttackStats.SpecialJump.knockbackForce = 5f;
-                fireSpitTracking.knockback = false;
-            }
+                // If the knockdown is true and damage is also true from the particle effect, Knockdown enemy, and do damage
+                else if (fireSpitTracking.knockdown && fireSpitTracking.doFireSpitDmg)
+                {
+                    Debug.Log("Knocked Down and Damage Dealt");
+                    // === Add code for knocking down enemy. Waiting to hear back from Ethan ===\\
+                    fireSpitTracking.knockdown = false;
+                    fireSpitTracking.doFireSpitDmg = false;
+                }
 
-            // Enemy is on the ground and fire hit them, do damage
-            else
-            {
-                Debug.Log("Enemy Down. Damage Him");
-                // Add code for ranged attack damage. Need to talk to Ethan/Torrell
-                fireSpitTracking.doFireSpitDmg = false;
+                // If the enemy is blocking, knock them back without doing damage
+                else if (fireSpitTracking.knockback)
+                {
+                    Debug.Log("Enemy Blocked. Push them back");
+                    specialAttackStats.SpecialJump.knockbackForce = 5f;
+                    fireSpitTracking.knockback = false;
+                }
+
+                // Enemy is on the ground and fire hit them, do damage
+                else
+                {
+                    Debug.Log("Enemy Down. Damage Him");
+                    // Add code for ranged attack damage. Need to talk to Ethan/Torrell
+                    fireSpitTracking.doFireSpitDmg = false;
+                }
             }
         }
 
 
+        
+        
 
-        Debug.Log(fireCountDown);
 
+        //checks if the staff spin spawned 
         if (spawned == true)
         {
+
+            //timeout
             spinTimeout = spinTimeout - Time.deltaTime;
             if (spinTimeout <= 0)
             {
+                //destorys
                 Destroy(spinClone);
                 spinObject.SetActive(true);
 
@@ -144,19 +158,24 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
             
 
         }
+        //checks if the fire is there
         if(fireSpawned == true)
         {
+            //timeout
             fireCountDown = fireCountDown - Time.deltaTime;
             if (fireCountDown <= 0)
             {
+                //destroys
                 Destroy(fire);
                 fireSpawned = false;
             }
         }
         if (spinClone != null)
         {
+            //spins
             spinClone.transform.Rotate(-spinSpeed * Time.deltaTime, 0, 0);
         }
+        //fire damage stuff
         if (fire != null)
         {
             groundFire = fire.GetComponent<FireScript>();
@@ -169,6 +188,50 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
 
             }
         }
+        if(spinClone != null)
+        {
+            if(opponent.character.isGrounded == false)
+            {
+                if (opponent.GetComponent<FighterClass>().canRecieveDamage != false)
+                opponent.GetComponent<FighterClass>().canRecieveDamage = false;
+               
+            }
+            else
+            {
+                opponent.GetComponent<FighterClass>().canRecieveDamage = true;
+                if (opponent.GetComponent<FighterClass>().blocking == true)
+                {
+                    opponent.GetComponent<FighterClass>().damage = downDamage - opponent.GetComponent<FighterClass>().defValue;
+                    opponent.transform.Translate(new Vector3(-2, 0, 0));
+                }
+                else
+                {
+                    opponent.GetComponent<FighterClass>().damage = downDamage;
+                }
+            }
+        
+        }
+        if(clone != null)
+        {
+            if(opponent.GetComponent<FighterClass>().canRecieveDamage != false)
+            if (opponent.character.isGrounded == false)
+            {
+                opponent.character.transform.Translate(new Vector3(-2, 0, 0));
+            }
+         
+            if (opponent.GetComponent<FighterClass>().blocking == true)
+            {
+                //moves back less then if not block
+                opponent.GetComponent<FighterClass>().damage = downDamage - opponent.GetComponent<FighterClass>().defValue;
+                opponent.transform.Translate(new Vector3(-1, 0, 0));
+            }
+            else
+            {
+                opponent.GetComponent<FighterClass>().damage = downDamage;
+            }
+        }
+
+        
 
 
 
@@ -220,17 +283,7 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
             //moves clone
             clone.transform.position += (transform.forward * throwSpeed) * Time.deltaTime;
        
-            //once the counter is >= to the time set in the inspecter the clone destroys and the orginal object is set back to active
-            //if (throwTime >= totalThrowTime)
-            //{
-
-            //    throwing = false;
-            //    throwSetUp = false;
-            //    throwTime = 0;
-            //    Destroy(clone);
-            //    thrownObject.SetActive(true);
-
-            //}
+       
         }
   
         //once timer is as big as value set in inspector
@@ -295,19 +348,26 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
     }
     public override void DownSA(SpecialAttacks down)
     {
+
+        //check statement
         if (spawned == false)
         {
-   
+            //resets the timer
             spinTimeout = 1;
+            //checks if fire is there or not
             if (fire != null)
             {
+                //destroys and restarts timer
                 Destroy(fire);
                 fireCountDown = 5;
             }
+            //spawns fire
             fire = Instantiate(box);
             fireCountDown = 5;
+            //spawns spinning object
             spinClone = Instantiate(spinObject);
             spinObject.SetActive(false);
+            //translates to positions (most should be able to me removed after animations are IMPLEMENTED
             spinClone.transform.position = Player.transform.position;
             spinClone.transform.Translate(new Vector3(5, 0, 0));
             spinClone.transform.eulerAngles = new Vector3(0, 0, 0);
@@ -352,5 +412,15 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
         breathCooldown = fireBreathCooldown;
     }
 
+    private void OnTriggerEnter(Collider attackCollider)
+    {
+        if(attackCollider.gameObject.GetComponent<BaseMovement>())
+        {
+            
+            opponent = attackCollider.gameObject.GetComponent<BaseMovement>();
 
+        }
+
+       
+    }
 }
