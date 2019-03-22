@@ -15,7 +15,7 @@ public class BaseMovement : MonoBehaviour
 	//Dash
 	public float forwardDashSpeed;
 	public float backDashSpeed;
-	bool dashing;
+	public bool dashing;
 	//Jump
     public float vertJumpForce;
 	public float horiJumpForce;
@@ -29,7 +29,7 @@ public class BaseMovement : MonoBehaviour
     public CharacterController character;
 	//[HideInInspector]
 	public FighterClass fighter;
-	Rigidbody rigid;
+	public Rigidbody rigid;
 	//Hit/Hurt Boxes
     private Vector3[] centerArray = new Vector3[2];
     private float[] radiusArray = new float[2];

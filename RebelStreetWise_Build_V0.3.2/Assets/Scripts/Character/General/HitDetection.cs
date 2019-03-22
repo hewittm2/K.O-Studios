@@ -24,12 +24,13 @@ public class HitDetection : MonoBehaviour {
 
 	[HideInInspector]
 	public string attacker;
-
-
+	[HideInInspector]
+	public BaseMovement movement;
 
 
 	private void Start(){
 		player = GetComponent<FighterClass>();
+		movement = GetComponent<BaseMovement> ();
 		hitSpark = Instantiate (hitSpark,player.gameObject.transform.position, Quaternion.identity);
 		blockSpark = Instantiate (blockSpark, player.gameObject.transform.position, Quaternion.identity);
 		hitSpark.SetActive (false);
@@ -72,24 +73,24 @@ public class HitDetection : MonoBehaviour {
 		foreach (ContactPoint contact in col.contacts) {
 			if (player.canRecieveDamage) {
 				if (contact.otherCollider.tag == attacker) {
+					FighterClass attacker = col.gameObject.GetComponentInParent<FighterClass>();
 					if (!player.blocking) {
+						ReceiveDamage (attacker.damage,attacker.knockBackDirection, attacker.knockBackForce);
 						hitSpark.transform.position = contact.otherCollider.transform.position;
 						hitSpark.SetActive(true);
-						ReceiveDamage (col.gameObject.GetComponentInParent<FighterClass> ().damage);
-						//Instantiate (hitSpark,contact.otherCollider.transform.position, Quaternion.identity);
-
+						attacker.superMeter += attacker.meterGain;
 					} else {
-						ReceiveBlockedDamage (col.gameObject.GetComponentInParent<FighterClass> ().damage);
-						//Instantiate (blockSpark, contact.otherCollider.transform.position, Quaternion.identity);
+						ReceiveBlockedDamage (col.gameObject.GetComponentInParent<FighterClass> ().damage,col.gameObject.GetComponentInParent<FighterClass> ().knockBackDirection, col.gameObject.GetComponentInParent<FighterClass> ().knockBackForce);
 						blockSpark.transform.position = contact.otherCollider.transform.position;
 						blockSpark.SetActive(true);
+						attacker.superMeter += (attacker.meterGain*player.defValue);
 					}
-
 				}
 			}
 		}
 	}
-	public void ReceiveBlockedDamage(float damage){
+	public void ReceiveBlockedDamage(float damage, Vector3 kbDirection, float kbForce){
+		player.anim.SetTrigger("GetHit");
 		player.canRecieveDamage = false;
 		player.canMove = false;
 		player.canAttack = false;
@@ -98,26 +99,45 @@ public class HitDetection : MonoBehaviour {
 
 
 		Debug.Log("HitBox of Team " + player.teamNumber + " Hit for " + damage + " points of damage");
-		StartCoroutine (hitDelay (player));
+		StartCoroutine (hitDelay (player, kbDirection,kbForce));
 
 	}
-	public void ReceiveDamage(float damage){
-
+	public void ReceiveDamage(float damage, Vector3 kbDirection, float kbForce){
+		player.anim.SetTrigger("GetHit");
 		player.canRecieveDamage = false;
 		player.canMove = false;
 		player.canAttack = false;
 		player.currentHealth -= Mathf.RoundToInt(damage);
 		Debug.Log("HitBox of Team " + player.teamNumber + " Hit for " + damage + " points of damage");
-		StartCoroutine (hitDelay (player));
+		StartCoroutine (hitDelay (player,kbDirection, kbForce));
 
 
 	}
-	IEnumerator hitDelay(FighterClass player){
-		yield return new WaitForSeconds (1f);
+	IEnumerator hitDelay(FighterClass player, Vector3 kbDirection, float kbForce){
+		movement.dashing = true;
+		movement.character.enabled = false;
+		movement.rigid.constraints = RigidbodyConstraints.None;
+		movement.rigid.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionZ;
+		movement.rigid.velocity = new Vector3(0, 0, 0);
+		movement.rigid.angularVelocity = new Vector3(0, 0, 0);
+		movement.rigid.velocity += (new Vector3(kbDirection.x,kbDirection.y, 0)*kbForce);
+		yield return new WaitForSeconds(.2f);
+		movement.rigid.velocity = new Vector3(0, 0, 0);
+		movement.rigid.angularVelocity = new Vector3(0, 0, 0);
+		yield return new WaitForSeconds(.01f);
+		movement.rigid.constraints = RigidbodyConstraints.FreezeAll;
+
+
+
+		yield return new WaitForSeconds (.2f);
+		movement.fighter.canMove = true;
 		player.canRecieveDamage = true;
 		player.canMove = true;
 		player.canAttack = true;
+		movement.character.enabled = true;
+		movement.dashing = false;
 		blockSpark.SetActive (false);
 		hitSpark.SetActive (false);
 	}
+
 }

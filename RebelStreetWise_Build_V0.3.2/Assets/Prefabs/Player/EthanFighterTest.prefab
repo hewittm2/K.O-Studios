@@ -788,6 +788,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4585087350740060}
   - component: {fileID: 114176483401608478}
+  - component: {fileID: 114482602755484894}
+  - component: {fileID: 114520999701512428}
   - component: {fileID: 114374788195630766}
   - component: {fileID: 114364229615620228}
   - component: {fileID: 114262822207757450}
@@ -2863,7 +2865,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_WarningMessage: 
+  m_WarningMessage:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -2876,8 +2878,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c502e158d670e74888c5528bda953bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   PlayerOne: 1
   PlayerTwo: 0
   PlayerThree: 0
@@ -2891,125 +2893,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d2eaff390c9e73b4b97c28ba0bbf4e27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  input: {x: 0, y: 0}
-  forwardMoveSpeed: 20
-  backMoveSpeed: 15
-  forwardDashSpeed: 25
-  backDashSpeed: 20
-  vertJumpForce: 0.4
-  horiJumpForce: 0.4
-  jumpCD: 1
-  character: {fileID: 0}
-  fighter: {fileID: 0}
---- !u!114 &114364229615620228
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1523036563279898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f362d15a8794c0b42937d58896571f8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  charSprite: {fileID: 0}
-  playerNumber: 0
-  teamNumber: 0
-  currentHealth: 0
-  totalHealth: 0
-  defValue: 0
-  attackVariables:
-    lightAttack:
-      hitType: 0
-      knockBack: {x: 0, y: 0, z: 0}
-      attDam: 0
-      hitBox1: {fileID: 0}
-      hitBox2: {fileID: 0}
-    mediumAttack:
-      hitType: 0
-      knockBack: {x: 0, y: 0, z: 0}
-      attDam: 0
-      hitBox1: {fileID: 0}
-      hitBox2: {fileID: 0}
-    heavyAttack:
-      hitType: 0
-      knockBack: {x: 0, y: 0, z: 0}
-      attDam: 0
-      hitBox1: {fileID: 0}
-      hitBox2: {fileID: 0}
-    jumpLightAttack:
-      hitType: 0
-      knockBack: {x: 0, y: 0, z: 0}
-      attDam: 0
-      hitBox1: {fileID: 0}
-      hitBox2: {fileID: 0}
-    jumpMediumAttack:
-      hitType: 0
-      knockBack: {x: 0, y: 0, z: 0}
-      attDam: 0
-      hitBox1: {fileID: 0}
-      hitBox2: {fileID: 0}
-    jumpHeavyAttack:
-      hitType: 0
-      knockBack: {x: 0, y: 0, z: 0}
-      attDam: 0
-      hitBox1: {fileID: 0}
-      hitBox2: {fileID: 0}
-    crouchLightAttack:
-      hitType: 0
-      knockBack: {x: 0, y: 0, z: 0}
-      attDam: 0
-      hitBox1: {fileID: 0}
-      hitBox2: {fileID: 0}
-    crouchMediumAttack:
-      hitType: 0
-      knockBack: {x: 0, y: 0, z: 0}
-      attDam: 0
-      hitBox1: {fileID: 0}
-      hitBox2: {fileID: 0}
-    crouchHeavyAttack:
-      hitType: 0
-      knockBack: {x: 0, y: 0, z: 0}
-      attDam: 0
-      hitBox1: {fileID: 0}
-      hitBox2: {fileID: 0}
-  controllerVariables:
-    horiDeadZone: 0
-    vertDeadZone: 0
-    comboTimeOut: 0
-    horiInput: 
-    vertInput: 
-    lightInput: 
-    medInput: 
-    heavyInput: 
-    specialInput: 
-    throwInput: 
-    teamInput: 
-    lockOnInput: 
-    startButton: 
-  damage: 0
-  knockBack: {x: 0, y: 0, z: 0}
-  lockOnTargets: []
-  lockOnTarget: {fileID: 0}
-  facingRight: 0
-  canMove: 1
-  canAttack: 1
-  canRecieveDamage: 1
-  blocking: 0
-  anim: {fileID: 95109858396116898}
---- !u!114 &114374788195630766
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1523036563279898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebe8d14184a33734b9867fcdc548ab54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   hitSpark: {fileID: 1021111067890572, guid: 85828bf6af64d0d41bbd16097b1693d5, type: 2}
   blockSpark: {fileID: 1263285659770724, guid: 8f4dd867f3b78744b8a5c16afe35e0a9, type: 2}
   leftFoot: {fileID: 1462372413458422}
@@ -3023,7 +2908,222 @@ MonoBehaviour:
   chest: {fileID: 0}
   head: {fileID: 0}
   hitBoxes: []
-  attacker: 
+  attacker:
+  movement: {fileID: 0}
+--- !u!114 &114482602755484894
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1523036563279898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f362d15a8794c0b42937d58896571f8d, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  charSprite: {fileID: 0}
+  playerNumber: 0
+  teamNumber: 0
+  currentHealth: 0
+  totalHealth: 200
+  defValue: 0.5
+  superMeter: 0
+  attackVariables:
+    lightAttack:
+      animSpeed: 1
+      meterGain: 10
+      hitType: 2
+      knockBackDirection: {x: 1, y: 1, z: 0}
+      knockBackForce: 2
+      attDam: 5
+      hitBox1: {fileID: 1632582716159072}
+      hitBox2: {fileID: 0}
+    mediumAttack:
+      animSpeed: 1
+      meterGain: 0
+      hitType: 0
+      knockBackDirection: {x: 1, y: 1, z: 0}
+      knockBackForce: 2
+      attDam: 10
+      hitBox1: {fileID: 1285118888194094}
+      hitBox2: {fileID: 0}
+    heavyAttack:
+      animSpeed: 1
+      meterGain: 0
+      hitType: 0
+      knockBackDirection: {x: 1, y: 1, z: 0}
+      knockBackForce: 5
+      attDam: 15
+      hitBox1: {fileID: 1285118888194094}
+      hitBox2: {fileID: 1322280413454850}
+    jumpLightAttack:
+      animSpeed: 1
+      meterGain: 0
+      hitType: 0
+      knockBackDirection: {x: 1, y: 1, z: 0}
+      knockBackForce: 1
+      attDam: 5
+      hitBox1: {fileID: 0}
+      hitBox2: {fileID: 0}
+    jumpMediumAttack:
+      animSpeed: 1
+      meterGain: 0
+      hitType: 0
+      knockBackDirection: {x: 1, y: 1, z: 0}
+      knockBackForce: 2
+      attDam: 10
+      hitBox1: {fileID: 0}
+      hitBox2: {fileID: 0}
+    jumpHeavyAttack:
+      animSpeed: 1
+      meterGain: 0
+      hitType: 0
+      knockBackDirection: {x: 1, y: 1, z: 0}
+      knockBackForce: 5
+      attDam: 15
+      hitBox1: {fileID: 0}
+      hitBox2: {fileID: 0}
+    crouchLightAttack:
+      animSpeed: 1
+      meterGain: 0
+      hitType: 0
+      knockBackDirection: {x: 1, y: 1, z: 0}
+      knockBackForce: 1
+      attDam: 5
+      hitBox1: {fileID: 0}
+      hitBox2: {fileID: 0}
+    crouchMediumAttack:
+      animSpeed: 1
+      meterGain: 0
+      hitType: 0
+      knockBackDirection: {x: 1, y: 1, z: 0}
+      knockBackForce: 2
+      attDam: 10
+      hitBox1: {fileID: 1285118888194094}
+      hitBox2: {fileID: 1322280413454850}
+    crouchHeavyAttack:
+      animSpeed: 1
+      meterGain: 0
+      hitType: 0
+      knockBackDirection: {x: 1, y: 1, z: 0}
+      knockBackForce: 5
+      attDam: 15
+      hitBox1: {fileID: 1926387576162852}
+      hitBox2: {fileID: 0}
+  moveAnimSpeeds:
+    forwardWalk: 1
+    backwardWalk: 1
+    forwardDash: 1
+    backwardDash: 1
+    crouch: 1
+    jump: 1
+    forwardJump: 1
+    backwardJump: 1
+    block: 1
+    takeDamage: 1
+    idle: 1
+  controllerVariables:
+    horiDeadZone: 0
+    vertDeadZone: 0
+    comboTimeOut: 0
+    horiInput:
+    vertInput:
+    lightInput:
+    medInput:
+    heavyInput:
+    specialInput:
+    throwInput:
+    teamInput:
+    lockOnInput:
+    startButton:
+  damage: 0
+  knockBackDirection: {x: 0, y: 0, z: 0}
+  knockBackForce: 0
+  meterGain: 0
+  lockOnTargets: []
+  lockOnTarget: {fileID: 0}
+  facingRight: 0
+  canMove: 1
+  canAttack: 1
+  canRecieveDamage: 1
+  blocking: 0
+  anim: {fileID: 95109858396116898}
+--- !u!114 &114520999701512428
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1523036563279898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 021c4d2449283b940be65772ca7ce1f6, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  SpecialForward:
+    animSpeed: 1
+    knockback: {x: 0, y: 0, z: 0}
+    damage: 0
+    stunTime: 0
+    recoveryTime: 0
+    partEffect: {fileID: 0}
+  SpecialBack:
+    animSpeed: 1
+    knockback: {x: 0, y: 0, z: 0}
+    damage: 0
+    stunTime: 0
+    recoveryTime: 0
+    partEffect: {fileID: 0}
+  SpecialDown:
+    animSpeed: 1
+    knockback: {x: 0, y: 0, z: 0}
+    damage: 0
+    stunTime: 0
+    recoveryTime: 0
+    partEffect: {fileID: 0}
+  SpecialNeutral:
+    animSpeed: 1
+    knockback: {x: 0, y: 0, z: 0}
+    damage: 0
+    stunTime: 0
+    recoveryTime: 0
+    partEffect: {fileID: 0}
+  SpecialJump:
+    animSpeed: 1
+    knockback: {x: 0, y: 0, z: 0}
+    damage: 0
+    stunTime: 0
+    recoveryTime: 0
+    partEffect: {fileID: 0}
+  SpecialBreakdown:
+    animSpeed: 1
+    knockback: {x: 0, y: 0, z: 0}
+    damage: 0
+    stunTime: 0
+    recoveryTime: 0
+    partEffect: {fileID: 0}
+--- !u!114 &114576310286415380
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1523036563279898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebe8d14184a33734b9867fcdc548ab54, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  input: {x: 0, y: 0}
+  forwardMoveSpeed: 20
+  backMoveSpeed: 15
+  forwardDashSpeed: 25
+  backDashSpeed: 20
+  dashing: 0
+  vertJumpForce: 0.4
+  horiJumpForce: 0.4
+  jumpCD: 1
+  character: {fileID: 0}
+  fighter: {fileID: 0}
+  rigid: {fileID: 0}
 --- !u!135 &135037572892053860
 SphereCollider:
   m_ObjectHideFlags: 1
