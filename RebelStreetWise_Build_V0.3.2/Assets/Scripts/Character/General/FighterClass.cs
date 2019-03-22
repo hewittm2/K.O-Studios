@@ -19,13 +19,16 @@ public class FighterClass : MonoBehaviour {
 	}
 	public Sprite charSprite;
 	private FrameType CurrFrameType;
-	//public bool flip;
+	
+    //public bool flip;
     public int playerNumber;
 	public int teamNumber;
+    
     //Variables For Designers
     public int currentHealth;
 	public int totalHealth;
 	public float defValue;
+
 	//Individual Attack Variables
 	[System.Serializable]
 	public class AttackStats{
