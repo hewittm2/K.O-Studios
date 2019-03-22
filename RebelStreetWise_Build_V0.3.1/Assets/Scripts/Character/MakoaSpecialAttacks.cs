@@ -242,10 +242,10 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
         // ===================================
         // ===== REMOVE WHEN IMPLEMENTED =====
         // ===================================
-        if (Input.GetButtonDown("B_1"))
-        {
-            DownSA(specialAttackStats.SpecialDown);
-        }
+        //if (Input.GetButtonDown("B_1"))
+        //{
+        //    DownSA(specialAttackStats.SpecialDown);
+        //}
         if (Input.GetButtonDown("X_1"))
         {
             JumpSA(specialAttackStats.SpecialForward);
@@ -254,10 +254,10 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
         //{
         //    BackSA(specialAttackStats.SpecialBack);
         //}
-        if(Input.GetButtonDown("A_1"))
-        {
-            NeutralSA(specialAttackStats.SpecialNeutral);
-        }
+        //if(Input.GetButtonDown("A_1"))
+        //{
+        //    NeutralSA(specialAttackStats.SpecialNeutral);
+        //}
         // ===================================
         // ===================================
         // ===================================

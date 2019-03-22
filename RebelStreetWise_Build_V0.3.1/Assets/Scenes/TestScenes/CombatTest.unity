@@ -6223,6 +6223,22 @@ MonoBehaviour:
   Player: {fileID: 1554558900}
   box: {fileID: 1536867912922306, guid: 5bbabec7811cf1d4c899b57eafffc7b1, type: 2}
   downDamage: 0
+--- !u!114 &1554558902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1554558900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a94ede826b337b74499c0fed5e3d5eb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabDelay: 0.3
+  knockBackTime: 1
+  range: 7
+  kickDistance: 2
+  enemy: {fileID: 0}
 --- !u!4 &1554558909 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4585087350740060, guid: d9e0f72a30bb0454f812f474322f41cf,
