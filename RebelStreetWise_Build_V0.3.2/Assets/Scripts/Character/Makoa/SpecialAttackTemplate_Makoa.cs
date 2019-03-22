@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpecialAttackTemplate : MonoBehaviour
+public class SpecialAttackTemplate_Makoa : MonoBehaviour
 {
     private FighterClass self;
 

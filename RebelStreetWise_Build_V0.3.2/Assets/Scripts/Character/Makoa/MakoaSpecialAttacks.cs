@@ -5,7 +5,7 @@ using UnityEngine;
 // Ryan Van Dusen, Chris B.
 // 3/10/2019
 
-public class MakoaSpecialAttacks : SpecialAttackTemplate {
+public class MakoaSpecialAttacks : SpecialAttackTemplate_Makoa {
 
     #region Neutral Special Variables
 

@@ -790,13 +790,12 @@ GameObject:
   - component: {fileID: 114176483401608478}
   - component: {fileID: 114482602755484894}
   - component: {fileID: 114520999701512428}
-  - component: {fileID: 114374788195630766}
-  - component: {fileID: 114364229615620228}
   - component: {fileID: 114262822207757450}
   - component: {fileID: 54049853709860458}
   - component: {fileID: 143396400174310730}
   - component: {fileID: 136118249190908410}
   - component: {fileID: 65001919694149242}
+  - component: {fileID: 114576310286415380}
   m_Layer: 0
   m_Name: EthanFighterTest
   m_TagString: Untagged
@@ -2865,7 +2864,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_WarningMessage:
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -2878,8 +2877,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c502e158d670e74888c5528bda953bd, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   PlayerOne: 1
   PlayerTwo: 0
   PlayerThree: 0
@@ -2893,23 +2892,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d2eaff390c9e73b4b97c28ba0bbf4e27, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
-  hitSpark: {fileID: 1021111067890572, guid: 85828bf6af64d0d41bbd16097b1693d5, type: 2}
-  blockSpark: {fileID: 1263285659770724, guid: 8f4dd867f3b78744b8a5c16afe35e0a9, type: 2}
-  leftFoot: {fileID: 1462372413458422}
-  rightFoot: {fileID: 1926387576162852}
-  leftKnee: {fileID: 1632230720293074}
-  rightKnee: {fileID: 0}
-  leftHand: {fileID: 1322280413454850}
-  rightHand: {fileID: 1632582716159072}
-  leftElbow: {fileID: 1285118888194094}
-  rightElbow: {fileID: 0}
-  chest: {fileID: 0}
-  head: {fileID: 0}
-  hitBoxes: []
-  attacker:
-  movement: {fileID: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  input: {x: 0, y: 0}
+  forwardMoveSpeed: 0
+  backMoveSpeed: 0
+  forwardDashSpeed: 0
+  backDashSpeed: 0
+  dashing: 0
+  vertJumpForce: 0
+  horiJumpForce: 0
+  jumpCD: 0
+  character: {fileID: 0}
+  fighter: {fileID: 0}
+  rigid: {fileID: 0}
 --- !u!114 &114482602755484894
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2919,8 +2915,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f362d15a8794c0b42937d58896571f8d, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   charSprite: {fileID: 0}
   playerNumber: 0
   teamNumber: 0
@@ -3026,16 +3022,16 @@ MonoBehaviour:
     horiDeadZone: 0
     vertDeadZone: 0
     comboTimeOut: 0
-    horiInput:
-    vertInput:
-    lightInput:
-    medInput:
-    heavyInput:
-    specialInput:
-    throwInput:
-    teamInput:
-    lockOnInput:
-    startButton:
+    horiInput: 
+    vertInput: 
+    lightInput: 
+    medInput: 
+    heavyInput: 
+    specialInput: 
+    throwInput: 
+    teamInput: 
+    lockOnInput: 
+    startButton: 
   damage: 0
   knockBackDirection: {x: 0, y: 0, z: 0}
   knockBackForce: 0
@@ -3046,6 +3042,7 @@ MonoBehaviour:
   canMove: 1
   canAttack: 1
   canRecieveDamage: 1
+  isGrabbed: 0
   blocking: 0
   anim: {fileID: 95109858396116898}
 --- !u!114 &114520999701512428
@@ -3057,8 +3054,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 021c4d2449283b940be65772ca7ce1f6, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   SpecialForward:
     animSpeed: 1
     knockback: {x: 0, y: 0, z: 0}
@@ -3103,27 +3100,30 @@ MonoBehaviour:
     partEffect: {fileID: 0}
 --- !u!114 &114576310286415380
 MonoBehaviour:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1523036563279898}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ebe8d14184a33734b9867fcdc548ab54, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
-  input: {x: 0, y: 0}
-  forwardMoveSpeed: 20
-  backMoveSpeed: 15
-  forwardDashSpeed: 25
-  backDashSpeed: 20
-  dashing: 0
-  vertJumpForce: 0.4
-  horiJumpForce: 0.4
-  jumpCD: 1
-  character: {fileID: 0}
-  fighter: {fileID: 0}
-  rigid: {fileID: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitSpark: {fileID: 0}
+  blockSpark: {fileID: 0}
+  leftFoot: {fileID: 0}
+  rightFoot: {fileID: 0}
+  leftKnee: {fileID: 0}
+  rightKnee: {fileID: 0}
+  leftHand: {fileID: 0}
+  rightHand: {fileID: 0}
+  leftElbow: {fileID: 0}
+  rightElbow: {fileID: 0}
+  chest: {fileID: 0}
+  head: {fileID: 0}
+  hitBoxes: []
+  attacker: 
+  movement: {fileID: 0}
 --- !u!135 &135037572892053860
 SphereCollider:
   m_ObjectHideFlags: 1
