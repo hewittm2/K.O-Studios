@@ -48,23 +48,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1437154328769334}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b156791014907046a15cbb8abc351f4, type: 3}
+  m_Script: {fileID: 11500000, guid: 423c51d860d610343803c35d6830e9b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartCanvas: {fileID: 0}
-  MainMenuCanvas: {fileID: 0}
-  TrainingCanvas: {fileID: 0}
-  ModelsCanvas: {fileID: 0}
-  OptionsCanvas: {fileID: 0}
-  PopupCanvas: {fileID: 0}
-  mainMenuCanvasSelect: {fileID: 0}
-  trainingCanvasSelect: {fileID: 0}
-  modelsCanvasSelect: {fileID: 0}
-  optionsCanvasSelect: {fileID: 0}
-  popupCanvasSelect: {fileID: 0}
-  characterSelectObj: {fileID: 1989443079821148, guid: b456f2c6709f9644fb0edd1ed57bb24e,
-    type: 2}
-  characterSelectSceneName: CharacterSpawnTest
-  fightSceneName: FightScene
-  menuSceneName: MenuScene
-  activeCanvas: {fileID: 0}

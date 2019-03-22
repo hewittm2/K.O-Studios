@@ -16,12 +16,12 @@ public class PauseGame : MonoBehaviour {
 
     void Start()
     {
-        //resume.onClick.AddListener(ResumeGame);
-        //options.onClick.AddListener(OptionsMenu);
+        Time.timeScale = 1f;
     }
     public void Pause (int PlayerNum)
     {
         pauseCanvas.SetActive(true);
+        Time.timeScale = 0;
 
         if (PlayerNum == 1)
         {
@@ -61,5 +61,9 @@ public class PauseGame : MonoBehaviour {
     public void OptionsMenu()
     {
         optionsCanvas.SetActive(true);
+    }
+    public void QuitOptions()
+    {
+        optionsCanvas.SetActive(false);
     }
 }
