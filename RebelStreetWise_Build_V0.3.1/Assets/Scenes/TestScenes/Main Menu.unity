@@ -435,6 +435,20 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1229726459854492, guid: e7e489a928965864eaaaf35655fae8c6, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114992936291498634, guid: e7e489a928965864eaaaf35655fae8c6,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ae97bad8c3225d04f997c1b21866502a,
+        type: 3}
+    - target: {fileID: 1456814731024220, guid: e7e489a928965864eaaaf35655fae8c6, type: 2}
+      propertyPath: m_Name
+      value: Lightning
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7e489a928965864eaaaf35655fae8c6, type: 2}
   m_IsPrefabAsset: 0
@@ -705,6 +719,16 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1907470366532004, guid: e2384692fd234ee4fa1a7ffc5815476d, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114547079191086356, guid: e2384692fd234ee4fa1a7ffc5815476d,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4bbd1536384bccd4a85d8cfdf225e156,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2384692fd234ee4fa1a7ffc5815476d, type: 2}
   m_IsPrefabAsset: 0
