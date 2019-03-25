@@ -75,9 +75,20 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
     public float downDamage;
     #endregion
 
+    #region BreakDown Variables
 
+    public GameObject combinedKnives;
+    public GameObject leftFireKnife;
+    public GameObject rightFireKnife;
+    public GameObject rotationPoint;
 
-   
+    public float breakdownKnifeSpeed;
+    private float maxRotationDegrees = 720;
+    private float currentRotationDegrees = 0;
+    private bool rotateKnives;
+
+    #endregion
+
 
     void Start()
     {
@@ -134,10 +145,6 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
         }
 
 
-        
-        
-
-
         //checks if the staff spin spawned 
         if (spawned == true)
         {
@@ -158,6 +165,7 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
             
 
         }
+        
         //checks if the fire is there
         if(fireSpawned == true)
         {
@@ -170,11 +178,13 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
                 fireSpawned = false;
             }
         }
+
         if (spinClone != null)
         {
             //spins
             spinClone.transform.Rotate(-spinSpeed * Time.deltaTime, 0, 0);
         }
+        
         //fire damage stuff
         if (fire != null)
         {
@@ -188,7 +198,8 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
 
             }
         }
-        if(spinClone != null)
+
+        if (spinClone != null)
         {
             if (spinClone.GetComponent<TriggerCheck>().opponent != null)
             {
@@ -214,7 +225,8 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
             }
         
         }
-        if(clone != null)
+
+        if (clone != null)
         {
             if(opponent.GetComponent<FighterClass>().canRecieveDamage != false)
             if (opponent.character.isGrounded == false)
@@ -234,10 +246,6 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
             }
         }
 
-        
-
-
-
 
         // ===================================
         // ===== REMOVE WHEN IMPLEMENTED =====
@@ -246,9 +254,9 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
         //{
         //    DownSA(specialAttackStats.SpecialDown);
         //}
-        if (Input.GetButtonDown("X_1"))
+        if (Input.GetKeyUp(KeyCode.A))
         {
-            JumpSA(specialAttackStats.SpecialForward);
+            BreakdownSA(specialAttackStats.SpecialBreakdown);
         }
         //if(Input.GetButtonDown("B_1"))
         //{
@@ -262,6 +270,37 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
         // ===================================
         // ===================================
 
+        if(rotateKnives)
+        {
+            float rotation = breakdownKnifeSpeed * Time.deltaTime;
+            currentRotationDegrees -= rotation;
+
+            if(currentRotationDegrees <= 0)
+            {
+                rotateKnives = false;
+                combinedKnives.SetActive(false);
+                leftFireKnife.SetActive(true);
+                rightFireKnife.SetActive(true);
+                return;
+            }
+
+            // ===== If Hit Detected ===== \\
+
+                // If the knockdown is true and damage is not true from the particle effect, Knockdown enemy
+
+
+                // If the knockdown is true and damage is also true from the particle effect, Knockdown enemy, and do damage
+
+
+                // If the enemy is blocking, knock them back without doing damage
+
+
+                // Enemy is on the ground and fire hit them, do damage
+
+
+            rotationPoint.transform.Rotate(0, rotation, 0);
+        }
+
         if (breathCooldown > 0)
         {
             breathCooldown -= Time.deltaTime;
@@ -274,8 +313,6 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
             }
         }
    
-
-  
 
         if (throwing == true)
         {
@@ -384,9 +421,35 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
 
 
     }
+
     public override void BreakdownSA(SpecialAttacks breakdown)
     {
+        //  === If cooldown not reset, return out === \\
+        if (combinedKnives.activeInHierarchy == true)
+            return;
 
+        else
+        {
+            currentRotationDegrees = maxRotationDegrees;
+            // === Disable each knife / enable Combined knife === \\
+            leftFireKnife.SetActive(false);
+            rightFireKnife.SetActive(false);
+            combinedKnives.SetActive(true);
+
+            // === Set variables in Special Attack for easy access/calling === \\
+            specialAttackVars.damage = specialAttackStats.SpecialBreakdown.damage;
+            specialAttackVars.knockback = specialAttackStats.SpecialBreakdown.knockback;
+            specialAttackVars.startUpTime = specialAttackStats.SpecialBreakdown.startUpTime;
+            specialAttackVars.stunTime = specialAttackStats.SpecialBreakdown.stunTime;
+
+            // ===== ATTACK AND MOVEMENT WILL BE HANDLED WITH ANIMATIONS ===== \\
+            // ===== Hit Detection will be placed on combined fire knife for attack tracking ===== \\\
+
+            // === Temporary "Animation" of knives below should be removed later === \\
+
+
+            rotateKnives = true;
+        }
     }
     IEnumerator ThrownReturn()
     {
