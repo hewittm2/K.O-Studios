@@ -230,7 +230,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1001 &368109534
+--- !u!1001 &454328414
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -269,7 +269,28 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114364229615620228, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: playerNumber
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114364229615620228, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: teamNumber
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114364229615620228, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: totalHealth
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114364229615620228, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: defValue
+      value: 0.5
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: d9e0f72a30bb0454f812f474322f41cf, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1001 &556623489
@@ -315,13 +336,11 @@ Prefab:
       propertyPath: m_Name
       value: EthanFighterTest (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: playerNumber
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: teamNumber
       value: 2
       objectReference: {fileID: 0}
@@ -335,10 +354,104 @@ Prefab:
       propertyPath: PlayerTwo
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+    - target: {fileID: 0}
+      propertyPath: defValue
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114364229615620228, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 1694731187}
+    - target: {fileID: 114364229615620228, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: playerNumber
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114364229615620228, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: teamNumber
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114364229615620228, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: currentHealth
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114364229615620228, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: totalHealth
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114364229615620228, guid: d9e0f72a30bb0454f812f474322f41cf,
         type: 2}
       propertyPath: defValue
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: moveAnimSpeeds.forwardWalk
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: moveAnimSpeeds.backwardWalk
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: moveAnimSpeeds.forwardDash
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: moveAnimSpeeds.backwardDash
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: moveAnimSpeeds.crouch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: moveAnimSpeeds.jump
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: moveAnimSpeeds.forwardJump
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: moveAnimSpeeds.backwardJump
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: moveAnimSpeeds.block
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: moveAnimSpeeds.takeDamage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: moveAnimSpeeds.idle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: attackVariables.heavyAttack.knockBackDirection.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: attackVariables.heavyAttack.knockBackForce
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9e0f72a30bb0454f812f474322f41cf, type: 2}
@@ -385,3 +498,8 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d95c053964c838248b044e9bc9cf4d77, type: 2}
   m_IsPrefabAsset: 0
+--- !u!95 &1694731187 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 95109858396116898, guid: d9e0f72a30bb0454f812f474322f41cf,
+    type: 2}
+  m_PrefabInternal: {fileID: 556623489}
