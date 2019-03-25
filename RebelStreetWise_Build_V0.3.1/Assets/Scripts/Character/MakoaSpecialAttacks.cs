@@ -284,21 +284,41 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
                 return;
             }
 
+
+
             // ===== If Hit Detected ===== \\
+            // If the enemy is lying on the ground, do damage
+            // ========== Temporary until we have a knocked down variable ========= \\
+            if(fighterClass.target.GetComponent<BaseMovement>().character.isGrounded)
+            {
+                specialAttackVars.damage = specialAttackStats.SpecialBreakdown.damage;
+                Debug.Log("Enemy is lying down(suposedly), do damage");
+            }
 
-                // If the knockdown is true and damage is not true from the particle effect, Knockdown enemy
 
+            // If the enemy is blocking, knock them back half as much without doing damage
+            if (fighterClass.target.GetComponent<FighterClass>().blocking)
+            {
+                specialAttackVars.knockback = specialAttackStats.SpecialBreakdown.knockback / 2;
+                Debug.Log("Enemy is blocking, knock them back at half knockback");
+            }
 
-                // If the knockdown is true and damage is also true from the particle effect, Knockdown enemy, and do damage
+            // If the enemy isn't blocking, they get hit full force
+            else
+            {
+                specialAttackVars.damage = specialAttackStats.SpecialBreakdown.damage;
+                Debug.Log("Enemy is not blocking, do full damage");
+            }
 
-
-                // If the enemy is blocking, knock them back without doing damage
-
-
-                // Enemy is on the ground and fire hit them, do damage
-
+            // If the enemy is in the air, knock them back without doing damage
+            if (!fighterClass.target.GetComponent<BaseMovement>().character.isGrounded)
+            {
+                specialAttackVars.knockback = specialAttackStats.SpecialBreakdown.knockback;
+                Debug.Log("Enemy is in the air, knoc them back and down");
+            }
 
             rotationPoint.transform.Rotate(0, rotation, 0);
+
         }
 
         if (breathCooldown > 0)
@@ -437,8 +457,6 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
             combinedKnives.SetActive(true);
 
             // === Set variables in Special Attack for easy access/calling === \\
-            specialAttackVars.damage = specialAttackStats.SpecialBreakdown.damage;
-            specialAttackVars.knockback = specialAttackStats.SpecialBreakdown.knockback;
             specialAttackVars.startUpTime = specialAttackStats.SpecialBreakdown.startUpTime;
             specialAttackVars.stunTime = specialAttackStats.SpecialBreakdown.stunTime;
 
