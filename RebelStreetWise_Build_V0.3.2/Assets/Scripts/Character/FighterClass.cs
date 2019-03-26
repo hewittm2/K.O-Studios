@@ -36,6 +36,8 @@ public class FighterClass : MonoBehaviour {
 		public float meterGain;
 		public enum HitType{High, Mid,Low}
 		public HitType hitType;
+		public enum DamageType{Hit, Stun, KnockDown}
+		public DamageType damageType;
 		public Vector3 knockBackDirection;
 		public float knockBackForce;
 		public int attDam;
@@ -45,7 +47,7 @@ public class FighterClass : MonoBehaviour {
 	//List of Variables Per Attack
 	[System.Serializable]
 	public class AttackVariables{
-		public AttackStats lightAttack = new AttackStats ();
+		public AttackStats lightAttack;
 		public AttackStats mediumAttack = new AttackStats();
 		public AttackStats heavyAttack = new AttackStats();
 		public AttackStats jumpLightAttack = new AttackStats ();
@@ -56,7 +58,7 @@ public class FighterClass : MonoBehaviour {
 		public AttackStats crouchHeavyAttack = new AttackStats();
 	}
 	public AttackVariables attackVariables = new AttackVariables();
-
+	public AttackStats output = new AttackStats();
 	SpecialAttackTemplate specials;
 
 	//Movement Animation Variables
@@ -113,14 +115,6 @@ public class FighterClass : MonoBehaviour {
 	public ControllerVariables controllerVariables = new ControllerVariables ();
 	//HiddenVariables
 	[HideInInspector]
-	public float damage;
-	[HideInInspector]
-	public Vector3 knockBackDirection;
-	[HideInInspector]
-	public float knockBackForce;
-	[HideInInspector]
-	public float meterGain;
-	[HideInInspector]
 	public List<GameObject> lockOnTargets;
 	[HideInInspector]
 	public GameObject lockOnTarget;
@@ -153,7 +147,6 @@ public class FighterClass : MonoBehaviour {
 	void Start () {
 		specials = GetComponent<SpecialAttackTemplate> ();
 		CurrFrameType = FrameType.Regular;
-
 		movement = GetComponent<BaseMovement> ();
 		hitBoxes = GetComponent<HitDetection> ();
 		currentHealth = totalHealth;
@@ -712,28 +705,33 @@ public class FighterClass : MonoBehaviour {
 	IEnumerator attackDelay(AttackStats attack){
 		canAttack = false;
 		canMove = false;
-		damage = attack.attDam;
-		meterGain = attack.meterGain;
-		if (facingRight) {
-			knockBackDirection = attack.knockBackDirection;
-		}else{
-			knockBackDirection = -attack.knockBackDirection;
+		output = attack;
+		//output.damageType = attack.damageType;
+		//output.hitType = attack.hitType;
+		//output.attDam = attack.attDam;
+		//output.meterGain = attack.meterGain;
+		if (!facingRight) {
+			output.knockBackDirection = -output.knockBackDirection;
 		}
-		knockBackForce = attack.knockBackForce;
-		if (attack.hitBox1 != null) {
-			attack.hitBox1.SetActive (true);
+		//output.knockBackForce = attack.knockBackForce;
+		if (output.hitBox1 != null) {
+			output.hitBox1.SetActive (true);
 		}
-		if (attack.hitBox2 != null) {
-			attack.hitBox2.SetActive (true);
+		if (output.hitBox2 != null) {
+			output.hitBox2.SetActive (true);
 		}
 		yield return new WaitForSeconds (anim.GetCurrentAnimatorClipInfo (0).Length/ anim.speed);
-		if (attack.hitBox1 != null) {
-			attack.hitBox1.SetActive (false);
+		if (output.hitBox1 != null) {
+			output.hitBox1.SetActive (false);
 		}
-		if (attack.hitBox2 != null) {
-			attack.hitBox2.SetActive (false);
+		if (output.hitBox2 != null) {
+			output.hitBox2.SetActive (false);
 		}
-		damage = 0;
+		//output.attDam = 0;
+		//output.meterGain = 0;
+		//output.knockBackForce = 0;
+		//output.knockBackDirection = new Vector3 (0, 0, 0);
+		output = new AttackStats();
 		canAttack = true;
 		canMove = true;
 	}
