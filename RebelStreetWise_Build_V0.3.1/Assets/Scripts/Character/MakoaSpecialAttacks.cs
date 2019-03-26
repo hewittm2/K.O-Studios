@@ -11,6 +11,7 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
     private HitDetection hitDetection;
     private FighterClass fighterClass;
     public BaseMovement opponent;
+    private GameObject enemy;
     #endregion
 
     #region Neutral Special Variables
@@ -282,6 +283,9 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
 
         if(rotateKnives)
         {
+            enemy = GetComponent<FighterClass>().lockOnTarget;
+            opponent = enemy.GetComponent<BaseMovement>();
+            fighterClass = enemy.GetComponent<FighterClass>();
             float rotation = breakdownKnifeSpeed * Time.deltaTime;
             currentRotationDegrees -= rotation;
 
@@ -299,15 +303,22 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
             // ===== If Hit Detected ===== \\
             // If the enemy is lying on the ground, do damage
             // ========== Temporary until we have a knocked down variable ========= \\
-            if(fighterClass.target.GetComponent<BaseMovement>().character.isGrounded)
+            
+            if (opponent.character.isGrounded)
             {
                 specialAttackVars.damage = specialAttackStats.SpecialBreakdown.damage;
                 Debug.Log("Enemy is lying down(suposedly), do damage");
             }
+            //if (fighterClass.target.GetComponent<BaseMovement>().character.isGrounded)
+            //{
+            //    specialAttackVars.damage = specialAttackStats.SpecialBreakdown.damage;
+            //    Debug.Log("Enemy is lying down(suposedly), do damage");
+            //}
 
 
             // If the enemy is blocking, knock them back half as much without doing damage
-            if (fighterClass.target.GetComponent<FighterClass>().blocking)
+            if(fighterClass.blocking)
+            //if (fighterClass.target.GetComponent<FighterClass>().blocking)
             {
                 specialAttackVars.knockback = specialAttackStats.SpecialBreakdown.knockback / 2;
                 Debug.Log("Enemy is blocking, knock them back at half knockback");
@@ -321,7 +332,9 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
             }
 
             // If the enemy is in the air, knock them back without doing damage
-            if (!fighterClass.target.GetComponent<BaseMovement>().character.isGrounded)
+           
+            if (!opponent.character.isGrounded)
+            //if (!fighterClass.target.GetComponent<BaseMovement>().character.isGrounded)
             {
                 specialAttackVars.knockback = specialAttackStats.SpecialBreakdown.knockback;
                 Debug.Log("Enemy is in the air, knoc them back and down");
