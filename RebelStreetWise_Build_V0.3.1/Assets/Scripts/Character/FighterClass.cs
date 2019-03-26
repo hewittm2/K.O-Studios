@@ -135,6 +135,7 @@ public class FighterClass : MonoBehaviour {
 	}
 		
 	void Update () {
+        Debug.Log(gameObject.tag + " "+ currentHealth);
 		if (canAttack) {
 			QueueAttackInput ();
 		}

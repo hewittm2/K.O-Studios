@@ -90,9 +90,17 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
 
     #endregion
 
+    #region coupdegrace Variables
+    public GameObject volcano;
+    private GameObject enemy1;
+    private GameObject enemy2;
+    
+
+    #endregion
 
 
-    public GameObject test;
+
+   
     void Start()
     {
         fireSpitParticles = specialAttackStats.SpecialJump.partEffect;
@@ -104,7 +112,7 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
 
     void Update()
     {
-     
+        #region Up Special
         // Checks for Damage to be done with the Up/Jump special attack
         if (fireSpitTracking != null)
         {
@@ -146,8 +154,8 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
                 }
             }
         }
-
-
+        #endregion
+        #region downspecial
         //checks if the staff spin spawned 
         if (spawned == true)
         {
@@ -236,7 +244,8 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
             }
         
         }
-
+        #endregion
+        #region back special
         if (clone != null)
         {
             if(opponent.GetComponent<FighterClass>().canRecieveDamage != false)
@@ -256,32 +265,18 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
                 opponent.GetComponent<FighterClass>().damage = downDamage;
             }
         }
-
-
-        // ===================================
-        // ===== REMOVE WHEN IMPLEMENTED =====
-        // ===================================
-        //if (Input.GetButtonDown("B_1"))
-        //{
-        //    DownSA(specialAttackStats.SpecialDown);
-        //}
-            if (Input.GetKeyUp(KeyCode.A))
+        if (throwing == true)
         {
-            BreakdownSA(specialAttackStats.SpecialBreakdown);
+            //rotates clone
+            clone.transform.Rotate(0, 0, rotationSpeed * Time.deltaTime);
+            //starts a counter
+            throwTime = throwTime + Time.deltaTime;
+            //moves clone
+            clone.transform.position += (transform.forward * throwSpeed) * Time.deltaTime;
         }
-        //if(Input.GetButtonDown("B_1"))
-        //{
-        //    BackSA(specialAttackStats.SpecialBack);
-        //}
-        //if(Input.GetButtonDown("A_1"))
-        //{
-        //    NeutralSA(specialAttackStats.SpecialNeutral);
-        //}
-        // ===================================
-        // ===================================
-        // ===================================
-
-        if(rotateKnives)
+        #endregion  
+        #region breakdown
+        if (rotateKnives)
         {
             enemy = GetComponent<FighterClass>().lockOnTarget;
             opponent = enemy.GetComponent<BaseMovement>();
@@ -343,7 +338,8 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
             rotationPoint.transform.Rotate(0, rotation, 0);
 
         }
-
+        #endregion
+        #region foward special
         if (breathCooldown > 0)
         {
             breathCooldown -= Time.deltaTime;
@@ -355,20 +351,8 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
                 // Add code for ranged damage. Waiting on Ethan/Torrell for more info
             }
         }
-   
-
-        if (throwing == true)
-        {
-            //rotates clone
-            clone.transform.Rotate(0, 0, rotationSpeed * Time.deltaTime);
-            //starts a counter
-            throwTime = throwTime + Time.deltaTime;
-            //moves clone
-            clone.transform.position += (transform.forward * throwSpeed) * Time.deltaTime;
-       
-       
-        }
-  
+        #endregion
+        #region neutral special
         //once timer is as big as value set in inspector
         if (currentEmpowerTime >= maxEmpowerTime)
         {
@@ -379,8 +363,35 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
             //resets timer
             currentEmpowerTime = 0;
         }
-    }
+        #endregion
 
+        #region inputs
+        // ===================================
+        // ===== REMOVE WHEN IMPLEMENTED =====
+        // ===================================
+        if (Input.GetButtonDown("B_1"))
+        {
+            coupdegrace();
+            //DownSA(specialAttackStats.SpecialDown);
+        }
+        if (Input.GetKeyUp(KeyCode.A))
+        {
+            BreakdownSA(specialAttackStats.SpecialBreakdown);
+        }
+        //if(Input.GetButtonDown("B_1"))
+        //{
+        //    BackSA(specialAttackStats.SpecialBack);
+        //}
+        //if(Input.GetButtonDown("A_1"))
+        //{
+        //    NeutralSA(specialAttackStats.SpecialNeutral);
+        //}
+        // ===================================
+        // ===================================
+        // ===================================
+        #endregion
+    }
+    #region NeutralSA
     public override void NeutralSA(SpecialAttacks neutral)
     {
         //checks to see if empowered or not
@@ -395,6 +406,8 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
         }
 
     }
+    #endregion
+    #region Back SA
     public override void BackSA(SpecialAttacks back)
     {
         if (throwing != true)
@@ -413,6 +426,8 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
         }
 
     }
+    #endregion
+    #region Forward SA
     public override void ForwardSA(SpecialAttacks forward)
     {
         if(breathCooldown <= 0)
@@ -420,6 +435,8 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
             StartCoroutine("BreathFire", breathWaitTime);
         }
     }
+    #endregion
+    #region Jump SA
     public override void JumpSA(SpecialAttacks jump)
     {
         if (!movement.character.isGrounded)
@@ -429,6 +446,8 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
 
         }
     }
+    #endregion
+    #region Down SA
     public override void DownSA(SpecialAttacks down)
     {
 
@@ -465,7 +484,8 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
 
 
     }
-
+    #endregion
+    #region Breakdown SA
     public override void BreakdownSA(SpecialAttacks breakdown)
     {
         //  === If cooldown not reset, return out === \\
@@ -493,6 +513,51 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
             rotateKnives = true;
         }
     }
+    #endregion
+    #region Coup De Grace
+    void coupdegrace()
+    {
+        GetComponent<BaseMovement>().ResetMovement();
+        GetComponent<BaseMovement>().enabled = false;
+        volcano.SetActive(true);
+        if (gameObject.layer == 10)
+        {
+            if (GetComponent<FighterClass>().lockOnTargets[0] != null)
+            {
+
+                enemy1 = GetComponent<FighterClass>().lockOnTargets[0];
+                enemy1.GetComponent<FighterClass>().currentHealth = 0;
+            }
+            if (GetComponent<FighterClass>().lockOnTargets[1] != null)
+            {
+                enemy2 = GetComponent<FighterClass>().lockOnTargets[1];
+                enemy2.GetComponent<FighterClass>().currentHealth = 0;
+            }
+        
+
+
+
+        }
+        if (gameObject.layer == 9)
+        {
+            if (GetComponent<FighterClass>().lockOnTargets[0] != null)
+            {
+                enemy1 = GetComponent<FighterClass>().lockOnTargets[0];
+                enemy1.GetComponent<FighterClass>().currentHealth = 0;
+            }
+            if (GetComponent<FighterClass>().lockOnTargets[1] != null)
+            {
+                enemy2 = GetComponent<FighterClass>().lockOnTargets[1];
+                enemy2.GetComponent<FighterClass>().currentHealth = 0;
+            }
+            
+         
+        }
+
+
+    }
+    #endregion
+    #region corroutines
     IEnumerator ThrownReturn()
     {
         for (int i = 0; i < 30; i++)
@@ -519,6 +584,7 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
 
         breathCooldown = fireBreathCooldown;
     }
+    #endregion
 
 
 }
