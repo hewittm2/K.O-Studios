@@ -105,7 +105,7 @@ public class FighterClass : MonoBehaviour {
 	StageManager stageManager;
 	public Animator anim;
 
-    MatchEnd matchEnd;
+
 
 	void Start () {
 		CurrFrameType = FrameType.Regular;
@@ -157,12 +157,6 @@ public class FighterClass : MonoBehaviour {
             Debug.Log("yes");
             PauseGame pauseGame = FindObjectOfType<PauseGame>();
             pauseGame.Pause(playerNumber);
-        }
-        //Sends Who one to the match end script
-        if(currentHealth <= 0)
-        {
-            matchEnd = FindObjectOfType<MatchEnd>();
-            matchEnd.Winner(teamNumber);
         }
     }
 
