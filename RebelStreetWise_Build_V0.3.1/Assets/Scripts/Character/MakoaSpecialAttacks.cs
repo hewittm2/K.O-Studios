@@ -90,6 +90,8 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
     #endregion
 
 
+
+    public GameObject test;
     void Start()
     {
         fireSpitParticles = specialAttackStats.SpecialJump.partEffect;
@@ -101,7 +103,7 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
 
     void Update()
     {
-
+     
         // Checks for Damage to be done with the Up/Jump special attack
         if (fireSpitTracking != null)
         {
@@ -155,6 +157,7 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
             {
                 //destorys
                 Destroy(spinClone);
+                //spinClone.SetActive(false);
                 spinObject.SetActive(true);
 
                 spawned = false;
@@ -201,6 +204,12 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
 
         if (spinClone != null)
         {
+            spinClone.tag = "attack1";
+            if (spinClone.GetComponent<TriggerCheck>().opponentMove != null)
+            {
+                opponent = spinClone.GetComponent<TriggerCheck>().opponentMove;
+            }
+           
             if (spinClone.GetComponent<TriggerCheck>().opponent != null)
             {
                 if (opponent.character.isGrounded == false)
@@ -220,6 +229,7 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
                     else
                     {
                         opponent.GetComponent<FighterClass>().damage = downDamage;
+                        Debug.Log("Did Damage");
                     }
                 }
             }
@@ -250,11 +260,11 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
         // ===================================
         // ===== REMOVE WHEN IMPLEMENTED =====
         // ===================================
-        //if (Input.GetButtonDown("B_1"))
-        //{
-        //    DownSA(specialAttackStats.SpecialDown);
-        //}
-        if (Input.GetKeyUp(KeyCode.A))
+        if (Input.GetButtonDown("B_1"))
+        {
+            DownSA(specialAttackStats.SpecialDown);
+        }
+            if (Input.GetKeyUp(KeyCode.A))
         {
             BreakdownSA(specialAttackStats.SpecialBreakdown);
         }
@@ -426,6 +436,7 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
             fireCountDown = 5;
             //spawns spinning object
             spinClone = Instantiate(spinObject, gameObject.transform.parent);
+            //spinClone.SetActive(true);
             spinObject.SetActive(false);
             //translates to positions (most should be able to me removed after animations are IMPLEMENTED
             spinClone.transform.position = Player.transform.position;
@@ -496,5 +507,5 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
         breathCooldown = fireBreathCooldown;
     }
 
- 
+
 }

@@ -13,30 +13,23 @@ public class TriggerCheck : MonoBehaviour
     {
         hitDetection = GetComponentInParent<HitDetection>();
         player = GetComponentInParent<FighterClass>();
-        //gameObject.tag = hitDetection.attacker;
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        gameObject.tag = hitDetection.attacker;
+        
     }
-    private void OnColllisionEnter(Collision col)
+   
+    private void OnTriggerEnter(Collider other)
     {
-        foreach (ContactPoint contact in col.contacts)
+        if(other.gameObject.layer == 10)
         {
-          //still not working
-            {
-                if (col.gameObject.GetComponent<BaseMovement>())
-                {
-                    Debug.Log("test");
-                    opponentMove = col.gameObject.GetComponent<BaseMovement>();
-                    opponent = col.gameObject.GetComponent<FighterClass>();
-                }
-            }
-
-
-
+            opponent = other.gameObject.GetComponent<FighterClass>();
+            opponentMove = other.gameObject.GetComponent<BaseMovement>();
+            
+           
         }
     }
 }

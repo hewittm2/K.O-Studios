@@ -39,21 +39,21 @@ public class Grabs : MonoBehaviour {
 
         //foward grab
         //start a delay counter 
-        if (Input.GetButtonDown("A_1") && foward == false)
-        {
-            startCount = true;
-            foward = true;
+        //if (Input.GetButtonDown("A_1") && foward == false)
+        //{
+        //    startCount = true;
+        //    foward = true;
 
-        }
+        //}
 
         //backward grab
         //starts a delay counter
-        if (Input.GetButtonDown("B_1") && backward == false)
-        {
-            startCount = true;
-            backward = true;
+        //if (Input.GetButtonDown("B_1") && backward == false)
+        //{
+        //    startCount = true;
+        //    backward = true;
            
-        }
+        //}
         //counter for delay
         if (startCount == true)
         {
