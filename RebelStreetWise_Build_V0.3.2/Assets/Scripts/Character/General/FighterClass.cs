@@ -10,6 +10,7 @@ public class FighterClass : MonoBehaviour {
 	//Class Variables
 	BaseMovement movement;
 	HitDetection hitBoxes;
+
 	//Frame Data
 	public enum FrameType{
 		Startup,
@@ -17,6 +18,7 @@ public class FighterClass : MonoBehaviour {
 		Recovery,
 		Regular
 	}
+
 	public Sprite charSprite;
 	private FrameType CurrFrameType;
 
@@ -44,6 +46,7 @@ public class FighterClass : MonoBehaviour {
 		public GameObject hitBox1;
 		public GameObject hitBox2;
 	}
+
 	//List of Variables Per Attack
 	[System.Serializable]
 	public class AttackVariables{
