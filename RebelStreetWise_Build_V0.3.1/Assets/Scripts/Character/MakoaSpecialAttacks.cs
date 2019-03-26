@@ -260,10 +260,10 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
         // ===================================
         // ===== REMOVE WHEN IMPLEMENTED =====
         // ===================================
-        if (Input.GetButtonDown("B_1"))
-        {
-            DownSA(specialAttackStats.SpecialDown);
-        }
+        //if (Input.GetButtonDown("B_1"))
+        //{
+        //    DownSA(specialAttackStats.SpecialDown);
+        //}
             if (Input.GetKeyUp(KeyCode.A))
         {
             BreakdownSA(specialAttackStats.SpecialBreakdown);
