@@ -43,25 +43,26 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
         moveCheck = GetComponent<CharacterController>();
         getGravity = GetComponent<BaseMovement>();
     }
-    void SetVars(SpecialAttacks _SetVar, string _HitType, string _DamageType)
+    void SetVars(SpecialAttacks _SetVar)
     {
         self.output.knockBackDirection = _SetVar.knockback;
         self.output.knockBackForce = _SetVar.knockbackForce;
         self.output.attDam = _SetVar.damage;
-
-        if (_HitType == "High")
-            self.output.hitType = FighterClass.AttackStats.HitType.High;
-        if (_HitType == "Mid")
-            self.output.hitType = FighterClass.AttackStats.HitType.Mid;
-        if (_HitType == "Low")
-            self.output.hitType = FighterClass.AttackStats.HitType.Low;
-
-        if (_DamageType == "Hit")
-            self.output.damageType = FighterClass.AttackStats.DamageType.Hit;
-        if (_DamageType == "Stun")
-            self.output.damageType = FighterClass.AttackStats.DamageType.Stun;
-        if (_DamageType == "KD")
-            self.output.damageType = FighterClass.AttackStats.DamageType.KnockDown;
+		self.output.damageType = _SetVar.damageType;
+		self.output.hitType = _SetVar.hitType;
+//        if (_HitType == "High")
+//            self.output.hitType = FighterClass.AttackStats.HitType.High;
+//        if (_HitType == "Mid")
+//            self.output.hitType = FighterClass.AttackStats.HitType.Mid;
+//        if (_HitType == "Low")
+//            self.output.hitType = FighterClass.AttackStats.HitType.Low;
+//
+//        if (_DamageType == "Hit")
+//            self.output.damageType = FighterClass.AttackStats.DamageType.Hit;
+//        if (_DamageType == "Stun")
+//            self.output.damageType = FighterClass.AttackStats.DamageType.Stun;
+//        if (_DamageType == "KD")
+//            self.output.damageType = FighterClass.AttackStats.DamageType.KnockDown;
     }
     public override void NeutralSA(SpecialAttacks neutral)
     {
@@ -70,9 +71,9 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
             Debug.LogError("No Neutral HitBox Set! - Assign the Hitbox, should be childed under Apollo - Stopping Special Attack.", gameObject);
             return;
         }
-        string _holder = "High";
-        string _holder2 = "Hit";
-        SetVars(neutral, _holder, _holder2);
+        //string _holder = "High";
+        //string _holder2 = "Hit";
+        SetVars(neutral);
         StartCoroutine(NeutralSAC(neutral.startupTime,neutral.activeTime));
     }
     IEnumerator NeutralSAC(float wait, float active)
@@ -85,9 +86,9 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
     // --------------------------------------------------
     public override void BackSA(SpecialAttacks back)
     {
-        string _holder = "High";
-        string _holder2 = "KD";
-        SetVars(back, _holder, _holder2);
+        //string _holder = "High";
+        //string _holder2 = "KD";
+        SetVars(back);
         StartCoroutine(BackSAC(back.startupTime, back.activeTime));
     }
     IEnumerator BackSAC(float wait, float active)
@@ -107,12 +108,14 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
             Debug.LogError("No Projectile Prefab Set! - Assign the Projectile Prefab - Stopping Special Attack.", gameObject);
             return;
         }
+		SetVars (specialAttackStats.SpecialForward);
         StartCoroutine(ForwardSAC(forward.startupTime,forward.activeTime));
     }
     IEnumerator ForwardSAC(float wait, float active)
     {
         Vector3 spawn = new Vector3(transform.position.x + 4, transform.position.y - 0.5f, transform.position.z);
         holder = Instantiate(forwardObj, spawn, Quaternion.identity);
+		holder.GetComponent<ProjectileFighterReference> ().fighter = self;
         holder.SetActive(false);
         yield return new WaitForSeconds(wait);
         holder.SetActive(true);
@@ -128,7 +131,7 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
         {
             string _holder = "High";
             string _holder2 = "Hit";
-            SetVars(jump, _holder, _holder2);
+            SetVars(jump);
             jumpSpecialActive = true;
             getGravity.gravity = -downSpeed;
             customJump.SetActive(true);
@@ -143,7 +146,7 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
     {
         string _holder = "High";
         string _holder2 = "Hit";
-        SetVars(down, _holder, _holder2);
+        SetVars(down);
       //  GameObject Go = Instantiate(down.partEffect,transform.position,Quaternion.identity);
         StartCoroutine(DownSAC(down.activeTime));
     }
@@ -164,7 +167,7 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
         }
         string _holder = "High";
         string _holder2 = "KD";
-        SetVars(breakdown, _holder, _holder2);
+        SetVars(breakdown);
         StartCoroutine(BreakdownSAC(breakdown.activeTime, breakdown.startupTime));
     }
     IEnumerator BreakdownSAC(float active, float startup)
