@@ -11,7 +11,17 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
 
     [Header("Forward Special Custom Variables")][Space(0.5f)]
     public GameObject forwardObj;
-    private GameObject holder;
+    [Range(1f,20f)]
+    public float projectileSpeed;
+    [Range(3,5)]
+    public float xSpawn;
+    [Range(0.3f,0.7f)]
+    public float ySpawn;
+    [Tooltip("Z Spawn is Locked, Sorry!")]
+    [Range(0,0)]
+    public float zSpawn;
+    private Vector3 spawn;
+    private Rigidbody forwardRigidbody;
 
     [Header("Back Special Custom Variables")][Space(0.5f)]
     public GameObject backHitBox;
@@ -37,32 +47,30 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
     public GameObject breakdownHitBox;
     private bool breakdownActive = false;
 
+
+    [Header("Coup De Grace")][Space(0.5f)]
+    public GameObject coupObj;
+    public GameObject coupStar;
+
     private void Awake()
     {
         self = GetComponent<FighterClass>();
         moveCheck = GetComponent<CharacterController>();
         getGravity = GetComponent<BaseMovement>();
+        forwardObj.GetComponent<ProjectileFighterReference>().fighter = self;
+        forwardRigidbody = forwardObj.GetComponent<Rigidbody>();
     }
     void SetVars(SpecialAttacks _SetVar)
     {
-        self.output.knockBackDirection = _SetVar.knockback;
+        if (self.facingRight == true)
+            self.output.knockBackDirection = new Vector3(_SetVar.knockback.x, _SetVar.knockback.y, _SetVar.knockback.z);
+        else
+            self.output.knockBackDirection = new Vector3(-_SetVar.knockback.x, _SetVar.knockback.y, _SetVar.knockback.z);
+
         self.output.knockBackForce = _SetVar.knockbackForce;
         self.output.attDam = _SetVar.damage;
 		self.output.damageType = _SetVar.damageType;
 		self.output.hitType = _SetVar.hitType;
-//        if (_HitType == "High")
-//            self.output.hitType = FighterClass.AttackStats.HitType.High;
-//        if (_HitType == "Mid")
-//            self.output.hitType = FighterClass.AttackStats.HitType.Mid;
-//        if (_HitType == "Low")
-//            self.output.hitType = FighterClass.AttackStats.HitType.Low;
-//
-//        if (_DamageType == "Hit")
-//            self.output.damageType = FighterClass.AttackStats.DamageType.Hit;
-//        if (_DamageType == "Stun")
-//            self.output.damageType = FighterClass.AttackStats.DamageType.Stun;
-//        if (_DamageType == "KD")
-//            self.output.damageType = FighterClass.AttackStats.DamageType.KnockDown;
     }
     public override void NeutralSA(SpecialAttacks neutral)
     {
@@ -71,8 +79,6 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
             Debug.LogError("No Neutral HitBox Set! - Assign the Hitbox, should be childed under Apollo - Stopping Special Attack.", gameObject);
             return;
         }
-        //string _holder = "High";
-        //string _holder2 = "Hit";
         SetVars(neutral);
         StartCoroutine(NeutralSAC(neutral.startupTime,neutral.activeTime));
     }
@@ -86,8 +92,11 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
     // --------------------------------------------------
     public override void BackSA(SpecialAttacks back)
     {
-        //string _holder = "High";
-        //string _holder2 = "KD";
+        if (backHitBox == null)
+        {
+            Debug.LogError("No Back HitBox Set! - Assign the Hitbox, should be childed under Apollo - Stopping Special Attack.", gameObject);
+            return;
+        }
         SetVars(back);
         StartCoroutine(BackSAC(back.startupTime, back.activeTime));
     }
@@ -113,24 +122,37 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
     }
     IEnumerator ForwardSAC(float wait, float active)
     {
-        Vector3 spawn = new Vector3(transform.position.x + 4, transform.position.y - 0.5f, transform.position.z);
-        holder = Instantiate(forwardObj, spawn, Quaternion.identity);
-		holder.GetComponent<ProjectileFighterReference> ().fighter = self;
-        holder.SetActive(false);
+        if (self.facingRight == true)
+            spawn = new Vector3(transform.position.x + xSpawn, transform.position.y - ySpawn, transform.position.z + zSpawn);
+        else
+            spawn = new Vector3(transform.position.x + -xSpawn, transform.position.y - ySpawn, transform.position.z + zSpawn);
+
+        forwardObj.transform.position = spawn;
         yield return new WaitForSeconds(wait);
-        holder.SetActive(true);
-        Rigidbody move = holder.GetComponent<Rigidbody>();
-        move.AddForce(400, 0, 0);
+        forwardObj.SetActive(true);
+
+        if (self.facingRight == true)
+            forwardRigidbody.AddForce(projectileSpeed * 100, 0, 0);
+        else
+            forwardRigidbody.AddForce(-projectileSpeed * 100, 0, 0);
+
         yield return new WaitForSeconds(active);
-        Destroy(holder);
+        if (forwardObj.activeInHierarchy == true)
+        {
+            forwardObj.SetActive(false);
+            forwardRigidbody.velocity = Vector3.zero;
+        }
     }
     //---------------------------------------------------
     public override void JumpSA(SpecialAttacks jump)
     {
+        if (customJump == null)
+        {
+            Debug.LogError("No Jump HitBox Set! - Assign the Hitbox, should be childed under Apollo - Stopping Special Attack.", gameObject);
+            return;
+        }
         if (transform.position.y > minimumHeightNeeded)
         {
-            string _holder = "High";
-            string _holder2 = "Hit";
             SetVars(jump);
             jumpSpecialActive = true;
             getGravity.gravity = -downSpeed;
@@ -144,10 +166,12 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
     //---------------------------------------------------
     public override void DownSA(SpecialAttacks down)
     {
-        string _holder = "High";
-        string _holder2 = "Hit";
+        if (downHitBox == null)
+        {
+            Debug.LogError("No Down HitBox Set! - Assign the Hitbox, should be childed under Apollo - Stopping Special Attack.", gameObject);
+            return;
+        }
         SetVars(down);
-      //  GameObject Go = Instantiate(down.partEffect,transform.position,Quaternion.identity);
         StartCoroutine(DownSAC(down.activeTime));
     }
     IEnumerator DownSAC(float active)
@@ -155,7 +179,6 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
         downHitBox.SetActive(true);
         yield return new WaitForSeconds(active);
         downHitBox.SetActive(false);
-       // Destroy(go);
     }
     //---------------------------------------------------
     public override void BreakdownSA(SpecialAttacks breakdown)
@@ -165,8 +188,6 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
             Debug.LogError("No Breakdown HitBox Set! - Assign the it, should be attached to Apollo - Stopping Special Attack.", gameObject);
             return;
         }
-        string _holder = "High";
-        string _holder2 = "KD";
         SetVars(breakdown);
         StartCoroutine(BreakdownSAC(breakdown.activeTime, breakdown.startupTime));
     }
@@ -179,7 +200,7 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
         breakdownHitBox.SetActive(false);
         breakdownActive = false;
     }
-
+    //---------------------------------------------------
     private void Update()
     {
         if (jumpSpecialActive && moveCheck.isGrounded)
@@ -192,5 +213,38 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
         {
             transform.Translate(Vector3.forward * Time.deltaTime * breakdownMoveSpeed);
         }
+    }
+    //---------------------------------------------------
+    public override void CoupDeGraceU(SpecialAttacks coup)
+    {
+        if (coupObj == null || coupStar == null)
+        {
+            Debug.LogError("No Coup Object OR Coup Star Set! - Assign the variables, should be childed under Apollo or in the scene - Stopping Coup De Grace.", gameObject);
+            return;
+        }
+        SetVars(coup);
+        self.coupDeGraceActivated = true;
+        coupObj.SetActive(true);
+        coupStar.GetComponent<ApolloCoupDG>().selfCheck = self;
+        StartCoroutine(CoupDeGraceUE());
+    }
+    IEnumerator CoupDeGraceUE()
+    {
+        yield return new WaitForSeconds(1f);
+        coupStar.transform.position = new Vector3(transform.position.x, coupStar.transform.position.y, transform.position.z);
+        coupStar.SetActive(true);
+        for (int l = 0; l < 2; l++)
+        {
+            yield return new WaitForSeconds(1.5f);
+            coupStar.GetComponent<ParticleSystem>().Play();
+        }
+        yield return new WaitForSeconds(1.5f);
+        ApolloCoupDG activeMove = coupStar.GetComponent<ApolloCoupDG>();
+        activeMove.moveTowards = true;
+    }
+
+    void ResetCoup()
+    {
+
     }
 }

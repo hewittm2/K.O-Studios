@@ -117,7 +117,7 @@ public class FighterClass : MonoBehaviour {
 	public List<GameObject> lockOnTargets;
 	[HideInInspector]
 	public GameObject lockOnTarget;
-	[HideInInspector]
+	//[HideInInspector]
 	public bool facingRight;
 	[HideInInspector]
 	public bool canMove = true;
@@ -136,6 +136,8 @@ public class FighterClass : MonoBehaviour {
 	bool coupDeGraceStep2 = false;
 	bool coupDeGraceStep3 = false;
 	bool comboTimerStarted = false;
+    [HideInInspector] //Torrel Added This
+    public bool coupDeGraceActivated = false;
 	bool dashReset = false;
 	float comboTimerEnd = 0;
 	StageManager stageManager;
@@ -146,7 +148,6 @@ public class FighterClass : MonoBehaviour {
 	void Start () {
 		specials = GetComponent<SpecialAttackTemplate> ();
 		CurrFrameType = FrameType.Regular;
-       // output.hitType = AttackStats.HitType.High;
 		movement = GetComponent<BaseMovement> ();
 		hitBoxes = GetComponent<HitDetection> ();
 		currentHealth = totalHealth;
@@ -432,7 +433,8 @@ public class FighterClass : MonoBehaviour {
 			if (coupDeGraceStep3) {
 				Debug.Log ("CoupDeGrace");
 				anim.SetTrigger ("Coup De Grace");
-				StartCoroutine (attackDelay ());
+                specials.CoupDeGraceU(specials.specialAttackStats.CoupDeGrace); //Torrel Added think this is the right spot.
+                StartCoroutine (attackDelay ());
 			} else {
 				//Address this semester 2
 				Debug.Log ("Parry");
@@ -617,7 +619,7 @@ public class FighterClass : MonoBehaviour {
 						anim.speed = specials.specialAttackStats.SpecialNeutral.animSpeed;
 						anim.SetTrigger ("Special");
 						specials.NeutralSA (specials.specialAttackStats.SpecialNeutral);
-						StartCoroutine (attackDelay ());
+                        StartCoroutine (attackDelay ());
 					}
 				} else {
 					Debug.Log ("Jump_Special(R),");

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class rotation : MonoBehaviour {
+public class Rotation : MonoBehaviour {
 	public float xRotation = 0F;
 	public float yRotation = 0F;
 	public float zRotation = 0F;

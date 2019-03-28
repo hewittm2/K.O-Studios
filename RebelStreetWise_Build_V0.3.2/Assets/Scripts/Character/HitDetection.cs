@@ -172,14 +172,21 @@ public class HitDetection : MonoBehaviour {
 		movement.rigid.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionZ;
 		movement.rigid.velocity = new Vector3(0, 0, 0);
 		movement.rigid.angularVelocity = new Vector3(0, 0, 0);
-		movement.rigid.velocity += (new Vector3(kbDirection.x,kbDirection.y, 0)*kbForce);
-		yield return new WaitForSeconds(.2f);
+        movement.rigid.velocity += (new Vector3(kbDirection.x,kbDirection.y, 0)*kbForce);
+        yield return new WaitForSeconds(.2f);
 		movement.rigid.velocity = new Vector3(0, 0, 0);
 		movement.rigid.angularVelocity = new Vector3(0, 0, 0);
 		yield return new WaitForSeconds(.01f);
 		movement.rigid.constraints = RigidbodyConstraints.FreezeAll;
 
-
+        if (attacker.coupDeGraceActivated == true) ////Torrel Added this for Stun Lock
+        {
+            for (int i = 0; i < 100; i++)
+            {
+                yield return new WaitForSeconds(player.anim.GetCurrentAnimatorClipInfo(0).Length / player.anim.speed);
+                player.anim.SetTrigger("Heavy Damage");
+            }
+        }
 
 		yield return new WaitForSeconds (.2f);
 		attacker = null;

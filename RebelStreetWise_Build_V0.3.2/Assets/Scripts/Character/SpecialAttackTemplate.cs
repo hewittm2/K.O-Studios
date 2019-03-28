@@ -31,6 +31,7 @@ public class SpecialAttackTemplate : MonoBehaviour
         public SpecialAttacks SpecialNeutral = new SpecialAttacks();
         public SpecialAttacks SpecialJump = new SpecialAttacks();
         public SpecialAttacks SpecialBreakdown = new SpecialAttacks();
+        public SpecialAttacks CoupDeGrace = new SpecialAttacks();
     }
     public SpecialAttackStats specialAttackStats = new SpecialAttackStats();
 
@@ -55,6 +56,10 @@ public class SpecialAttackTemplate : MonoBehaviour
 
     }
     public virtual void BreakdownSA(SpecialAttacks breakdown) //Breakdown
+    {
+
+    }
+    public virtual void CoupDeGraceU(SpecialAttacks coup) //CoupDeGrace
     {
 
     }
