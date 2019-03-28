@@ -7,8 +7,10 @@ public class HitDetection : MonoBehaviour {
 	// Use this for initialization
 	//the player this hurtbox belongs to
 	private FighterClass player;
+	[Header("Get Hit Particle Effects")][Space(0.5f)]
 	public GameObject hitSpark;
 	public GameObject blockSpark;
+	[Header("Basic Attack Hitboxes")][Space(0.5f)]
 	public GameObject leftFoot;
 	public GameObject rightFoot;
 	public GameObject leftKnee;
@@ -19,14 +21,21 @@ public class HitDetection : MonoBehaviour {
 	public GameObject rightElbow;
 	public GameObject chest;
 	public GameObject head;
+	[Header("Special Attack HitBoxes")][Space(0.5f)]
+	public GameObject specialNeutral;
+	public GameObject specialForward;
+	public GameObject specialBackward;
+	public GameObject specialDown;
+	public GameObject specialJump;
 	[HideInInspector]
 	public List<GameObject> hitBoxes;
 
 	[HideInInspector]
-	public string attacker;
+	public string attackerLabel;
 	[HideInInspector]
 	public BaseMovement movement;
-
+	[HideInInspector]
+	public FighterClass attacker;
 
 	private void Start(){
 		player = GetComponent<FighterClass>();
@@ -56,6 +65,17 @@ public class HitDetection : MonoBehaviour {
 			hitBoxes.Add (chest);
 		if (head != null) 
 			hitBoxes.Add (head);
+		if (specialNeutral != null)
+			hitBoxes.Add (specialNeutral);
+		if (specialForward != null)
+			hitBoxes.Add (specialForward);
+		if (specialBackward != null)
+			hitBoxes.Add (specialBackward);
+		if (specialDown != null)
+			hitBoxes.Add (specialDown);
+		if (specialJump != null)
+			hitBoxes.Add (specialJump);
+
 
 		foreach (GameObject g in hitBoxes) {
 			string attackLabel = "attack" + player.teamNumber;
@@ -64,27 +84,51 @@ public class HitDetection : MonoBehaviour {
 		}
 		//player = GetComponentInParent<FighterClass>();
 		if (player.teamNumber == 1) {
-			attacker = "attack2";
+			attackerLabel = "attack2";
 		} else {
-			attacker = "attack1";
+			attackerLabel = "attack1";
 		}
 	}
 	private void OnCollisionEnter(Collision col){
 		foreach (ContactPoint contact in col.contacts) {
 			if (player.canRecieveDamage) {
-				if (contact.otherCollider.tag == attacker) {
-					FighterClass attacker = col.gameObject.GetComponentInParent<FighterClass>();
-					if (!player.blocking) {
-						ReceiveDamage (attacker.output);
-						hitSpark.transform.position = contact.otherCollider.transform.position;
-						hitSpark.SetActive(true);
-						attacker.superMeter += attacker.output.meterGain;
-					} else {
-						ReceiveBlockedDamage (attacker.output);
-						blockSpark.transform.position = contact.otherCollider.transform.position;
-						blockSpark.SetActive(true);
-						attacker.superMeter += (attacker.output.meterGain*player.defValue);
+				if (contact.otherCollider.tag == attackerLabel) {
+					attacker = col.gameObject.GetComponentInParent<FighterClass> ();
+					if (attacker != null) {
+						if (!player.blocking) {
+							ReceiveDamage (attacker.output);
+							hitSpark.transform.position = contact.otherCollider.transform.position;
+							hitSpark.SetActive(true);
+							attacker.superMeter += attacker.output.meterGain;
+						} else {
+							ReceiveBlockedDamage (attacker.output);
+							blockSpark.transform.position = contact.otherCollider.transform.position;
+							blockSpark.SetActive(true);
+							attacker.superMeter += (attacker.output.meterGain*player.defValue);
+						}
 					}
+
+				}
+			}
+		}
+	}
+	public void OnTriggerEnter(Collider col){
+		Debug.Log ("Projectile Hit");
+		if (col.gameObject.tag == attackerLabel) {
+			if (col.gameObject.GetComponent<ProjectileFighterReference>()) {
+				attacker = col.gameObject.GetComponent<ProjectileFighterReference> ().fighter;
+			}
+			if (attacker != null) {
+				if (!player.blocking) {
+					ReceiveDamage (attacker.output);
+					hitSpark.transform.position = col.transform.position;
+					hitSpark.SetActive(true);
+					attacker.superMeter += attacker.output.meterGain;
+				} else {
+					ReceiveBlockedDamage (attacker.output);
+					blockSpark.transform.position = col.transform.position;
+					blockSpark.SetActive(true);
+					attacker.superMeter += (attacker.output.meterGain*player.defValue);
 				}
 			}
 		}
@@ -104,11 +148,11 @@ public class HitDetection : MonoBehaviour {
 	}
 	public void ReceiveDamage(FighterClass.AttackStats recievedAttack){
 		//player.anim.SetTrigger("GetHit");
-		if (recievedAttack.damageType == FighterClass.AttackStats.DamageType.Hit) {
+		if (recievedAttack.damageType == FighterClass.DamageType.Hit) {
 			player.anim.SetTrigger("Light Damage");
-		}else if(recievedAttack.damageType == FighterClass.AttackStats.DamageType.Stun){ 
+		}else if(recievedAttack.damageType == FighterClass.DamageType.Stun){ 
 			player.anim.SetTrigger("Heavy Damage");
-		}else if(recievedAttack.damageType == FighterClass.AttackStats.DamageType.KnockDown){ 
+		}else if(recievedAttack.damageType == FighterClass.DamageType.KnockDown){ 
 			player.anim.SetTrigger("Knock Out");
 		}
 
@@ -138,6 +182,7 @@ public class HitDetection : MonoBehaviour {
 
 
 		yield return new WaitForSeconds (.2f);
+		attacker = null;
 		movement.fighter.canMove = true;
 		player.canRecieveDamage = true;
 		player.canMove = true;

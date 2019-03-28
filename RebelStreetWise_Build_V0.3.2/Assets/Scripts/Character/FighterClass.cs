@@ -27,16 +27,15 @@ public class FighterClass : MonoBehaviour {
 	public int totalHealth;
 	public float defValue;
 	public float superMeter;
-
+	public enum HitType{High, Mid,Low}
+	public enum DamageType{Hit, Stun, KnockDown}
 	//Individual Attack Variables
 	[System.Serializable]
 	public class AttackStats{
 		[Range(.1f, 2f)]
 		public float animSpeed;
 		public float meterGain;
-		public enum HitType{High, Mid,Low}
 		public HitType hitType;
-		public enum DamageType{Hit, Stun, KnockDown}
 		public DamageType damageType;
 		public Vector3 knockBackDirection;
 		public float knockBackForce;

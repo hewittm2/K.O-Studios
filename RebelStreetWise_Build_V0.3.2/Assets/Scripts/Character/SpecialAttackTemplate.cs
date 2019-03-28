@@ -9,10 +9,9 @@ public class SpecialAttackTemplate : MonoBehaviour
     {
 		[Range(.1f, 2f)]
 		public float animSpeed;
-        public enum HitType { High, Mid, Low }
-        public HitType hitType;
-        public enum DamageType { Hit, Stun, KnockDown }
-        public DamageType damageType;
+       
+        public FighterClass.HitType hitType;
+        public FighterClass.DamageType damageType;
         public Vector3 knockback;
         public float knockbackForce;
         public int damage;

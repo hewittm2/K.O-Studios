@@ -22,7 +22,8 @@ GameObject:
   - component: {fileID: 33874049776106978}
   - component: {fileID: 23703684512552198}
   - component: {fileID: 65587662388095898}
-  - component: {fileID: 54962552730451916}
+  - component: {fileID: 114383989232498522}
+  - component: {fileID: 54710525534359548}
   m_Layer: 0
   m_Name: ApolloForwardSpecial
   m_TagString: attack1
@@ -72,7 +73,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1110162904214986}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.110345, y: 20.173285, z: -52.396687}
+  m_LocalPosition: {x: 391.57632, y: -3.5049627, z: 3.4502115}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4664873341430086}
@@ -148,7 +149,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1110162904214986}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &54962552730451916
+--- !u!54 &54710525534359548
 Rigidbody:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,7 +162,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!65 &65587662388095898
 BoxCollider:
@@ -170,10 +171,10 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1110162904214986}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.98, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114354781097850204
 MonoBehaviour:
@@ -189,6 +190,18 @@ MonoBehaviour:
   xRotation: 0
   yRotation: 10
   zRotation: 0
+--- !u!114 &114383989232498522
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1110162904214986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a862f0d1ebdc0f488d0398039d857a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fighter: {fileID: 0}
 --- !u!198 &198528926493358544
 ParticleSystem:
   m_ObjectHideFlags: 1
