@@ -285,6 +285,11 @@ Prefab:
       value: 
       objectReference: {fileID: 1562583602228274, guid: 3d14e1bd033546c4ab830999c6b34ea6,
         type: 2}
+    - target: {fileID: 114121766808489052, guid: 41d958e5fe694a241882f131b346ba87,
+        type: 2}
+      propertyPath: controllerVariables.comboTimeOut
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41d958e5fe694a241882f131b346ba87, type: 2}
   m_IsPrefabAsset: 0
