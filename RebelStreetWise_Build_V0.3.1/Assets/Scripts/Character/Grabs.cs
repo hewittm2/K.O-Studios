@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Grabs : MonoBehaviour {
+//Ryan Van Dusen, Chris B.
+//3/29/19
+public class Grabs : MonoBehaviour
+{
 
     public float grabDelay;
     public float knockBackTime;
@@ -17,16 +19,23 @@ public class Grabs : MonoBehaviour {
     private bool foward;
     private bool backward;
 
- 
+    public Animator anim;
+
+    public int fowardDamage;
+    public int backwardDamage;
 
 
 
 
-	// Use this for initialization
-	void Start () {
-    
-       
-	}
+
+
+
+    // Use this for initialization
+    void Start()
+    {
+
+
+    }
 
     // Update is called once per frame
     void Update()
@@ -57,7 +66,7 @@ public class Grabs : MonoBehaviour {
         //counter for delay
         if (startCount == true)
         {
-           
+
             timeCounter += Time.deltaTime;
         }
 
@@ -70,20 +79,24 @@ public class Grabs : MonoBehaviour {
                 {
                     if (playerPosition.x + range > enemyPosition.x)
                     {
+                        anim.SetTrigger("FowardGrab");
                         enemy.transform.Translate(Vector3.back * kickDistance);
                         startCount = false;
                         foward = false;
                         timeCounter = 0;
+                        enemy.GetComponent<FighterClass>().currentHealth = -fowardDamage;
                     }
                 }
                 if (GetComponent<FighterClass>().facingRight == false)
                 {
                     if (playerPosition.x - range < enemyPosition.x)
                     {
+                        anim.SetTrigger("FowardGrab");
                         enemy.transform.Translate(Vector3.back * kickDistance);
                         startCount = false;
                         foward = false;
                         timeCounter = 0;
+                        enemy.GetComponent<FighterClass>().currentHealth = -fowardDamage;
                     }
                 }
             }
@@ -94,21 +107,24 @@ public class Grabs : MonoBehaviour {
                 {
                     if (playerPosition.x + range > enemyPosition.x)
                     {
-
+                        anim.SetTrigger("BackwardGrab");
                         enemy.transform.Translate(new Vector3(0, 0, 10));
                         startCount = false;
                         backward = false;
                         timeCounter = 0;
+                        enemy.GetComponent<FighterClass>().currentHealth = -backwardDamage;
                     }
                 }
                 if (GetComponent<FighterClass>().facingRight == false)
                 {
                     if (playerPosition.x - range < enemyPosition.x)
                     {
+                        anim.SetTrigger("BackwardGrab");
                         enemy.transform.Translate(new Vector3(0, 0, 10));
                         startCount = false;
                         backward = false;
                         timeCounter = 0;
+                        enemy.GetComponent<FighterClass>().currentHealth = -backwardDamage;
                     }
                 }
             }
