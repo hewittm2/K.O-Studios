@@ -1,0 +1,209 @@
+fileFormatVersion: 2
+guid: 1f7c346b6cc1fe44ca148b23356313f5
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Bar
+    100002: Bar 1
+    100004: Bar 2
+    100006: Bar 3
+    100008: Bar 4
+    100010: Bar 5
+    100012: BarTop
+    100014: BarTop 1
+    100016: BarTop 2
+    100018: BarTop 3
+    100020: BarTop 4
+    100022: BarTop 5
+    100024: Base
+    100026: Center
+    100028: //RootNode
+    100030: LeftCenter
+    100032: LeftFenceTop
+    100034: LeftPost
+    100036: MiddleBar
+    100038: MiddleBarTop
+    100040: RightCenter
+    100042: RightFenceTop
+    100044: RightPost
+    100046: Top
+    400000: Bar
+    400002: Bar 1
+    400004: Bar 2
+    400006: Bar 3
+    400008: Bar 4
+    400010: Bar 5
+    400012: BarTop
+    400014: BarTop 1
+    400016: BarTop 2
+    400018: BarTop 3
+    400020: BarTop 4
+    400022: BarTop 5
+    400024: Base
+    400026: Center
+    400028: //RootNode
+    400030: LeftCenter
+    400032: LeftFenceTop
+    400034: LeftPost
+    400036: MiddleBar
+    400038: MiddleBarTop
+    400040: RightCenter
+    400042: RightFenceTop
+    400044: RightPost
+    400046: Top
+    2100000: No Name
+    2300000: Bar
+    2300002: Bar 1
+    2300004: Bar 2
+    2300006: Bar 3
+    2300008: Bar 4
+    2300010: Bar 5
+    2300012: BarTop
+    2300014: BarTop 1
+    2300016: BarTop 2
+    2300018: BarTop 3
+    2300020: BarTop 4
+    2300022: BarTop 5
+    2300024: Base
+    2300026: Center
+    2300028: //RootNode
+    2300030: LeftCenter
+    2300032: LeftFenceTop
+    2300034: LeftPost
+    2300036: MiddleBar
+    2300038: MiddleBarTop
+    2300040: RightCenter
+    2300042: RightFenceTop
+    2300044: RightPost
+    2300046: Top
+    3300000: Bar
+    3300002: Bar 1
+    3300004: Bar 2
+    3300006: Bar 3
+    3300008: Bar 4
+    3300010: Bar 5
+    3300012: BarTop
+    3300014: BarTop 1
+    3300016: BarTop 2
+    3300018: BarTop 3
+    3300020: BarTop 4
+    3300022: BarTop 5
+    3300024: Base
+    3300026: Center
+    3300028: //RootNode
+    3300030: LeftCenter
+    3300032: LeftFenceTop
+    3300034: LeftPost
+    3300036: MiddleBar
+    3300038: MiddleBarTop
+    3300040: RightCenter
+    3300042: RightFenceTop
+    3300044: RightPost
+    3300046: Top
+    4300000: Fence
+    4300002: Base
+    4300004: Center
+    4300006: RightCenter
+    4300008: LeftCenter
+    4300010: LeftPost
+    4300012: LeftFenceTop
+    4300014: MiddleBar
+    4300016: MiddleBarTop
+    4300018: BarTop
+    4300020: BarTop
+    4300022: BarTop
+    4300024: BarTop
+    4300026: BarTop
+    4300028: BarTop
+    4300030: Bar
+    4300032: Bar
+    4300034: Bar
+    4300036: Bar
+    4300038: Bar
+    4300040: Bar
+    4300042: Top
+    4300044: RightPost
+    4300046: RightFenceTop
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
