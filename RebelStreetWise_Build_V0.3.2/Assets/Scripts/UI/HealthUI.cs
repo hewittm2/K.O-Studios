@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class HealthUI : MonoBehaviour {
 
-    public Slider player1Slider;
+   /* public Slider player1Slider;
     public FighterClass fighterClass1;
 
     public Slider player2Slider;
@@ -23,20 +23,17 @@ public class HealthUI : MonoBehaviour {
     public Toggle team2Toggle2;
 
     // Use this for initialization
-    void Start ()
-    {
+    void Start () {
         fighterClass1.currentHealth = fighterClass1.totalHealth;
         fighterClass2.currentHealth = fighterClass2.totalHealth;
         fighterClass3.currentHealth = fighterClass3.totalHealth;
         fighterClass4.currentHealth = fighterClass4.totalHealth;
-
         team1Toggle1.isOn = false;
         team1Toggle2.isOn = false;
         team2Toggle1.isOn = false;
         team2Toggle2.isOn = false;
     }
 	
-    /*
 	public void TakeDamage (int ammount)
     {
         player1Slider.value = fighterClass1.currentHealth;
@@ -61,8 +58,6 @@ public class HealthUI : MonoBehaviour {
             fighterClass4.currentHealth = 100;
         }
     }
-    */
-
     public void Update()
     {
         player1Slider.value = fighterClass1.currentHealth;
@@ -70,8 +65,8 @@ public class HealthUI : MonoBehaviour {
         player3Slider.value = fighterClass3.currentHealth;
         player4Slider.value = fighterClass4.currentHealth;
 
+
         // Ignore For actual Build for Testing only
-        /*
         if (Input.GetKeyDown("1"))
         {
             fighterClass1.currentHealth -= 10;
@@ -88,8 +83,6 @@ public class HealthUI : MonoBehaviour {
         {
             fighterClass4.currentHealth -= 10;
         }
-        */
-         
         if (fighterClass1.currentHealth <= 0 || fighterClass2.currentHealth <= 0)
         {
             Team2Win();
@@ -138,4 +131,5 @@ public class HealthUI : MonoBehaviour {
             //MatchEnd();
         }
     }
+    */
 }
