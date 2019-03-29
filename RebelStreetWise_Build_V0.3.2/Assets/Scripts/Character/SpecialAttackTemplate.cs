@@ -4,63 +4,57 @@ using UnityEngine;
 
 public class SpecialAttackTemplate : MonoBehaviour
 {
+    private FighterClass self;
+
+    //Apollo
     [System.Serializable]
-    public class SpecialAttacks
+    public class SpecialAttackStats
     {
 		[Range(.1f, 2f)]
 		public float animSpeed;
-       
-        public FighterClass.HitType hitType;
-        public FighterClass.DamageType damageType;
         public Vector3 knockback;
-        public float knockbackForce;
         public int damage;
-        public float startupTime;
-        public float activeTime;
         public int stunTime;
         public float recoveryTime;
         public GameObject partEffect;
     }
+    
+      public SpecialAttackStats SpecialForward = new SpecialAttackStats();
+      public SpecialAttackStats SpecialBack = new SpecialAttackStats();
+      public SpecialAttackStats SpecialDown = new SpecialAttackStats();
+      public SpecialAttackStats SpecialNeutral = new SpecialAttackStats();
+      public SpecialAttackStats SpecialJump = new SpecialAttackStats();
+      public SpecialAttackStats SpecialBreakdown = new SpecialAttackStats();
+    
+  
 
-    [System.Serializable]
-    public class SpecialAttackStats
+    private void Start()
     {
-        public SpecialAttacks SpecialForward = new SpecialAttacks();
-        public SpecialAttacks SpecialBack = new SpecialAttacks();
-        public SpecialAttacks SpecialDown = new SpecialAttacks();
-        public SpecialAttacks SpecialNeutral = new SpecialAttacks();
-        public SpecialAttacks SpecialJump = new SpecialAttacks();
-        public SpecialAttacks SpecialBreakdown = new SpecialAttacks();
-        public SpecialAttacks CoupDeGrace = new SpecialAttacks();
+        self = GetComponent<FighterClass>();
     }
-    public SpecialAttackStats specialAttackStats = new SpecialAttackStats();
 
-    public virtual void NeutralSA(SpecialAttacks neutral) //Neutral Special Attack
+    public virtual void NeutralSA(SpecialAttackStats neutral) //Neutral Special Attack
     {
-
+		Debug.Log ("Neutral_Special");
     }
-    public virtual void ForwardSA(SpecialAttacks forward) //Forward Special Attack
+    public virtual void ForwardSA(SpecialAttackStats forward) //Forward Special Attack
     {
-
+		Debug.Log ("Forward_Special");
     }
-    public virtual void BackSA(SpecialAttacks back) //Back Special Attack
+    public virtual void BackSA(SpecialAttackStats back) //Back Special Attack
     {
-
+		Debug.Log ("Backward_Special");
     }
-    public virtual void DownSA(SpecialAttacks down) //Down Special Attack
+    public virtual void DownSA(SpecialAttackStats down) //Down Special Attack
     {
-
+		Debug.Log ("Down_Special");
     }
-    public virtual void JumpSA(SpecialAttacks jump) //Jump Special Attack
+    public virtual void JumpSA(SpecialAttackStats jump) //Jump Special Attack
     {
-
+		Debug.Log ("Jump_Special");
     }
-    public virtual void BreakdownSA(SpecialAttacks breakdown) //Breakdown
+    public virtual void BreakdownSA(SpecialAttackStats breakdown) //Breakdown
     {
-
-    }
-    public virtual void CoupDeGraceU(SpecialAttacks coup) //CoupDeGrace
-    {
-
+		Debug.Log ("BreakDown");
     }
 }

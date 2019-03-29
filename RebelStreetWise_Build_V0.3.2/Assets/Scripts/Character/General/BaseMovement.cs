@@ -11,7 +11,7 @@ public class BaseMovement : MonoBehaviour
 	public float forwardMoveSpeed;
     public float backMoveSpeed;
 	float moveSpeed;
-	public float gravity = -.7f;
+	float gravity = -.7f;
 	//Dash
 	public float forwardDashSpeed;
 	public float backDashSpeed;
