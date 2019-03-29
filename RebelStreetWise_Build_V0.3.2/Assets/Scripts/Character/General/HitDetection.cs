@@ -7,8 +7,10 @@ public class HitDetection : MonoBehaviour {
 	// Use this for initialization
 	//the player this hurtbox belongs to
 	private FighterClass player;
+	[Header("Get Hit Particle Effects")][Space(0.5f)]
 	public GameObject hitSpark;
 	public GameObject blockSpark;
+	[Header("Basic Attack Hitboxes")][Space(0.5f)]
 	public GameObject leftFoot;
 	public GameObject rightFoot;
 	public GameObject leftKnee;
@@ -19,14 +21,21 @@ public class HitDetection : MonoBehaviour {
 	public GameObject rightElbow;
 	public GameObject chest;
 	public GameObject head;
+	[Header("Special Attack HitBoxes")][Space(0.5f)]
+	public GameObject specialNeutral;
+	public GameObject specialForward;
+	public GameObject specialBackward;
+	public GameObject specialDown;
+	public GameObject specialJump;
 	[HideInInspector]
 	public List<GameObject> hitBoxes;
 
 	[HideInInspector]
-	public string attacker;
+	public string attackerLabel;
 	[HideInInspector]
 	public BaseMovement movement;
-
+	[HideInInspector]
+	public FighterClass attacker;
 
 	private void Start(){
 		player = GetComponent<FighterClass>();
@@ -56,6 +65,17 @@ public class HitDetection : MonoBehaviour {
 			hitBoxes.Add (chest);
 		if (head != null) 
 			hitBoxes.Add (head);
+		if (specialNeutral != null)
+			hitBoxes.Add (specialNeutral);
+		if (specialForward != null)
+			hitBoxes.Add (specialForward);
+		if (specialBackward != null)
+			hitBoxes.Add (specialBackward);
+		if (specialDown != null)
+			hitBoxes.Add (specialDown);
+		if (specialJump != null)
+			hitBoxes.Add (specialJump);
+
 
 		foreach (GameObject g in hitBoxes) {
 			string attackLabel = "attack" + player.teamNumber;
@@ -64,52 +84,84 @@ public class HitDetection : MonoBehaviour {
 		}
 		//player = GetComponentInParent<FighterClass>();
 		if (player.teamNumber == 1) {
-			attacker = "attack2";
+			attackerLabel = "attack2";
 		} else {
-			attacker = "attack1";
+			attackerLabel = "attack1";
 		}
 	}
 	private void OnCollisionEnter(Collision col){
 		foreach (ContactPoint contact in col.contacts) {
 			if (player.canRecieveDamage) {
-				if (contact.otherCollider.tag == attacker) {
-					FighterClass attacker = col.gameObject.GetComponentInParent<FighterClass>();
-					if (!player.blocking) {
-						ReceiveDamage (attacker.damage,attacker.knockBackDirection, attacker.knockBackForce);
-						hitSpark.transform.position = contact.otherCollider.transform.position;
-						hitSpark.SetActive(true);
-						attacker.superMeter += attacker.meterGain;
-					} else {
-						ReceiveBlockedDamage (col.gameObject.GetComponentInParent<FighterClass> ().damage,col.gameObject.GetComponentInParent<FighterClass> ().knockBackDirection, col.gameObject.GetComponentInParent<FighterClass> ().knockBackForce);
-						blockSpark.transform.position = contact.otherCollider.transform.position;
-						blockSpark.SetActive(true);
-						attacker.superMeter += (attacker.meterGain*player.defValue);
+				if (contact.otherCollider.tag == attackerLabel) {
+					attacker = col.gameObject.GetComponentInParent<FighterClass> ();
+					if (attacker != null) {
+						if (!player.blocking) {
+							ReceiveDamage (attacker.output);
+							hitSpark.transform.position = contact.otherCollider.transform.position;
+							hitSpark.SetActive(true);
+							attacker.superMeter += attacker.output.meterGain;
+						} else {
+							ReceiveBlockedDamage (attacker.output);
+							blockSpark.transform.position = contact.otherCollider.transform.position;
+							blockSpark.SetActive(true);
+							attacker.superMeter += (attacker.output.meterGain*player.defValue);
+						}
 					}
+
 				}
 			}
 		}
 	}
-	public void ReceiveBlockedDamage(float damage, Vector3 kbDirection, float kbForce){
-		player.anim.SetTrigger("GetHit");
+	public void OnTriggerEnter(Collider col){
+		Debug.Log ("Projectile Hit");
+		if (col.gameObject.tag == attackerLabel) {
+			if (col.gameObject.GetComponent<ProjectileFighterReference>()) {
+				attacker = col.gameObject.GetComponent<ProjectileFighterReference> ().fighter;
+			}
+			if (attacker != null) {
+				if (!player.blocking) {
+					ReceiveDamage (attacker.output);
+					hitSpark.transform.position = col.transform.position;
+					hitSpark.SetActive(true);
+					attacker.superMeter += attacker.output.meterGain;
+				} else {
+					ReceiveBlockedDamage (attacker.output);
+					blockSpark.transform.position = col.transform.position;
+					blockSpark.SetActive(true);
+					attacker.superMeter += (attacker.output.meterGain*player.defValue);
+				}
+			}
+		}
+	}
+	public void ReceiveBlockedDamage(FighterClass.AttackStats recievedAttack){
+		player.anim.SetTrigger("Light Damage");
 		player.canRecieveDamage = false;
 		player.canMove = false;
 		player.canAttack = false;
-		damage *= player.defValue;
-		player.currentHealth -= Mathf.RoundToInt(damage);
+		recievedAttack.attDam *=  Mathf.RoundToInt(player.defValue);
+		player.currentHealth -= recievedAttack.attDam;
 
 
-		Debug.Log("HitBox of Team " + player.teamNumber + " Hit for " + damage + " points of damage");
-		StartCoroutine (hitDelay (player, kbDirection,kbForce));
+		Debug.Log("HitBox of Team " + player.teamNumber + " Hit for " + recievedAttack.attDam + " points of damage");
+		StartCoroutine (hitDelay (player, recievedAttack.knockBackDirection,recievedAttack.knockBackForce));
 
 	}
-	public void ReceiveDamage(float damage, Vector3 kbDirection, float kbForce){
-		player.anim.SetTrigger("GetHit");
+	public void ReceiveDamage(FighterClass.AttackStats recievedAttack){
+		//player.anim.SetTrigger("GetHit");
+		if (recievedAttack.damageType == FighterClass.DamageType.Hit) {
+			player.anim.SetTrigger("Light Damage");
+		}else if(recievedAttack.damageType == FighterClass.DamageType.Stun){ 
+			player.anim.SetTrigger("Heavy Damage");
+		}else if(recievedAttack.damageType == FighterClass.DamageType.KnockDown){ 
+			player.anim.SetTrigger("Knock Out");
+		}
+
 		player.canRecieveDamage = false;
 		player.canMove = false;
 		player.canAttack = false;
-		player.currentHealth -= Mathf.RoundToInt(damage);
-		Debug.Log("HitBox of Team " + player.teamNumber + " Hit for " + damage + " points of damage");
-		StartCoroutine (hitDelay (player,kbDirection, kbForce));
+		player.currentHealth -= Mathf.RoundToInt(recievedAttack.attDam);
+		Debug.Log("HitBox of Team " + player.teamNumber + " Hit for " + recievedAttack.attDam + " points of damage");
+		StartCoroutine (hitDelay (player,recievedAttack.knockBackDirection, recievedAttack.knockBackForce));
 
 
 	}
@@ -120,16 +172,24 @@ public class HitDetection : MonoBehaviour {
 		movement.rigid.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionZ;
 		movement.rigid.velocity = new Vector3(0, 0, 0);
 		movement.rigid.angularVelocity = new Vector3(0, 0, 0);
-		movement.rigid.velocity += (new Vector3(kbDirection.x,kbDirection.y, 0)*kbForce);
-		yield return new WaitForSeconds(.2f);
+        movement.rigid.velocity += (new Vector3(kbDirection.x,kbDirection.y, 0)*kbForce);
+        yield return new WaitForSeconds(.2f);
 		movement.rigid.velocity = new Vector3(0, 0, 0);
 		movement.rigid.angularVelocity = new Vector3(0, 0, 0);
 		yield return new WaitForSeconds(.01f);
 		movement.rigid.constraints = RigidbodyConstraints.FreezeAll;
 
-
+        if (attacker.coupDeGraceActivated == true) ////Torrel Added this for Stun Lock
+        {
+            for (int i = 0; i < 100; i++)
+            {
+                yield return new WaitForSeconds(player.anim.GetCurrentAnimatorClipInfo(0).Length / player.anim.speed);
+                player.anim.SetTrigger("Heavy Damage");
+            }
+        }
 
 		yield return new WaitForSeconds (.2f);
+		attacker = null;
 		movement.fighter.canMove = true;
 		player.canRecieveDamage = true;
 		player.canMove = true;
