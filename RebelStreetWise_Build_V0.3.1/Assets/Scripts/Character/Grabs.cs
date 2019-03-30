@@ -25,11 +25,6 @@ public class Grabs : MonoBehaviour
     public int backwardDamage;
 
 
-
-
-
-
-
     // Use this for initialization
     void Start()
     {
@@ -41,10 +36,16 @@ public class Grabs : MonoBehaviour
     void Update()
     {
         playerPosition = transform.position;
-        enemyPosition = gameObject.GetComponent<FighterClass>().lockOnTarget.transform.position;
+
+        //Flipped this
+        //enemyPosition = gameObject.GetComponent<FighterClass>().lockOnTarget.transform.position;
+        //enemy = gameObject.GetComponent<FighterClass>().lockOnTarget;
+
         enemy = gameObject.GetComponent<FighterClass>().lockOnTarget;
-
-
+        if(enemy != null)
+        {
+            enemyPosition = enemy.transform.position;
+        }
 
         //foward grab
         //start a delay counter
