@@ -1,0 +1,156 @@
+fileFormatVersion: 2
+guid: bd9dc053129c17043a5bcf2605ae981f
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Bra
+    100002: Camisole
+    100004: CC_Base_Body
+    100006: CC_Base_Eye
+    100008: CC_Base_Teeth
+    100010: CC_Base_Tongue
+    100012: Hair
+    100014: Loose_Biker_Boots
+    100016: Punk_Belt
+    100018: //RootNode
+    100020: Rocker_Jeans
+    100022: Underwear_Bottoms
+    400000: Bra
+    400002: Camisole
+    400004: CC_Base_Body
+    400006: CC_Base_Eye
+    400008: CC_Base_Teeth
+    400010: CC_Base_Tongue
+    400012: Hair
+    400014: Loose_Biker_Boots
+    400016: Punk_Belt
+    400018: //RootNode
+    400020: Rocker_Jeans
+    400022: Underwear_Bottoms
+    2100000: BraMat
+    2100002: CamisoleMat
+    2100004: CC_Base_BodyMat
+    2100006: CC_Base_EyeMat
+    2100008: CC_Base_TeethMat
+    2100010: CC_Base_TongueMat
+    2100012: HairMat
+    2100014: Loose_Biker_BootsMat
+    2100016: Punk_BeltMat
+    2100018: Rocker_JeansMat
+    2100020: Underwear_BottomsMat
+    2300000: Bra
+    2300002: Camisole
+    2300004: CC_Base_Body
+    2300006: CC_Base_Eye
+    2300008: CC_Base_Teeth
+    2300010: CC_Base_Tongue
+    2300012: Hair
+    2300014: Loose_Biker_Boots
+    2300016: Punk_Belt
+    2300018: Rocker_Jeans
+    2300020: Underwear_Bottoms
+    3300000: Bra
+    3300002: Camisole
+    3300004: CC_Base_Body
+    3300006: CC_Base_Eye
+    3300008: CC_Base_Teeth
+    3300010: CC_Base_Tongue
+    3300012: Hair
+    3300014: Loose_Biker_Boots
+    3300016: Punk_Belt
+    3300018: Rocker_Jeans
+    3300020: Underwear_Bottoms
+    4300000: Bra
+    4300002: Camisole
+    4300004: CC_Base_Body
+    4300006: CC_Base_Eye
+    4300008: CC_Base_Teeth
+    4300010: CC_Base_Tongue
+    4300012: Hair
+    4300014: Loose_Biker_Boots
+    4300016: Punk_Belt
+    4300018: Rocker_Jeans
+    4300020: Underwear_Bottoms
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
