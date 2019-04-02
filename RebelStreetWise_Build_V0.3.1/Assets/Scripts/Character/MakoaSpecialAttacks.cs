@@ -94,6 +94,8 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
     public GameObject volcano;
     private GameObject enemy1;
     private GameObject enemy2;
+    private bool player1;
+    private bool player2;
     
 
     #endregion
@@ -517,41 +519,55 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
     #region Coup De Grace
     void coupdegrace()
     {
-        GetComponent<BaseMovement>().ResetMovement();
-        GetComponent<BaseMovement>().enabled = false;
-        volcano.SetActive(true);
-        if (gameObject.layer == 10)
+        if (this.gameObject.tag == "Player1")
         {
-            if (GetComponent<FighterClass>().lockOnTargets[0] != null)
-            {
-
-                enemy1 = GetComponent<FighterClass>().lockOnTargets[0];
-                enemy1.GetComponent<FighterClass>().currentHealth = 0;
-            }
-            if (GetComponent<FighterClass>().lockOnTargets[1] != null)
-            {
-                enemy2 = GetComponent<FighterClass>().lockOnTargets[1];
-                enemy2.GetComponent<FighterClass>().currentHealth = 0;
-            }
-        
-
-
-
+            player1 = true;
         }
-        if (gameObject.layer == 9)
+        if (this.gameObject.tag == "Player2")
         {
-            if (GetComponent<FighterClass>().lockOnTargets[0] != null)
+            player2 = true;
+        }
+        if(player1 == true && player2 == true)
+        {
+            GetComponent<BaseMovement>().ResetMovement();
+            GetComponent<BaseMovement>().enabled = false;
+
+            volcano.SetActive(true);
+            if (gameObject.layer == 10)
             {
-                enemy1 = GetComponent<FighterClass>().lockOnTargets[0];
-                enemy1.GetComponent<FighterClass>().currentHealth = 0;
+
+
+                if (GetComponent<FighterClass>().lockOnTargets[0] != null)
+                {
+
+                    enemy1 = GetComponent<FighterClass>().lockOnTargets[0];
+                    enemy1.GetComponent<FighterClass>().currentHealth = 0;
+                }
+                if (GetComponent<FighterClass>().lockOnTargets[1] != null)
+                {
+                    enemy2 = GetComponent<FighterClass>().lockOnTargets[1];
+                    enemy2.GetComponent<FighterClass>().currentHealth = 0;
+                }
+
+
+
+
             }
-            if (GetComponent<FighterClass>().lockOnTargets[1] != null)
+            if (gameObject.layer == 9)
             {
-                enemy2 = GetComponent<FighterClass>().lockOnTargets[1];
-                enemy2.GetComponent<FighterClass>().currentHealth = 0;
+                if (GetComponent<FighterClass>().lockOnTargets[0] != null)
+                {
+                    enemy1 = GetComponent<FighterClass>().lockOnTargets[0];
+                    enemy1.GetComponent<FighterClass>().currentHealth = 0;
+                }
+                if (GetComponent<FighterClass>().lockOnTargets[1] != null)
+                {
+                    enemy2 = GetComponent<FighterClass>().lockOnTargets[1];
+                    enemy2.GetComponent<FighterClass>().currentHealth = 0;
+                }
+
+
             }
-            
-         
         }
 
 
