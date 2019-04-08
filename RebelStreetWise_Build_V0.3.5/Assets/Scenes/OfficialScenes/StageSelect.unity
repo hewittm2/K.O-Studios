@@ -233,6 +233,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114225619994133050, guid: e302f12001c9e8643923c77af28eb3a9,
+        type: 2}
+      propertyPath: mapImages.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 114397605364396592, guid: e302f12001c9e8643923c77af28eb3a9,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -478,6 +483,53 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Main Menu
       objectReference: {fileID: 0}
+    - target: {fileID: 114225619994133050, guid: e302f12001c9e8643923c77af28eb3a9,
+        type: 2}
+      propertyPath: currentMapImage
+      value: 
+      objectReference: {fileID: 214830323}
+    - target: {fileID: 114225619994133050, guid: e302f12001c9e8643923c77af28eb3a9,
+        type: 2}
+      propertyPath: mapImages.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: c621916abfea3764e8ce32569a847038,
+        type: 3}
+    - target: {fileID: 114225619994133050, guid: e302f12001c9e8643923c77af28eb3a9,
+        type: 2}
+      propertyPath: mapImages.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 78091be8e66f26d4991883959c20a785,
+        type: 3}
+    - target: {fileID: 114397605364396592, guid: e302f12001c9e8643923c77af28eb3a9,
+        type: 2}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114397605364396592, guid: e302f12001c9e8643923c77af28eb3a9,
+        type: 2}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114397605364396592, guid: e302f12001c9e8643923c77af28eb3a9,
+        type: 2}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114785300348598248, guid: e302f12001c9e8643923c77af28eb3a9,
+        type: 2}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114785300348598248, guid: e302f12001c9e8643923c77af28eb3a9,
+        type: 2}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114785300348598248, guid: e302f12001c9e8643923c77af28eb3a9,
+        type: 2}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e302f12001c9e8643923c77af28eb3a9, type: 2}
   m_IsPrefabAsset: 0
@@ -525,6 +577,12 @@ MonoBehaviour:
   sprite2: {fileID: 214830320}
   sprite3: {fileID: 214830319}
   sprite4: {fileID: 214830318}
+--- !u!114 &214830323 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114276318883329684, guid: e302f12001c9e8643923c77af28eb3a9,
+    type: 2}
+  m_PrefabInternal: {fileID: 214830316}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0

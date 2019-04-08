@@ -13,6 +13,14 @@ public class MapSelectManager : MonoBehaviour
     //current scene name selected
     private string selectedMap;
 
+    public Image currentMapImage;
+    public Sprite[] mapImages;
+
+    private void Start()
+    {
+        int q = Mathf.RoundToInt(mapSlector.value);
+        currentMapImage.sprite = mapImages[q];
+    }
     void Update()
     {
         if (SceneManager.GetActiveScene().name == "StageSelect")
@@ -20,7 +28,8 @@ public class MapSelectManager : MonoBehaviour
             //add functionality to the slider and the button in the stage select sceen
             mapSlector = GameObject.FindWithTag("MapSelector").GetComponent<Slider>();
             mapSelectButton = GameObject.FindWithTag("MapButton").GetComponent<Button>();
-            //mapSlector.onValueChanged.AddListener(delegate { StageSelect(); });
+            int q = Mathf.RoundToInt(mapSlector.value);
+            currentMapImage.sprite = mapImages[q];
         }
     }
 
@@ -30,9 +39,9 @@ public class MapSelectManager : MonoBehaviour
     {
         int q = Mathf.RoundToInt(mapSlector.value);
 
-            selectedMap = stageNames[q];
-            print(selectedMap);
-            FindObjectOfType<LoadingScene>().LoadScene(selectedMap);
+        selectedMap = stageNames[q];
+        print(selectedMap);
+        FindObjectOfType<LoadingScene>().LoadScene(selectedMap);
         
     }
 }
