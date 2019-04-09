@@ -74,7 +74,7 @@ public class MatchTimer : MonoBehaviour {
         }
         StartCoroutine(matchTimer());
     }
-    void RoundEnd()
+    public void RoundEnd()
     {
         FighterClass[] fighterClass = FindObjectsOfType<FighterClass>();
 

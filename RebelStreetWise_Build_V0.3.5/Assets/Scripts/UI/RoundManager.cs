@@ -52,7 +52,7 @@ public class RoundManager : MonoBehaviour {
             Destroy(destroyThis);
         }
     }
-    private void Update()
+    public void Update()
     {
         if (team1win1.isOn == true)
         {
@@ -134,5 +134,16 @@ public class RoundManager : MonoBehaviour {
         {
             return false;
         }
+    }
+    public void Restart()
+    {
+        team1win1bool = false;
+        team1win2bool = false;
+        team2win1bool = false;
+        team2win2bool = false;
+        team1win1.isOn = false;
+        team1win2.isOn = false;
+        team2win1.isOn = false;
+        team2win2.isOn = false;
     }
 }

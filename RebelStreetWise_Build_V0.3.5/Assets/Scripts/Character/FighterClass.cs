@@ -145,6 +145,8 @@ public class FighterClass : MonoBehaviour {
 
     MatchEnd matchEnd;
 
+    private bool canRestart = true;
+
 	void Start () {
 		specials = GetComponent<SpecialAttackTemplate> ();
 		CurrFrameType = FrameType.Regular;
@@ -199,8 +201,12 @@ public class FighterClass : MonoBehaviour {
         }
         if(currentHealth <= 0)
         {
-            matchEnd = FindObjectOfType<MatchEnd>();
-            matchEnd.Winner(teamNumber);
+            if (canRestart == true)
+            {
+                canRestart = false;
+                MatchTimer matchEnd = FindObjectOfType<MatchTimer>();
+                matchEnd.RoundEnd();
+            }
         }
     }
 

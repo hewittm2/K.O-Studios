@@ -14,6 +14,8 @@ public class MenuManager : MonoBehaviour
     public void RestartMatch()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        RoundManager roundManager = FindObjectOfType<RoundManager>();
+        roundManager.Restart();
     }
     public void Options(GameObject OptionsMenu)
     {
