@@ -51,10 +51,11 @@ public class MatchTimer : MonoBehaviour {
     {
         yield return new WaitForSeconds(1);
         secTime -= 1;
-        if(secTime < 0){
+        if (secTime < 0){
             minTime -= 1;
             secTime = 59;
-            if(minTime < 0){
+            if (minTime < 0)
+            {
                 minTime = 0;
                 RoundEnd();
             }
@@ -71,7 +72,6 @@ public class MatchTimer : MonoBehaviour {
         }else{
             minText.text = minTime.ToString();
         }
-
         StartCoroutine(matchTimer());
     }
     void RoundEnd()

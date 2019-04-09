@@ -19,10 +19,10 @@ public class RoundManager : MonoBehaviour {
 
     Scene scene;
 
-    public bool team1win1bool;
-    public bool team1win2bool;
-    public bool team2win1bool;
-    public bool team2win2bool;
+    public static bool team1win1bool;
+    public static bool team1win2bool;
+    public static bool team2win1bool;
+    public static bool team2win2bool;
 
     public RoundManager[] otherRM;
 
@@ -69,6 +69,28 @@ public class RoundManager : MonoBehaviour {
         if (team2win2.isOn == true)
         {
             team2win2bool = true;
+        }
+
+
+        if(team1win1bool == true)
+        {
+            team1win1.isOn = true;
+            team1win1Image.SetActive(true);
+        }
+        if (team1win2bool == true)
+        {
+            team1win2.isOn = true;
+            team1win2Image.SetActive(true);
+        }
+        if (team2win1bool == true)
+        {
+            team2win1.isOn = true;
+            team2win1Image.SetActive(true);
+        }
+        if (team2win2bool == true)
+        {
+            team2win2.isOn = true;
+            team2win2Image.SetActive(true);
         }
     }
 
