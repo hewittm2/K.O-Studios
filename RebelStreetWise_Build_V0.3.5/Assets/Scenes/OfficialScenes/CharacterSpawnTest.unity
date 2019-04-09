@@ -1027,6 +1027,38 @@ Prefab:
       propertyPath: m_Name
       value: ClassyMan
       objectReference: {fileID: 0}
+    - target: {fileID: 1252174987500426, guid: b456f2c6709f9644fb0edd1ed57bb24e, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1788268334119706, guid: b456f2c6709f9644fb0edd1ed57bb24e, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114192113577814998, guid: b456f2c6709f9644fb0edd1ed57bb24e,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ab10ab6d06abec84cbcbc3915d2279bd,
+        type: 3}
+    - target: {fileID: 114610050296179774, guid: b456f2c6709f9644fb0edd1ed57bb24e,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ab10ab6d06abec84cbcbc3915d2279bd,
+        type: 3}
+    - target: {fileID: 114420011720438800, guid: b456f2c6709f9644fb0edd1ed57bb24e,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 09e1c1ba9af5a8a47a8540e14d8afccc,
+        type: 3}
+    - target: {fileID: 114833872567481594, guid: b456f2c6709f9644fb0edd1ed57bb24e,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 09e1c1ba9af5a8a47a8540e14d8afccc,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b456f2c6709f9644fb0edd1ed57bb24e, type: 2}
   m_IsPrefabAsset: 0
@@ -1167,8 +1199,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 423c51d860d610343803c35d6830e9b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OptionsMenu: {fileID: 0}
-  ReturnMenu: {fileID: 0}
 --- !u!114 &493573186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1228,8 +1258,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 423c51d860d610343803c35d6830e9b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OptionsMenu: {fileID: 0}
-  ReturnMenu: {fileID: 0}
 --- !u!1 &781197619
 GameObject:
   m_ObjectHideFlags: 0
