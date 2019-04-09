@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using UnityEditor.Presets;
 
 public class MatchTimer : MonoBehaviour {
 
@@ -16,9 +18,7 @@ public class MatchTimer : MonoBehaviour {
     public Sprite team1Wins;
     public Sprite team2Wins;
 
-    private FighterClass[] fighterClass;
-
-	private IEnumerator Start () {
+    private IEnumerator Start () {
         if (secTime < 10)
         {
             secText.text = "0" + secTime.ToString();
@@ -74,22 +74,68 @@ public class MatchTimer : MonoBehaviour {
 
         StartCoroutine(matchTimer());
     }
-    void RoundEnd ()
+    void RoundEnd()
     {
-        /*
         FighterClass[] fighterClass = FindObjectsOfType<FighterClass>();
 
-        int lowesthealth = GetComponent<FighterClass>().currentHealth;
-        string loser = Mathf.Min(lowesthealth).ToString();
-        print(loser);
+        int health1 = fighterClass[0].currentHealth;
+        int health2 = fighterClass[1].currentHealth;
+        int health3 = fighterClass[2].currentHealth;
+        int health4 = fighterClass[3].currentHealth;
 
-        /*
-        foreach (FighterClass fighter in fighterClass)
+        int lowestHealth = Mathf.Min(health1, health2, health3, health4);
+        print(lowestHealth);
+
+        FighterClass fc = FindObjectOfType<FighterClass>();
+        MatchEnd matchEnd = FindObjectOfType<MatchEnd>();
+
+        RoundManager roundManager = FindObjectOfType<RoundManager>();
+
+        foreach (FighterClass fic in fighterClass)
         {
-            int lowesthealth = fighter.GetComponent<FighterClass>().currentHealth;
-            string losername = Mathf.Min(lowesthealth.CompareTo(lowesthealth)).ToString();
-            print(losername);
+            if (fic.currentHealth == lowestHealth)
+            {
+                if (fic.teamNumber == 2)
+                {
+                    winnerImage.sprite = team1Wins;
+                    if (roundManager.team1win1.isOn == true)
+                    {
+                        roundManager.team1win2.isOn = true;
+                        roundManager.team1win2Image.SetActive(true);
+                        matchEnd.Winner(fic.teamNumber);
+                    }
+                    else if (roundManager.team1win1.isOn == false)
+                    {
+                        roundManager.team1win1.isOn = true;
+                        StartCoroutine(RestartRound());
+                        roundManager.team1win1Image.SetActive(true);
+                    }
+                }
+                if (fic.teamNumber == 1)
+                {
+                    winnerImage.sprite = team2Wins;
+                    if (roundManager.team2win1.isOn == true)
+                    {
+                        roundManager.team2win2.isOn = true;
+                        roundManager.team2win2Image.SetActive(true);
+                        matchEnd.Winner(fic.teamNumber);
+                    }
+                    else if(roundManager.team2win1.isOn == false)
+                    {
+                        roundManager.team2win1.isOn = true;
+                        StartCoroutine(RestartRound());
+                        roundManager.team2win1Image.SetActive(true);
+                    }
+                }
+                winnerImage.gameObject.SetActive(true);
+                roundManager.UpdateProperties();
+            }
         }
-        */
+    }
+    IEnumerator RestartRound ()
+    {
+        yield return new WaitForSeconds(3);
+        string sceneName = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(sceneName);
     }
 }

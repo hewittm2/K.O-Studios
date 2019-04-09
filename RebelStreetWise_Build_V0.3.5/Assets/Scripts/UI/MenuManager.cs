@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
     CharacterSpawning characterSpawning;
-    public GameObject OptionsMenu;
-    public GameObject ReturnMenu;
 
     public void LoadScene(string sceneName)
     {
@@ -17,15 +15,13 @@ public class MenuManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-    public void Options()
+    public void Options(GameObject OptionsMenu)
     {
         OptionsMenu.SetActive(true);
-        ReturnMenu.SetActive(false);
     }
-    public void ReturnCanvas()
+    public void ReturnCanvas(GameObject OptionsMenu)
     {
         OptionsMenu.SetActive(false);
-        ReturnMenu.SetActive(true);
     }
     public void QuitGame()
     {
