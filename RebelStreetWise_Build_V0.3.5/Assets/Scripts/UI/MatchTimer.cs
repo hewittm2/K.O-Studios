@@ -84,7 +84,6 @@ public class MatchTimer : MonoBehaviour {
         int health4 = fighterClass[3].currentHealth;
 
         int lowestHealth = Mathf.Min(health1, health2, health3, health4);
-        print(lowestHealth);
 
         FighterClass fc = FindObjectOfType<FighterClass>();
         MatchEnd matchEnd = FindObjectOfType<MatchEnd>();
@@ -129,6 +128,7 @@ public class MatchTimer : MonoBehaviour {
                 }
                 winnerImage.gameObject.SetActive(true);
                 roundManager.UpdateProperties();
+                roundManager.bools();
             }
         }
     }

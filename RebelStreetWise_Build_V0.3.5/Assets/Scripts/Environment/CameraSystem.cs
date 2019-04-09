@@ -116,7 +116,6 @@ public class CameraSystem : MonoBehaviour {
 							t = 0;
 						}
 						CanLerp = true;
-						Debug.Log ("Zoomin");
 						MaxDistanceToResize -= 1f;
 						MinDistanceToResize -= 1f;
 					}

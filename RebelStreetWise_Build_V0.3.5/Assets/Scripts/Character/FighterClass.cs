@@ -209,7 +209,6 @@ public class FighterClass : MonoBehaviour {
 		if (lockOnTarget != null) {
 			CheckTarget (lockOnTarget);
 		}
-		print (anim.speed);
 	}
 
 
