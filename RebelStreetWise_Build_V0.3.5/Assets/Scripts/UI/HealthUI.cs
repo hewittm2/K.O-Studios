@@ -17,7 +17,6 @@ public class HealthUI : MonoBehaviour
     public Slider sl2;
     public Slider sl3;
     public Slider sl4;
-
     void Start ()
     {
         fighters = FindObjectsOfType<FighterClass>();
@@ -38,5 +37,8 @@ public class HealthUI : MonoBehaviour
         sl2.value = team1[1].currentHealth;
         sl3.value = team2[0].currentHealth;
         sl4.value = team2[1].currentHealth;
+
+
     }
+
 }

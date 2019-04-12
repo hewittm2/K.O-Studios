@@ -9,43 +9,29 @@ using UnityEngine.SceneManagement;
 
 public class ConfirmationPopup : MonoBehaviour
 {
-    public GameObject pauseCanvas;
-    public GameObject popUpCanvas;
-
-    [SerializeField] int buildIndex;
+    Canvas returnCanvas;
+    Canvas baseCanvas;
 
     private void Start()
     {
-        popUpCanvas.gameObject.SetActive(false);
+        this.gameObject.SetActive(false);
     }
 
-    private void Update()
+    void OpenMenu()
     {
-        buildIndex = SceneManager.GetActiveScene().buildIndex;
+        this.gameObject.SetActive(true);
+    }
+    
+    void CloseMenu()
+    {
+        this.gameObject.SetActive(false);
+        returnCanvas.gameObject.SetActive(true);
     }
 
-    public void OpenMenu()
+    void Confirm()
     {
-        popUpCanvas.SetActive(true);
-        pauseCanvas.SetActive(false);
-    }
-
-    public void CloseMenu()
-    {
-        popUpCanvas.SetActive(false);
-        pauseCanvas.gameObject.SetActive(true);
-    }
-
-    public void Confirm()
-    {
-        if (SceneManager.GetActiveScene().buildIndex == 0)
-        {
-            Application.Quit();
-        }
-        else
-        {
-            SceneManager.LoadScene(0); //Change the index int to match the Menu scene index.
-            popUpCanvas.SetActive(false);
-        }
+        SceneManager.LoadScene(1); //Change the index int to match the Menu scene index.
+        this.gameObject.SetActive(false);
+        baseCanvas.transform.GetChild(5).gameObject.SetActive(true);
     }
 }

@@ -1,4 +1,5 @@
 ﻿//Created By Ethan Quandt 8/29/18
+//Edited 4/1/19
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -143,7 +144,7 @@ public class FighterClass : MonoBehaviour {
 	StageManager stageManager;
 	public Animator anim;
 
-    MatchEnd matchEnd;
+
 
 	void Start () {
 		specials = GetComponent<SpecialAttackTemplate> ();
@@ -196,11 +197,6 @@ public class FighterClass : MonoBehaviour {
             Debug.Log("yes");
             PauseGame pauseGame = FindObjectOfType<PauseGame>();
             pauseGame.Pause(playerNumber);
-        }
-        if(currentHealth <= 0)
-        {
-            matchEnd = FindObjectOfType<MatchEnd>();
-            matchEnd.Winner(teamNumber);
         }
     }
 

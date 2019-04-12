@@ -14,27 +14,15 @@ public class PauseGame : MonoBehaviour {
     public GameObject pauseCanvas;
     public GameObject optionsCanvas;
 
-    private Rigidbody[] rigidbodies;
-    private CharacterController[] characterControllers;
-
     void Start()
     {
-        rigidbodies = FindObjectsOfType<Rigidbody>();
-        characterControllers = FindObjectsOfType<CharacterController>();
+        //resume.onClick.AddListener(ResumeGame);
+        //options.onClick.AddListener(OptionsMenu);
     }
     public void Pause (int PlayerNum)
     {
         pauseCanvas.SetActive(true);
 
-        foreach(Rigidbody rbs in rigidbodies)
-        {
-            rbs.constraints = RigidbodyConstraints.FreezeAll;
-        }
-        foreach(CharacterController cc in characterControllers)
-        {
-            cc.enabled = false;
-        }
-        Time.timeScale = 0;
         if (PlayerNum == 1)
         {
             event1.SetActive(true);
@@ -69,14 +57,6 @@ public class PauseGame : MonoBehaviour {
     {
         pauseCanvas.SetActive(false);
         Time.timeScale = 1f;
-        foreach (Rigidbody rbs in rigidbodies)
-        {
-            rbs.constraints = RigidbodyConstraints.None;
-        }
-        foreach (CharacterController cc in characterControllers)
-        {
-            cc.enabled = false;
-        }
     }
     public void OptionsMenu()
     {

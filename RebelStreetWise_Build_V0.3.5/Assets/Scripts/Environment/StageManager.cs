@@ -24,6 +24,7 @@ public class StageManager : MonoBehaviour
         cs.CallSpawn(spawns);
     }
 	void Start(){
+		print ("test");
 		foreach (FighterClass f in FindObjectsOfType<FighterClass>()) {
 			if (f.teamNumber == 1) {
 				team1.Add (f.gameObject);
