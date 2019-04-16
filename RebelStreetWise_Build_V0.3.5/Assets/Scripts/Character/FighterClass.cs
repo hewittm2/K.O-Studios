@@ -167,7 +167,10 @@ public class FighterClass : MonoBehaviour {
 					lockOnTargets.Add(fighter.gameObject);
 				}
 			}
-			lockOnTarget = lockOnTargets [0];
+			if (lockOnTargets.Count != 0) {
+				lockOnTarget = lockOnTargets [0];
+			}
+
 		}
 		if (teamNumber == 2) {
 			ToggleDirection ();
