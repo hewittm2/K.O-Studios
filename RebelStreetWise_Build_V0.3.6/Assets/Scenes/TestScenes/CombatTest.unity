@@ -113,6 +113,92 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &25853646
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4747267727990262, guid: c194fedef5a323b4eb7014d04216545d, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 4747267727990262, guid: c194fedef5a323b4eb7014d04216545d, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4747267727990262, guid: c194fedef5a323b4eb7014d04216545d, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4747267727990262, guid: c194fedef5a323b4eb7014d04216545d, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4747267727990262, guid: c194fedef5a323b4eb7014d04216545d, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4747267727990262, guid: c194fedef5a323b4eb7014d04216545d, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4747267727990262, guid: c194fedef5a323b4eb7014d04216545d, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4747267727990262, guid: c194fedef5a323b4eb7014d04216545d, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114462406112490106, guid: c194fedef5a323b4eb7014d04216545d,
+        type: 2}
+      propertyPath: specialAttackStats.SpecialDown.partEffect
+      value: 
+      objectReference: {fileID: 1562583602228274, guid: 3d14e1bd033546c4ab830999c6b34ea6,
+        type: 2}
+    - target: {fileID: 114462406112490106, guid: c194fedef5a323b4eb7014d04216545d,
+        type: 2}
+      propertyPath: coupStar
+      value: 
+      objectReference: {fileID: 1557838212}
+    - target: {fileID: 1704660282472240, guid: c194fedef5a323b4eb7014d04216545d, type: 2}
+      propertyPath: m_Name
+      value: ApolloBeta (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4747267727990262, guid: c194fedef5a323b4eb7014d04216545d, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 114248604612254062, guid: c194fedef5a323b4eb7014d04216545d,
+        type: 2}
+      propertyPath: facingRight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114769437096185610, guid: c194fedef5a323b4eb7014d04216545d,
+        type: 2}
+      propertyPath: PlayerTwo
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114769437096185610, guid: c194fedef5a323b4eb7014d04216545d,
+        type: 2}
+      propertyPath: PlayerOne
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114248604612254062, guid: c194fedef5a323b4eb7014d04216545d,
+        type: 2}
+      propertyPath: teamNumber
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114248604612254062, guid: c194fedef5a323b4eb7014d04216545d,
+        type: 2}
+      propertyPath: playerNumber
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c194fedef5a323b4eb7014d04216545d, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1001 &48881877
 Prefab:
   m_ObjectHideFlags: 0

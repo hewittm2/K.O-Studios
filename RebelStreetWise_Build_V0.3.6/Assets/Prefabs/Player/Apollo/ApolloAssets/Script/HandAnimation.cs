@@ -17,6 +17,7 @@ public class HandAnimation : MonoBehaviour {
 	public bool FingerGun = false;
 	public bool ReleaseFingerGun = false;
 	public float t = 0;
+	public FighterClass fc;
 
 	// Use this for initialization
 	void Start () {
@@ -34,35 +35,37 @@ public class HandAnimation : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void LateUpdate () {
 		
 ////MakeFist/FingerGun
 		/// 
 		if (MakeFist) {
 //loop for finger parent rotation
+			//fc.anim.GetCurrentAnimatorClipInfo().Length
 			for (int i = 0; i < 4; i++) {
 				
-				Fingers [i].localEulerAngles = new Vector3 (Mathf.LerpAngle(0, FistAngle, t), Fingers [i].localEulerAngles.y, Fingers [i].localEulerAngles.z);
+				Fingers [i].localEulerAngles = new Vector3 (Mathf.LerpAngle(Fingers [i].localEulerAngles.x, FistAngle, t), Fingers [i].localEulerAngles.y, Fingers [i].localEulerAngles.z);
 //loop for digit rotation
 				for (int j = 0; j < 2; j++) {
-					Digits[i][j].localEulerAngles = new Vector3 (Mathf.LerpAngle(0, FistAngle, t), Digits[i][j].localEulerAngles.y, Digits[i][j].localEulerAngles.z);
+					Digits[i][j].localEulerAngles = new Vector3 (Mathf.LerpAngle(Fingers [i].localEulerAngles.x, FistAngle, t), Digits[i][j].localEulerAngles.y, Digits[i][j].localEulerAngles.z);
 				}
 			}
 //thumb control
 			for (int x = 0; x < 2; x++) {
-				ThumbDigits[x].localEulerAngles = new Vector3 (Thumb.localEulerAngles.x, Thumb.localEulerAngles.y, -Mathf.Lerp(0, FistAngle/2, t));
+				ThumbDigits[x].localEulerAngles = new Vector3 (Thumb.localEulerAngles.x, Thumb.localEulerAngles.y, -Mathf.Lerp(Thumb.localEulerAngles.z, FistAngle/2, t));
 			}
-			t += Speed * Time.deltaTime;
+			t += Speed * 0.1f;
+
 
 
 		} else if(FingerGun){
 //loop for finger parent rotation
 			for (int i = 2; i < 4; i++) {
-				Fingers [i].localEulerAngles = new Vector3 (Mathf.LerpAngle(0, FistAngle, t), Fingers [i].localEulerAngles.y, Fingers [i].localEulerAngles.z);
+				Fingers [i].localEulerAngles = new Vector3 (Mathf.LerpAngle(Fingers [i].localEulerAngles.x, FistAngle, t), Fingers [i].localEulerAngles.y, Fingers [i].localEulerAngles.z);
 
 //loop for digit rotation
 				for (int j = 0; j < 2; j++) {
-					Digits[i][j].localEulerAngles = new Vector3 (Mathf.LerpAngle(0, FistAngle, t), Digits[i][j].localEulerAngles.y, Digits[i][j].localEulerAngles.z);
+					Digits[i][j].localEulerAngles = new Vector3 (Mathf.LerpAngle(Fingers [i].localEulerAngles.x, FistAngle, t), Digits[i][j].localEulerAngles.y, Digits[i][j].localEulerAngles.z);
 				}
 			}
 //thumb control 
@@ -70,7 +73,7 @@ public class HandAnimation : MonoBehaviour {
 //				ThumbDigits[x].localEulerAngles = new Vector3 (Thumb.localEulerAngles.x, Thumb.localEulerAngles.y, -Mathf.Lerp(0, FistAngle/2, t));
 //			}
 
-			t += Speed * Time.deltaTime;
+			t += Speed * 0.1f;
 		}
 
 ////Release fist/fingergun
@@ -88,7 +91,7 @@ public class HandAnimation : MonoBehaviour {
 			for (int x = 0; x < 2; x++) {
 				ThumbDigits[x].localEulerAngles = new Vector3 (Thumb.localEulerAngles.x, Thumb.localEulerAngles.y, -Mathf.Lerp(FistAngle/2, 0, t));
 			}
-			t += Speed * Time.deltaTime;
+			t += Speed * 0.1f;
 
 //release
 		} else if(ReleaseFingerGun){
@@ -106,7 +109,7 @@ public class HandAnimation : MonoBehaviour {
 //				ThumbDigits[x].localEulerAngles = new Vector3 (Thumb.localEulerAngles.x, Thumb.localEulerAngles.y, -Mathf.Lerp(0, FistAngle/2, t));
 //			}
 
-			t += Speed * Time.deltaTime;
+			t += Speed * 0.1f;
 		}
 //val reset
 		if (t > 1 || t == 1) {
