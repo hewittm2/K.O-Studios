@@ -1,0 +1,195 @@
+fileFormatVersion: 2
+guid: 0d2a3ba6c653a7842b76b60cf09dd71f
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Billards Ball 1
+    100002: Billards Ball 10
+    100004: Billards Ball 11
+    100006: Billards Ball 12
+    100008: Billards Ball 13
+    100010: Billards Ball 14
+    100012: Billards Ball 15
+    100014: Billards Ball 2
+    100016: Billards Ball 3
+    100018: Billards Ball 4
+    100020: Billards Ball 5
+    100022: Billards Ball 6
+    100024: Billards Ball 7
+    100026: Billards Ball 8
+    100028: Billards Ball 9
+    100030: Billards Ball White
+    100032: //RootNode
+    100034: Pool Table (Final)001
+    400000: Billards Ball 1
+    400002: Billards Ball 10
+    400004: Billards Ball 11
+    400006: Billards Ball 12
+    400008: Billards Ball 13
+    400010: Billards Ball 14
+    400012: Billards Ball 15
+    400014: Billards Ball 2
+    400016: Billards Ball 3
+    400018: Billards Ball 4
+    400020: Billards Ball 5
+    400022: Billards Ball 6
+    400024: Billards Ball 7
+    400026: Billards Ball 8
+    400028: Billards Ball 9
+    400030: Billards Ball White
+    400032: //RootNode
+    400034: Pool Table (Final)001
+    2100000: 'Material #71'
+    2100002: 'Material #70'
+    2100004: 'Material #84'
+    2100006: 'Material #88'
+    2100008: 'Material #96'
+    2100010: 'Material #89'
+    2100012: 'Material #87'
+    2100014: 'Material #97'
+    2100016: 'Material #95'
+    2100018: 'Material #98'
+    2100020: 'Material #94'
+    2100022: 'Material #86'
+    2100024: 'Material #85'
+    2100026: 'Material #93'
+    2100028: 'Material #90'
+    2100030: 'Material #92'
+    2100032: 'Material #91'
+    2100034: 'Material #83'
+    2300000: Billards Ball 1
+    2300002: Billards Ball 10
+    2300004: Billards Ball 11
+    2300006: Billards Ball 12
+    2300008: Billards Ball 13
+    2300010: Billards Ball 14
+    2300012: Billards Ball 15
+    2300014: Billards Ball 2
+    2300016: Billards Ball 3
+    2300018: Billards Ball 4
+    2300020: Billards Ball 5
+    2300022: Billards Ball 6
+    2300024: Billards Ball 7
+    2300026: Billards Ball 8
+    2300028: Billards Ball 9
+    2300030: Billards Ball White
+    2300032: Pool Table (Final)001
+    3300000: Billards Ball 1
+    3300002: Billards Ball 10
+    3300004: Billards Ball 11
+    3300006: Billards Ball 12
+    3300008: Billards Ball 13
+    3300010: Billards Ball 14
+    3300012: Billards Ball 15
+    3300014: Billards Ball 2
+    3300016: Billards Ball 3
+    3300018: Billards Ball 4
+    3300020: Billards Ball 5
+    3300022: Billards Ball 6
+    3300024: Billards Ball 7
+    3300026: Billards Ball 8
+    3300028: Billards Ball 9
+    3300030: Billards Ball White
+    3300032: Pool Table (Final)001
+    4300000: Pool Table (Final)001
+    4300002: Billards Ball 1
+    4300004: Billards Ball 5
+    4300006: Billards Ball 13
+    4300008: Billards Ball 6
+    4300010: Billards Ball 4
+    4300012: Billards Ball 14
+    4300014: Billards Ball 12
+    4300016: Billards Ball 15
+    4300018: Billards Ball 11
+    4300020: Billards Ball 3
+    4300022: Billards Ball 2
+    4300024: Billards Ball 10
+    4300026: Billards Ball 7
+    4300028: Billards Ball 9
+    4300030: Billards Ball 8
+    4300032: Billards Ball White
+    7400000: Take 001
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.0254
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
