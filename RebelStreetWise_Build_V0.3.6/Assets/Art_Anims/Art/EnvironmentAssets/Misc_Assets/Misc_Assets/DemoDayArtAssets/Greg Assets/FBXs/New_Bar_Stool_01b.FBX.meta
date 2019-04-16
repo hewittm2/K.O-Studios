@@ -1,15 +1,16 @@
 fileFormatVersion: 2
-guid: 3275ff987424e1649964e9f3d58b5c0d
+guid: 9fda28cf65bcdf840bbc4989d0a73f0e
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
     2100000: 'Material #71'
-    2100002: 'Material #70'
+    2100002: 'Material #82 Slot #4'
+    2100004: 'Material #70'
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Bar Stool 3
+    4300000: New Bar Chair 004
     7400000: Take 001
     9500000: //RootNode
   externalObjects: {}

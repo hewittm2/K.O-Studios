@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c1cd726a864cae648a6b34d5a00c3608
+guid: 7e1fecdc98ded6444b4e7df780651d36
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -11,7 +11,8 @@ TrueTypeFontImporter:
   fontName: Jo's Styles
   fontNames:
   - Jo's Styles
-  fallbackFontReferences: []
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: c1cd726a864cae648a6b34d5a00c3608, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1
