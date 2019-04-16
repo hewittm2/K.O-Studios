@@ -7,7 +7,7 @@ using UnityEngine;
 #pragma warning disable 0414
 
 public class FighterClass : MonoBehaviour {
-	
+
 	//Class Variables
 	BaseMovement movement;
 	HitDetection hitBoxes;
@@ -149,6 +149,8 @@ public class FighterClass : MonoBehaviour {
 
 
 
+    private bool canRestart = true;
+
 	void Start () {
 		specials = GetComponent<SpecialAttackTemplate> ();
 		CurrFrameType = FrameType.Regular;
@@ -176,7 +178,7 @@ public class FighterClass : MonoBehaviour {
 			ToggleDirection ();
 		}
 	}
-		
+
 	void Update () {
 		if (canAttack) {
 			QueueAttackInput ();
@@ -201,6 +203,15 @@ public class FighterClass : MonoBehaviour {
             PauseGame pauseGame = FindObjectOfType<PauseGame>();
             pauseGame.Pause(playerNumber);
         }
+        if(currentHealth <= 0)
+        {
+            if (canRestart == true)
+            {
+                canRestart = false;
+                MatchTimer matchEnd = FindObjectOfType<MatchTimer>();
+                matchEnd.RoundEnd();
+            }
+        }
     }
 
 
@@ -208,12 +219,11 @@ public class FighterClass : MonoBehaviour {
 		if (lockOnTarget != null) {
 			CheckTarget (lockOnTarget);
 		}
-	//	print (anim.speed);
 	}
 
 
 	public void QueueMovementInput(){
-		
+
 		//Assume Idle
 		if (movement.character.isGrounded) {
 			if (Input.GetAxis (controllerVariables.horiInput) < controllerVariables.horiDeadZone && Input.GetAxis (controllerVariables.horiInput) > -controllerVariables.horiDeadZone) {
@@ -304,7 +314,7 @@ public class FighterClass : MonoBehaviour {
 					anim.SetBool ("Walking", true);
 				}
 			}
-		
+
 		//Left Input Facing Right
 		} else if (Input.GetAxis (controllerVariables.horiInput) < -controllerVariables.horiDeadZone && facingRight) {
 			//Backward+Up(R)
@@ -666,10 +676,10 @@ public class FighterClass : MonoBehaviour {
 					specials.JumpSA (specials.specialAttackStats.SpecialJump);
 					StartCoroutine (attackDelay());
 				}
-			} 
+			}
 		}
 	}
-		
+
 	public void CheckForCombo(){
 		if (Input.GetAxis (controllerVariables.horiInput) == 0 &&( breakDownStep1L || breakDownStep1R) && !breakDownStep3) {
 			dashReset = true;
@@ -693,7 +703,7 @@ public class FighterClass : MonoBehaviour {
 		facingRight = !facingRight;
 		gameObject.transform.Rotate (new Vector3 (0, 180, 0));
 	}
-		
+
 	public void CheckTarget(GameObject target){
 		if (gameObject.transform.position.x > target.transform.position.x) {
 			facingRight = false;
@@ -704,7 +714,7 @@ public class FighterClass : MonoBehaviour {
 			gameObject.transform.rotation = Quaternion.Euler(0, 90, 0);
 		}
 	}
-		
+
 	IEnumerator attackDelay(){
 		canAttack = false;
 		canMove = false;
