@@ -18,7 +18,13 @@ public class MatchTimer : MonoBehaviour {
     public Sprite team1Wins;
     public Sprite team2Wins;
 
+    private bool canSet1;
+    private bool canSet2;
+
     private IEnumerator Start () {
+        canSet1 = true;
+        canSet2 = true;
+
         if (secTime < 10)
         {
             secText.text = "0" + secTime.ToString();
@@ -94,8 +100,9 @@ public class MatchTimer : MonoBehaviour {
         {
             if (fic.currentHealth == lowestHealth)
             {
-                if (fic.teamNumber == 2)
+                if (fic.teamNumber == 2 && canSet1 == true)
                 {
+                    canSet1 = false;
                     winnerImage.sprite = team1Wins;
                     if (roundManager.team1win1.isOn == true)
                     {
@@ -110,8 +117,9 @@ public class MatchTimer : MonoBehaviour {
                         roundManager.team1win1Image.SetActive(true);
                     }
                 }
-                if (fic.teamNumber == 1)
+                if (fic.teamNumber == 1 && canSet2 == true)
                 {
+                    canSet2 = false;
                     winnerImage.sprite = team2Wins;
                     if (roundManager.team2win1.isOn == true)
                     {
