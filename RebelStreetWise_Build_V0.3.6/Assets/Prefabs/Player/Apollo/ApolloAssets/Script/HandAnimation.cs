@@ -17,7 +17,11 @@ public class HandAnimation : MonoBehaviour {
 	public bool FingerGun = false;
 	public bool ReleaseFingerGun = false;
 	public float t = 0;
-	public FighterClass fc;
+	public enum Hand{
+		Right,
+		Left
+	}
+	public Hand myHand = Hand.Right;
 
 	// Use this for initialization
 	void Start () {
@@ -51,8 +55,11 @@ public class HandAnimation : MonoBehaviour {
 				}
 			}
 //thumb control
-			for (int x = 0; x < 2; x++) {
-				ThumbDigits[x].localEulerAngles = new Vector3 (Thumb.localEulerAngles.x, Thumb.localEulerAngles.y, -Mathf.Lerp(Thumb.localEulerAngles.z, FistAngle/2, t));
+			for (int x = 1; x < 2; x++) {
+				if(myHand == Hand.Left)
+					ThumbDigits[x].localEulerAngles = new Vector3 (ThumbDigits[x].localEulerAngles.x, ThumbDigits[x].localEulerAngles.y, Mathf.LerpAngle(ThumbDigits[x].localEulerAngles.z, FistAngle, t));
+				else
+					ThumbDigits[x].localEulerAngles = new Vector3 (ThumbDigits[x].localEulerAngles.x, ThumbDigits[x].localEulerAngles.y, Mathf.LerpAngle(ThumbDigits[x].localEulerAngles.z, -FistAngle, t));
 			}
 			t += Speed * 0.1f;
 
@@ -60,9 +67,14 @@ public class HandAnimation : MonoBehaviour {
 
 		} else if(FingerGun){
 //loop for finger parent rotation
+			for (int x = 0; x < 2; x++) {
+				Fingers [x].localEulerAngles = new Vector3 (Mathf.LerpAngle (Fingers [x].localEulerAngles.x, 0, t), Fingers [x].localEulerAngles.y, Fingers [x].localEulerAngles.z);
+				for (int j = 0; j < 2; j++) {
+					Digits [x] [j].localEulerAngles = new Vector3 (Mathf.LerpAngle (Fingers [x].localEulerAngles.x, 0, t), Digits [x] [j].localEulerAngles.y, Digits [x] [j].localEulerAngles.z);
+				}
+			}
 			for (int i = 2; i < 4; i++) {
 				Fingers [i].localEulerAngles = new Vector3 (Mathf.LerpAngle(Fingers [i].localEulerAngles.x, FistAngle, t), Fingers [i].localEulerAngles.y, Fingers [i].localEulerAngles.z);
-
 //loop for digit rotation
 				for (int j = 0; j < 2; j++) {
 					Digits[i][j].localEulerAngles = new Vector3 (Mathf.LerpAngle(Fingers [i].localEulerAngles.x, FistAngle, t), Digits[i][j].localEulerAngles.y, Digits[i][j].localEulerAngles.z);
@@ -81,15 +93,15 @@ public class HandAnimation : MonoBehaviour {
 //loop for finger parent rotation
 			for (int i = 0; i < 4; i++) {
 
-				Fingers [i].localEulerAngles = new Vector3 (Mathf.LerpAngle(FistAngle, 0, t), Fingers [i].localEulerAngles.y, Fingers [i].localEulerAngles.z);
+				Fingers [i].localEulerAngles = new Vector3 (Mathf.LerpAngle(FistAngle, 10, t), Fingers [i].localEulerAngles.y, Fingers [i].localEulerAngles.z);
 //loop for digit rotation
 				for (int j = 0; j < 2; j++) {
-					Digits[i][j].localEulerAngles = new Vector3 (Mathf.LerpAngle(FistAngle, 0, t), Digits[i][j].localEulerAngles.y, Digits[i][j].localEulerAngles.z);
+					Digits[i][j].localEulerAngles = new Vector3 (Mathf.LerpAngle(FistAngle, 10, t), Digits[i][j].localEulerAngles.y, Digits[i][j].localEulerAngles.z);
 				}
 			}
 //thumb control
 			for (int x = 0; x < 2; x++) {
-				ThumbDigits[x].localEulerAngles = new Vector3 (Thumb.localEulerAngles.x, Thumb.localEulerAngles.y, -Mathf.Lerp(FistAngle/2, 0, t));
+				ThumbDigits[x].localEulerAngles = new Vector3 (ThumbDigits[x].localEulerAngles.x, ThumbDigits[x].localEulerAngles.y, -Mathf.LerpAngle(FistAngle/2, 10, t));
 			}
 			t += Speed * 0.1f;
 
