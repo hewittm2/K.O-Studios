@@ -38,9 +38,9 @@ public class HealthUI : MonoBehaviour
     }
     private void Update()
     {
-        sl1.value = team1[0].currentHealth;
-        sl2.value = team1[1].currentHealth;
-        sl3.value = team2[0].currentHealth;
-        sl4.value = team2[1].currentHealth;
+        sl1.value = sl1.maxValue - team1[0].currentHealth;
+        sl2.value = sl2.maxValue - team1[1].currentHealth;
+        sl3.value = sl3.maxValue - team2[0].currentHealth;
+        sl4.value = sl4.maxValue - team2[1].currentHealth;
     }
 }

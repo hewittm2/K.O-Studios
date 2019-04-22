@@ -54,43 +54,46 @@ public class RoundManager : MonoBehaviour {
     }
     public void Update()
     {
-        if (team1win1.isOn == true)
+        if (scene.name == "FighterTest")
         {
-            team1win1bool = true;
-        }
-        if (team1win2.isOn == true)
-        {
-            team1win2bool = true;
-        }
-        if (team2win1.isOn == true)
-        {
-            team2win1bool = true;
-        }
-        if (team2win2.isOn == true)
-        {
-            team2win2bool = true;
-        }
+            if (team1win1.isOn == true)
+            {
+                team1win1bool = true;
+            }
+            if (team1win2.isOn == true)
+            {
+                team1win2bool = true;
+            }
+            if (team2win1.isOn == true)
+            {
+                team2win1bool = true;
+            }
+            if (team2win2.isOn == true)
+            {
+                team2win2bool = true;
+            }
 
 
-        if(team1win1bool == true)
-        {
-            team1win1.isOn = true;
-            team1win1Image.SetActive(true);
-        }
-        if (team1win2bool == true)
-        {
-            team1win2.isOn = true;
-            team1win2Image.SetActive(true);
-        }
-        if (team2win1bool == true)
-        {
-            team2win1.isOn = true;
-            team2win1Image.SetActive(true);
-        }
-        if (team2win2bool == true)
-        {
-            team2win2.isOn = true;
-            team2win2Image.SetActive(true);
+            if (team1win1bool == true)
+            {
+                team1win1.isOn = true;
+                team1win1Image.SetActive(true);
+            }
+            if (team1win2bool == true)
+            {
+                team1win2.isOn = true;
+                team1win2Image.SetActive(true);
+            }
+            if (team2win1bool == true)
+            {
+                team2win1.isOn = true;
+                team2win1Image.SetActive(true);
+            }
+            if (team2win2bool == true)
+            {
+                team2win2.isOn = true;
+                team2win2Image.SetActive(true);
+            }
         }
     }
 

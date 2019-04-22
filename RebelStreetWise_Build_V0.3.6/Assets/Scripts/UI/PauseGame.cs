@@ -14,23 +14,21 @@ public class PauseGame : MonoBehaviour {
     public GameObject pauseCanvas;
     public GameObject optionsCanvas;
 
-    private Rigidbody[] rigidbodies;
-    private CharacterController[] characterControllers;
+  //  private Rigidbody[] rigidbodies;
+ //   private CharacterController[] characterControllers;
+    private FighterClass[] theFighters;
 
     void Start()
     {
-        rigidbodies = FindObjectsOfType<Rigidbody>();
-        characterControllers = FindObjectsOfType<CharacterController>();
+   //     rigidbodies = FindObjectsOfType<Rigidbody>();
+   //     characterControllers = FindObjectsOfType<CharacterController>();
+        theFighters = FindObjectsOfType<FighterClass>();
     }
     public void Pause (int PlayerNum)
     {
         pauseCanvas.SetActive(true);
 
-        foreach(Rigidbody rbs in rigidbodies)
-        {
-            rbs.constraints = RigidbodyConstraints.FreezeAll;
-        }
-        foreach(CharacterController cc in characterControllers)
+        foreach(FighterClass cc in theFighters)
         {
             cc.enabled = false;
         }
@@ -69,13 +67,9 @@ public class PauseGame : MonoBehaviour {
     {
         pauseCanvas.SetActive(false);
         Time.timeScale = 1f;
-        foreach (Rigidbody rbs in rigidbodies)
+        foreach (FighterClass cc in theFighters)
         {
-            rbs.constraints = RigidbodyConstraints.None;
-        }
-        foreach (CharacterController cc in characterControllers)
-        {
-            cc.enabled = false;
+            cc.enabled = true;
         }
     }
     public void OptionsMenu()

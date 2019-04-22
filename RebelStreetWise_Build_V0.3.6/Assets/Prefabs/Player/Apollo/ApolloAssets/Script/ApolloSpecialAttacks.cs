@@ -36,6 +36,7 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
 
     [Header("Neutral Special Custom Variables")][Space(0.5f)]
     public GameObject neutralHitBox;
+    public bool nCooldown = false;
 
     [Header("Jump Special Custom Variables")][Space(0.5f)]
     [Range(0.5f,15f)]
@@ -155,15 +156,22 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
     }
     public override void NeutralSA(SpecialAttacks neutral)
     {
-        SetVars(neutral);
-        StartCoroutine(NeutralSAC(neutral.startupTime,neutral.activeTime));
+        if (nCooldown == false)
+        {
+            SetVars(neutral);
+            StartCoroutine(NeutralSAC(neutral.startupTime, neutral.activeTime));
+        }
+        else
+            Debug.Log("Neutral On Cooldown");
     }
     IEnumerator NeutralSAC(float wait, float active)
     {
+        nCooldown = true;
         yield return new WaitForSeconds(wait);
         neutralHitBox.SetActive(true);
         yield return new WaitForSeconds(active);
         neutralHitBox.SetActive(false);
+        nCooldown = false;
     }
     // --------------------------------------------------
     public override void BackSA(SpecialAttacks back)

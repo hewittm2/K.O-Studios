@@ -19,6 +19,7 @@ public class MatchTimer : MonoBehaviour {
     public Sprite team2Wins;
 
     private IEnumerator Start () {
+        Debug.Log("start round torrel teset");
         if (secTime < 10)
         {
             secText.text = "0" + secTime.ToString();
@@ -41,6 +42,7 @@ public class MatchTimer : MonoBehaviour {
             fighter.enabled = false;
         }
         yield return new WaitForSeconds(3);
+        Debug.Log("Yolo test");
         foreach (FighterClass fighter in fighterClass){
             fighter.enabled = true;
         }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,8 +12,21 @@ public class LoadingScene : MonoBehaviour {
     private AsyncOperation operation;
     private Canvas canvas;
 
+    private static LoadingScene _instance;
+    public static LoadingScene Instance { get { return _instance; } }
+
     private void Awake()
     {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+        else
+        {
+            _instance = this;
+        }
+
         canvas = GetComponentInChildren<Canvas>(true);
         DontDestroyOnLoad(gameObject);
     }
@@ -35,6 +49,7 @@ public class LoadingScene : MonoBehaviour {
         UpdateProgressUI(operation.progress);
         operation = null;
         canvas.gameObject.SetActive(false);
+        Time.timeScale = 1;
     }
     private void UpdateProgressUI (float progress)
     {
