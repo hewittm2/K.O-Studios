@@ -22,9 +22,7 @@ public class MatchTimer : MonoBehaviour {
     private bool canSet2;
 
     private IEnumerator Start () {
-        canSet1 = true;
-        canSet2 = true;
-
+        Debug.Log("start round torrel teset");
         if (secTime < 10)
         {
             secText.text = "0" + secTime.ToString();
@@ -47,12 +45,13 @@ public class MatchTimer : MonoBehaviour {
             fighter.enabled = false;
         }
         yield return new WaitForSeconds(3);
+        Debug.Log("Yolo test");
         foreach (FighterClass fighter in fighterClass){
             fighter.enabled = true;
         }
         StartCoroutine(matchTimer());
     }
-	
+
 	private IEnumerator matchTimer()
     {
         yield return new WaitForSeconds(1);
