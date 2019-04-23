@@ -508,6 +508,52 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d95c053964c838248b044e9bc9cf4d77, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1001 &1432271314
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4743766905938088, guid: 266b0281e5678a047bcf2802f17640e7, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 7.512297
+      objectReference: {fileID: 0}
+    - target: {fileID: 4743766905938088, guid: 266b0281e5678a047bcf2802f17640e7, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.047398176
+      objectReference: {fileID: 0}
+    - target: {fileID: 4743766905938088, guid: 266b0281e5678a047bcf2802f17640e7, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 2.134239
+      objectReference: {fileID: 0}
+    - target: {fileID: 4743766905938088, guid: 266b0281e5678a047bcf2802f17640e7, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4743766905938088, guid: 266b0281e5678a047bcf2802f17640e7, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4743766905938088, guid: 266b0281e5678a047bcf2802f17640e7, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4743766905938088, guid: 266b0281e5678a047bcf2802f17640e7, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4743766905938088, guid: 266b0281e5678a047bcf2802f17640e7, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1457167492161930, guid: 266b0281e5678a047bcf2802f17640e7, type: 2}
+      propertyPath: m_Name
+      value: ApolloTest
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 266b0281e5678a047bcf2802f17640e7, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &1557838212 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1264056422645228, guid: 27fd258a3a6cc7f4faeac908ce0bcf9f,
