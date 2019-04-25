@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEditor;
-
+#if UNITY_EDITOR
 public class DanceFloor : EditorWindow
 {
     GameObject panel = null;
@@ -60,3 +60,4 @@ public class DanceFloor : EditorWindow
         }
     }
 }
+#endif

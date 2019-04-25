@@ -4,6 +4,7 @@ using UnityEditor;
 using System.Linq;
 using System.Text.RegularExpressions;
 
+#if UNITY_EDITOR
 public abstract class CustomMaterialEditor : MaterialEditor
 {
 	public class FeatureToggle
@@ -147,3 +148,4 @@ public abstract class CustomMaterialEditor : MaterialEditor
 
 	}
 }
+#endif
