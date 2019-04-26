@@ -4192,7 +4192,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: -1.66, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65757730436243798
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -5500,7 +5500,7 @@ CapsuleCollider:
   m_Radius: 1.5
   m_Height: 10
   m_Direction: 1
-  m_Center: {x: 0, y: 4.75, z: 0}
+  m_Center: {x: 0, y: 5.5, z: 0}
 --- !u!137 &137001236964043464
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -6148,7 +6148,7 @@ CharacterController:
   m_StepOffset: 0.2
   m_SkinWidth: 1
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 4.75, z: 0}
+  m_Center: {x: 0, y: 5.5, z: 0}
 --- !u!198 &198278252417593618
 ParticleSystem:
   m_ObjectHideFlags: 1
