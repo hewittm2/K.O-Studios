@@ -5588,7 +5588,7 @@ MonoBehaviour:
       knockBackDirection: {x: 1, y: 1, z: 0}
       knockBackForce: 1
       attDam: 10
-      hitBox1: {fileID: 0}
+      hitBox1: {fileID: 1144687921321024}
       hitBox2: {fileID: 0}
     mediumAttack:
       animSpeed: 1
@@ -5599,7 +5599,7 @@ MonoBehaviour:
       knockBackDirection: {x: 1, y: 1, z: 0}
       knockBackForce: 1
       attDam: 15
-      hitBox1: {fileID: 0}
+      hitBox1: {fileID: 1144687921321024}
       hitBox2: {fileID: 0}
     heavyAttack:
       animSpeed: 1
@@ -5610,7 +5610,7 @@ MonoBehaviour:
       knockBackDirection: {x: 0, y: 0, z: 0}
       knockBackForce: 0
       attDam: 0
-      hitBox1: {fileID: 0}
+      hitBox1: {fileID: 1144687921321024}
       hitBox2: {fileID: 0}
     jumpLightAttack:
       animSpeed: 1
@@ -5621,7 +5621,7 @@ MonoBehaviour:
       knockBackDirection: {x: 0, y: 0, z: 0}
       knockBackForce: 0
       attDam: 0
-      hitBox1: {fileID: 0}
+      hitBox1: {fileID: 1600106934044614}
       hitBox2: {fileID: 0}
     jumpMediumAttack:
       animSpeed: 1
@@ -5632,7 +5632,7 @@ MonoBehaviour:
       knockBackDirection: {x: 0, y: 0, z: 0}
       knockBackForce: 0
       attDam: 0
-      hitBox1: {fileID: 0}
+      hitBox1: {fileID: 1144687921321024}
       hitBox2: {fileID: 0}
     jumpHeavyAttack:
       animSpeed: 1
@@ -5643,7 +5643,7 @@ MonoBehaviour:
       knockBackDirection: {x: 0, y: 0, z: 0}
       knockBackForce: 0
       attDam: 0
-      hitBox1: {fileID: 0}
+      hitBox1: {fileID: 1144687921321024}
       hitBox2: {fileID: 0}
     crouchLightAttack:
       animSpeed: 1
@@ -5654,7 +5654,7 @@ MonoBehaviour:
       knockBackDirection: {x: 0, y: 0, z: 0}
       knockBackForce: 0
       attDam: 0
-      hitBox1: {fileID: 0}
+      hitBox1: {fileID: 1144687921321024}
       hitBox2: {fileID: 0}
     crouchMediumAttack:
       animSpeed: 1
@@ -5665,7 +5665,7 @@ MonoBehaviour:
       knockBackDirection: {x: 0, y: 0, z: 0}
       knockBackForce: 0
       attDam: 0
-      hitBox1: {fileID: 0}
+      hitBox1: {fileID: 1552799746858524}
       hitBox2: {fileID: 0}
     crouchHeavyAttack:
       animSpeed: 1
@@ -5676,7 +5676,7 @@ MonoBehaviour:
       knockBackDirection: {x: 0, y: 0, z: 0}
       knockBackForce: 0
       attDam: 0
-      hitBox1: {fileID: 0}
+      hitBox1: {fileID: 1552799746858524}
       hitBox2: {fileID: 0}
   output:
     animSpeed: 0
@@ -5806,7 +5806,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1653005013992740}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -5842,7 +5842,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1144687921321024}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -5866,7 +5866,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1696458389613586}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -5878,7 +5878,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1552799746858524}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
