@@ -23,7 +23,8 @@ public class SpecialAttackTemplate : MonoBehaviour
         public float activeTime;
         public int stunTime;
         public float recoveryTime;
-        public GameObject partEffect;
+        public GameObject objects;
+		public ParticleSystem partEffect;
     }
 
     [System.Serializable]
