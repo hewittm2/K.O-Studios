@@ -5419,7 +5419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c502e158d670e74888c5528bda953bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerOne: 1
+  PlayerOne: 0
   PlayerTwo: 0
   PlayerThree: 0
   PlayerFour: 0
