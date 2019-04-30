@@ -15584,7 +15584,7 @@ Prefab:
     - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
         type: 2}
       propertyPath: teamNumber
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114176483401608478, guid: d9e0f72a30bb0454f812f474322f41cf,
         type: 2}
@@ -30545,6 +30545,11 @@ Prefab:
         type: 2}
       propertyPath: currentHealth
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: attackVariables.lightAttack.damageType
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9e0f72a30bb0454f812f474322f41cf, type: 2}
@@ -49981,7 +49986,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1636031801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50450,6 +50455,7 @@ MonoBehaviour:
   canMove: 1
   canAttack: 1
   canRecieveDamage: 1
+  knockedDown: 0
   isGrabbed: 0
   blocking: 0
   breakDownStep1L: 0

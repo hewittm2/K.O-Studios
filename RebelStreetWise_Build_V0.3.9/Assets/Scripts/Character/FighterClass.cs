@@ -130,6 +130,7 @@ public class FighterClass : MonoBehaviour {
 	public bool canAttack = true;
 	[HideInInspector]
 	public bool canRecieveDamage = true;
+	public bool knockedDown = false;
 	public bool isGrabbed = false;
 	public bool blocking;
 
@@ -178,12 +179,23 @@ public class FighterClass : MonoBehaviour {
 	}
 
 	void Update () {
-		if (canAttack) {
-			QueueAttackInput ();
+		if (knockedDown) {
+			if (Input.GetAxis (controllerVariables.horiInput) < -controllerVariables.horiDeadZone ||Input.GetAxis(controllerVariables.horiInput) > controllerVariables.horiDeadZone) {
+				knockedDown = false;
+				anim.SetTrigger("Get Up");
+
+			}
+			return;
 		}
-		if (canMove) {
-			QueueMovementInput ();
+		else if (!knockedDown) {
+			if (canAttack) {
+				QueueAttackInput ();
+			}
+			if (canMove) {
+				QueueMovementInput ();
+			}
 		}
+
 		CheckForCombo ();
 		if (lockOnTargets.Count != 0){
 			if (Input.GetButtonDown (controllerVariables.lockOnInput)) {
@@ -311,7 +323,7 @@ public class FighterClass : MonoBehaviour {
 		//Left Input Facing Right
 		} else if (Input.GetAxis (controllerVariables.horiInput) < -controllerVariables.horiDeadZone && facingRight) {
 			//Backward+Up(R)
-			if (Input.GetAxis (controllerVariables.vertInput) > controllerVariables.horiDeadZone) {
+			if (Input.GetAxis (controllerVariables.vertInput) > controllerVariables.horiDeadZone && movement.character.isGrounded) {
 				canMove = false;
 				anim.speed = moveAnimSpeeds.backwardJump;
 				movement.DiagonalJump ();
@@ -351,7 +363,7 @@ public class FighterClass : MonoBehaviour {
 		//Right Input Facing Left
 		} else if (Input.GetAxis (controllerVariables.horiInput) > controllerVariables.horiDeadZone && !facingRight) {
 			//Backward+Up(L)
-			if (Input.GetAxis (controllerVariables.vertInput) > controllerVariables.vertDeadZone) {
+			if (Input.GetAxis (controllerVariables.vertInput) > controllerVariables.vertDeadZone && movement.character.isGrounded) {
 				canMove = false;
 				anim.speed = moveAnimSpeeds.backwardJump;
 				movement.DiagonalJump ();
@@ -732,6 +744,7 @@ public class FighterClass : MonoBehaviour {
 			yield return new WaitForSeconds(specialAttack.activeTime / anim.speed);
 			break;
 		}
+		output = new AttackStats();
 	}
 
 	IEnumerator attackDelay(AttackStats attack){
