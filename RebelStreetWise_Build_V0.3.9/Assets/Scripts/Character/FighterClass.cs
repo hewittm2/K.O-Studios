@@ -147,7 +147,7 @@ public class FighterClass : MonoBehaviour {
 	StageManager stageManager;
 	public Animator anim;
 
-
+    MatchEnd matchEnd;
 
     private bool canRestart = true;
 
@@ -205,6 +205,7 @@ public class FighterClass : MonoBehaviour {
         }
         if(currentHealth <= 0)
         {
+            matchEnd.Winner(teamNumber);
             this.enabled = false;
         }
     }
