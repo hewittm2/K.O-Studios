@@ -205,12 +205,7 @@ public class FighterClass : MonoBehaviour {
         }
         if(currentHealth <= 0)
         {
-            if (canRestart == true)
-            {
-                canRestart = false;
-                MatchTimer matchEnd = FindObjectOfType<MatchTimer>();
-                matchEnd.RoundEnd();
-            }
+            this.enabled = false;
         }
     }
 

@@ -1,21 +1,25 @@
-﻿using System.Collections;
+﻿//Updated Torrel L
+//4/26/18
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class MatchTimer : MonoBehaviour {
+public class MatchTimer : MonoBehaviour
+{
 
-
+    [Header("How Long The Round Lasts")]
     public int minTime;
     public int secTime;
-
     public Text minText;
     public Text secText;
+    public Text countdownText;
+    [Header("Display Which Team Won")]
+    public Text winnerText;
+    public GameObject team1Wins;
+    public GameObject team2Wins;
 
-    public Image winnerImage;
-    public Sprite team1Wins;
-    public Sprite team2Wins;
 
     private bool canSet1 = true;
     private bool canSet2 = true;
@@ -33,14 +37,41 @@ public class MatchTimer : MonoBehaviour {
         }
         if (minTime < 10)
         {
-            minText.text = "0" + minTime.ToString();
+            PlayerPrefs.SetInt("Team1RoundWins", 0);
+            PlayerPrefs.SetInt("Team2RoundWins", 0);
+            Debug.Log("T");
         }
-        else
+
+        if (PlayerPrefs.GetInt("Team1RoundWins") == 1)
+            team1Wins.SetActive(true);
+        if (PlayerPrefs.GetInt("Team2RoundWins") == 1)
+            team2Wins.SetActive(true);
+
+        fighterHP = FindObjectsOfType<FighterClass>();
+        foreach (FighterClass fic in fighterHP)
         {
-            minText.text = minTime.ToString();
+            if (fic.teamNumber == 1)
+                theTeam1.Add(fic);
+            else
+                theTeam2.Add(fic);
+
+            fic.enabled = false;
         }
-        FighterClass[] fighterClass = FindObjectsOfType<FighterClass>();
-        foreach(FighterClass fighter in fighterClass)
+
+
+        secText.text = secTime.ToString();
+        minText.text = minTime.ToString() + ":";
+
+        countdownText.text = "3";
+        yield return new WaitForSeconds(1);
+        countdownText.text = "2";
+        yield return new WaitForSeconds(1);
+        countdownText.text = "1";
+        yield return new WaitForSeconds(1);
+        countdownText.text = "Fight!";
+        yield return new WaitForSeconds(0.5f);
+        countdownText.text = "";
+        foreach (FighterClass fighter in fighterHP)
         {
             fighter.enabled = false;
         }
@@ -48,14 +79,15 @@ public class MatchTimer : MonoBehaviour {
         foreach (FighterClass fighter in fighterClass){
             fighter.enabled = true;
         }
-        StartCoroutine(matchTimer());
+        StartCoroutine(MatchTimerE());
     }
 
-	private IEnumerator matchTimer()
+	private IEnumerator MatchTimerE()
     {
         yield return new WaitForSeconds(1);
         secTime -= 1;
-        if (secTime < 0){
+        if (secTime < 0 && minTime > 0)
+        {
             minTime -= 1;
             secTime = 59;
             if (minTime < 0)
@@ -72,11 +104,12 @@ public class MatchTimer : MonoBehaviour {
         }else{
             secText.text = secTime.ToString();
         }
-        if (minTime < 10)
+        secText.text = secTime.ToString();
+        minText.text = minTime.ToString() + ":";
+
+        if (secTime > 0 || minTime > 0)
         {
-            minText.text = "0" + minTime.ToString();
-        }else{
-            minText.text = minTime.ToString();
+            StartCoroutine(MatchTimerE());
         }
         if(canCount == true)
         {
@@ -85,67 +118,56 @@ public class MatchTimer : MonoBehaviour {
     }
     public void RoundEnd()
     {
-        FighterClass[] fighterClass = FindObjectsOfType<FighterClass>();
+        StopCoroutine(MatchTimerE());
+        MatchEnd EndGame = FindObjectOfType<MatchEnd>();
+        int health1 = theTeam1[0].currentHealth;
+        int health2 = theTeam1[1].currentHealth;
+        int health3 = theTeam2[0].currentHealth;
+        int health4 = theTeam2[1].currentHealth;
 
-        int health1 = fighterClass[0].currentHealth;
-        int health2 = fighterClass[1].currentHealth;
-        int health3 = fighterClass[2].currentHealth;
-        int health4 = fighterClass[3].currentHealth;
+        Team1HP = theTeam1[0].currentHealth + theTeam1[1].currentHealth;
+        Team2HP = theTeam2[0].currentHealth + theTeam2[1].currentHealth;
 
-        int lowestHealth = Mathf.Min(health1, health2, health3, health4);
-
-        FighterClass fc = FindObjectOfType<FighterClass>();
-        MatchEnd matchEnd = FindObjectOfType<MatchEnd>();
-
-        RoundManager roundManager = FindObjectOfType<RoundManager>();
-
-        foreach (FighterClass fic in fighterClass)
+        if (Team1HP > Team2HP)
         {
-            if (fic.currentHealth == lowestHealth)
+            PlayerPrefs.SetInt("Team1RoundWins", PlayerPrefs.GetInt("Team1RoundWins") + 1);
+            if (PlayerPrefs.GetInt("Team1RoundWins") == 2)
             {
-                if (fic.teamNumber == 2 && canSet1 == true)
-                {
-                    canSet1 = false;
-                    winnerImage.sprite = team1Wins;
-                    if (roundManager.team1win1.isOn == true)
-                    {
-                        roundManager.team1win2.isOn = true;
-                        roundManager.team1win2Image.SetActive(true);
-                        matchEnd.Winner(fic.teamNumber);
-                    }
-                    else if (roundManager.team1win1.isOn == false)
-                    {
-                        roundManager.team1win1.isOn = true;
-                        StartCoroutine(RestartRound());
-                        roundManager.team1win1Image.SetActive(true);
-                    }
-                }
-                if (fic.teamNumber == 1 && canSet2 == true)
-                {
-                    canSet2 = false;
-                    winnerImage.sprite = team2Wins;
-                    if (roundManager.team2win1.isOn == true)
-                    {
-                        roundManager.team2win2.isOn = true;
-                        roundManager.team2win2Image.SetActive(true);
-                        matchEnd.Winner(fic.teamNumber);
-                    }
-                    else if(roundManager.team2win1.isOn == false)
-                    {
-                        roundManager.team2win1.isOn = true;
-                        StartCoroutine(RestartRound());
-                        roundManager.team2win1Image.SetActive(true);
-                    }
-                }
-                winnerImage.gameObject.SetActive(true);
-                roundManager.UpdateProperties();
-                roundManager.bools();
+                EndGame.Winner(1);
+                return;
             }
+            else
+            {
+                winnerText.text = "Team 1 wins the round!";
+                StartCoroutine(RestartRound());
+                return;
+            }
+
+        }
+        if (Team2HP > Team1HP)
+        {
+            PlayerPrefs.SetInt("Team2RoundWins", PlayerPrefs.GetInt("Team2RoundWins") + 1);
+            if (PlayerPrefs.GetInt("Team2RoundWins") == 2)
+            {
+                EndGame.Winner(2);
+                return;
+            }
+            else
+            {
+                winnerText.text = "Team 2 wins the round!";
+                StartCoroutine(RestartRound());
+                return;
+            }
+        }
+        if (Team1HP == Team2HP)
+        {
+            winnerText.text = "This round is a draw!";
+            StartCoroutine(RestartRound());
         }
     }
     IEnumerator RestartRound ()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1f);
         string sceneName = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(sceneName);
     }

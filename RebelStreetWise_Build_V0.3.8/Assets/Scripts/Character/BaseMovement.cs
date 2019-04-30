@@ -35,6 +35,8 @@ public class BaseMovement : MonoBehaviour
     private float[] radiusArray = new float[2];
     private float[] heightArray = new float[2];
     private float centerOffset = 0;
+
+    [HideInInspector] public bool isPaused;
     
 
     private void Start(){
@@ -73,18 +75,28 @@ public class BaseMovement : MonoBehaviour
     }
 
 	public void ApplyGravOnly(){
-		if (character.isGrounded) {
-			verticalVelocity = gravity;
-		} else {
-			verticalVelocity += gravity * Time.deltaTime;
-		}
-		if(!dashing){
-			if (character.isGrounded) {
-				character.Move (new Vector2 (0, verticalVelocity));
-			} else {
-				character.Move (new Vector2 (jump.x, verticalVelocity));
-			}
-		}
+        if (isPaused == false)
+        {
+            if (character.isGrounded)
+            {
+                verticalVelocity = gravity;
+            }
+            else
+            {
+                verticalVelocity += gravity * Time.deltaTime;
+            }
+            if (!dashing)
+            {
+                if (character.isGrounded)
+                {
+                    character.Move(new Vector2(0, verticalVelocity));
+                }
+                else
+                {
+                    character.Move(new Vector2(jump.x, verticalVelocity));
+                }
+            }
+        }
 	}
 
     public void Walk(){

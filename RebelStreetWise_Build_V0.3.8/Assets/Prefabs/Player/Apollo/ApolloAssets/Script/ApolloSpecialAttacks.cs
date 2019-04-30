@@ -183,10 +183,10 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
     {
         backParticle.SetActive(true);
         yield return new WaitForSeconds(wait);
-        backParticle.SetActive(false);
         backHitBox.SetActive(true);
         yield return new WaitForSeconds(active);
         backHitBox.SetActive(false);
+        backParticle.SetActive(false);
     }
     //---------------------------------------------------
     public override void ForwardSA(SpecialAttacks forward)
@@ -202,9 +202,9 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
     IEnumerator ForwardSAC(float wait, float active)
     {
         if (self.facingRight == true)
-            spawn = new Vector3(transform.position.x + xSpawn, transform.position.y - ySpawn, transform.position.z + zSpawn);
+            spawn = new Vector3(transform.position.x + xSpawn, transform.position.y - ySpawn + 5, transform.position.z + zSpawn);
         else
-            spawn = new Vector3(transform.position.x + -xSpawn, transform.position.y - ySpawn, transform.position.z + zSpawn);
+            spawn = new Vector3(transform.position.x + -xSpawn, transform.position.y - ySpawn + 5, transform.position.z + zSpawn);
 
         forwardObj.transform.position = spawn;
         yield return new WaitForSeconds(wait);
