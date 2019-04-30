@@ -45,6 +45,7 @@ public class HitDetection : MonoBehaviour {
 	public int breakdownBlock;
 
 
+
 	[HideInInspector]
 	public List<GameObject> hitBoxes;
 
@@ -197,6 +198,7 @@ public class HitDetection : MonoBehaviour {
 			player.anim.SetTrigger("Heavy Damage");
 		}else if(recievedAttack.damageType == FighterClass.DamageType.KnockDown){ 
 			player.anim.SetTrigger("Knock Out");
+			player.knockedDown = true;
 		}
 		player.canRecieveDamage = false;
 		player.canMove = false;
