@@ -543,6 +543,11 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.938098, y: 0.2776313, z: 3.4217467}
     m_Extent: {x: 0.22320801, y: 0.2349188, z: 0.24498427}
   m_DirtyAABB: 0
+--- !u!95 &1990808 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 95713579446893888, guid: 8544448e371c7ee4a95da36398692a6d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1990795}
 --- !u!1 &18012671
 GameObject:
   m_ObjectHideFlags: 0
@@ -34421,20 +34426,19 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1274035542}
-  - component: {fileID: 1274035541}
-  - component: {fileID: 1274035540}
-  - component: {fileID: 1274035539}
-  - component: {fileID: 1274035538}
   - component: {fileID: 1274035537}
+  - component: {fileID: 1274035541}
+  - component: {fileID: 1274035538}
+  - component: {fileID: 1274035539}
   - component: {fileID: 1274035536}
   - component: {fileID: 1274035535}
   - component: {fileID: 1274035534}
   - component: {fileID: 1274035533}
   - component: {fileID: 1274035532}
   m_Layer: 0
-  m_Name: Makoa (1)
+  m_Name: NewMakoa
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -34523,18 +34527,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c502e158d670e74888c5528bda953bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerOne: 0
+  PlayerTwo: 0
+  PlayerThree: 0
+  PlayerFour: 0
 --- !u!114 &1274035538
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 114524550325706372, guid: c33ec82fe4ea3a54783be21c0fc1e916,
-    type: 2}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1274035531}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: ebe8d14184a33734b9867fcdc548ab54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSpark: {fileID: 0}
+  blockSpark: {fileID: 0}
+  leftFoot: {fileID: 0}
+  rightFoot: {fileID: 0}
+  leftKnee: {fileID: 0}
+  rightKnee: {fileID: 0}
+  leftHand: {fileID: 0}
+  rightHand: {fileID: 0}
+  leftElbow: {fileID: 0}
+  rightElbow: {fileID: 0}
+  chest: {fileID: 0}
+  head: {fileID: 0}
+  specialNeutral: {fileID: 0}
+  specialForward: {fileID: 0}
+  specialBackward: {fileID: 0}
+  specialDown: {fileID: 0}
+  specialJump: {fileID: 0}
+  coupDeGrace: []
+  lightHit: 0
+  lightBlock: 0
+  mediumHit: 0
+  mediumBlock: 0
+  heavyHit: 0
+  heavyBlock: 0
+  specMeleeHit: 0
+  specMeleeBlock: 0
+  specProjectileHit: 0
+  specProjectileBlock: 0
+  breakdownHit: 0
+  breakdownBlock: 0
+  hitBoxes: []
+  attackerLabel: 
+  movement: {fileID: 0}
+  attacker: {fileID: 0}
 --- !u!114 &1274035539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34547,18 +34588,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fc0484c8a8e3ac4a805fe427cd1dcbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1274035540
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 114432530590761626, guid: c33ec82fe4ea3a54783be21c0fc1e916,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1274035531}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  input: {x: 0, y: 0}
+  forwardMoveSpeed: 0
+  backMoveSpeed: 0
+  gravity: -0.7
+  forwardDashSpeed: 0
+  backDashSpeed: 0
+  dashing: 0
+  vertJumpForce: 0
+  horiJumpForce: 0
+  jumpCD: 0
+  character: {fileID: 0}
+  fighter: {fileID: 0}
+  rigid: {fileID: 0}
 --- !u!114 &1274035541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34571,6 +34613,165 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cd22f2e94aae874396c97ccae5d3598, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  charSprite: {fileID: 0}
+  playerNumber: 0
+  teamNumber: 0
+  currentHealth: 0
+  totalHealth: 0
+  defValue: 0
+  superMeter: 0
+  attackVariables:
+    lightAttack:
+      animSpeed: 0
+      meterGain: 0
+      hitType: 0
+      hitHeight: 0
+      damageType: 0
+      knockBackDirection: {x: 0, y: 0, z: 0}
+      knockBackForce: 0
+      attDam: 0
+      hitBox1: {fileID: 0}
+      hitBox2: {fileID: 0}
+    mediumAttack:
+      animSpeed: 0
+      meterGain: 0
+      hitType: 0
+      hitHeight: 0
+      damageType: 0
+      knockBackDirection: {x: 0, y: 0, z: 0}
+      knockBackForce: 0
+      attDam: 0
+      hitBox1: {fileID: 0}
+      hitBox2: {fileID: 0}
+    heavyAttack:
+      animSpeed: 0
+      meterGain: 0
+      hitType: 0
+      hitHeight: 0
+      damageType: 0
+      knockBackDirection: {x: 0, y: 0, z: 0}
+      knockBackForce: 0
+      attDam: 0
+      hitBox1: {fileID: 0}
+      hitBox2: {fileID: 0}
+    jumpLightAttack:
+      animSpeed: 0
+      meterGain: 0
+      hitType: 0
+      hitHeight: 0
+      damageType: 0
+      knockBackDirection: {x: 0, y: 0, z: 0}
+      knockBackForce: 0
+      attDam: 0
+      hitBox1: {fileID: 0}
+      hitBox2: {fileID: 0}
+    jumpMediumAttack:
+      animSpeed: 0
+      meterGain: 0
+      hitType: 0
+      hitHeight: 0
+      damageType: 0
+      knockBackDirection: {x: 0, y: 0, z: 0}
+      knockBackForce: 0
+      attDam: 0
+      hitBox1: {fileID: 0}
+      hitBox2: {fileID: 0}
+    jumpHeavyAttack:
+      animSpeed: 0
+      meterGain: 0
+      hitType: 0
+      hitHeight: 0
+      damageType: 0
+      knockBackDirection: {x: 0, y: 0, z: 0}
+      knockBackForce: 0
+      attDam: 0
+      hitBox1: {fileID: 0}
+      hitBox2: {fileID: 0}
+    crouchLightAttack:
+      animSpeed: 0
+      meterGain: 0
+      hitType: 0
+      hitHeight: 0
+      damageType: 0
+      knockBackDirection: {x: 0, y: 0, z: 0}
+      knockBackForce: 0
+      attDam: 0
+      hitBox1: {fileID: 0}
+      hitBox2: {fileID: 0}
+    crouchMediumAttack:
+      animSpeed: 0
+      meterGain: 0
+      hitType: 0
+      hitHeight: 0
+      damageType: 0
+      knockBackDirection: {x: 0, y: 0, z: 0}
+      knockBackForce: 0
+      attDam: 0
+      hitBox1: {fileID: 0}
+      hitBox2: {fileID: 0}
+    crouchHeavyAttack:
+      animSpeed: 0
+      meterGain: 0
+      hitType: 0
+      hitHeight: 0
+      damageType: 0
+      knockBackDirection: {x: 0, y: 0, z: 0}
+      knockBackForce: 0
+      attDam: 0
+      hitBox1: {fileID: 0}
+      hitBox2: {fileID: 0}
+  output:
+    animSpeed: 0
+    meterGain: 0
+    hitType: 0
+    hitHeight: 0
+    damageType: 0
+    knockBackDirection: {x: 0, y: 0, z: 0}
+    knockBackForce: 0
+    attDam: 0
+    hitBox1: {fileID: 0}
+    hitBox2: {fileID: 0}
+  specials: {fileID: 0}
+  moveAnimSpeeds:
+    forwardWalk: 0
+    backwardWalk: 0
+    forwardDash: 0
+    backwardDash: 0
+    crouch: 0
+    jump: 0
+    forwardJump: 0
+    backwardJump: 0
+    block: 0
+    takeDamage: 0
+    idle: 0
+  controllerVariables:
+    horiDeadZone: 0
+    vertDeadZone: 0
+    comboTimeOut: 0
+    horiInput: 
+    vertInput: 
+    lightInput: 
+    medInput: 
+    heavyInput: 
+    specialInput: 
+    throwInput: 
+    teamInput: 
+    lockOnInput: 
+    startButton: 
+  lockOnTargets: []
+  lockOnTarget: {fileID: 0}
+  facingRight: 0
+  canMove: 1
+  canAttack: 1
+  canRecieveDamage: 1
+  isGrabbed: 0
+  blocking: 0
+  breakDownStep1L: 0
+  breakDownStep1R: 0
+  breakDownStep2: 0
+  breakDownStep3: 0
+  coupDeGraceActivated: 0
+  anim: {fileID: 1990808}
 --- !u!4 &1274035542
 Transform:
   m_ObjectHideFlags: 0
