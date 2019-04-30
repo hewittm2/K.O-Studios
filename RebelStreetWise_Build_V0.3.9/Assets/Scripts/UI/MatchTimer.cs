@@ -21,6 +21,7 @@ public class MatchTimer : MonoBehaviour {
     private bool canSet2 = true;
 
     private bool canCount = true;
+    MatchEnd matchEnd;
 
     private IEnumerator Start () {
         if (secTime < 10)
@@ -145,8 +146,12 @@ public class MatchTimer : MonoBehaviour {
     }
     IEnumerator RestartRound ()
     {
-        yield return new WaitForSeconds(3);
-        string sceneName = SceneManager.GetActiveScene().name;
-        SceneManager.LoadScene(sceneName);
+        yield return new WaitForSeconds(4);
+        matchEnd = FindObjectOfType<MatchEnd>();
+        if(matchEnd.canEnd == true)
+        {
+            string sceneName = SceneManager.GetActiveScene().name;
+            SceneManager.LoadScene(sceneName);
+        }
     }
 }

@@ -10,6 +10,8 @@ public class MatchEnd : MonoBehaviour {
     public GameObject Event1;
     public GameObject Event3;
 
+    public bool canEnd = true;
+
 	public void Winner (int teamNumber)
     {
         StartCoroutine(MatchEnder(teamNumber));
@@ -18,6 +20,7 @@ public class MatchEnd : MonoBehaviour {
     }
     private IEnumerator MatchEnder(int teamNmber)
     {
+        canEnd = false;
         yield return new WaitForSeconds(3);
         //Brings Up the Match End Screen and stops time so other people cannot move
         Time.timeScale = 0;
