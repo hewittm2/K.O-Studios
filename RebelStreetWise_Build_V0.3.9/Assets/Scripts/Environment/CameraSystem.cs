@@ -137,9 +137,9 @@ public class CameraSystem : MonoBehaviour
                 cam.transform.position = new Vector3(cameraDestination.x, cameraDestination.y, -40);
             }
             //prevents camera from zooming in to much
-            if (cam.transform.position.z > -16)
+            if (cam.transform.position.z > -22)
             {
-                cam.transform.position = new Vector3(cameraDestination.x, cameraDestination.y, -16);
+                cam.transform.position = new Vector3(cameraDestination.x, cameraDestination.y, -22);
             }
 
 
