@@ -45,6 +45,7 @@ public class HitDetection : MonoBehaviour {
 	public int breakdownBlock;
 
 
+
 	[HideInInspector]
 	public List<GameObject> hitBoxes;
 
@@ -197,6 +198,7 @@ public class HitDetection : MonoBehaviour {
 			player.anim.SetTrigger("Heavy Damage");
 		}else if(recievedAttack.damageType == FighterClass.DamageType.KnockDown){ 
 			player.anim.SetTrigger("Knock Out");
+			player.knockedDown = true;
 		}
 		player.canRecieveDamage = false;
 		player.canMove = false;
@@ -241,6 +243,15 @@ public class HitDetection : MonoBehaviour {
 		movement.rigid.angularVelocity = new Vector3(0, 0, 0);
 		yield return new WaitForSeconds(.01f);
 		movement.rigid.constraints = RigidbodyConstraints.FreezeAll;
+
+		if (attacker.coupDeGraceActivated) {
+			for (int i = 0; i < 100; i++) {
+				yield return new WaitForSeconds (player.anim.GetCurrentAnimatorClipInfo (0).Length / player.anim.speed);
+				player.anim.SetTrigger("Heavy Damage");
+			}
+		
+		}
+
 
 		yield return new WaitForSeconds (.2f);
 		attacker = null;
