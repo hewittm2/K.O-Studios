@@ -30,16 +30,8 @@ public class LoadingScene : MonoBehaviour {
         canvas = GetComponentInChildren<Canvas>(true);
         DontDestroyOnLoad(gameObject);
     }
-    public void ResetPrefs()
-    {
-        PlayerPrefs.SetInt("Team1RoundWins", 0);
-        PlayerPrefs.SetInt("Team2RoundWins", 0);
-    }
     public void LoadScene(string sceneName)
     {
-        string resetWins = SceneManager.GetActiveScene().name;
-        if (resetWins != "FighterTest")
-            ResetPrefs();
 
         UpdateProgressUI(0);
         canvas.gameObject.SetActive(true);

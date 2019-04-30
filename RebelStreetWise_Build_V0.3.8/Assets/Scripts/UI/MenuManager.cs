@@ -14,8 +14,7 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
     public void RestartMatch()
-    {
-        FindObjectOfType<LoadingScene>().ResetPrefs();
+    { 
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     public void Options()
