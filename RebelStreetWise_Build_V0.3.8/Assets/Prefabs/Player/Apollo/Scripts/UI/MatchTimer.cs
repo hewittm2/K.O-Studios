@@ -17,11 +17,12 @@ public class MatchTimer : MonoBehaviour {
     public Sprite team1Wins;
     public Sprite team2Wins;
 
-    private bool canSet1;
-    private bool canSet2;
+    private bool canSet1 = true;
+    private bool canSet2 = true;
+
+    private bool canCount = true;
 
     private IEnumerator Start () {
-        Debug.Log("start round torrel teset");
         if (secTime < 10)
         {
             secText.text = "0" + secTime.ToString();
@@ -44,7 +45,6 @@ public class MatchTimer : MonoBehaviour {
             fighter.enabled = false;
         }
         yield return new WaitForSeconds(3);
-        Debug.Log("Yolo test");
         foreach (FighterClass fighter in fighterClass){
             fighter.enabled = true;
         }
@@ -60,6 +60,8 @@ public class MatchTimer : MonoBehaviour {
             secTime = 59;
             if (minTime < 0)
             {
+                secTime = 00;
+                canCount = false;
                 minTime = 0;
                 RoundEnd();
             }
@@ -76,7 +78,10 @@ public class MatchTimer : MonoBehaviour {
         }else{
             minText.text = minTime.ToString();
         }
-        StartCoroutine(matchTimer());
+        if(canCount == true)
+        {
+            StartCoroutine(matchTimer());
+        }
     }
     public void RoundEnd()
     {
