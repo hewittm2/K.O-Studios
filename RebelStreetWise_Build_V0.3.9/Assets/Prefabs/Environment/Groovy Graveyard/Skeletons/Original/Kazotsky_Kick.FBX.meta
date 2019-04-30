@@ -1,0 +1,219 @@
+fileFormatVersion: 2
+guid: 39096c787ac59364d85da7e64fff44eb
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Plane001
+    100004: Skeleton
+    100006: SkeletonHead
+    100008: SkeletonLCalf
+    100010: SkeletonLCollarbone
+    100012: SkeletonLDigit11
+    100014: SkeletonLDigit11 1
+    100016: SkeletonLDigit12
+    100018: SkeletonLDigit13
+    100020: SkeletonLDigit21
+    100022: SkeletonLDigit22
+    100024: SkeletonLDigit23
+    100026: SkeletonLDigit31
+    100028: SkeletonLDigit32
+    100030: SkeletonLDigit33
+    100032: SkeletonLDigit41
+    100034: SkeletonLDigit42
+    100036: SkeletonLDigit43
+    100038: SkeletonLDigit51
+    100040: SkeletonLDigit52
+    100042: SkeletonLDigit53
+    100044: SkeletonLFoot
+    100046: SkeletonLForearm
+    100048: SkeletonLPalm
+    100050: SkeletonLPlatform
+    100052: SkeletonLThigh
+    100054: SkeletonLUpperarm
+    100056: SkeletonNeck1
+    100058: SkeletonNeck2
+    100060: SkeletonPelvis
+    100062: SkeletonRCalf
+    100064: SkeletonRCollarbone
+    100066: SkeletonRDigit11
+    100068: SkeletonRDigit11 1
+    100070: SkeletonRDigit12
+    100072: SkeletonRDigit13
+    100074: SkeletonRDigit21
+    100076: SkeletonRDigit22
+    100078: SkeletonRDigit23
+    100080: SkeletonRDigit31
+    100082: SkeletonRDigit32
+    100084: SkeletonRDigit33
+    100086: SkeletonRDigit41
+    100088: SkeletonRDigit42
+    100090: SkeletonRDigit43
+    100092: SkeletonRDigit51
+    100094: SkeletonRDigit52
+    100096: SkeletonRDigit53
+    100098: SkeletonRFoot
+    100100: SkeletonRForearm
+    100102: SkeletonRibcage
+    100104: SkeletonRPalm
+    100106: SkeletonRPlatform
+    100108: SkeletonRThigh
+    100110: SkeletonRUpperarm
+    100112: SkeletonSpine1
+    100114: SkeletonSpine2
+    100116: SkeletonSpine3
+    100118: SkeletonSpine4
+    100120: SM_Skeleton_Base
+    400000: //RootNode
+    400002: Plane001
+    400004: Skeleton
+    400006: SkeletonHead
+    400008: SkeletonLCalf
+    400010: SkeletonLCollarbone
+    400012: SkeletonLDigit11
+    400014: SkeletonLDigit11 1
+    400016: SkeletonLDigit12
+    400018: SkeletonLDigit13
+    400020: SkeletonLDigit21
+    400022: SkeletonLDigit22
+    400024: SkeletonLDigit23
+    400026: SkeletonLDigit31
+    400028: SkeletonLDigit32
+    400030: SkeletonLDigit33
+    400032: SkeletonLDigit41
+    400034: SkeletonLDigit42
+    400036: SkeletonLDigit43
+    400038: SkeletonLDigit51
+    400040: SkeletonLDigit52
+    400042: SkeletonLDigit53
+    400044: SkeletonLFoot
+    400046: SkeletonLForearm
+    400048: SkeletonLPalm
+    400050: SkeletonLPlatform
+    400052: SkeletonLThigh
+    400054: SkeletonLUpperarm
+    400056: SkeletonNeck1
+    400058: SkeletonNeck2
+    400060: SkeletonPelvis
+    400062: SkeletonRCalf
+    400064: SkeletonRCollarbone
+    400066: SkeletonRDigit11
+    400068: SkeletonRDigit11 1
+    400070: SkeletonRDigit12
+    400072: SkeletonRDigit13
+    400074: SkeletonRDigit21
+    400076: SkeletonRDigit22
+    400078: SkeletonRDigit23
+    400080: SkeletonRDigit31
+    400082: SkeletonRDigit32
+    400084: SkeletonRDigit33
+    400086: SkeletonRDigit41
+    400088: SkeletonRDigit42
+    400090: SkeletonRDigit43
+    400092: SkeletonRDigit51
+    400094: SkeletonRDigit52
+    400096: SkeletonRDigit53
+    400098: SkeletonRFoot
+    400100: SkeletonRForearm
+    400102: SkeletonRibcage
+    400104: SkeletonRPalm
+    400106: SkeletonRPlatform
+    400108: SkeletonRThigh
+    400110: SkeletonRUpperarm
+    400112: SkeletonSpine1
+    400114: SkeletonSpine2
+    400116: SkeletonSpine3
+    400118: SkeletonSpine4
+    400120: SM_Skeleton_Base
+    2100000: Skeleton_Body
+    2100002: No Name
+    2300000: Plane001
+    3300000: Plane001
+    4300000: SM_Skeleton_Base
+    4300002: Plane001
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: SM_Skeleton_Base
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.0254
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

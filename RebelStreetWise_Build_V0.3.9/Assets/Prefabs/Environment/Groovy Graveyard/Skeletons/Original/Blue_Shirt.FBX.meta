@@ -1,0 +1,235 @@
+fileFormatVersion: 2
+guid: 2ef43657f29235f4f8034c8338ea209a
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: SkeletonHead
+    100004: SkeletonLCalf
+    100006: SkeletonLCollarbone
+    100008: SkeletonLDigit11
+    100010: SkeletonLDigit11 1
+    100012: SkeletonLDigit12
+    100014: SkeletonLDigit13
+    100016: SkeletonLDigit21
+    100018: SkeletonLDigit22
+    100020: SkeletonLDigit23
+    100022: SkeletonLDigit31
+    100024: SkeletonLDigit32
+    100026: SkeletonLDigit33
+    100028: SkeletonLDigit41
+    100030: SkeletonLDigit42
+    100032: SkeletonLDigit43
+    100034: SkeletonLDigit51
+    100036: SkeletonLDigit52
+    100038: SkeletonLDigit53
+    100040: SkeletonLFoot
+    100042: SkeletonLForearm
+    100044: SkeletonLPalm
+    100046: SkeletonLThigh
+    100048: SkeletonLUpperarm
+    100050: SkeletonNeck1
+    100052: SkeletonNeck2
+    100054: SkeletonPelvis
+    100056: SkeletonRCalf
+    100058: SkeletonRCollarbone
+    100060: SkeletonRDigit11
+    100062: SkeletonRDigit11 1
+    100064: SkeletonRDigit12
+    100066: SkeletonRDigit13
+    100068: SkeletonRDigit21
+    100070: SkeletonRDigit22
+    100072: SkeletonRDigit23
+    100074: SkeletonRDigit31
+    100076: SkeletonRDigit32
+    100078: SkeletonRDigit33
+    100080: SkeletonRDigit41
+    100082: SkeletonRDigit42
+    100084: SkeletonRDigit43
+    100086: SkeletonRDigit51
+    100088: SkeletonRDigit52
+    100090: SkeletonRDigit53
+    100092: SkeletonRFoot
+    100094: SkeletonRForearm
+    100096: SkeletonRibcage
+    100098: SkeletonRPalm
+    100100: SkeletonRThigh
+    100102: SkeletonRUpperarm
+    100104: SkeletonSpine1
+    100106: SkeletonSpine2
+    100108: SkeletonSpine3
+    100110: SkeletonSpine4
+    100112: SM_Skeleton_Base
+    400000: //RootNode
+    400002: SkeletonHead
+    400004: SkeletonLCalf
+    400006: SkeletonLCollarbone
+    400008: SkeletonLDigit11
+    400010: SkeletonLDigit11 1
+    400012: SkeletonLDigit12
+    400014: SkeletonLDigit13
+    400016: SkeletonLDigit21
+    400018: SkeletonLDigit22
+    400020: SkeletonLDigit23
+    400022: SkeletonLDigit31
+    400024: SkeletonLDigit32
+    400026: SkeletonLDigit33
+    400028: SkeletonLDigit41
+    400030: SkeletonLDigit42
+    400032: SkeletonLDigit43
+    400034: SkeletonLDigit51
+    400036: SkeletonLDigit52
+    400038: SkeletonLDigit53
+    400040: SkeletonLFoot
+    400042: SkeletonLForearm
+    400044: SkeletonLPalm
+    400046: SkeletonLThigh
+    400048: SkeletonLUpperarm
+    400050: SkeletonNeck1
+    400052: SkeletonNeck2
+    400054: SkeletonPelvis
+    400056: SkeletonRCalf
+    400058: SkeletonRCollarbone
+    400060: SkeletonRDigit11
+    400062: SkeletonRDigit11 1
+    400064: SkeletonRDigit12
+    400066: SkeletonRDigit13
+    400068: SkeletonRDigit21
+    400070: SkeletonRDigit22
+    400072: SkeletonRDigit23
+    400074: SkeletonRDigit31
+    400076: SkeletonRDigit32
+    400078: SkeletonRDigit33
+    400080: SkeletonRDigit41
+    400082: SkeletonRDigit42
+    400084: SkeletonRDigit43
+    400086: SkeletonRDigit51
+    400088: SkeletonRDigit52
+    400090: SkeletonRDigit53
+    400092: SkeletonRFoot
+    400094: SkeletonRForearm
+    400096: SkeletonRibcage
+    400098: SkeletonRPalm
+    400100: SkeletonRThigh
+    400102: SkeletonRUpperarm
+    400104: SkeletonSpine1
+    400106: SkeletonSpine2
+    400108: SkeletonSpine3
+    400110: SkeletonSpine4
+    400112: SM_Skeleton_Base
+    2100000: Skeleton_Body
+    4300000: SM_Skeleton_Base
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: SM_Skeleton_Base
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 90
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.0254
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
