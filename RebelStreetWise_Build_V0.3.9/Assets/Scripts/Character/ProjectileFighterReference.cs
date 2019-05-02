@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class ProjectileFighterReference : MonoBehaviour
 {
+    public bool passThrough = false;
     public FighterClass fighter;
 	public FighterClass.AttackStats output;
 
@@ -19,7 +20,19 @@ public class ProjectileFighterReference : MonoBehaviour
 		output = fighter.output;
      
     }
-	private void OnDisable(){
+	private void OnDisable()
+    {
 		output = null;
 	}
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (passThrough == false && other.GetComponent<FighterClass>() != null)
+        {
+            if (other.GetComponent<FighterClass>().teamNumber != fighter.teamNumber)
+            {
+                gameObject.SetActive(false);
+            }
+        }
+    }
 }
