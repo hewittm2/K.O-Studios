@@ -700,6 +700,7 @@ GameObject:
   - component: {fileID: 4585087350740060}
   - component: {fileID: 114176483401608478}
   - component: {fileID: 114482602755484894}
+  - component: {fileID: 114817708104836126}
   - component: {fileID: 114374788195630766}
   - component: {fileID: 114520999701512428}
   - component: {fileID: 114576310286415380}
@@ -709,7 +710,7 @@ GameObject:
   - component: {fileID: 65001919694149242}
   m_Layer: 0
   m_Name: EthanFighterTest
-  m_TagString: Untagged
+  m_TagString: Player3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2062,7 +2063,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1523036563279898}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 5, y: -0.3, z: 0}
+  m_LocalPosition: {x: 12.37, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4247399101214500}
@@ -2884,7 +2885,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerOne: 0
-  PlayerTwo: 1
+  PlayerTwo: 0
   PlayerThree: 0
   PlayerFour: 0
 --- !u!114 &114374788195630766
@@ -2944,7 +2945,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charSprite: {fileID: 21300000, guid: 9cec6305cb7a243449c70d38099cf28c, type: 3}
-  playerNumber: 2
+  playerNumber: 3
   teamNumber: 2
   currentHealth: 1
   totalHealth: 200
@@ -3094,6 +3095,7 @@ MonoBehaviour:
   canMove: 1
   canAttack: 1
   canRecieveDamage: 1
+  knockedDown: 0
   isGrabbed: 0
   blocking: 0
   breakDownStep1L: 0
@@ -3116,8 +3118,10 @@ MonoBehaviour:
   specialAttackStats:
     SpecialForward:
       animSpeed: 1
+      hitHeight: 0
       hitType: 0
       damageType: 0
+      delayType: 0
       knockback: {x: 0, y: 0, z: 0}
       knockbackForce: 0
       meterGain: 0
@@ -3126,11 +3130,14 @@ MonoBehaviour:
       activeTime: 0
       stunTime: 0
       recoveryTime: 0
+      objects: {fileID: 0}
       partEffect: {fileID: 0}
     SpecialBack:
       animSpeed: 1
+      hitHeight: 0
       hitType: 0
       damageType: 0
+      delayType: 0
       knockback: {x: 0, y: 0, z: 0}
       knockbackForce: 0
       meterGain: 0
@@ -3139,11 +3146,14 @@ MonoBehaviour:
       activeTime: 0
       stunTime: 0
       recoveryTime: 0
+      objects: {fileID: 0}
       partEffect: {fileID: 0}
     SpecialDown:
       animSpeed: 1
+      hitHeight: 0
       hitType: 0
       damageType: 0
+      delayType: 0
       knockback: {x: 0, y: 0, z: 0}
       knockbackForce: 0
       meterGain: 0
@@ -3152,11 +3162,14 @@ MonoBehaviour:
       activeTime: 0
       stunTime: 0
       recoveryTime: 0
+      objects: {fileID: 0}
       partEffect: {fileID: 0}
     SpecialNeutral:
       animSpeed: 1
+      hitHeight: 0
       hitType: 0
       damageType: 0
+      delayType: 0
       knockback: {x: 0, y: 0, z: 0}
       knockbackForce: 0
       meterGain: 0
@@ -3165,11 +3178,14 @@ MonoBehaviour:
       activeTime: 0
       stunTime: 0
       recoveryTime: 0
+      objects: {fileID: 0}
       partEffect: {fileID: 0}
     SpecialJump:
       animSpeed: 1
+      hitHeight: 0
       hitType: 0
       damageType: 0
+      delayType: 0
       knockback: {x: 0, y: 0, z: 0}
       knockbackForce: 0
       meterGain: 0
@@ -3178,11 +3194,14 @@ MonoBehaviour:
       activeTime: 0
       stunTime: 0
       recoveryTime: 0
+      objects: {fileID: 0}
       partEffect: {fileID: 0}
     SpecialBreakdown:
       animSpeed: 1
+      hitHeight: 0
       hitType: 0
       damageType: 0
+      delayType: 0
       knockback: {x: 0, y: 0, z: 0}
       knockbackForce: 0
       meterGain: 0
@@ -3191,11 +3210,14 @@ MonoBehaviour:
       activeTime: 0
       stunTime: 0
       recoveryTime: 0
+      objects: {fileID: 0}
       partEffect: {fileID: 0}
     CoupDeGrace:
       animSpeed: 1
+      hitHeight: 0
       hitType: 0
       damageType: 0
+      delayType: 0
       knockback: {x: 0, y: 0, z: 0}
       knockbackForce: 0
       meterGain: 0
@@ -3204,6 +3226,7 @@ MonoBehaviour:
       activeTime: 0
       stunTime: 0
       recoveryTime: 0
+      objects: {fileID: 0}
       partEffect: {fileID: 0}
 --- !u!114 &114576310286415380
 MonoBehaviour:
@@ -3229,6 +3252,29 @@ MonoBehaviour:
   character: {fileID: 0}
   fighter: {fileID: 0}
   rigid: {fileID: 0}
+  isPaused: 0
+--- !u!114 &114817708104836126
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1523036563279898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9b8fa1a036d903428b45a79ef00e807, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teamMateCC: []
+  tempDist: 0
+  closeDist: 2
+  enemy1CC: []
+  enemy2CC: []
+  myCoatColor: {fileID: 137434414418288712}
+  playerColors:
+  - {fileID: 2100000, guid: d6055dee65cc35c4a9d27777797c5f89, type: 2}
+  - {fileID: 2100000, guid: ce226ff536477474eba6882ce28b1e2d, type: 2}
+  - {fileID: 2100000, guid: ba769ad7560b7024d8ecc199afcdea37, type: 2}
+  - {fileID: 2100000, guid: d06480594dd3fee43bb868d9f45b7336, type: 2}
 --- !u!135 &135012640498504554
 SphereCollider:
   m_ObjectHideFlags: 1
