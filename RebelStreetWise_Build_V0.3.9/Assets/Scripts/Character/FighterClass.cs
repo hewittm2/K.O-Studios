@@ -148,6 +148,9 @@ public class FighterClass : MonoBehaviour {
 	float comboTimerEnd = 0;
 	StageManager stageManager;
 	public Animator anim;
+
+    MatchEnd matchEnd;
+
     private bool canRestart = true;
 
 	void Start () {
@@ -215,6 +218,7 @@ public class FighterClass : MonoBehaviour {
         }
         if(currentHealth <= 0)
         {
+            matchEnd.Winner(teamNumber);
             this.enabled = false;
         }
     }
