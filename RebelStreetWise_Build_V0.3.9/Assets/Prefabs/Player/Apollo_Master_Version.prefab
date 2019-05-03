@@ -1721,6 +1721,7 @@ GameObject:
   - component: {fileID: 4988573521606782}
   - component: {fileID: 114562189517253624}
   - component: {fileID: 114843534998498698}
+  - component: {fileID: 114976781124398230}
   - component: {fileID: 114666642581151378}
   - component: {fileID: 114299184357263338}
   - component: {fileID: 54936015757609664}
@@ -5173,6 +5174,9 @@ MonoBehaviour:
     attDam: 0
     hitBox1: {fileID: 0}
     hitBox2: {fileID: 0}
+  xSpeed: 0
+  ySpeed: 0
+  hit: 0
 --- !u!114 &114076451770679952
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5196,6 +5200,9 @@ MonoBehaviour:
     attDam: 0
     hitBox1: {fileID: 0}
     hitBox2: {fileID: 0}
+  xSpeed: 0
+  ySpeed: 0
+  hit: 0
 --- !u!114 &114116358880316460
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5219,6 +5226,9 @@ MonoBehaviour:
     attDam: 0
     hitBox1: {fileID: 0}
     hitBox2: {fileID: 0}
+  xSpeed: 0
+  ySpeed: 0
+  hit: 0
 --- !u!114 &114203518614071530
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5233,8 +5243,10 @@ MonoBehaviour:
   specialAttackStats:
     SpecialForward:
       animSpeed: 2
+      hitHeight: 0
       hitType: 0
       damageType: 1
+      delayType: 0
       knockback: {x: 10, y: 0, z: 0}
       knockbackForce: 3
       meterGain: 0
@@ -5243,11 +5255,14 @@ MonoBehaviour:
       activeTime: 2
       stunTime: 5
       recoveryTime: 16
+      objects: {fileID: 0}
       partEffect: {fileID: 0}
     SpecialBack:
       animSpeed: 2
+      hitHeight: 0
       hitType: 0
       damageType: 2
+      delayType: 0
       knockback: {x: 12, y: 0, z: 0}
       knockbackForce: 3
       meterGain: 0
@@ -5256,11 +5271,14 @@ MonoBehaviour:
       activeTime: 2
       stunTime: 5
       recoveryTime: 0
+      objects: {fileID: 0}
       partEffect: {fileID: 0}
     SpecialDown:
       animSpeed: 1
+      hitHeight: 0
       hitType: 0
       damageType: 0
+      delayType: 0
       knockback: {x: 0, y: 10, z: 0}
       knockbackForce: 10
       meterGain: 0
@@ -5269,11 +5287,14 @@ MonoBehaviour:
       activeTime: 1
       stunTime: 0
       recoveryTime: 0
+      objects: {fileID: 0}
       partEffect: {fileID: 0}
     SpecialNeutral:
       animSpeed: 1
+      hitHeight: 0
       hitType: 0
       damageType: 0
+      delayType: 0
       knockback: {x: 10, y: 0, z: 0}
       knockbackForce: 3
       meterGain: 0
@@ -5282,11 +5303,14 @@ MonoBehaviour:
       activeTime: 1
       stunTime: 5
       recoveryTime: 14
+      objects: {fileID: 0}
       partEffect: {fileID: 0}
     SpecialJump:
       animSpeed: 1.82
+      hitHeight: 0
       hitType: 0
       damageType: 0
+      delayType: 0
       knockback: {x: 10, y: 0, z: 0}
       knockbackForce: 5
       meterGain: 0
@@ -5295,11 +5319,14 @@ MonoBehaviour:
       activeTime: 0
       stunTime: 0
       recoveryTime: 0
+      objects: {fileID: 0}
       partEffect: {fileID: 0}
     SpecialBreakdown:
       animSpeed: 1
+      hitHeight: 0
       hitType: 0
       damageType: 0
+      delayType: 0
       knockback: {x: 0, y: 4, z: 0}
       knockbackForce: 2
       meterGain: 0
@@ -5308,11 +5335,14 @@ MonoBehaviour:
       activeTime: 3
       stunTime: 0
       recoveryTime: 0
+      objects: {fileID: 0}
       partEffect: {fileID: 0}
     CoupDeGrace:
       animSpeed: 1
+      hitHeight: 0
       hitType: 0
       damageType: 1
+      delayType: 0
       knockback: {x: 0, y: 0, z: 0}
       knockbackForce: 0
       meterGain: 0
@@ -5321,6 +5351,7 @@ MonoBehaviour:
       activeTime: 0
       stunTime: 0
       recoveryTime: 0
+      objects: {fileID: 0}
       partEffect: {fileID: 0}
   forwardObj: {fileID: 1505747343939766}
   projectileSpeed: 10
@@ -5430,6 +5461,9 @@ MonoBehaviour:
     attDam: 0
     hitBox1: {fileID: 0}
     hitBox2: {fileID: 0}
+  xSpeed: 0
+  ySpeed: 0
+  hit: 0
 --- !u!114 &114524479869421470
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5488,6 +5522,9 @@ MonoBehaviour:
     attDam: 0
     hitBox1: {fileID: 0}
     hitBox2: {fileID: 0}
+  xSpeed: 0
+  ySpeed: 0
+  hit: 0
 --- !u!114 &114666642581151378
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5556,6 +5593,9 @@ MonoBehaviour:
     attDam: 0
     hitBox1: {fileID: 0}
     hitBox2: {fileID: 0}
+  xSpeed: 0
+  ySpeed: 0
+  hit: 0
 --- !u!114 &114817941814241772
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5579,6 +5619,9 @@ MonoBehaviour:
     attDam: 0
     hitBox1: {fileID: 0}
     hitBox2: {fileID: 0}
+  xSpeed: 0
+  ySpeed: 0
+  hit: 0
 --- !u!114 &114820842004935512
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5602,6 +5645,9 @@ MonoBehaviour:
     attDam: 0
     hitBox1: {fileID: 0}
     hitBox2: {fileID: 0}
+  xSpeed: 0
+  ySpeed: 0
+  hit: 0
 --- !u!114 &114843534998498698
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5764,6 +5810,7 @@ MonoBehaviour:
   canMove: 1
   canAttack: 1
   canRecieveDamage: 1
+  knockedDown: 0
   isGrabbed: 0
   blocking: 0
   breakDownStep1L: 0
@@ -5795,6 +5842,9 @@ MonoBehaviour:
     attDam: 0
     hitBox1: {fileID: 0}
     hitBox2: {fileID: 0}
+  xSpeed: 0
+  ySpeed: 0
+  hit: 0
 --- !u!114 &114859860863350192
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5818,6 +5868,9 @@ MonoBehaviour:
     attDam: 0
     hitBox1: {fileID: 0}
     hitBox2: {fileID: 0}
+  xSpeed: 0
+  ySpeed: 0
+  hit: 0
 --- !u!114 &114951008560532606
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5841,6 +5894,31 @@ MonoBehaviour:
     attDam: 0
     hitBox1: {fileID: 0}
     hitBox2: {fileID: 0}
+  xSpeed: 0
+  ySpeed: 0
+  hit: 0
+--- !u!114 &114976781124398230
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1905440597093002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9b8fa1a036d903428b45a79ef00e807, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teamMateCC: []
+  tempDist: 0
+  closeDist: 0
+  enemy1CC: []
+  enemy2CC: []
+  myCoatColor: {fileID: 137857300056826364}
+  playerColors:
+  - {fileID: 2100000, guid: d6055dee65cc35c4a9d27777797c5f89, type: 2}
+  - {fileID: 2100000, guid: ce226ff536477474eba6882ce28b1e2d, type: 2}
+  - {fileID: 2100000, guid: ba769ad7560b7024d8ecc199afcdea37, type: 2}
+  - {fileID: 2100000, guid: d06480594dd3fee43bb868d9f45b7336, type: 2}
 --- !u!135 &135153501910046940
 SphereCollider:
   m_ObjectHideFlags: 1
