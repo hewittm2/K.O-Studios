@@ -28,7 +28,6 @@ public class LoadingScene : MonoBehaviour {
         }
 
         canvas = GetComponentInChildren<Canvas>(true);
-        DontDestroyOnLoad(gameObject);
     }
     public void LoadScene(string sceneName)
     {
