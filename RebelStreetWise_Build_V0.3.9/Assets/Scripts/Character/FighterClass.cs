@@ -1,5 +1,5 @@
 ﻿//Created By Ethan Quandt 8/29/18
-//Edited 4/8/19
+//Edited 5/4/19
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -64,7 +64,14 @@ public class FighterClass : MonoBehaviour {
 	public AttackVariables attackVariables = new AttackVariables();
 	public AttackStats output = new AttackStats();
 	public SpecialAttackTemplate specials;
+	//Grab Variables
+	public float grabRange;
+	public float throwDistance;
+	public bool grabbing;
+	public bool isGrabbed = false;
+	public bool grabCommit = false;
 
+	public float throwSpeed;
 	//Movement Animation Variables
 	[System.Serializable]
 	public class MovementAnimationSpeeds{
@@ -131,7 +138,7 @@ public class FighterClass : MonoBehaviour {
 	[HideInInspector]
 	public bool canRecieveDamage = true;
 	public bool knockedDown = false;
-	public bool isGrabbed = false;
+
 	public bool blocking;
 
 	public bool breakDownStep1L = false;
@@ -195,7 +202,23 @@ public class FighterClass : MonoBehaviour {
 				QueueMovementInput ();
 			}
 		}
+		if (isGrabbed) {
+			
+			canMove = false;
+			canAttack = false;
 
+			if (!grabCommit) {
+				//Debug.Log ("Grabbed");
+				if((Input.GetButton (controllerVariables.lightInput) && Input.GetButton (controllerVariables.medInput)) ||Input.GetAxis(controllerVariables.throwInput) > controllerVariables.horiDeadZone){
+					isGrabbed = false;
+					canMove = true;
+					canAttack = true;
+				}
+			}
+		}
+		if (grabbing) {
+			canMove = false;
+		}
 		CheckForCombo ();
 		if (lockOnTargets.Count != 0){
 			if (Input.GetButtonDown (controllerVariables.lockOnInput)) {
@@ -460,21 +483,47 @@ public class FighterClass : MonoBehaviour {
 				anim.speed = moveAnimSpeeds.block;
 				anim.SetTrigger ("Block");
 			}
-		//Grab/Throw
-		} if ((Input.GetButton (controllerVariables.lightInput) && Input.GetButton (controllerVariables.medInput))||Input.GetAxis(controllerVariables.throwInput) > controllerVariables.horiDeadZone) {
-			if (facingRight) {
-				if (Input.GetAxis (controllerVariables.horiInput) < -controllerVariables.horiDeadZone) {
-					Debug.Log ("BackwardThrow(R),");
+		//Grab
+		} if (((Input.GetButtonDown (controllerVariables.lightInput) && Input.GetButtonDown (controllerVariables.medInput)) || Input.GetAxis (controllerVariables.throwInput) > controllerVariables.horiDeadZone) && !grabbing) {
+			anim.SetTrigger ("Grab");
+			grabbing = true;
+			StartCoroutine (attackDelay ());
+			if (Mathf.Abs (transform.position.x - lockOnTarget.transform.position.x) <= grabRange) {
+				lockOnTarget.GetComponent<FighterClass> ().isGrabbed = true;
+			}
+		}
+		//throw
+		if (((Input.GetButtonUp (controllerVariables.lightInput) && Input.GetButtonUp (controllerVariables.medInput))||Input.GetAxis(controllerVariables.throwInput) < controllerVariables.horiDeadZone)&& grabbing) {
+			//Debug.Log ("Execute");
+			if (lockOnTarget.GetComponent<FighterClass>().isGrabbed) {
+				lockOnTarget.GetComponent<FighterClass> ().grabCommit = true;
+				if (facingRight) {
+					if (Input.GetAxis (controllerVariables.horiInput) < -controllerVariables.horiDeadZone) {
+						Debug.Log ("BackwardThrow(R),");
+						anim.SetTrigger("Back Grab");
+						StartCoroutine (attackDelay ());
+						lockOnTarget.transform.Translate (0,0, throwDistance);
+					} else {
+						Debug.Log ("ForwardThrow(R)");
+						anim.SetTrigger("Forward Grab");
+						StartCoroutine (attackDelay ());
+						lockOnTarget.transform.Translate(Vector3.back * throwDistance);
+					}
 				} else {
-					Debug.Log ("ForwardThrow(R)");
-				}
-			} else {
-				if (Input.GetAxis (controllerVariables.horiInput) > controllerVariables.horiDeadZone) {
-					Debug.Log ("BackwardThrow(L),");
-				} else {
-					Debug.Log ("ForwardThrow(L)");
+					if (Input.GetAxis (controllerVariables.horiInput) > controllerVariables.horiDeadZone) {
+						Debug.Log ("BackwardThrow(L),");
+						anim.SetTrigger("Back Grab");
+						StartCoroutine (attackDelay ());
+						lockOnTarget.transform.Translate (new Vector3 (0, 0, throwDistance));
+					} else {
+						Debug.Log ("ForwardThrow(L)");
+						anim.SetTrigger("Forward Grab");
+						StartCoroutine (attackDelay ());
+						lockOnTarget.transform.Translate(Vector3.back * throwDistance);
+					}
 				}
 			}
+			grabbing = false;
 		//Light Attack
 		}else if (Input.GetButtonDown (controllerVariables.lightInput)) {
 			if (facingRight) {

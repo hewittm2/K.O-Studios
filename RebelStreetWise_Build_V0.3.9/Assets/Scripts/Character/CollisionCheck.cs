@@ -7,7 +7,7 @@ public class CollisionCheck : MonoBehaviour
 	FighterClass player;
     private FighterClass[] allPlayers;
     private List<FighterClass> teamMate = new List<FighterClass>();
-	bool ignore;
+	//bool ignore;
     //private List<FighterClass> enemyMate = new List<FighterClass>();
 
     //[Header("My Colliders")]
@@ -19,8 +19,8 @@ public class CollisionCheck : MonoBehaviour
 	public float enemyDist;
 	public float speed;
     [Header("Enemy Colliders")]
-    public List<Collider> enemy1CC = new List<Collider>();
-    public List<Collider> enemy2CC = new List<Collider>();
+    //public List<Collider> enemy1CC = new List<Collider>();
+    //public List<Collider> enemy2CC = new List<Collider>();
 
     [Header("Visibilty")]
     public SkinnedMeshRenderer myCoatColor;
