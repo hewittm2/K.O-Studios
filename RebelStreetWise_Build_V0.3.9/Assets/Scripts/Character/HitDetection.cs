@@ -244,14 +244,6 @@ public class HitDetection : MonoBehaviour {
 		yield return new WaitForSeconds(.01f);
 		movement.rigid.constraints = RigidbodyConstraints.FreezeAll;
 
-		if (attacker.coupDeGraceActivated) {
-			for (int i = 0; i < 100; i++) {
-				yield return new WaitForSeconds (player.anim.GetCurrentAnimatorClipInfo (0).Length / player.anim.speed);
-				player.anim.SetTrigger("Heavy Damage");
-			}
-		
-		}
-
 
 		yield return new WaitForSeconds (.2f);
 		attacker = null;
