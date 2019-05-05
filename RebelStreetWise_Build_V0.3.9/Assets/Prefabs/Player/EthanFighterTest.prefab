@@ -700,7 +700,7 @@ GameObject:
   - component: {fileID: 4585087350740060}
   - component: {fileID: 114176483401608478}
   - component: {fileID: 114482602755484894}
-  - component: {fileID: 114817708104836126}
+  - component: {fileID: 114453952656044530}
   - component: {fileID: 114374788195630766}
   - component: {fileID: 114520999701512428}
   - component: {fileID: 114576310286415380}
@@ -710,7 +710,7 @@ GameObject:
   - component: {fileID: 65001919694149242}
   m_Layer: 0
   m_Name: EthanFighterTest
-  m_TagString: Player3
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2063,7 +2063,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1523036563279898}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 12.37, y: 0, z: 0}
+  m_LocalPosition: {x: -10.13, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4247399101214500}
@@ -2929,10 +2929,39 @@ MonoBehaviour:
   specProjectileBlock: 0
   breakdownHit: 0
   breakdownBlock: 0
+  tempDist: 0
+  closeDist: 2
+  enemyDist: 5
+  speed: 2
+  myCoatColor: {fileID: 137434414418288712}
+  playerColors:
+  - {fileID: 2100000, guid: d6055dee65cc35c4a9d27777797c5f89, type: 2}
+  - {fileID: 2100000, guid: ce226ff536477474eba6882ce28b1e2d, type: 2}
+  - {fileID: 2100000, guid: ba769ad7560b7024d8ecc199afcdea37, type: 2}
+  - {fileID: 2100000, guid: d06480594dd3fee43bb868d9f45b7336, type: 2}
   hitBoxes: []
   attackerLabel: 
   movement: {fileID: 0}
   attacker: {fileID: 0}
+--- !u!114 &114453952656044530
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1523036563279898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60b9ed6ce4e55794f9a5537beee4c8a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabDelay: 0
+  knockBackTime: 0
+  range: 0
+  kickDistance: 0
+  enemy: {fileID: 0}
+  anim: {fileID: 0}
+  fowardDamage: 0
+  backwardDamage: 0
 --- !u!114 &114482602755484894
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2945,8 +2974,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charSprite: {fileID: 21300000, guid: 9cec6305cb7a243449c70d38099cf28c, type: 3}
-  playerNumber: 3
-  teamNumber: 2
+  playerNumber: 1
+  teamNumber: 1
   currentHealth: 1
   totalHealth: 200
   defValue: 0.5
@@ -3253,28 +3282,6 @@ MonoBehaviour:
   fighter: {fileID: 0}
   rigid: {fileID: 0}
   isPaused: 0
---- !u!114 &114817708104836126
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1523036563279898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9b8fa1a036d903428b45a79ef00e807, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teamMateCC: []
-  tempDist: 0
-  closeDist: 2
-  enemy1CC: []
-  enemy2CC: []
-  myCoatColor: {fileID: 137434414418288712}
-  playerColors:
-  - {fileID: 2100000, guid: d6055dee65cc35c4a9d27777797c5f89, type: 2}
-  - {fileID: 2100000, guid: ce226ff536477474eba6882ce28b1e2d, type: 2}
-  - {fileID: 2100000, guid: ba769ad7560b7024d8ecc199afcdea37, type: 2}
-  - {fileID: 2100000, guid: d06480594dd3fee43bb868d9f45b7336, type: 2}
 --- !u!135 &135012640498504554
 SphereCollider:
   m_ObjectHideFlags: 1
