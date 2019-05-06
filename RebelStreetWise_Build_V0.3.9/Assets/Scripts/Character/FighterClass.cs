@@ -254,20 +254,26 @@ public class FighterClass : MonoBehaviour {
 
 		//Assume Idle
 		if (movement.character.isGrounded) {
-			if (Input.GetAxis (controllerVariables.horiInput) < controllerVariables.horiDeadZone && Input.GetAxis (controllerVariables.horiInput) > -controllerVariables.horiDeadZone) {
+			if ((Mathf.Abs(Input.GetAxis (controllerVariables.horiInput)) < controllerVariables.horiDeadZone)) {
 				if (anim.GetBool ("Walking") == true)
 					anim.SetBool ("Walking", false);
 				if (anim.GetBool ("Walking Backwards") == true)
 					anim.SetBool ("Walking Backwards", false);
 				anim.speed = moveAnimSpeeds.idle;
+				if((Mathf.Abs(Input.GetAxis (controllerVariables.horiInput)) < controllerVariables.horiDeadZone)){
+					blocking = false;
+				}
+
 			}
-			if (Input.GetAxis (controllerVariables.vertInput) > -controllerVariables.vertDeadZone) {
+			if ((Mathf.Abs(Input.GetAxis (controllerVariables.vertInput)) < controllerVariables.vertDeadZone)) {
 				if (anim.GetBool ("Crouching Idle") == true)
 					anim.SetBool ("Crouching Idle", false);
 				anim.speed = moveAnimSpeeds.idle;
+
+				if ((Mathf.Abs (Input.GetAxis (controllerVariables.horiInput)) < controllerVariables.horiDeadZone)) {
+					blocking = false;		
+				}
 			}
-
-
 		}
 		//Right Input Facing Right
 		if (Input.GetAxis (controllerVariables.horiInput) > controllerVariables.horiDeadZone && facingRight) {
@@ -381,6 +387,7 @@ public class FighterClass : MonoBehaviour {
 					anim.speed = moveAnimSpeeds.backwardWalk;
 					movement.Walk ();
 					anim.SetBool ("Walking Backwards", true);
+					blocking = true;
 				}
 			}
 		//Right Input Facing Left
@@ -420,6 +427,7 @@ public class FighterClass : MonoBehaviour {
 					anim.speed = moveAnimSpeeds.backwardWalk;
 					movement.Walk ();
 					anim.SetBool ("Walking Backwards", true);
+					blocking = true;
 				}
 			}
 		//Up input Facing Right
@@ -464,9 +472,17 @@ public class FighterClass : MonoBehaviour {
 				breakDownStep3 = true;
                 Debug.Log("Yolo");
 			}
+			Debug.Log ("duck");
+			blocking = true;
 			anim.speed = moveAnimSpeeds.crouch;
 			anim.SetBool ("Crouching Idle", true);
-		}
+
+				
+		}	
+		//if (Mathf.Abs(Input.GetAxis (controllerVariables.vertInput)) < controllerVariables.vertDeadZone) {
+			//blocking = false;
+			//(Mathf.Abs (Input.GetAxis (controllerVariables.horiInput)) < controllerVariables.horiDeadZone))&& movement.character.isGrounded
+		//}
 	}
 
 	public void QueueAttackInput(){
