@@ -1753,7 +1753,6 @@ GameObject:
   - component: {fileID: 4988573521606782}
   - component: {fileID: 114562189517253624}
   - component: {fileID: 114843534998498698}
-  - component: {fileID: 114976781124398230}
   - component: {fileID: 114666642581151378}
   - component: {fileID: 114299184357263338}
   - component: {fileID: 54936015757609664}
@@ -5727,6 +5726,16 @@ MonoBehaviour:
   specProjectileBlock: 0
   breakdownHit: 0
   breakdownBlock: 0
+  tempDist: 0
+  closeDist: 2
+  enemyDist: 2
+  speed: 2
+  myCoatColor: {fileID: 137857300056826364}
+  playerColors:
+  - {fileID: 2100000, guid: d6055dee65cc35c4a9d27777797c5f89, type: 2}
+  - {fileID: 2100000, guid: ce226ff536477474eba6882ce28b1e2d, type: 2}
+  - {fileID: 2100000, guid: ba769ad7560b7024d8ecc199afcdea37, type: 2}
+  - {fileID: 2100000, guid: d06480594dd3fee43bb868d9f45b7336, type: 2}
   hitBoxes: []
   attackerLabel: 
   movement: {fileID: 0}
@@ -5911,6 +5920,12 @@ MonoBehaviour:
     hitBox1: {fileID: 0}
     hitBox2: {fileID: 0}
   specials: {fileID: 114203518614071530}
+  grabRange: 0
+  throwDistance: 0
+  grabbing: 0
+  isGrabbed: 0
+  grabCommit: 0
+  throwSpeed: 0
   moveAnimSpeeds:
     forwardWalk: 1
     backwardWalk: 1
@@ -5944,7 +5959,6 @@ MonoBehaviour:
   canAttack: 1
   canRecieveDamage: 1
   knockedDown: 0
-  isGrabbed: 0
   blocking: 0
   breakDownStep1L: 0
   breakDownStep1R: 0
@@ -6027,28 +6041,6 @@ MonoBehaviour:
     hitBox1: {fileID: 0}
     hitBox2: {fileID: 0}
   hit: 0
---- !u!114 &114976781124398230
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1905440597093002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9b8fa1a036d903428b45a79ef00e807, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teamMateCC: []
-  tempDist: 0
-  closeDist: 0
-  enemy1CC: []
-  enemy2CC: []
-  myCoatColor: {fileID: 137857300056826364}
-  playerColors:
-  - {fileID: 2100000, guid: d6055dee65cc35c4a9d27777797c5f89, type: 2}
-  - {fileID: 2100000, guid: ce226ff536477474eba6882ce28b1e2d, type: 2}
-  - {fileID: 2100000, guid: ba769ad7560b7024d8ecc199afcdea37, type: 2}
-  - {fileID: 2100000, guid: d06480594dd3fee43bb868d9f45b7336, type: 2}
 --- !u!135 &135153501910046940
 SphereCollider:
   m_ObjectHideFlags: 1
