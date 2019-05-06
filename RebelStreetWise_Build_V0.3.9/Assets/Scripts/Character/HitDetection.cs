@@ -1,5 +1,5 @@
 ﻿//Created By Ethan Quandt
-//Edited 4/8/19
+//Edited 5/4/19
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -44,7 +44,17 @@ public class HitDetection : MonoBehaviour {
 	public int breakdownHit;
 	public int breakdownBlock;
 
-
+	//collisioncheck
+	private FighterClass[] allPlayers;
+	private List<FighterClass> teamMate = new List<FighterClass>();
+	[Header("CollisionCheck Variables")][Space(.5f)]
+	public float tempDist;
+	public float closeDist;
+	public float enemyDist;
+	public float speed;
+	[Header("Visibilty")]
+	public SkinnedMeshRenderer myCoatColor;
+	public Material[] playerColors;
 
 	[HideInInspector]
 	public List<GameObject> hitBoxes;
@@ -112,7 +122,34 @@ public class HitDetection : MonoBehaviour {
 		} else {
 			attackerLabel = "attack1";
 		}
+			
+		allPlayers = FindObjectsOfType<FighterClass>();
+		foreach (FighterClass cc in allPlayers){
+			if (player.teamNumber == cc.teamNumber && player.playerNumber != cc.playerNumber){
+				teamMate.Add(cc);
+			}
+		}
+		foreach (FighterClass team in teamMate) {
+			IgnoreFighter (gameObject, team.gameObject, true);
+		}
+		myCoatColor.material = playerColors[player.playerNumber - 1];
 	}
+
+	private void Update(){
+		tempDist = Vector3.Distance(transform.position, teamMate[0].transform.position);
+
+		if (tempDist < closeDist){
+			transform.position = Vector3.MoveTowards(transform.position, teamMate[0].transform.position, (-1 * Time.deltaTime) / 2);
+		}
+		foreach (GameObject enemy in player.lockOnTargets) {
+			if (Mathf.Abs (player.transform.position.x - enemy.transform.position.x) <= enemyDist && player.GetComponent<CharacterController> ().isGrounded && player.transform.position.y - enemy.transform.position.y > 1) {
+				Debug.Log ("HeadTriggered");
+				transform.Translate ((Vector3.back * speed)* Time.deltaTime);
+			} 
+		}
+	}
+
+
 	private void OnCollisionEnter(Collision col){
 		foreach (ContactPoint contact in col.contacts) {
 			if (player.canRecieveDamage) {
@@ -136,6 +173,9 @@ public class HitDetection : MonoBehaviour {
 			}
 		}
 	}
+
+
+
 	public void OnTriggerEnter(Collider col){
 		Debug.Log ("Projectile Hit");
 		if (col.gameObject.tag == attackerLabel) {
@@ -157,6 +197,9 @@ public class HitDetection : MonoBehaviour {
 			}
 		}
 	}
+
+
+
 	public void ReceiveBlockedDamage(FighterClass.AttackStats recievedAttack){
 		player.anim.SetTrigger("Light Damage");
 		player.canRecieveDamage = false;
@@ -184,12 +227,12 @@ public class HitDetection : MonoBehaviour {
 			player.superMeter += breakdownBlock;
 			break;
 		}
-
-
 		Debug.Log("HitBox of Team " + player.teamNumber + " Hit for " + recievedAttack.attDam + " points of damage");
 		StartCoroutine (hitDelay (player, recievedAttack.knockBackDirection,recievedAttack.knockBackForce));
-
 	}
+
+
+
 	public void ReceiveDamage(FighterClass.AttackStats recievedAttack){
 		//player.anim.SetTrigger("GetHit");
 		if (recievedAttack.damageType == FighterClass.DamageType.Hit) {
@@ -227,9 +270,10 @@ public class HitDetection : MonoBehaviour {
 		}
 		Debug.Log("HitBox of Team " + player.teamNumber + " Hit for " + recievedAttack.attDam + " points of damage",gameObject);
 		StartCoroutine (hitDelay (player,recievedAttack.knockBackDirection, recievedAttack.knockBackForce));
-
-
 	}
+
+
+
 	IEnumerator hitDelay(FighterClass player, Vector3 kbDirection, float kbForce){
 		movement.dashing = true;
 		movement.character.enabled = false;
@@ -257,4 +301,20 @@ public class HitDetection : MonoBehaviour {
 		hitSpark.SetActive (false);
 	}
 
+
+
+	public void IgnoreFighter(GameObject ignoree, GameObject ignored, bool isIgnored){
+		//Box Collider
+		Physics.IgnoreCollision (ignoree.GetComponent<BoxCollider> (), ignored.GetComponent<BoxCollider> (), isIgnored);
+		Physics.IgnoreCollision (ignoree.GetComponent<BoxCollider> (), ignored.GetComponent<CapsuleCollider> (), isIgnored);
+		Physics.IgnoreCollision (ignoree.GetComponent<BoxCollider> (), ignored.GetComponent<CharacterController> (), isIgnored);
+		//CapsuleCollider
+		Physics.IgnoreCollision (ignoree.GetComponent<CapsuleCollider> (), ignored.GetComponent<BoxCollider> (), isIgnored);
+		Physics.IgnoreCollision (ignoree.GetComponent<CapsuleCollider> (), ignored.GetComponent<CapsuleCollider> (), isIgnored);
+		Physics.IgnoreCollision (ignoree.GetComponent<CapsuleCollider> (), ignored.GetComponent<CharacterController> (), isIgnored);
+		//CharacterController
+		Physics.IgnoreCollision (ignoree.GetComponent<CharacterController> (), ignored.GetComponent<BoxCollider> (), isIgnored);
+		Physics.IgnoreCollision (ignoree.GetComponent<CharacterController> (), ignored.GetComponent<CapsuleCollider> (), isIgnored);
+		Physics.IgnoreCollision (ignoree.GetComponent<CharacterController> (), ignored.GetComponent<CharacterController> (), isIgnored);
+	}
 }
