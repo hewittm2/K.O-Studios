@@ -403,7 +403,7 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
     {
         SetVars(coup);
         self.coupDeGraceActivated = true;
-        //    self.anim.SetTrigger("Win Pose"); Play Win Pose here??
+        self.anim.SetTrigger("Win Pose"); //Play Win Pose here??
         //Wait for teammate input here
         ActivateMiniStars();
         CoupEnemyCheck();
