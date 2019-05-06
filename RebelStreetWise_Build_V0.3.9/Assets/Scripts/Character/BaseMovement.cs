@@ -16,6 +16,7 @@ public class BaseMovement : MonoBehaviour
 	public float forwardDashSpeed;
 	public float backDashSpeed;
 	public bool dashing;
+	public float dashCD;
 	//Jump
     public float vertJumpForce;
 	public float horiJumpForce;
@@ -142,16 +143,16 @@ public class BaseMovement : MonoBehaviour
 		if(!dashing){
 			if (fighter.facingRight) {
 				if (input > 0) {
-					StartCoroutine (Dashing (1,forwardDashSpeed));
+					StartCoroutine (Dodge (forwardDashSpeed));
 					return;
 				} else {
-					StartCoroutine (Dashing (-1,backDashSpeed));
+					StartCoroutine (Dodge (-backDashSpeed));
 				}
 			} else {
 				if (input < 0) {
-					StartCoroutine (Dashing (-1,forwardDashSpeed));
+					StartCoroutine (Dodge (-forwardDashSpeed));
 				} else {
-					StartCoroutine (Dashing (1,backDashSpeed));
+					StartCoroutine (Dodge (backDashSpeed));
 				}
 			}
 		}
@@ -175,6 +176,13 @@ public class BaseMovement : MonoBehaviour
         dashing = false;
 		fighter.canMove = true;
     }
+	IEnumerator Dodge(float dashSpeed){
+		//verticalVelocity = vertJumpForce;
+		//jump = new Vector2(0, verticalVelocity);
+		character.Move(new Vector2(dashSpeed, 0));
+		yield return new WaitForSeconds (dashCD);
+		fighter.canMove = true;
+	}
 
     public void Duck(){
         if (Input.GetKey(KeyCode.S)){
