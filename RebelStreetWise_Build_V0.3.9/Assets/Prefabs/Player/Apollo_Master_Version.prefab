@@ -5728,7 +5728,7 @@ MonoBehaviour:
   breakdownBlock: 0
   tempDist: 0
   closeDist: 2
-  enemyDist: 2
+  enemyDist: 5
   speed: 2
   myCoatColor: {fileID: 137857300056826364}
   playerColors:

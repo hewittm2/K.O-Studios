@@ -172,7 +172,7 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
 		self.output.damageType = _SetVar.damageType;
 		self.output.hitType = _SetVar.hitType;
     }
-    void SetVarsClear()
+    void SetVarsCleart()
     {
         self.output.meterGain = 0;
         self.output.hitType = FighterClass.HitType.Light;
@@ -231,7 +231,7 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
         yield return new WaitForSeconds(active);
         backHitBox.SetActive(false);
         backParticle.SetActive(false);
-        SetVarsClear();
+   //     SetVarsClear();
     }
     //---------------------------------------------------
     public override void ForwardSA(SpecialAttacks forward)
