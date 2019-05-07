@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿//Ethan Quandt 
+//Edited 5/6/19
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,14 +17,16 @@ public class BaseMovement : MonoBehaviour
 	//Dash
 	public float forwardDashSpeed;
 	public float backDashSpeed;
+	float dashSpeed;
 	public bool dashing;
+	public float dashCD;
 	//Jump
     public float vertJumpForce;
 	public float horiJumpForce;
 	public float jumpCD;
     float verticalVelocity;
 	Vector2 jump;
-
+	HitDetection hitDetect;
 
 	//RequiredComponents
 	[HideInInspector]
@@ -43,7 +47,7 @@ public class BaseMovement : MonoBehaviour
 		rigid = gameObject.GetComponent<Rigidbody>();
         character = gameObject.GetComponent<CharacterController>();
 		fighter = this.gameObject.GetComponent<FighterClass> ();
-
+		hitDetect = gameObject.GetComponent<HitDetection> ();
         for(int i = 0; i < 2; i++){
             centerArray[i] = character.center - new Vector3(0, centerOffset, 0);
             radiusArray[i] = character.radius / (i + 1);
@@ -54,7 +58,7 @@ public class BaseMovement : MonoBehaviour
     }
 
     private void Update(){
-		input = new Vector2 (Input.GetAxis(fighter.controllerVariables.horiInput), Input.GetAxis(fighter.controllerVariables.horiInput));
+		input = new Vector2 (Input.GetAxis(fighter.controllerVariables.horiInput), Input.GetAxis(fighter.controllerVariables.vertInput));
 		if (fighter.facingRight) {
 			if (input.x < 0) {
 				moveSpeed = backMoveSpeed;
@@ -68,10 +72,19 @@ public class BaseMovement : MonoBehaviour
 				moveSpeed = forwardMoveSpeed;
 			}
 		}
+	
 		movement = new Vector2(input.x * moveSpeed, verticalVelocity);
 		movement = Vector2.ClampMagnitude(movement, moveSpeed);
-		movement *= Time.deltaTime;
-		ApplyGravOnly();
+		if (dashing) {
+			movement.x = dashSpeed;
+			movement *= Time.deltaTime;
+			character.Move(movement);
+		} else {
+			movement *= Time.deltaTime;
+			ApplyGravOnly();
+		}
+
+
     }
 
 	public void ApplyGravOnly(){
@@ -85,17 +98,13 @@ public class BaseMovement : MonoBehaviour
             {
                 verticalVelocity += gravity * Time.deltaTime;
             }
-            if (!dashing)
-            {
-                if (character.isGrounded)
-                {
-                    character.Move(new Vector2(0, verticalVelocity));
-                }
-                else
-                {
-                    character.Move(new Vector2(jump.x, verticalVelocity));
-                }
-            }
+			if (!dashing) {
+				if (character.isGrounded) {
+					character.Move (new Vector2 (0, verticalVelocity));
+				} else {
+					character.Move (new Vector2 (jump.x, verticalVelocity));
+				}
+			}
         }
 	}
 
@@ -113,6 +122,7 @@ public class BaseMovement : MonoBehaviour
 		yield return new WaitForSeconds (jumpCD);
 		fighter.canMove = true;
 	}
+	//Ethan
 	public void DiagonalJump(){
 		StartCoroutine (DiagonalJumping());
 	}
@@ -136,63 +146,81 @@ public class BaseMovement : MonoBehaviour
 		yield return new WaitForSeconds (jumpCD);
 		fighter.canMove = true;
 	}
-    //HEY THIS WORKS TOO! //Ethan, Mike, Jacob, Cale, Too Awesome, Put me in the credits, I want royalties
+	//Ethan
 	public void Dash(float input){
 		//print ("x = " + input);
 		if(!dashing){
+			dashing = true;
 			if (fighter.facingRight) {
 				if (input > 0) {
-					StartCoroutine (Dashing (1,forwardDashSpeed));
+					dashSpeed = forwardDashSpeed;
+					StartCoroutine (Dashing (dashSpeed));
 					return;
 				} else {
-					StartCoroutine (Dashing (-1,backDashSpeed));
+					dashSpeed = -backDashSpeed;
+					StartCoroutine (Dashing (dashSpeed));
 				}
 			} else {
 				if (input < 0) {
-					StartCoroutine (Dashing (-1,forwardDashSpeed));
+					dashSpeed = -forwardDashSpeed;
+					StartCoroutine (Dashing (dashSpeed));
 				} else {
-					StartCoroutine (Dashing (1,backDashSpeed));
+					dashSpeed = backDashSpeed;
+					StartCoroutine (Dashing (dashSpeed));
 				}
 			}
 		}
     }
 
     //Part of Dash
-	IEnumerator Dashing(int direction, float dashSpeed){
-        dashing = true;
-		character.enabled = false;
-		rigid.constraints = RigidbodyConstraints.None;
-		rigid.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionZ;
-		rigid.velocity = new Vector3(0, 0, 0);
-		rigid.angularVelocity = new Vector3(0, 0, 0);
-		rigid.velocity += (new Vector3(dashSpeed * direction,0, 0));
-        yield return new WaitForSeconds(dashSpeed/100);
-		rigid.velocity = new Vector3(0, 0, 0);
-        rigid.angularVelocity = new Vector3(0, 0, 0);
-        yield return new WaitForSeconds(.01f);
-		rigid.constraints = RigidbodyConstraints.FreezeAll;
-		character.enabled = true;
-        dashing = false;
+//	IEnumerator Dashing(int direction, float dashSpeed){
+//        dashing = true;
+//		character.enabled = false;
+//		rigid.constraints = RigidbodyConstraints.None;
+//		rigid.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionZ;
+//		rigid.velocity = new Vector3(0, 0, 0);
+//		rigid.angularVelocity = new Vector3(0, 0, 0);
+//		rigid.velocity += (new Vector3(dashSpeed * direction,0, 0));
+//        yield return new WaitForSeconds(dashSpeed/100);
+//		rigid.velocity = new Vector3(0, 0, 0);
+//        rigid.angularVelocity = new Vector3(0, 0, 0);
+//        yield return new WaitForSeconds(.01f);
+//		rigid.constraints = RigidbodyConstraints.FreezeAll;
+//		character.enabled = true;
+//        dashing = false;
+//		fighter.canMove = true;
+//    }
+	//Ethan
+	IEnumerator Dashing(float dashSpeed){
+		foreach (GameObject enemy in fighter.lockOnTargets) {
+			hitDetect.IgnoreFighter (fighter.gameObject, enemy, true);
+		}
+		yield return new WaitForSeconds (dashCD);
+		foreach (GameObject enemy in fighter.lockOnTargets) {
+			hitDetect.IgnoreFighter (fighter.gameObject, enemy, false);
+		}
+		fighter.anim.SetTrigger ("Idle");
 		fighter.canMove = true;
-    }
+		dashing = false;
+	}
 
-    public void Duck(){
-        if (Input.GetKey(KeyCode.S)){
-            Debug.Log("duck (also beans)");
-            character.center = centerArray[1];
-            character.radius = radiusArray[1];
-            character.height = heightArray[1];
-        }
-        else{
-            character.center = centerArray[0];
-            character.radius = radiusArray[0];
-            character.height = heightArray[0];
-        }
-    }
+//    public void Duck(){
+//        if (Input.GetKey(KeyCode.S)){
+//            Debug.Log("duck (also beans)");
+//            character.center = centerArray[1];
+//            character.radius = radiusArray[1];
+//            character.height = heightArray[1];
+//        }
+//        else{
+//            character.center = centerArray[0];
+//            character.radius = radiusArray[0];
+//            character.height = heightArray[0];
+//        }
+//    }
 
-    public void Block(){
-        //just block how hard can it be
-    }
+//    public void Block(){
+//        //just block how hard can it be
+//    }
 
     private void OnTriggerEnter(Collider other){
         if (other.gameObject.tag == "Wall"){

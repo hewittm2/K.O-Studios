@@ -1,5 +1,5 @@
 ﻿//Created By Ethan Quandt 8/29/18
-//Edited 5/4/19
+//Edited 5/6/19
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -311,6 +311,7 @@ public class FighterClass : MonoBehaviour {
 					canMove = false;
 					anim.speed = moveAnimSpeeds.forwardDash;
 					movement.Dash (Input.GetAxis(controllerVariables.horiInput));
+					anim.SetBool ("Walking", false);
 					anim.SetTrigger ("Dash");
 				} else {
 					movement.Walk ();
@@ -345,6 +346,7 @@ public class FighterClass : MonoBehaviour {
 					canMove = false;
 					anim.speed = moveAnimSpeeds.forwardDash;
 					movement.Dash (Input.GetAxis(controllerVariables.horiInput));
+					anim.SetBool ("Walking", false);
 					anim.SetTrigger ("Dash");
 				} else {
 					anim.speed = moveAnimSpeeds.forwardWalk;
@@ -385,6 +387,7 @@ public class FighterClass : MonoBehaviour {
 					canMove = false;
 					anim.speed = moveAnimSpeeds.backwardDash;
 					movement.Dash (Input.GetAxis(controllerVariables.horiInput));
+					anim.SetBool ("Walking Backwards", false);
 					anim.SetTrigger ("Dash");
 
 				} else {
@@ -426,6 +429,7 @@ public class FighterClass : MonoBehaviour {
 					canMove = false;
 					anim.speed = moveAnimSpeeds.backwardDash;
 					movement.Dash (Input.GetAxis(controllerVariables.horiInput));
+					anim.SetBool ("Walking Backwards", false);
 					anim.SetTrigger ("Dash");
 				} else {
 					anim.speed = moveAnimSpeeds.backwardWalk;
@@ -474,9 +478,9 @@ public class FighterClass : MonoBehaviour {
 		} else if (Input.GetAxis (controllerVariables.vertInput) < -controllerVariables.vertDeadZone && Input.GetAxis(controllerVariables.horiInput) < controllerVariables.horiDeadZone && Input.GetAxis(controllerVariables.horiInput) > -controllerVariables.horiDeadZone && movement.character.isGrounded) {
 			if (breakDownStep2) {
 				breakDownStep3 = true;
-                Debug.Log("Yolo");
+                //Debug.Log("Yolo");
 			}
-			Debug.Log ("duck");
+			//Debug.Log ("duck");
 			blocking = true;
 			anim.speed = moveAnimSpeeds.crouch;
 			anim.SetBool ("Crouching Idle", true);
