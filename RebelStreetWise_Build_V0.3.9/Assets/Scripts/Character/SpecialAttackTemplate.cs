@@ -11,10 +11,9 @@ public class SpecialAttackTemplate : MonoBehaviour
     {
 		[Range(.1f, 2f)]
 		public float animSpeed;
-		public FighterClass.HitHeight hitHeight;
+       
         public FighterClass.HitType hitType;
         public FighterClass.DamageType damageType;
-		public FighterClass.delayType delayType;
         public Vector3 knockback;
         public float knockbackForce;
 		public int meterGain;
@@ -23,8 +22,7 @@ public class SpecialAttackTemplate : MonoBehaviour
         public float activeTime;
         public int stunTime;
         public float recoveryTime;
-        public GameObject objects;
-		public ParticleSystem partEffect;
+        public GameObject partEffect;
     }
 
     [System.Serializable]

@@ -9,33 +9,20 @@ public class ProjectileFighterReference : MonoBehaviour
 {
     public FighterClass fighter;
 	public FighterClass.AttackStats output;
-	[Range(-20,20)]
-	public float xSpeed;
-	[Range(-20,20)]
-	public float ySpeed;
-	public bool hit;
 
-    private void OnEnable(){
-		hit = false;
+    private void OnEnable()
+    {
         if (fighter == null)
+        {
             fighter = GetComponentInParent<FighterClass>();
-
-		if (gameObject.tag == "Untagged") {
-			if (fighter.teamNumber == 1) 
-				gameObject.tag = "attack1";
-			else
-				gameObject.tag = "attack2";	
-		}
-		if (fighter.coupDeGraceActivated)
-			GetComponent<Rigidbody> ().AddForce (xSpeed * 100, ySpeed * 50, 0);
-
-
+        }
 		output = fighter.output;
      
     }
 	private void OnDisable(){
 		output = null;
 	}
+<<<<<<< HEAD
 <<<<<<< HEAD
 	private void OnTriggerEnter(Collider col){
 		if (col.GetComponent<FighterClass> () != null) {
@@ -51,4 +38,6 @@ public class ProjectileFighterReference : MonoBehaviour
 	}
 =======
 >>>>>>> parent of a3e2d5d... 2 script updates
+=======
+>>>>>>> parent of 8be7939... Merge branch 'Master_Implementation' of https://github.com/hewittm2/K.O-Studios into Master_Implementation
 }
