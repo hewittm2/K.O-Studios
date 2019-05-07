@@ -54,12 +54,12 @@ public class BaseMovement : MonoBehaviour
             heightArray[i] = character.height / (i + 1);
             centerOffset = 0.25f;
         }
-        fightLine = GameObject.Find("FightLine");
-        rightBoundingWall = GameObject.Find("RightBoundary");
-        leftBoundingWall = GameObject.Find("LeftBoundary");
-        rend = fightLine.GetComponent<Renderer>();
-        leftWallRend = leftBoundingWall.GetComponent<Renderer>();
-        rightWallRend = rightBoundingWall.GetComponent<Renderer>();
+        //fightLine = GameObject.Find("FightLine");
+        //rightBoundingWall = GameObject.Find("RightBoundary");
+        //leftBoundingWall = GameObject.Find("LeftBoundary");
+        //rend = fightLine.GetComponent<Renderer>();
+        //leftWallRend = leftBoundingWall.GetComponent<Renderer>();
+        //rightWallRend = rightBoundingWall.GetComponent<Renderer>();
     }
 
     private void Update(){
