@@ -116,6 +116,7 @@ NavMeshSettings:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &17576682
 =======
 --- !u!1 &18012671
@@ -123,12 +124,16 @@ NavMeshSettings:
 =======
 --- !u!1 &18012671
 >>>>>>> parent of b61ff4f... Merge remote-tracking branch 'origin/5/2-Playtest' into Master_Implementation
+=======
+--- !u!1 &18012671
+>>>>>>> parent of a10463e... Collision check and color swap
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   - component: {fileID: 17576683}
@@ -141,12 +146,15 @@ GameObject:
 =======
 =======
 >>>>>>> parent of b61ff4f... Merge remote-tracking branch 'origin/5/2-Playtest' into Master_Implementation
+=======
+>>>>>>> parent of a10463e... Collision check and color swap
   - component: {fileID: 18012675}
   - component: {fileID: 18012674}
   - component: {fileID: 18012673}
   - component: {fileID: 18012672}
   m_Layer: 0
   m_Name: Guard Rails
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> parent of b61ff4f... Merge remote-tracking branch 'origin/5/2-Playtest' into Master_Implementation
 =======
@@ -255,11 +263,14 @@ GameObject:
   - component: {fileID: 34132926}
   m_Layer: 5
   m_Name: Fill Area
+=======
+>>>>>>> parent of a10463e... Collision check and color swap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD
 --- !u!224 &34132926
 RectTransform:
   m_ObjectHideFlags: 0
@@ -469,6 +480,8 @@ CanvasRenderer:
 =======
 =======
 >>>>>>> parent of b61ff4f... Merge remote-tracking branch 'origin/5/2-Playtest' into Master_Implementation
+=======
+>>>>>>> parent of a10463e... Collision check and color swap
 --- !u!65 &18012672
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -537,9 +550,12 @@ Transform:
   m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> parent of b61ff4f... Merge remote-tracking branch 'origin/5/2-Playtest' into Master_Implementation
 =======
 >>>>>>> parent of b61ff4f... Merge remote-tracking branch 'origin/5/2-Playtest' into Master_Implementation
+=======
+>>>>>>> parent of a10463e... Collision check and color swap
 --- !u!1 &301779977 stripped
 >>>>>>> parent of d858289... Pause Menu / Confirmation Popup
 GameObject:
@@ -1511,37 +1527,53 @@ Prefab:
       propertyPath: spawns.Array.data[0]
       value: 
 <<<<<<< HEAD
+<<<<<<< HEAD
       objectReference: {fileID: 1766737748}
 =======
       objectReference: {fileID: 0}
 >>>>>>> parent of 1fb866e... Fix spawns in Solaris
+=======
+      objectReference: {fileID: 1766737748}
+>>>>>>> parent of a10463e... Collision check and color swap
     - target: {fileID: 114890020340145630, guid: 45b66e36e66eb55499684ad6a675cb2a,
         type: 2}
       propertyPath: spawns.Array.data[1]
       value: 
 <<<<<<< HEAD
+<<<<<<< HEAD
       objectReference: {fileID: 2146915796}
 =======
       objectReference: {fileID: 0}
 >>>>>>> parent of 1fb866e... Fix spawns in Solaris
+=======
+      objectReference: {fileID: 2146915796}
+>>>>>>> parent of a10463e... Collision check and color swap
     - target: {fileID: 114890020340145630, guid: 45b66e36e66eb55499684ad6a675cb2a,
         type: 2}
       propertyPath: spawns.Array.data[2]
       value: 
 <<<<<<< HEAD
+<<<<<<< HEAD
       objectReference: {fileID: 1595353922}
 =======
       objectReference: {fileID: 0}
 >>>>>>> parent of 1fb866e... Fix spawns in Solaris
+=======
+      objectReference: {fileID: 1595353922}
+>>>>>>> parent of a10463e... Collision check and color swap
     - target: {fileID: 114890020340145630, guid: 45b66e36e66eb55499684ad6a675cb2a,
         type: 2}
       propertyPath: spawns.Array.data[3]
       value: 
 <<<<<<< HEAD
+<<<<<<< HEAD
       objectReference: {fileID: 1876466238}
 =======
       objectReference: {fileID: 0}
 >>>>>>> parent of 1fb866e... Fix spawns in Solaris
+=======
+      objectReference: {fileID: 1876466238}
+>>>>>>> parent of a10463e... Collision check and color swap
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45b66e36e66eb55499684ad6a675cb2a, type: 2}
   m_IsPrefabAsset: 0
