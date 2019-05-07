@@ -146,18 +146,7 @@ public class FighterClass : MonoBehaviour {
 	float comboTimerEnd = 0;
 	StageManager stageManager;
 	public Animator anim;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 
-
-
->>>>>>> parent of c6a4660... Merge branch 'UI-SaferSpace' of https://github.com/hewittm2/K.O-Studios into UI-SaferSpace
-=======
-
-
-
->>>>>>> parent of 8be7939... Merge branch 'Master_Implementation' of https://github.com/hewittm2/K.O-Studios into Master_Implementation
     private bool canRestart = true;
 
 	void Start () {

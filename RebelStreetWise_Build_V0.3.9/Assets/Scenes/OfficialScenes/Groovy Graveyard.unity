@@ -157,22 +157,22 @@ Prefab:
         type: 2}
       propertyPath: spawns.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2075142245}
     - target: {fileID: 114890020340145630, guid: 45b66e36e66eb55499684ad6a675cb2a,
         type: 2}
       propertyPath: spawns.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2075142244}
     - target: {fileID: 114890020340145630, guid: 45b66e36e66eb55499684ad6a675cb2a,
         type: 2}
       propertyPath: spawns.Array.data[2]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2075142243}
     - target: {fileID: 114890020340145630, guid: 45b66e36e66eb55499684ad6a675cb2a,
         type: 2}
       propertyPath: spawns.Array.data[3]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2075142242}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45b66e36e66eb55499684ad6a675cb2a, type: 2}
   m_IsPrefabAsset: 0
@@ -307,6 +307,36 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 154300929969232910, guid: bf2bacbe48f2ca0418618862af205f01,
+        type: 2}
+      propertyPath: m_EnableTreeColliders
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 154300929969232910, guid: bf2bacbe48f2ca0418618862af205f01,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf2bacbe48f2ca0418618862af205f01, type: 2}
   m_IsPrefabAsset: 0
+--- !u!4 &2075142242 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4123188228678162, guid: bf2bacbe48f2ca0418618862af205f01,
+    type: 2}
+  m_PrefabInternal: {fileID: 2075142241}
+--- !u!4 &2075142243 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4933703924573724, guid: bf2bacbe48f2ca0418618862af205f01,
+    type: 2}
+  m_PrefabInternal: {fileID: 2075142241}
+--- !u!4 &2075142244 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4403507219553840, guid: bf2bacbe48f2ca0418618862af205f01,
+    type: 2}
+  m_PrefabInternal: {fileID: 2075142241}
+--- !u!4 &2075142245 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4311750220576854, guid: bf2bacbe48f2ca0418618862af205f01,
+    type: 2}
+  m_PrefabInternal: {fileID: 2075142241}
