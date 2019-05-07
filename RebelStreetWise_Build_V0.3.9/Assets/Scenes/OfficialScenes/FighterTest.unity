@@ -114,8 +114,11 @@ NavMeshSettings:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &17576682
 =======
+=======
+>>>>>>> parent of a10463e... Collision check and color swap
 --- !u!1 &18012671
 GameObject:
   m_ObjectHideFlags: 0
@@ -722,6 +725,7 @@ CanvasRenderer:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1449911577732726, guid: e42789cd3d7dcf3429a061db8fba8cc7,
     type: 2}
+<<<<<<< HEAD
   m_PrefabInternal: {fileID: 365983487}
 --- !u!1 &57886854
 GameObject:
@@ -816,11 +820,28 @@ GameObject:
   - component: {fileID: 60967768}
   m_Layer: 5
   m_Name: Background
+=======
+  m_PrefabInternal: {fileID: 596879825}
+--- !u!1 &884226238
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 884226242}
+  - component: {fileID: 884226241}
+  - component: {fileID: 884226240}
+  - component: {fileID: 884226239}
+  m_Layer: 0
+  m_Name: Guard Rails (1)
+>>>>>>> parent of a10463e... Collision check and color swap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD
 --- !u!224 &60967767
 RectTransform:
   m_ObjectHideFlags: 0
@@ -929,6 +950,77 @@ RectTransform:
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &162560521
 MonoBehaviour:
+=======
+--- !u!65 &884226239
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 884226238}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &884226240
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 884226238}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &884226241
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 884226238}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &884226242
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 884226238}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -12.140921, y: -9.629466, z: -2.5}
+  m_LocalScale: {x: 135, y: 92, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1276403064}
+  m_RootOrder: 30
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1064831208
+Prefab:
+>>>>>>> parent of a10463e... Collision check and color swap
   m_ObjectHideFlags: 0
 <<<<<<< HEAD
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1961,6 +2053,7 @@ GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 1932845327247132, guid: bfe8324b761116545b7d998b6567db60,
     type: 2}
+<<<<<<< HEAD
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 6
   m_Component:
@@ -2010,6 +2103,16 @@ MonoBehaviour:
   m_UseGraphicAlpha: 1
 --- !u!114 &209940030
 MonoBehaviour:
+=======
+  m_PrefabInternal: {fileID: 1437616259}
+--- !u!4 &1276403064 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4500348845031628, guid: dff98ee80e280c1469943864255eead9,
+    type: 2}
+  m_PrefabInternal: {fileID: 2004812691}
+--- !u!1001 &1355438515
+Prefab:
+>>>>>>> parent of a10463e... Collision check and color swap
   m_ObjectHideFlags: 0
 <<<<<<< HEAD
   m_CorrespondingSourceObject: {fileID: 114499888313653564, guid: bfe8324b761116545b7d998b6567db60,
@@ -2062,28 +2165,36 @@ MonoBehaviour:
         type: 2}
       propertyPath: spawns.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1766737748}
     - target: {fileID: 114890020340145630, guid: 45b66e36e66eb55499684ad6a675cb2a,
         type: 2}
       propertyPath: spawns.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2146915796}
     - target: {fileID: 114890020340145630, guid: 45b66e36e66eb55499684ad6a675cb2a,
 >>>>>>> parent of 1fb866e... Fix spawns in Solaris
         type: 2}
       propertyPath: cam
       value: 
 <<<<<<< HEAD
+<<<<<<< HEAD
       objectReference: {fileID: 1576138339}
 >>>>>>> parent of b61ff4f... Merge remote-tracking branch 'origin/5/2-Playtest' into Master_Implementation
 =======
       objectReference: {fileID: 0}
+=======
+      objectReference: {fileID: 1595353922}
+>>>>>>> parent of a10463e... Collision check and color swap
     - target: {fileID: 114890020340145630, guid: 45b66e36e66eb55499684ad6a675cb2a,
         type: 2}
       propertyPath: spawns.Array.data[3]
       value: 
+<<<<<<< HEAD
       objectReference: {fileID: 0}
 >>>>>>> parent of 1fb866e... Fix spawns in Solaris
+=======
+      objectReference: {fileID: 1876466238}
+>>>>>>> parent of a10463e... Collision check and color swap
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c031e80ae0eff6c48b0b8e9d4510eec6, type: 2}
   m_IsPrefabAsset: 0
@@ -12428,6 +12539,7 @@ CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 222132637588371342, guid: bfe8324b761116545b7d998b6567db60,
     type: 2}
+<<<<<<< HEAD
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2050526768}
   m_CullTransparentMesh: 0
@@ -12435,6 +12547,112 @@ CanvasRenderer:
 =======
 =======
 >>>>>>> parent of b695fec... Fixed Fight Button Bug, Added BoomBox and added Killer Queen to Main Menu
+  m_PrefabInternal: {fileID: 1619322993}
+  m_Script: {fileID: 11500000, guid: 423c51d860d610343803c35d6830e9b0, type: 3}
+--- !u!1001 &1670531110
+=======
+  m_PrefabInternal: {fileID: 1064831208}
+--- !u!1 &1595353921
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1595353922}
+  m_Layer: 0
+  m_Name: Spawn Location 3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1595353922
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1595353921}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1682580511}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1619322993
+>>>>>>> parent of a10463e... Collision check and color swap
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1276403064}
+    m_Modifications:
+    - target: {fileID: 400004, guid: ea834451191a9e24586ee272b0a8b4ba, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -13.17292
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: ea834451191a9e24586ee272b0a8b4ba, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -10.198466
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: ea834451191a9e24586ee272b0a8b4ba, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 20.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: ea834451191a9e24586ee272b0a8b4ba, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: ea834451191a9e24586ee272b0a8b4ba, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: ea834451191a9e24586ee272b0a8b4ba, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: ea834451191a9e24586ee272b0a8b4ba, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: ea834451191a9e24586ee272b0a8b4ba, type: 3}
+      propertyPath: m_RootOrder
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: ea834451191a9e24586ee272b0a8b4ba, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: ea834451191a9e24586ee272b0a8b4ba, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: ea834451191a9e24586ee272b0a8b4ba, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: ea834451191a9e24586ee272b0a8b4ba, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: ea834451191a9e24586ee272b0a8b4ba, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a66509f53f7e35049a54b64f6bfe06c0, type: 2}
+    - target: {fileID: 2300002, guid: ea834451191a9e24586ee272b0a8b4ba, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 056a35397c15bd24e8375e229f91c00f, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ea834451191a9e24586ee272b0a8b4ba, type: 3}
+  m_IsPrefabAsset: 0
+<<<<<<< HEAD
+=======
+--- !u!114 &1619322994 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114598124416622186, guid: 46ec29aa4901f5245b46bfd861ec5760,
+    type: 2}
   m_PrefabInternal: {fileID: 1619322993}
   m_Script: {fileID: 11500000, guid: 423c51d860d610343803c35d6830e9b0, type: 3}
 --- !u!1001 &1670531110
@@ -12503,6 +12721,7 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea834451191a9e24586ee272b0a8b4ba, type: 3}
   m_IsPrefabAsset: 0
+>>>>>>> parent of a10463e... Collision check and color swap
 --- !u!1 &1682580510
 GameObject:
   m_ObjectHideFlags: 0
@@ -12592,12 +12811,16 @@ GameObject:
   - component: {fileID: 1876466238}
   m_Layer: 0
   m_Name: Spawn Location 4
+<<<<<<< HEAD
 >>>>>>> parent of b61ff4f... Merge remote-tracking branch 'origin/5/2-Playtest' into Master_Implementation
+=======
+>>>>>>> parent of a10463e... Collision check and color swap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD
 <<<<<<< HEAD
 --- !u!224 &2101471216
 RectTransform:
@@ -12642,6 +12865,8 @@ Transform:
 >>>>>>> parent of b695fec... Fixed Fight Button Bug, Added BoomBox and added Killer Queen to Main Menu
   m_PrefabInternal: {fileID: 1854239596}
 =======
+=======
+>>>>>>> parent of a10463e... Collision check and color swap
 --- !u!4 &1876466238
 Transform:
   m_ObjectHideFlags: 0
@@ -12903,10 +13128,14 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 8
 =======
   m_RootOrder: 10
 >>>>>>> parent of b61ff4f... Merge remote-tracking branch 'origin/5/2-Playtest' into Master_Implementation
+=======
+  m_RootOrder: 10
+>>>>>>> parent of a10463e... Collision check and color swap
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2126801890
 GameObject:
@@ -12934,12 +13163,16 @@ GameObject:
   - component: {fileID: 2146915796}
   m_Layer: 0
   m_Name: Spawn Location 2
+<<<<<<< HEAD
 >>>>>>> parent of b61ff4f... Merge remote-tracking branch 'origin/5/2-Playtest' into Master_Implementation
+=======
+>>>>>>> parent of a10463e... Collision check and color swap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD
 <<<<<<< HEAD
 --- !u!224 &2126801891
 RectTransform:
@@ -12997,6 +13230,8 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
 =======
+=======
+>>>>>>> parent of a10463e... Collision check and color swap
 --- !u!4 &2146915796
 Transform:
   m_ObjectHideFlags: 0
@@ -13010,4 +13245,7 @@ Transform:
   m_Father: {fileID: 1682580511}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 >>>>>>> parent of b61ff4f... Merge remote-tracking branch 'origin/5/2-Playtest' into Master_Implementation
+=======
+>>>>>>> parent of a10463e... Collision check and color swap
