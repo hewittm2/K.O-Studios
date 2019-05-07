@@ -26,12 +26,10 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
     public float zSpawn;
     private Vector3 spawn;
     private Rigidbody forwardRigidbody;
-    private bool isForwardActive = false;
 
     [Header("Back Special Custom Variables")][Space(0.5f)]
     public GameObject backHitBox;
     public GameObject backParticle;
-    private bool isBackActive = false;
 
     [Header("Down Special Custom Variables")][Space(0.5f)]
     public GameObject downHitBox;
@@ -156,16 +154,6 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
 		self.output.damageType = _SetVar.damageType;
 		self.output.hitType = _SetVar.hitType;
     }
-    void SetVarsClear()
-    {
-        self.output.meterGain = 0;
-        self.output.hitType = FighterClass.HitType.Light;
-        self.output.hitHeight = FighterClass.HitHeight.High;
-        self.output.damageType = FighterClass.DamageType.Hit;
-        self.output.knockBackDirection = new Vector3(0,0,0);
-        self.output.knockBackForce = 0;
-        self.output.attDam = 0;
-    }
     public override void NeutralSA(SpecialAttacks neutral)
     {
         if (nCooldown == false)
@@ -193,24 +181,19 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
     }
     IEnumerator BackSAC(float wait, float active)
     {
-        isBackActive = true;
         backParticle.SetActive(true);
         yield return new WaitForSeconds(wait);
         backHitBox.SetActive(true);
-        isBackActive = false;
         yield return new WaitForSeconds(active);
         backHitBox.SetActive(false);
         backParticle.SetActive(false);
-        SetVarsClear();
-
     }
     //---------------------------------------------------
     public override void ForwardSA(SpecialAttacks forward)
     {
-        if (isForwardActive == false)
+		SetVars (specialAttackStats.SpecialForward);
+        if (forwardObj.activeInHierarchy == false)
         {
-            isForwardActive = true;
-            SetVars(specialAttackStats.SpecialForward);
             StartCoroutine(ForwardSAC(forward.startupTime, forward.activeTime));
         }
         else
@@ -224,9 +207,8 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
             spawn = new Vector3(transform.position.x + -xSpawn, transform.position.y - ySpawn + 5, transform.position.z + zSpawn);
 
         forwardObj.transform.position = spawn;
-        forwardObj.SetActive(true);
         yield return new WaitForSeconds(wait);
-
+        forwardObj.SetActive(true);
 
         if (self.facingRight == true)
             forwardRigidbody.AddForce(projectileSpeed * 100, 0, 0);
@@ -234,11 +216,11 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
             forwardRigidbody.AddForce(-projectileSpeed * 100, 0, 0);
 
         yield return new WaitForSeconds(active);
-        forwardObj.SetActive(false);
-
-        forwardRigidbody.velocity = Vector3.zero;
-        isForwardActive = false;
-        
+        if (forwardObj.activeInHierarchy == true)
+        {
+            forwardObj.SetActive(false);
+            forwardRigidbody.velocity = Vector3.zero;
+        }
     }
     //---------------------------------------------------
     public override void JumpSA(SpecialAttacks jump)
@@ -247,20 +229,13 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
         {
             SetVars(jump);
             jumpSpecialActive = true;
-
-            StartCoroutine(JumpSAC(jump.startupTime));
+            getGravity.gravity = -downSpeed;
+            customJump.SetActive(true);
         }
         else
         {
             Debug.Log("You're too low to activiate this special attack",gameObject);
         }
-    }
-    IEnumerator JumpSAC(float startup)
-    {
-        getGravity.gravity = 0;
-        yield return new WaitForSeconds(startup);
-        getGravity.gravity = -downSpeed;
-        customJump.SetActive(true);
     }
     //---------------------------------------------------
     public override void DownSA(SpecialAttacks down)
@@ -296,10 +271,6 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
     //---------------------------------------------------
     private void Update()
     {
-        //Back Special 
-        if (backHitBox.activeInHierarchy == false && isBackActive == false)
-            backParticle.SetActive(false);
-
         //Jump Special
         if (jumpSpecialActive && moveCheck.isGrounded)
         {

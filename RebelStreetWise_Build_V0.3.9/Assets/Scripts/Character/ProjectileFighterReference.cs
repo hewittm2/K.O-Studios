@@ -7,9 +7,12 @@ using UnityEngine;
 
 public class ProjectileFighterReference : MonoBehaviour
 {
-    public bool passThrough = false;
     public FighterClass fighter;
 	public FighterClass.AttackStats output;
+	[Range(-20,20)]
+	public float xSpeed;
+	[Range(-20,20)]
+	public float ySpeed;
 	public bool hit;
 
     private void OnEnable(){
@@ -17,22 +20,32 @@ public class ProjectileFighterReference : MonoBehaviour
         if (fighter == null)
             fighter = GetComponentInParent<FighterClass>();
 
+		if (gameObject.tag == "Untagged") {
+			if (fighter.teamNumber == 1) 
+				gameObject.tag = "attack1";
+			else
+				gameObject.tag = "attack2";	
+		}
+		if (fighter.coupDeGraceActivated)
+			GetComponent<Rigidbody> ().AddForce (xSpeed * 100, ySpeed * 50, 0);
+
+
 		output = fighter.output;
      
     }
-	private void OnDisable()
-    {
+	private void OnDisable(){
 		output = null;
 	}
+	private void OnTriggerEnter(Collider col){
+		if (col.GetComponent<FighterClass> () != null) {
+			if (col.GetComponent<FighterClass> ().teamNumber != fighter.teamNumber) {
+				if (fighter.coupDeGraceActivated == false) {
+					gameObject.SetActive (false);
+					GetComponent<Rigidbody> ().velocity = Vector3.zero;
+					hit = true;
+				}
+			}
+		}
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (passThrough == false && other.GetComponent<FighterClass>() != null)
-        {
-            if (other.GetComponent<FighterClass>().teamNumber != fighter.teamNumber)
-            {
-                gameObject.SetActive(false);
-            }
-        }
-    }
+	}
 }
