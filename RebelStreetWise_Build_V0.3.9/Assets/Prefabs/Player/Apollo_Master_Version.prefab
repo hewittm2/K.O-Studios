@@ -5803,7 +5803,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charSprite: {fileID: 21300000, guid: 7a2eaa7dbb1e05b4d971adf4bcab0a07, type: 3}
   playerNumber: 1
-  teamNumber: 1
+  teamNumber: 2
   currentHealth: 0
   totalHealth: 1000
   defValue: 0.5
@@ -5817,7 +5817,7 @@ MonoBehaviour:
       damageType: 0
       knockBackDirection: {x: 1, y: 1, z: 0}
       knockBackForce: 1
-      attDam: 10
+      attDam: 30
       hitBox1: {fileID: 1144687921321024}
       hitBox2: {fileID: 0}
     mediumAttack:
@@ -5828,7 +5828,7 @@ MonoBehaviour:
       damageType: 0
       knockBackDirection: {x: 1, y: 1, z: 0}
       knockBackForce: 1
-      attDam: 15
+      attDam: 60
       hitBox1: {fileID: 1144687921321024}
       hitBox2: {fileID: 0}
     heavyAttack:
@@ -5839,7 +5839,7 @@ MonoBehaviour:
       damageType: 0
       knockBackDirection: {x: 0, y: 0, z: 0}
       knockBackForce: 0
-      attDam: 0
+      attDam: 90
       hitBox1: {fileID: 1144687921321024}
       hitBox2: {fileID: 0}
     jumpLightAttack:
@@ -5850,7 +5850,7 @@ MonoBehaviour:
       damageType: 0
       knockBackDirection: {x: 0, y: 0, z: 0}
       knockBackForce: 0
-      attDam: 0
+      attDam: 30
       hitBox1: {fileID: 1144687921321024}
       hitBox2: {fileID: 0}
     jumpMediumAttack:
@@ -5861,7 +5861,7 @@ MonoBehaviour:
       damageType: 0
       knockBackDirection: {x: 0, y: 0, z: 0}
       knockBackForce: 0
-      attDam: 0
+      attDam: 60
       hitBox1: {fileID: 1144687921321024}
       hitBox2: {fileID: 0}
     jumpHeavyAttack:
@@ -5872,7 +5872,7 @@ MonoBehaviour:
       damageType: 0
       knockBackDirection: {x: 0, y: 0, z: 0}
       knockBackForce: 0
-      attDam: 0
+      attDam: 90
       hitBox1: {fileID: 1144687921321024}
       hitBox2: {fileID: 0}
     crouchLightAttack:
@@ -5883,7 +5883,7 @@ MonoBehaviour:
       damageType: 0
       knockBackDirection: {x: 0, y: 0, z: 0}
       knockBackForce: 0
-      attDam: 0
+      attDam: 30
       hitBox1: {fileID: 1144687921321024}
       hitBox2: {fileID: 0}
     crouchMediumAttack:
@@ -5891,10 +5891,10 @@ MonoBehaviour:
       meterGain: 0
       hitType: 0
       hitHeight: 0
-      damageType: 0
+      damageType: 2
       knockBackDirection: {x: 0, y: 0, z: 0}
       knockBackForce: 0
-      attDam: 0
+      attDam: 60
       hitBox1: {fileID: 1552799746858524}
       hitBox2: {fileID: 0}
     crouchHeavyAttack:
@@ -5905,7 +5905,7 @@ MonoBehaviour:
       damageType: 0
       knockBackDirection: {x: 0, y: 0, z: 0}
       knockBackForce: 0
-      attDam: 0
+      attDam: 90
       hitBox1: {fileID: 1552799746858524}
       hitBox2: {fileID: 0}
   output:
