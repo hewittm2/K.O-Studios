@@ -2054,13 +2054,36 @@ MonoBehaviour:
       value: 6
       objectReference: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     - target: {fileID: 114079056889583868, guid: 2b638f5b78d1e56449f13f6f7bf21db8,
+=======
+    - target: {fileID: 114890020340145630, guid: 45b66e36e66eb55499684ad6a675cb2a,
+        type: 2}
+      propertyPath: spawns.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114890020340145630, guid: 45b66e36e66eb55499684ad6a675cb2a,
+        type: 2}
+      propertyPath: spawns.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114890020340145630, guid: 45b66e36e66eb55499684ad6a675cb2a,
+>>>>>>> parent of 1fb866e... Fix spawns in Solaris
         type: 2}
       propertyPath: cam
       value: 
+<<<<<<< HEAD
       objectReference: {fileID: 1576138339}
 >>>>>>> parent of b61ff4f... Merge remote-tracking branch 'origin/5/2-Playtest' into Master_Implementation
+=======
+      objectReference: {fileID: 0}
+    - target: {fileID: 114890020340145630, guid: 45b66e36e66eb55499684ad6a675cb2a,
+        type: 2}
+      propertyPath: spawns.Array.data[3]
+      value: 
+      objectReference: {fileID: 0}
+>>>>>>> parent of 1fb866e... Fix spawns in Solaris
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c031e80ae0eff6c48b0b8e9d4510eec6, type: 2}
   m_IsPrefabAsset: 0
@@ -12686,7 +12709,10 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dff98ee80e280c1469943864255eead9, type: 2}
   m_IsPrefabAsset: 0
+<<<<<<< HEAD
 >>>>>>> parent of b61ff4f... Merge remote-tracking branch 'origin/5/2-Playtest' into Master_Implementation
+=======
+>>>>>>> parent of 1fb866e... Fix spawns in Solaris
 --- !u!1 &2007281444 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1078263416738332, guid: e42789cd3d7dcf3429a061db8fba8cc7,
