@@ -260,7 +260,8 @@ public class FighterClass : MonoBehaviour {
             }
             if (currentHealth <= 0)
             {
-                matchEnd.Winner(teamNumber);
+                matchTimer = FindObjectOfType<MatchTimer>();
+                matchTimer.RoundEnd();
                 this.enabled = false;
             }
         }

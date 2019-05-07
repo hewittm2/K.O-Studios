@@ -55,9 +55,9 @@ public class BaseMovement : MonoBehaviour
             centerOffset = 0.25f;
         }
 
-        rend = fightLine.GetComponent<Renderer>();
-        leftWallRend = leftBoundingWall.GetComponent<Renderer>();
-        rightWallRend = rightBoundingWall.GetComponent<Renderer>();
+        //rend = fightLine.GetComponent<Renderer>();
+        //leftWallRend = leftBoundingWall.GetComponent<Renderer>();
+        //rightWallRend = rightBoundingWall.GetComponent<Renderer>();
     }
 
     private void Update(){

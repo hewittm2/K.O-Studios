@@ -1716,6 +1716,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4dafb088110cca44b30f0e8a2a6ca70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   player1: {fileID: 1923702049}
   player2: {fileID: 813710495}
   player3: {fileID: 564505185}

@@ -6,9 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class MatchTimer : MonoBehaviour {
 
-
-    public int minTime;
-    public int secTime;
+    public int minTimeSet;
+    public int secTimeSet;
+    private int minTime;
+    private int secTime;
 
     public Text minText;
     public Text secText;
@@ -21,9 +22,16 @@ public class MatchTimer : MonoBehaviour {
     private bool canSet2 = true;
 
     private bool canCount = true;
+
+    public Text countdown;
+    public GameObject count;
     MatchEnd matchEnd;
 
     private IEnumerator Start () {
+        StartCoroutine(CountDown());
+        Time.timeScale = 1;
+        minTime = minTimeSet;
+        secTime = secTimeSet;
         yield return new WaitForSeconds(0.2f);
         if (secTime < 10)
         {
@@ -97,6 +105,7 @@ public class MatchTimer : MonoBehaviour {
         int lowestHealth = Mathf.Min(health1, health2, health3, health4);
 
         FighterClass fc = FindObjectOfType<FighterClass>();
+
         MatchEnd matchEnd = FindObjectOfType<MatchEnd>();
 
         RoundManager roundManager = FindObjectOfType<RoundManager>();
@@ -154,5 +163,15 @@ public class MatchTimer : MonoBehaviour {
             string sceneName = SceneManager.GetActiveScene().name;
             SceneManager.LoadScene(sceneName);
         }
+    }
+    IEnumerator CountDown()
+    {
+        countdown.text = "3";
+        yield return new WaitForSeconds(1);
+        countdown.text = "2";
+        yield return new WaitForSeconds(1);
+        countdown.text = "1";
+        yield return new WaitForSeconds(1);
+        count.SetActive(false);
     }
 }
