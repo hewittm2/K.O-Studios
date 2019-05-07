@@ -3,7 +3,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class CameraSystem : MonoBehaviour
 {
@@ -11,13 +10,13 @@ public class CameraSystem : MonoBehaviour
 
 
     public List<Transform> Characters = new List<Transform>();
-    //public float MinCloseness;
-    //public float MaxCloseness;
+    public float MinCloseness;
+    public float MaxCloseness;
     //default start = 0,1,-4 = FOV 65
     public bool ReadyToTrack = false;
-    //public float MaxDistanceToResize;
-    //public float MinDistanceToResize;
-    //public float resizeIncrement;
+    public float MaxDistanceToResize;
+    public float MinDistanceToResize;
+    public float resizeIncrement;
 
     public List<Transform> furtherstApartPair = new List<Transform>();
     ////lerp vals
@@ -33,10 +32,6 @@ public class CameraSystem : MonoBehaviour
     public Vector3 midpoint;
     public Vector3 cameraDestination;
     public Camera cam;
-
-    public Vector3 SolarisSpawnSpot = new Vector3(2, 0, -40);
-    public Vector3 GroovyGraveyardSpawnSpot = new Vector3(2, 0, -40);
-
     public float distance;
     public float zoomFactor = 1.5f;
     public float followTimeDelta = 0.8f;
@@ -44,32 +39,15 @@ public class CameraSystem : MonoBehaviour
     bool growing = false;
     private float math;
     private float math2;
-    public string SolarisSceneName = "FighterTest";
-    public float SolarisCamHeight = 9;
-    public string GroovySceneName = "Groovy Graveyard";
-    public float GroovyCamHeight = 3;
 
-    private float camHeight = 9;
+    public float camHeight = 9;
 
 
     // Use this for initialization
     void Start()
     {
 
-
-
-        if (SceneManager.GetActiveScene().name == GroovySceneName)
-        {
-            cam.transform.position = GroovyGraveyardSpawnSpot;
-            camHeight = GroovyCamHeight;
-        }
-
-        if (SceneManager.GetActiveScene().name == SolarisSceneName)
-        {
-            cam.transform.position = SolarisSpawnSpot;
-            camHeight = SolarisCamHeight;
-
-        }
+        cam.transform.position = new Vector3(2, 0, -40);
         //Characters.Add (FindObjectOfType<FighterClass>().transform);
         Characters.Clear();
         foreach (FighterClass f in FindObjectsOfType<FighterClass>())
@@ -153,97 +131,81 @@ public class CameraSystem : MonoBehaviour
             cameraDestination = midpoint - cam.transform.forward * distance * zoomFactor;
             cam.transform.position = Vector3.Slerp(cam.transform.position, cameraDestination, followTimeDelta);
 
-            if (SceneManager.GetActiveScene().name == GroovySceneName)
+            //prevents camera from zooming out to far
+            if (cam.transform.position.z < -40)
             {
-                if (cam.transform.position.x > 200)
-                {
-                    cam.transform.position = new Vector3(200, cameraDestination.y, cameraDestination.z);
-                }
-                //prevents camera from zooming in to much
-                if (cam.transform.position.x < 120)
-                {
-                    cam.transform.position = new Vector3(120, cameraDestination.y, cameraDestination.z);
-                }
-
+                cam.transform.position = new Vector3(cameraDestination.x, cameraDestination.y, -40);
             }
-            if (SceneManager.GetActiveScene().name == SolarisSceneName)
+            //prevents camera from zooming in to much
+            if (cam.transform.position.z > -22)
             {
-                //prevents camera from zooming out to far
-                if (cam.transform.position.z < -40)
-                {
-                    cam.transform.position = new Vector3(cameraDestination.x, cameraDestination.y, -40);
-                }
-                //prevents camera from zooming in to much
-                if (cam.transform.position.z > -22)
-                {
-                    cam.transform.position = new Vector3(cameraDestination.x, cameraDestination.y, -22);
-                }
+                cam.transform.position = new Vector3(cameraDestination.x, cameraDestination.y, -22);
+            }
 
 
-                math = 8;
-                //stops from showing beneth stage, the bool and math vars are for smoothing
-                if (cam.transform.position.z < -20)
+            math = 8;
+            //stops from showing beneth stage, the bool and math vars are for smoothing
+            if (cam.transform.position.z < -20)
+            {
+                //camHeight = 8;
+                math = camHeight;
+                math2 = 8.5f;
+                if (cam.transform.position.z < -25)
                 {
-                    //camHeight = 8;
+                    growing = true;
+                    //camHeight = 8.5f;
                     math = camHeight;
-                    math2 = 8.5f;
-                    if (cam.transform.position.z < -25)
+                    math2 = 9f;
+                    if (cam.transform.position.z < -30)
                     {
                         growing = true;
-                        //camHeight = 8.5f;
+                        //camHeight = 9;
                         math = camHeight;
-                        math2 = 9f;
-                        if (cam.transform.position.z < -30)
+                        math2 = 9.5f;
+                        if (cam.transform.position.z < -35)
                         {
                             growing = true;
-                            //camHeight = 9;
+                            //camHeight = 9.5f;
                             math = camHeight;
-                            math2 = 9.5f;
-                            if (cam.transform.position.z < -35)
+                            math2 = 10f;
+                            if (cam.transform.position.z < -38)
                             {
                                 growing = true;
-                                //camHeight = 9.5f;
-                                math = camHeight;
-                                math2 = 10f;
-                                if (cam.transform.position.z < -38)
-                                {
-                                    growing = true;
-                                    camHeight = 10;
-                                }
-                                else
-                                {
-                                    math2 = 9.5f;
-                                    growing = false;
-                                }
+                                camHeight = 10;
                             }
                             else
                             {
-                                math2 = 9;
+                                math2 = 9.5f;
                                 growing = false;
                             }
                         }
                         else
                         {
-                            math2 = 8.5f;
+                            math2 = 9;
                             growing = false;
                         }
                     }
                     else
                     {
-                        math2 = 8;
+                        math2 = 8.5f;
                         growing = false;
                     }
                 }
-                if (growing == true)
+                else
                 {
-                    if (math < math2)
-                        math += .1f;
+                    math2 = 8;
+                    growing = false;
                 }
-                if (growing == false)
-                {
-                    if (math > math2)
-                        math -= .1f;
-                }
+            }
+            if (growing == true)
+            {
+                if (math < math2)
+                    math += .1f;
+            }
+            if (growing == false)
+            {
+                if (math > math2)
+                    math -= .1f;
             }
 
 
