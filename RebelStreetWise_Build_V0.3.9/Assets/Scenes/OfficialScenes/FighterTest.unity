@@ -365,6 +365,7 @@ GameObject:
 =======
   m_PrefabInternal: {fileID: 1437616259}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &442146964
 GameObject:
 <<<<<<< HEAD
@@ -438,6 +439,8 @@ CanvasRenderer:
   m_CullTransparentMesh: 0
 =======
 >>>>>>> parent of aa7fb76... Merge branch 'UI-SaferSpace' into Master_Implementation
+=======
+>>>>>>> parent of 84746c7... Fight UI and Boombox
 --- !u!1001 &549266244
 Prefab:
 >>>>>>> parent of b695fec... Fixed Fight Button Bug, Added BoomBox and added Killer Queen to Main Menu
@@ -2059,6 +2062,7 @@ Prefab:
       propertyPath: optionsCanvas
       value: 
       objectReference: {fileID: 2116097390}
+<<<<<<< HEAD
     - target: {fileID: 114189667954465666, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
         type: 2}
       propertyPath: m_FontData.m_Font
@@ -12930,6 +12934,8 @@ Prefab:
 >>>>>>> parent of c6a4660... Merge branch 'UI-SaferSpace' of https://github.com/hewittm2/K.O-Studios into UI-SaferSpace
       objectReference: {fileID: 0}
 >>>>>>> parent of 52b2942... FightUI
+=======
+>>>>>>> parent of 84746c7... Fight UI and Boombox
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3353b4e495c3c14eb72820b8ed8f617, type: 2}
   m_IsPrefabAsset: 0
