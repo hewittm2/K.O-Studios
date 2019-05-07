@@ -3556,6 +3556,9 @@ MonoBehaviour:
   vertJumpForce: 0.4
   horiJumpForce: 0.4
   jumpCD: 1
+  fightLine: {fileID: 0}
+  rightBoundingWall: {fileID: 0}
+  leftBoundingWall: {fileID: 0}
   character: {fileID: 0}
   fighter: {fileID: 0}
   rigid: {fileID: 0}
