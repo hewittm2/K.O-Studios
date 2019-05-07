@@ -23,9 +23,16 @@ public class BaseMovement : MonoBehaviour
     float verticalVelocity;
 	Vector2 jump;
 
+    //FightLine Reset Objects
+    public GameObject fightLine;
+    Renderer rend;
+    public GameObject rightBoundingWall;
+    Renderer rightWallRend;
+    public GameObject leftBoundingWall;
+    Renderer leftWallRend;
 
-	//RequiredComponents
-	[HideInInspector]
+    //RequiredComponents
+    [HideInInspector]
     public CharacterController character;
 	//[HideInInspector]
 	public FighterClass fighter;
@@ -51,10 +58,29 @@ public class BaseMovement : MonoBehaviour
             centerOffset = 0.25f;
         }
 
+        rend = fightLine.GetComponent<Renderer>();
+        leftWallRend = leftBoundingWall.GetComponent<Renderer>();
+        rightWallRend = rightBoundingWall.GetComponent<Renderer>();
     }
 
     private void Update(){
-		input = new Vector2 (Input.GetAxis(fighter.controllerVariables.horiInput), Input.GetAxis(fighter.controllerVariables.horiInput));
+        // ===== Resets position on the Z-Axis to a defined line ===== \\
+        if (transform.position.z > rend.bounds.max.z || transform.position.z < rend.bounds.min.z)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, rend.bounds.center.z);
+        }
+
+        if (transform.position.x > rightWallRend.bounds.min.x)
+        {
+            transform.position = new Vector3(rightWallRend.bounds.min.x - 1f, transform.position.y, transform.position.z);
+        }
+
+        else if(transform.position.x < leftWallRend.bounds.max.x)
+        {
+            transform.position = new Vector3(leftWallRend.bounds.max.x + 1f, transform.position.y, transform.position.z);
+        }
+
+        input = new Vector2 (Input.GetAxis(fighter.controllerVariables.horiInput), Input.GetAxis(fighter.controllerVariables.horiInput));
 		if (fighter.facingRight) {
 			if (input.x < 0) {
 				moveSpeed = backMoveSpeed;
