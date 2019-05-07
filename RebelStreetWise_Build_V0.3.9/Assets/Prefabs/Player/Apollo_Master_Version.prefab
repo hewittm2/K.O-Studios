@@ -4516,7 +4516,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_WarningMessage: 
+  m_WarningMessage:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -5245,8 +5245,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dbee0999c5ceaff48b6f5cfd53c468c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   FistAngle: 90
   Speed: 1
   MakeFist: 0
@@ -5265,8 +5265,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a862f0d1ebdc0f488d0398039d857a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   passThrough: 1
   fighter: {fileID: 114843534998498698}
   output:
@@ -5290,8 +5290,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a862f0d1ebdc0f488d0398039d857a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   passThrough: 0
   fighter: {fileID: 0}
   output:
@@ -5315,8 +5315,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a862f0d1ebdc0f488d0398039d857a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   passThrough: 0
   fighter: {fileID: 0}
   output:
@@ -5340,8 +5340,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7cf1e54995ed1db4293dc65a6c6291f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   specialAttackStats:
     SpecialForward:
       animSpeed: 2
@@ -5511,8 +5511,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 268fb4d91644e42409780f6594097609, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   xRotation: 0
   yRotation: 10
   zRotation: 0
@@ -5525,8 +5525,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 268fb4d91644e42409780f6594097609, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   xRotation: 0
   yRotation: 10
   zRotation: 0
@@ -5539,8 +5539,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6fc0484c8a8e3ac4a805fe427cd1dcbe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   input: {x: 0, y: 0}
   forwardMoveSpeed: 20
   backMoveSpeed: 15
@@ -5552,6 +5552,9 @@ MonoBehaviour:
   vertJumpForce: 0.4
   horiJumpForce: 0.4
   jumpCD: 1
+  fightLine: {fileID: 0}
+  rightBoundingWall: {fileID: 0}
+  leftBoundingWall: {fileID: 0}
   character: {fileID: 0}
   fighter: {fileID: 114843534998498698}
   rigid: {fileID: 54936015757609664}
@@ -5565,8 +5568,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a862f0d1ebdc0f488d0398039d857a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   passThrough: 1
   fighter: {fileID: 114843534998498698}
   output:
@@ -5590,8 +5593,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a862f0d1ebdc0f488d0398039d857a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   passThrough: 0
   fighter: {fileID: 0}
   output:
@@ -5615,8 +5618,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 268fb4d91644e42409780f6594097609, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   xRotation: 0
   yRotation: 0
   zRotation: 3
@@ -5629,8 +5632,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dbee0999c5ceaff48b6f5cfd53c468c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   FistAngle: 90
   Speed: 1
   MakeFist: 0
@@ -5649,8 +5652,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c502e158d670e74888c5528bda953bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   PlayerOne: 0
   PlayerTwo: 0
   PlayerThree: 0
@@ -5664,8 +5667,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a862f0d1ebdc0f488d0398039d857a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   passThrough: 0
   fighter: {fileID: 0}
   output:
@@ -5689,8 +5692,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ebe8d14184a33734b9867fcdc548ab54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   hitSpark: {fileID: 1021111067890572, guid: 85828bf6af64d0d41bbd16097b1693d5, type: 2}
   blockSpark: {fileID: 1263285659770724, guid: 8f4dd867f3b78744b8a5c16afe35e0a9, type: 2}
   leftFoot: {fileID: 1696458389613586}
@@ -5737,7 +5740,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: ba769ad7560b7024d8ecc199afcdea37, type: 2}
   - {fileID: 2100000, guid: d06480594dd3fee43bb868d9f45b7336, type: 2}
   hitBoxes: []
-  attackerLabel: 
+  attackerLabel:
   movement: {fileID: 0}
   attacker: {fileID: 0}
   projectile: {fileID: 0}
@@ -5751,8 +5754,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a862f0d1ebdc0f488d0398039d857a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   passThrough: 1
   fighter: {fileID: 114843534998498698}
   output:
@@ -5776,8 +5779,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a862f0d1ebdc0f488d0398039d857a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   passThrough: 1
   fighter: {fileID: 114843534998498698}
   output:
@@ -5801,8 +5804,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2cd22f2e94aae874396c97ccae5d3598, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   charSprite: {fileID: 21300000, guid: 7a2eaa7dbb1e05b4d971adf4bcab0a07, type: 3}
   playerNumber: 1
   teamNumber: 1
@@ -5944,16 +5947,16 @@ MonoBehaviour:
     horiDeadZone: 0.3
     vertDeadZone: 0.3
     comboTimeOut: 1
-    horiInput: 
-    vertInput: 
-    lightInput: 
-    medInput: 
-    heavyInput: 
-    specialInput: 
-    throwInput: 
-    teamInput: 
-    lockOnInput: 
-    startButton: 
+    horiInput:
+    vertInput:
+    lightInput:
+    medInput:
+    heavyInput:
+    specialInput:
+    throwInput:
+    teamInput:
+    lockOnInput:
+    startButton:
   lockOnTargets: []
   lockOnTarget: {fileID: 0}
   facingRight: 1
@@ -5978,8 +5981,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a862f0d1ebdc0f488d0398039d857a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   passThrough: 1
   fighter: {fileID: 0}
   output:
@@ -6003,8 +6006,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a862f0d1ebdc0f488d0398039d857a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   passThrough: 1
   fighter: {fileID: 114843534998498698}
   output:
@@ -6028,8 +6031,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a862f0d1ebdc0f488d0398039d857a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   passThrough: 0
   fighter: {fileID: 0}
   output:
