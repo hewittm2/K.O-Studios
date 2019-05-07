@@ -29,7 +29,6 @@ public class FighterClass : MonoBehaviour {
 	public float defValue;
 	[Range(0,1200)]
 	public float superMeter;
-	public enum delayType{Animation, Time}
 	public enum HitHeight{High,Mid,Low}
 	public enum HitType{Light, Medium, Heavy,SpecialMelee, SpecialProjectile,Breakdown}
 	public enum DamageType{Hit, Stun, KnockDown}
@@ -130,7 +129,6 @@ public class FighterClass : MonoBehaviour {
 	public bool canAttack = true;
 	[HideInInspector]
 	public bool canRecieveDamage = true;
-	public bool knockedDown = false;
 	public bool isGrabbed = false;
 	public bool blocking;
 
@@ -149,11 +147,17 @@ public class FighterClass : MonoBehaviour {
 	StageManager stageManager;
 	public Animator anim;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 
 
 >>>>>>> parent of c6a4660... Merge branch 'UI-SaferSpace' of https://github.com/hewittm2/K.O-Studios into UI-SaferSpace
+=======
+
+
+
+>>>>>>> parent of 8be7939... Merge branch 'Master_Implementation' of https://github.com/hewittm2/K.O-Studios into Master_Implementation
     private bool canRestart = true;
 
 	void Start () {
@@ -185,23 +189,12 @@ public class FighterClass : MonoBehaviour {
 	}
 
 	void Update () {
-		if (knockedDown) {
-			if (Input.GetAxis (controllerVariables.horiInput) < -controllerVariables.horiDeadZone ||Input.GetAxis(controllerVariables.horiInput) > controllerVariables.horiDeadZone) {
-				knockedDown = false;
-				anim.SetTrigger("Get Up");
-
-			}
-			return;
+		if (canAttack) {
+			QueueAttackInput ();
 		}
-		else if (!knockedDown) {
-			if (canAttack) {
-				QueueAttackInput ();
-			}
-			if (canMove) {
-				QueueMovementInput ();
-			}
+		if (canMove) {
+			QueueMovementInput ();
 		}
-
 		CheckForCombo ();
 		if (lockOnTargets.Count != 0){
 			if (Input.GetButtonDown (controllerVariables.lockOnInput)) {
@@ -329,7 +322,7 @@ public class FighterClass : MonoBehaviour {
 		//Left Input Facing Right
 		} else if (Input.GetAxis (controllerVariables.horiInput) < -controllerVariables.horiDeadZone && facingRight) {
 			//Backward+Up(R)
-			if (Input.GetAxis (controllerVariables.vertInput) > controllerVariables.horiDeadZone && movement.character.isGrounded) {
+			if (Input.GetAxis (controllerVariables.vertInput) > controllerVariables.horiDeadZone) {
 				canMove = false;
 				anim.speed = moveAnimSpeeds.backwardJump;
 				movement.DiagonalJump ();
@@ -369,7 +362,7 @@ public class FighterClass : MonoBehaviour {
 		//Right Input Facing Left
 		} else if (Input.GetAxis (controllerVariables.horiInput) > controllerVariables.horiDeadZone && !facingRight) {
 			//Backward+Up(L)
-			if (Input.GetAxis (controllerVariables.vertInput) > controllerVariables.vertDeadZone && movement.character.isGrounded) {
+			if (Input.GetAxis (controllerVariables.vertInput) > controllerVariables.vertDeadZone) {
 				canMove = false;
 				anim.speed = moveAnimSpeeds.backwardJump;
 				movement.DiagonalJump ();
@@ -623,35 +616,35 @@ public class FighterClass : MonoBehaviour {
 				if (movement.character.isGrounded) {
 					if (Input.GetAxis (controllerVariables.horiInput) < -controllerVariables.horiDeadZone) {
 						Debug.Log ("Back_Special(R),");
-						anim.speed = specials.specialAttackStats.SpecialBack.animSpeed;
+                        anim.speed = specials.specialAttackStats.SpecialBack.animSpeed;
 						anim.SetTrigger ("Back Special");
-						specials.BackSA(specials.specialAttackStats.SpecialBack);
-						StartCoroutine (attackDelay (specials.specialAttackStats.SpecialBack));
+                        specials.BackSA(specials.specialAttackStats.SpecialBack);
+						StartCoroutine (attackDelay ());
 					} else if(Input.GetAxis (controllerVariables.horiInput) > controllerVariables.horiDeadZone) {
 						Debug.Log ("Forward_Special(R),");
 						anim.speed = specials.specialAttackStats.SpecialForward.animSpeed;
 						anim.SetTrigger ("Forward Special");
 						specials.ForwardSA (specials.specialAttackStats.SpecialForward);
-						StartCoroutine (attackDelay (specials.specialAttackStats.SpecialForward));
+						StartCoroutine (attackDelay ());
 					}else if(Input.GetAxis (controllerVariables.vertInput) < -controllerVariables.vertDeadZone){
 						Debug.Log("Down Special(R)");
 						anim.speed = specials.specialAttackStats.SpecialDown.animSpeed;
 						anim.SetTrigger ("Down Special");
 						specials.DownSA (specials.specialAttackStats.SpecialDown);
-						StartCoroutine (attackDelay (specials.specialAttackStats.SpecialDown));
+						StartCoroutine (attackDelay ());
 					}else{
-						Debug.Log("Neutral Special(L)");
+						Debug.Log("Neutral Special(R)");
 						anim.speed = specials.specialAttackStats.SpecialNeutral.animSpeed;
 						anim.SetTrigger ("Special");
 						specials.NeutralSA (specials.specialAttackStats.SpecialNeutral);
-						StartCoroutine (attackDelay (specials.specialAttackStats.SpecialNeutral));
+                        StartCoroutine (attackDelay ());
 					}
 				} else {
 					Debug.Log ("Jump_Special(R),");
 					anim.speed = specials.specialAttackStats.SpecialJump.animSpeed;
 					anim.SetTrigger ("Jump Special");
 					specials.JumpSA (specials.specialAttackStats.SpecialJump);
-					StartCoroutine (attackDelay (specials.specialAttackStats.SpecialJump));
+					StartCoroutine (attackDelay ());
 				}
 			} else {
 				if (movement.character.isGrounded) {
@@ -660,32 +653,32 @@ public class FighterClass : MonoBehaviour {
 						anim.speed = specials.specialAttackStats.SpecialBack.animSpeed;
 						anim.SetTrigger ("Back Special");
 						specials.BackSA (specials.specialAttackStats.SpecialBack);
-						StartCoroutine (attackDelay (specials.specialAttackStats.SpecialBack));
+						StartCoroutine (attackDelay ());
 					} else if(Input.GetAxis (controllerVariables.horiInput) < -controllerVariables.horiDeadZone) {
 						Debug.Log ("Forward_Special(L),");
 						anim.speed = specials.specialAttackStats.SpecialForward.animSpeed;
 						anim.SetTrigger ("Forward Special");
 						specials.ForwardSA (specials.specialAttackStats.SpecialForward);
-						StartCoroutine (attackDelay (specials.specialAttackStats.SpecialForward));
+						StartCoroutine (attackDelay ());
 					}else if(Input.GetAxis (controllerVariables.vertInput) < -controllerVariables.vertDeadZone){
 						Debug.Log("Down Special(L)");
 						anim.speed = specials.specialAttackStats.SpecialDown.animSpeed;
 						anim.SetTrigger ("Down Special");
 						specials.DownSA (specials.specialAttackStats.SpecialDown);
-						StartCoroutine (attackDelay (specials.specialAttackStats.SpecialDown));
+						StartCoroutine (attackDelay ());
 					}else{
 						Debug.Log("Neutral Special(L)");
 						anim.speed = specials.specialAttackStats.SpecialNeutral.animSpeed;
 						anim.SetTrigger ("Special");
 						specials.NeutralSA (specials.specialAttackStats.SpecialNeutral);
-						StartCoroutine (attackDelay(specials.specialAttackStats.SpecialNeutral));
+						StartCoroutine (attackDelay());
 					}
 				} else {
 					Debug.Log ("Jump_Special(L),");
 					anim.speed = specials.specialAttackStats.SpecialJump.animSpeed;
 					anim.SetTrigger ("Jump Special");
 					specials.JumpSA (specials.specialAttackStats.SpecialJump);
-					StartCoroutine (attackDelay(specials.specialAttackStats.SpecialJump));
+					StartCoroutine (attackDelay());
 				}
 			}
 		}
@@ -732,25 +725,6 @@ public class FighterClass : MonoBehaviour {
 		yield return new WaitForSeconds (anim.GetCurrentAnimatorClipInfo (0).Length / anim.speed);
 		canAttack = true;
 		canMove = true;
-	}
-
-	IEnumerator attackDelay(SpecialAttackTemplate.SpecialAttacks specialAttack){
-		switch (specialAttack.delayType)
-		{
-		case FighterClass.delayType.Animation:
-			canAttack = false;
-			canMove = false;
-			yield return new WaitForSeconds(anim.GetCurrentAnimatorClipInfo(0).Length / anim.speed);
-			canAttack = true;
-			canMove = true;
-			break;
-		case FighterClass.delayType.Time:
-			canAttack = false;
-			canMove = false;
-			yield return new WaitForSeconds(specialAttack.activeTime / anim.speed);
-			break;
-		}
-		output = new AttackStats();
 	}
 
 	IEnumerator attackDelay(AttackStats attack){
