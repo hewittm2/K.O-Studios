@@ -504,6 +504,21 @@ Prefab:
       propertyPath: throwDistance
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 114576310286415380, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: dashCD
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114576310286415380, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: forwardDashSpeed
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 114576310286415380, guid: d9e0f72a30bb0454f812f474322f41cf,
+        type: 2}
+      propertyPath: backDashSpeed
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114453952656044530, guid: d9e0f72a30bb0454f812f474322f41cf, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: d9e0f72a30bb0454f812f474322f41cf, type: 2}
