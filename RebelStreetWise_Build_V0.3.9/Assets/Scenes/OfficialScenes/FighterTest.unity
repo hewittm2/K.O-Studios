@@ -1510,22 +1510,38 @@ Prefab:
         type: 2}
       propertyPath: spawns.Array.data[0]
       value: 
+<<<<<<< HEAD
       objectReference: {fileID: 1766737748}
+=======
+      objectReference: {fileID: 0}
+>>>>>>> parent of 1fb866e... Fix spawns in Solaris
     - target: {fileID: 114890020340145630, guid: 45b66e36e66eb55499684ad6a675cb2a,
         type: 2}
       propertyPath: spawns.Array.data[1]
       value: 
+<<<<<<< HEAD
       objectReference: {fileID: 2146915796}
+=======
+      objectReference: {fileID: 0}
+>>>>>>> parent of 1fb866e... Fix spawns in Solaris
     - target: {fileID: 114890020340145630, guid: 45b66e36e66eb55499684ad6a675cb2a,
         type: 2}
       propertyPath: spawns.Array.data[2]
       value: 
+<<<<<<< HEAD
       objectReference: {fileID: 1595353922}
+=======
+      objectReference: {fileID: 0}
+>>>>>>> parent of 1fb866e... Fix spawns in Solaris
     - target: {fileID: 114890020340145630, guid: 45b66e36e66eb55499684ad6a675cb2a,
         type: 2}
       propertyPath: spawns.Array.data[3]
       value: 
+<<<<<<< HEAD
       objectReference: {fileID: 1876466238}
+=======
+      objectReference: {fileID: 0}
+>>>>>>> parent of 1fb866e... Fix spawns in Solaris
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45b66e36e66eb55499684ad6a675cb2a, type: 2}
   m_IsPrefabAsset: 0
@@ -2069,7 +2085,16 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e42789cd3d7dcf3429a061db8fba8cc7, type: 2}
   m_IsPrefabAsset: 0
+<<<<<<< HEAD
 --- !u!1 &365983488 stripped
+=======
+--- !u!1 &2007281444 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1078263416738332, guid: e42789cd3d7dcf3429a061db8fba8cc7,
+    type: 2}
+  m_PrefabInternal: {fileID: 1437616259}
+--- !u!1 &2040528361 stripped
+>>>>>>> parent of 1fb866e... Fix spawns in Solaris
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1064560254658874, guid: e42789cd3d7dcf3429a061db8fba8cc7,
     type: 2}
