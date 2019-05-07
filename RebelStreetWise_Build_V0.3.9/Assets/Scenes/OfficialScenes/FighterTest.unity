@@ -367,10 +367,15 @@ GameObject:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &442146964
 GameObject:
 <<<<<<< HEAD
 =======
+=======
+--- !u!1 &442146964
+GameObject:
+>>>>>>> parent of b695fec... Fixed Fight Button Bug, Added BoomBox and added Killer Queen to Main Menu
 =======
 --- !u!1 &442146964
 GameObject:
@@ -443,10 +448,13 @@ CanvasRenderer:
   m_GameObject: {fileID: 442146964}
   m_CullTransparentMesh: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> parent of aa7fb76... Merge branch 'UI-SaferSpace' into Master_Implementation
 =======
 >>>>>>> parent of 84746c7... Fight UI and Boombox
+=======
+>>>>>>> parent of b695fec... Fixed Fight Button Bug, Added BoomBox and added Killer Queen to Main Menu
 =======
 >>>>>>> parent of b695fec... Fixed Fight Button Bug, Added BoomBox and added Killer Queen to Main Menu
 --- !u!1001 &549266244
@@ -2114,6 +2122,7 @@ Prefab:
         type: 2}
       propertyPath: m_RootOrder
 <<<<<<< HEAD
+<<<<<<< HEAD
       value: 22
 =======
       propertyPath: minTime
@@ -2122,11 +2131,15 @@ Prefab:
 =======
       value: 21
 >>>>>>> parent of b695fec... Fixed Fight Button Bug, Added BoomBox and added Killer Queen to Main Menu
+=======
+      value: 21
+>>>>>>> parent of b695fec... Fixed Fight Button Bug, Added BoomBox and added Killer Queen to Main Menu
       objectReference: {fileID: 0}
     - target: {fileID: 224137612706259006, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
         type: 2}
 <<<<<<< HEAD
       propertyPath: m_RootOrder
+<<<<<<< HEAD
 <<<<<<< HEAD
       value: 21
 >>>>>>> parent of c6a4660... Merge branch 'UI-SaferSpace' of https://github.com/hewittm2/K.O-Studios into UI-SaferSpace
@@ -12794,6 +12807,158 @@ Prefab:
 >>>>>>> parent of c6a4660... Merge branch 'UI-SaferSpace' of https://github.com/hewittm2/K.O-Studios into UI-SaferSpace
       propertyPath: m_LocalScale.y
       value: 80.85996
+=======
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 224760223063637002, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 224537644849093230, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+        type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.47898996
+      objectReference: {fileID: 0}
+    - target: {fileID: 224537644849093230, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+        type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.47898996
+      objectReference: {fileID: 0}
+    - target: {fileID: 224537644849093230, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+        type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.47898996
+      objectReference: {fileID: 0}
+    - target: {fileID: 224537644849093230, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -1.4730996
+      objectReference: {fileID: 0}
+    - target: {fileID: 224137612706259006, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+        type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.47899
+      objectReference: {fileID: 0}
+    - target: {fileID: 224137612706259006, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+        type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.47899
+      objectReference: {fileID: 0}
+    - target: {fileID: 224137612706259006, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+        type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.47899
+      objectReference: {fileID: 0}
+    - target: {fileID: 224137612706259006, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -13.558
+      objectReference: {fileID: 0}
+    - target: {fileID: 224760223063637002, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+        type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.47898996
+      objectReference: {fileID: 0}
+    - target: {fileID: 224760223063637002, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+        type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.47898996
+      objectReference: {fileID: 0}
+    - target: {fileID: 224760223063637002, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+        type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.47898996
+      objectReference: {fileID: 0}
+    - target: {fileID: 224760223063637002, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 8.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114189667954465666, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0.99997807
+      objectReference: {fileID: 0}
+    - target: {fileID: 114568339619706402, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114760583141154044, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114996574204665184, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 478835aed37a53f44a87b0d58710a51e,
+        type: 3}
+    - target: {fileID: 224362271984453846, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+        type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1.4465
+      objectReference: {fileID: 0}
+    - target: {fileID: 224362271984453846, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -13
+      objectReference: {fileID: 0}
+    - target: {fileID: 224643055429667102, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 7.600006
+      objectReference: {fileID: 0}
+    - target: {fileID: 224077857320856162, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -6.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224077857320856162, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -5.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114121828007336140, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8cdff81f2f19f7845b31fcd7f404fb3f,
+        type: 3}
+    - target: {fileID: 224186771525484608, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+        type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1.2404
+      objectReference: {fileID: 0}
+    - target: {fileID: 224186771525484608, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114331643002176062, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b4d77ed22e887ef4ba32a937aace1e66,
+        type: 3}
+    - target: {fileID: 224219825719442768, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+        type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1.652
+      objectReference: {fileID: 0}
+    - target: {fileID: 114595861006940552, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b4d77ed22e887ef4ba32a937aace1e66,
+        type: 3}
+    - target: {fileID: 224590838125952254, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+        type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1.7139
+>>>>>>> parent of b695fec... Fixed Fight Button Bug, Added BoomBox and added Killer Queen to Main Menu
       objectReference: {fileID: 0}
     - target: {fileID: 4087755759649644, guid: f3353b4e495c3c14eb72820b8ed8f617, type: 2}
       propertyPath: m_LocalPosition.z
@@ -13754,9 +13919,22 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 400004, guid: ea834451191a9e24586ee272b0a8b4ba, type: 3}
       propertyPath: m_RootOrder
       value: 28
+=======
+    - target: {fileID: 114559341084056854, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3e383f20fe8df4842a3284288cea52d9,
+        type: 3}
+    - target: {fileID: 114559341084056854, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+        type: 2}
+      propertyPath: m_Type
+      value: 0
+>>>>>>> parent of b695fec... Fixed Fight Button Bug, Added BoomBox and added Killer Queen to Main Menu
       objectReference: {fileID: 0}
 <<<<<<< HEAD
     - target: {fileID: 400004, guid: ea834451191a9e24586ee272b0a8b4ba, type: 3}
@@ -13818,6 +13996,7 @@ Prefab:
       value: -13.17292
       objectReference: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
     - target: {fileID: 400004, guid: ea834451191a9e24586ee272b0a8b4ba, type: 3}
       propertyPath: m_LocalPosition.y
       value: -10.198466
@@ -13870,6 +14049,8 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 056a35397c15bd24e8375e229f91c00f, type: 2}
+=======
+>>>>>>> parent of b695fec... Fixed Fight Button Bug, Added BoomBox and added Killer Queen to Main Menu
 =======
 >>>>>>> parent of b695fec... Fixed Fight Button Bug, Added BoomBox and added Killer Queen to Main Menu
     m_RemovedComponents: []
@@ -14098,6 +14279,7 @@ GameObject:
 >>>>>>> parent of b695fec... Fixed Fight Button Bug, Added BoomBox and added Killer Queen to Main Menu
     type: 2}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2101471215}
   m_Enabled: 1
@@ -14236,6 +14418,8 @@ CanvasRenderer:
   m_GameObject: {fileID: 2103871582}
   m_CullTransparentMesh: 0
 =======
+=======
+>>>>>>> parent of b695fec... Fixed Fight Button Bug, Added BoomBox and added Killer Queen to Main Menu
   m_PrefabInternal: {fileID: 1619322993}
   m_Script: {fileID: 11500000, guid: 423c51d860d610343803c35d6830e9b0, type: 3}
 --- !u!1 &1846821850 stripped

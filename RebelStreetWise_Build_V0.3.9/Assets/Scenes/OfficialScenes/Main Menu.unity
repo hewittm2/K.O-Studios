@@ -790,6 +790,7 @@ Prefab:
       objectReference: {fileID: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     - target: {fileID: 114141126624119442, guid: e974caa33e7ce584dbad245a3e69538d,
         type: 2}
       propertyPath: m_FirstSelected
@@ -798,6 +799,8 @@ Prefab:
       objectReference: {fileID: 89659387}
     m_RemovedComponents: []
 =======
+=======
+>>>>>>> parent of b695fec... Fixed Fight Button Bug, Added BoomBox and added Killer Queen to Main Menu
 =======
 >>>>>>> parent of b695fec... Fixed Fight Button Bug, Added BoomBox and added Killer Queen to Main Menu
     m_RemovedComponents:
@@ -1027,7 +1030,10 @@ Prefab:
       value: 1
       objectReference: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> parent of ed08c7b... Merge branch 'Master_Implementation' of https://github.com/hewittm2/K.O-Studios into Master_Implementation
+=======
+>>>>>>> parent of b695fec... Fixed Fight Button Bug, Added BoomBox and added Killer Queen to Main Menu
 =======
 >>>>>>> parent of b695fec... Fixed Fight Button Bug, Added BoomBox and added Killer Queen to Main Menu
     m_RemovedComponents: []
