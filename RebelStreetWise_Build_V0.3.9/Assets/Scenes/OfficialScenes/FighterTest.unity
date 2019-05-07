@@ -361,6 +361,7 @@ GameObject:
   m_Name: SS Sure
 =======
   m_PrefabInternal: {fileID: 1437616259}
+<<<<<<< HEAD
 --- !u!1 &442146964
 GameObject:
 <<<<<<< HEAD
@@ -432,6 +433,8 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 442146964}
   m_CullTransparentMesh: 0
+=======
+>>>>>>> parent of aa7fb76... Merge branch 'UI-SaferSpace' into Master_Implementation
 --- !u!1001 &549266244
 Prefab:
 >>>>>>> parent of b695fec... Fixed Fight Button Bug, Added BoomBox and added Killer Queen to Main Menu
@@ -946,7 +949,135 @@ MonoBehaviour:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+<<<<<<< HEAD
     - target: {fileID: 4702116342634652, guid: c031e80ae0eff6c48b0b8e9d4510eec6, type: 2}
+=======
+    - target: {fileID: 4813259483604854, guid: 2b638f5b78d1e56449f13f6f7bf21db8, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4813259483604854, guid: 2b638f5b78d1e56449f13f6f7bf21db8, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4813259483604854, guid: 2b638f5b78d1e56449f13f6f7bf21db8, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4813259483604854, guid: 2b638f5b78d1e56449f13f6f7bf21db8, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4813259483604854, guid: 2b638f5b78d1e56449f13f6f7bf21db8, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4813259483604854, guid: 2b638f5b78d1e56449f13f6f7bf21db8, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4813259483604854, guid: 2b638f5b78d1e56449f13f6f7bf21db8, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4813259483604854, guid: 2b638f5b78d1e56449f13f6f7bf21db8, type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114079056889583868, guid: 2b638f5b78d1e56449f13f6f7bf21db8,
+        type: 2}
+      propertyPath: zoomFactor
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114079056889583868, guid: 2b638f5b78d1e56449f13f6f7bf21db8,
+        type: 2}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 1576138339}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2b638f5b78d1e56449f13f6f7bf21db8, type: 2}
+  m_IsPrefabAsset: 0
+--- !u!114 &1105138541 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114898259507622360, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+    type: 2}
+  m_PrefabInternal: {fileID: 1516528751}
+  m_Script: {fileID: 11500000, guid: fe16eb101e0aeca44bd3a183c6698e7b, type: 3}
+--- !u!1001 &1145321734
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1276403064}
+    m_Modifications:
+    - target: {fileID: 4375306758751150, guid: b4a1cb752bae98e4b9a82562824d163f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -78.409
+      objectReference: {fileID: 0}
+    - target: {fileID: 4375306758751150, guid: b4a1cb752bae98e4b9a82562824d163f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -15.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 4375306758751150, guid: b4a1cb752bae98e4b9a82562824d163f, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 23.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 4375306758751150, guid: b4a1cb752bae98e4b9a82562824d163f, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4375306758751150, guid: b4a1cb752bae98e4b9a82562824d163f, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4375306758751150, guid: b4a1cb752bae98e4b9a82562824d163f, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4375306758751150, guid: b4a1cb752bae98e4b9a82562824d163f, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4375306758751150, guid: b4a1cb752bae98e4b9a82562824d163f, type: 2}
+      propertyPath: m_RootOrder
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 23211200918082404, guid: b4a1cb752bae98e4b9a82562824d163f,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 900096fc3b53a1342a72244f6b2503a5, type: 2}
+    - target: {fileID: 4375306758751150, guid: b4a1cb752bae98e4b9a82562824d163f, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1.305501
+      objectReference: {fileID: 0}
+    - target: {fileID: 4375306758751150, guid: b4a1cb752bae98e4b9a82562824d163f, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1.305501
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b4a1cb752bae98e4b9a82562824d163f, type: 2}
+  m_IsPrefabAsset: 0
+--- !u!1001 &1252016157
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 114665257021530144, guid: 1b423578ac08f5e4ca1ae81952efa607,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 224555671921268244, guid: 1b423578ac08f5e4ca1ae81952efa607,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224555671921268244, guid: 1b423578ac08f5e4ca1ae81952efa607,
+        type: 2}
+>>>>>>> parent of aa7fb76... Merge branch 'UI-SaferSpace' into Master_Implementation
       propertyPath: m_LocalPosition.x
       value: 347.87964
       objectReference: {fileID: 0}
@@ -1031,16 +1162,230 @@ MonoBehaviour:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 223342498858018348, guid: bfe8324b761116545b7d998b6567db60,
         type: 2}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1576138339}
     - target: {fileID: 114728854107376532, guid: bfe8324b761116545b7d998b6567db60,
+=======
+    - target: {fileID: 1533707326911358, guid: 1b423578ac08f5e4ca1ae81952efa607, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114295635938981638, guid: 1b423578ac08f5e4ca1ae81952efa607,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1489894700}
+    - target: {fileID: 114295635938981638, guid: 1b423578ac08f5e4ca1ae81952efa607,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayOneShot
+      objectReference: {fileID: 0}
+    - target: {fileID: 114665257021530144, guid: 1b423578ac08f5e4ca1ae81952efa607,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1489894700}
+    - target: {fileID: 114665257021530144, guid: 1b423578ac08f5e4ca1ae81952efa607,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayOneShot
+      objectReference: {fileID: 0}
+    - target: {fileID: 114125658114685656, guid: 1b423578ac08f5e4ca1ae81952efa607,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1489894700}
+    - target: {fileID: 114125658114685656, guid: 1b423578ac08f5e4ca1ae81952efa607,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayOneShot
+      objectReference: {fileID: 0}
+    - target: {fileID: 114306877760683982, guid: 1b423578ac08f5e4ca1ae81952efa607,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1489894700}
+    - target: {fileID: 114306877760683982, guid: 1b423578ac08f5e4ca1ae81952efa607,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayOneShot
+      objectReference: {fileID: 0}
+    - target: {fileID: 114295635938981638, guid: 1b423578ac08f5e4ca1ae81952efa607,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114295635938981638, guid: 1b423578ac08f5e4ca1ae81952efa607,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.AudioClip, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114306877760683982, guid: 1b423578ac08f5e4ca1ae81952efa607,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114306877760683982, guid: 1b423578ac08f5e4ca1ae81952efa607,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.AudioClip, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114125658114685656, guid: 1b423578ac08f5e4ca1ae81952efa607,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114125658114685656, guid: 1b423578ac08f5e4ca1ae81952efa607,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.AudioClip, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114665257021530144, guid: 1b423578ac08f5e4ca1ae81952efa607,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114665257021530144, guid: 1b423578ac08f5e4ca1ae81952efa607,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.AudioClip, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114295635938981638, guid: 1b423578ac08f5e4ca1ae81952efa607,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 8300000, guid: 8dc7c53abd836034e89cf728e83897fd, type: 3}
+    - target: {fileID: 114665257021530144, guid: 1b423578ac08f5e4ca1ae81952efa607,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 8300000, guid: 8dc7c53abd836034e89cf728e83897fd, type: 3}
+    - target: {fileID: 114125658114685656, guid: 1b423578ac08f5e4ca1ae81952efa607,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 8300000, guid: 8dc7c53abd836034e89cf728e83897fd, type: 3}
+    - target: {fileID: 114306877760683982, guid: 1b423578ac08f5e4ca1ae81952efa607,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 8300000, guid: 8dc7c53abd836034e89cf728e83897fd, type: 3}
+    - target: {fileID: 114295635938981638, guid: 1b423578ac08f5e4ca1ae81952efa607,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114306877760683982, guid: 1b423578ac08f5e4ca1ae81952efa607,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114125658114685656, guid: 1b423578ac08f5e4ca1ae81952efa607,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114665257021530144, guid: 1b423578ac08f5e4ca1ae81952efa607,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114665257021530144, guid: 1b423578ac08f5e4ca1ae81952efa607,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1619322994}
+    - target: {fileID: 114665257021530144, guid: 1b423578ac08f5e4ca1ae81952efa607,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: RestartMatch
+      objectReference: {fileID: 0}
+    - target: {fileID: 114665257021530144, guid: 1b423578ac08f5e4ca1ae81952efa607,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114665257021530144, guid: 1b423578ac08f5e4ca1ae81952efa607,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114665257021530144, guid: 1b423578ac08f5e4ca1ae81952efa607,
+>>>>>>> parent of aa7fb76... Merge branch 'UI-SaferSpace' into Master_Implementation
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114125658114685656, guid: 1b423578ac08f5e4ca1ae81952efa607,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1619322994}
+    - target: {fileID: 114125658114685656, guid: 1b423578ac08f5e4ca1ae81952efa607,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: LoadScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 114125658114685656, guid: 1b423578ac08f5e4ca1ae81952efa607,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114125658114685656, guid: 1b423578ac08f5e4ca1ae81952efa607,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114125658114685656, guid: 1b423578ac08f5e4ca1ae81952efa607,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114125658114685656, guid: 1b423578ac08f5e4ca1ae81952efa607,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: CharacterSpawnTest
+      objectReference: {fileID: 0}
+    - target: {fileID: 114306877760683982, guid: 1b423578ac08f5e4ca1ae81952efa607,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1619322994}
+    - target: {fileID: 114306877760683982, guid: 1b423578ac08f5e4ca1ae81952efa607,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: LoadScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 114306877760683982, guid: 1b423578ac08f5e4ca1ae81952efa607,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114306877760683982, guid: 1b423578ac08f5e4ca1ae81952efa607,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114306877760683982, guid: 1b423578ac08f5e4ca1ae81952efa607,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114306877760683982, guid: 1b423578ac08f5e4ca1ae81952efa607,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: StageSelect
+      objectReference: {fileID: 0}
+    - target: {fileID: 114295635938981638, guid: 1b423578ac08f5e4ca1ae81952efa607,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1619322994}
+<<<<<<< HEAD
     - target: {fileID: 1919551711897632, guid: bfe8324b761116545b7d998b6567db60, type: 2}
       propertyPath: m_IsActive
       value: 0
@@ -1060,6 +1405,57 @@ MonoBehaviour:
       propertyPath: m_RenderMode
       value: 0
 >>>>>>> parent of b61ff4f... Merge remote-tracking branch 'origin/5/2-Playtest' into Master_Implementation
+=======
+    - target: {fileID: 114295635938981638, guid: 1b423578ac08f5e4ca1ae81952efa607,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: LoadScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 114295635938981638, guid: 1b423578ac08f5e4ca1ae81952efa607,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114295635938981638, guid: 1b423578ac08f5e4ca1ae81952efa607,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114295635938981638, guid: 1b423578ac08f5e4ca1ae81952efa607,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114295635938981638, guid: 1b423578ac08f5e4ca1ae81952efa607,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: Main Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 114665257021530144, guid: 1b423578ac08f5e4ca1ae81952efa607,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114665257021530144, guid: 1b423578ac08f5e4ca1ae81952efa607,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114665257021530144, guid: 1b423578ac08f5e4ca1ae81952efa607,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 2106456751}
+    - target: {fileID: 114665257021530144, guid: 1b423578ac08f5e4ca1ae81952efa607,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: Restart
+      objectReference: {fileID: 0}
+    - target: {fileID: 114665257021530144, guid: 1b423578ac08f5e4ca1ae81952efa607,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+>>>>>>> parent of aa7fb76... Merge branch 'UI-SaferSpace' into Master_Implementation
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c031e80ae0eff6c48b0b8e9d4510eec6, type: 2}
@@ -1163,6 +1559,7 @@ Transform:
 Prefab:
 >>>>>>> parent of b695fec... Fixed Fight Button Bug, Added BoomBox and added Killer Queen to Main Menu
   m_ObjectHideFlags: 0
+<<<<<<< HEAD
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 162560519}
@@ -1617,10 +2014,13 @@ MonoBehaviour:
 <<<<<<< HEAD
   m_CorrespondingSourceObject: {fileID: 114499888313653564, guid: bfe8324b761116545b7d998b6567db60,
 =======
+=======
+>>>>>>> parent of aa7fb76... Merge branch 'UI-SaferSpace' into Master_Implementation
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+<<<<<<< HEAD
     - target: {fileID: 4702116342634652, guid: c031e80ae0eff6c48b0b8e9d4510eec6, type: 2}
       propertyPath: m_LocalPosition.x
       value: 347.87964
@@ -1763,95 +2163,168 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 224555671921268244, guid: 1b423578ac08f5e4ca1ae81952efa607,
+=======
+    - target: {fileID: 224640583610543720, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+>>>>>>> parent of aa7fb76... Merge branch 'UI-SaferSpace' into Master_Implementation
         type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 224555671921268244, guid: 1b423578ac08f5e4ca1ae81952efa607,
+=======
+    - target: {fileID: 224640583610543720, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+>>>>>>> parent of aa7fb76... Merge branch 'UI-SaferSpace' into Master_Implementation
         type: 2}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 224555671921268244, guid: 1b423578ac08f5e4ca1ae81952efa607,
+=======
+    - target: {fileID: 224640583610543720, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+>>>>>>> parent of aa7fb76... Merge branch 'UI-SaferSpace' into Master_Implementation
         type: 2}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 224555671921268244, guid: 1b423578ac08f5e4ca1ae81952efa607,
+=======
+    - target: {fileID: 224640583610543720, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+>>>>>>> parent of aa7fb76... Merge branch 'UI-SaferSpace' into Master_Implementation
         type: 2}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 224555671921268244, guid: 1b423578ac08f5e4ca1ae81952efa607,
+=======
+    - target: {fileID: 224640583610543720, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+>>>>>>> parent of aa7fb76... Merge branch 'UI-SaferSpace' into Master_Implementation
         type: 2}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 224555671921268244, guid: 1b423578ac08f5e4ca1ae81952efa607,
+=======
+    - target: {fileID: 224640583610543720, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+>>>>>>> parent of aa7fb76... Merge branch 'UI-SaferSpace' into Master_Implementation
         type: 2}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 224555671921268244, guid: 1b423578ac08f5e4ca1ae81952efa607,
+=======
+    - target: {fileID: 224640583610543720, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+>>>>>>> parent of aa7fb76... Merge branch 'UI-SaferSpace' into Master_Implementation
         type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 224555671921268244, guid: 1b423578ac08f5e4ca1ae81952efa607,
         type: 2}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224555671921268244, guid: 1b423578ac08f5e4ca1ae81952efa607,
+=======
+    - target: {fileID: 224640583610543720, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 224640583610543720, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+>>>>>>> parent of aa7fb76... Merge branch 'UI-SaferSpace' into Master_Implementation
         type: 2}
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 224555671921268244, guid: 1b423578ac08f5e4ca1ae81952efa607,
+=======
+    - target: {fileID: 224640583610543720, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+>>>>>>> parent of aa7fb76... Merge branch 'UI-SaferSpace' into Master_Implementation
         type: 2}
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 224555671921268244, guid: 1b423578ac08f5e4ca1ae81952efa607,
+=======
+    - target: {fileID: 224640583610543720, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+>>>>>>> parent of aa7fb76... Merge branch 'UI-SaferSpace' into Master_Implementation
         type: 2}
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 224555671921268244, guid: 1b423578ac08f5e4ca1ae81952efa607,
+=======
+    - target: {fileID: 224640583610543720, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+>>>>>>> parent of aa7fb76... Merge branch 'UI-SaferSpace' into Master_Implementation
         type: 2}
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 224555671921268244, guid: 1b423578ac08f5e4ca1ae81952efa607,
+=======
+    - target: {fileID: 224640583610543720, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+>>>>>>> parent of aa7fb76... Merge branch 'UI-SaferSpace' into Master_Implementation
         type: 2}
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 224555671921268244, guid: 1b423578ac08f5e4ca1ae81952efa607,
+=======
+    - target: {fileID: 224640583610543720, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+>>>>>>> parent of aa7fb76... Merge branch 'UI-SaferSpace' into Master_Implementation
         type: 2}
       propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 224555671921268244, guid: 1b423578ac08f5e4ca1ae81952efa607,
+=======
+    - target: {fileID: 224640583610543720, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+>>>>>>> parent of aa7fb76... Merge branch 'UI-SaferSpace' into Master_Implementation
         type: 2}
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 224555671921268244, guid: 1b423578ac08f5e4ca1ae81952efa607,
+=======
+    - target: {fileID: 224640583610543720, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+>>>>>>> parent of aa7fb76... Merge branch 'UI-SaferSpace' into Master_Implementation
         type: 2}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 224555671921268244, guid: 1b423578ac08f5e4ca1ae81952efa607,
+=======
+    - target: {fileID: 224640583610543720, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+>>>>>>> parent of aa7fb76... Merge branch 'UI-SaferSpace' into Master_Implementation
         type: 2}
       propertyPath: m_Pivot.x
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 224555671921268244, guid: 1b423578ac08f5e4ca1ae81952efa607,
+=======
+    - target: {fileID: 224640583610543720, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+>>>>>>> parent of aa7fb76... Merge branch 'UI-SaferSpace' into Master_Implementation
         type: 2}
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 114125658114685656, guid: 1b423578ac08f5e4ca1ae81952efa607,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -11303,9 +11776,67 @@ Prefab:
       value: 
       objectReference: {fileID: 596879826}
 >>>>>>> parent of b61ff4f... Merge remote-tracking branch 'origin/5/2-Playtest' into Master_Implementation
+=======
+    - target: {fileID: 114207269224358370, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+        type: 2}
+      propertyPath: EndCanvas
+      value: 
+      objectReference: {fileID: 1252016160}
+    - target: {fileID: 114207269224358370, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+        type: 2}
+      propertyPath: Event1
+      value: 
+      objectReference: {fileID: 1252016159}
+    - target: {fileID: 114207269224358370, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+        type: 2}
+      propertyPath: Event3
+      value: 
+      objectReference: {fileID: 1252016158}
+    - target: {fileID: 114898259507622360, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+        type: 2}
+      propertyPath: pauseCanvas
+      value: 
+      objectReference: {fileID: 301779977}
+    - target: {fileID: 114898259507622360, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+        type: 2}
+      propertyPath: popUpCanvas
+      value: 
+      objectReference: {fileID: 2040528361}
+    - target: {fileID: 114606347821451080, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+        type: 2}
+      propertyPath: event1
+      value: 
+      objectReference: {fileID: 1265637137}
+    - target: {fileID: 114606347821451080, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+        type: 2}
+      propertyPath: event2
+      value: 
+      objectReference: {fileID: 427771541}
+    - target: {fileID: 114606347821451080, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+        type: 2}
+      propertyPath: event3
+      value: 
+      objectReference: {fileID: 1846821850}
+    - target: {fileID: 114606347821451080, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+        type: 2}
+      propertyPath: event4
+      value: 
+      objectReference: {fileID: 2007281444}
+    - target: {fileID: 114606347821451080, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+        type: 2}
+      propertyPath: pauseCanvas
+      value: 
+      objectReference: {fileID: 301779977}
+    - target: {fileID: 114606347821451080, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+        type: 2}
+      propertyPath: optionsCanvas
+      value: 
+      objectReference: {fileID: 2116097390}
+>>>>>>> parent of aa7fb76... Merge branch 'UI-SaferSpace' into Master_Implementation
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3353b4e495c3c14eb72820b8ed8f617, type: 2}
   m_IsPrefabAsset: 0
+<<<<<<< HEAD
 --- !u!4 &1854239597 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4038287031221822, guid: f3353b4e495c3c14eb72820b8ed8f617,
@@ -11432,6 +11963,9 @@ CanvasRenderer:
   m_GameObject: {fileID: 1895938889}
   m_CullTransparentMesh: 0
 --- !u!1 &1923907964
+=======
+--- !u!1 &1516528753 stripped
+>>>>>>> parent of aa7fb76... Merge branch 'UI-SaferSpace' into Master_Implementation
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12098,11 +12632,6 @@ Transform:
   m_Father: {fileID: 1682580511}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!224 &1971758263 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 224640583610543720, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
-    type: 2}
-  m_PrefabInternal: {fileID: 1516528751}
 --- !u!1001 &2004812691
 Prefab:
   m_ObjectHideFlags: 0
