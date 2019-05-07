@@ -6129,6 +6129,11 @@ Prefab:
       propertyPath: SolarisMinDistance
       value: -8
       objectReference: {fileID: 0}
+    - target: {fileID: 82136313084059176, guid: 2b638f5b78d1e56449f13f6f7bf21db8,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: bea3f454f4966c0468b50a7c49846e0a, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b638f5b78d1e56449f13f6f7bf21db8, type: 2}
   m_IsPrefabAsset: 0
