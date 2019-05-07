@@ -700,7 +700,6 @@ GameObject:
   - component: {fileID: 4585087350740060}
   - component: {fileID: 114176483401608478}
   - component: {fileID: 114482602755484894}
-  - component: {fileID: 114453952656044530}
   - component: {fileID: 114374788195630766}
   - component: {fileID: 114520999701512428}
   - component: {fileID: 114576310286415380}
@@ -708,6 +707,7 @@ GameObject:
   - component: {fileID: 143396400174310730}
   - component: {fileID: 136118249190908410}
   - component: {fileID: 65001919694149242}
+  - component: {fileID: 82365399601123028}
   m_Layer: 0
   m_Name: EthanFighterTest
   m_TagString: Untagged
@@ -2855,6 +2855,101 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!82 &82365399601123028
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1523036563279898}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 0
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!95 &95311279875182856
 Animator:
   serializedVersion: 3
@@ -2932,7 +3027,7 @@ MonoBehaviour:
   tempDist: 0
   closeDist: 2
   enemyDist: 5
-  speed: 2
+  speed: 5
   myCoatColor: {fileID: 137434414418288712}
   playerColors:
   - {fileID: 2100000, guid: d6055dee65cc35c4a9d27777797c5f89, type: 2}
@@ -2943,25 +3038,10 @@ MonoBehaviour:
   attackerLabel: 
   movement: {fileID: 0}
   attacker: {fileID: 0}
---- !u!114 &114453952656044530
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1523036563279898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60b9ed6ce4e55794f9a5537beee4c8a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grabDelay: 0
-  knockBackTime: 0
-  range: 0
-  kickDistance: 0
-  enemy: {fileID: 0}
-  anim: {fileID: 0}
-  fowardDamage: 0
-  backwardDamage: 0
+  projectile: {fileID: 0}
+  isReady: 0
+  hit: {fileID: 8300000, guid: 5f8af9a2478ebb14782e0cbe085758c7, type: 3}
+  block: {fileID: 8300000, guid: fbeb71d094bd2f841b7c24ccd509a070, type: 3}
 --- !u!114 &114482602755484894
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3092,6 +3172,12 @@ MonoBehaviour:
     hitBox1: {fileID: 0}
     hitBox2: {fileID: 0}
   specials: {fileID: 0}
+  grabRange: 0
+  throwDistance: 0
+  grabbing: 0
+  isGrabbed: 0
+  grabCommit: 0
+  throwSpeed: 0
   moveAnimSpeeds:
     forwardWalk: 1
     backwardWalk: 1
@@ -3125,7 +3211,6 @@ MonoBehaviour:
   canAttack: 1
   canRecieveDamage: 1
   knockedDown: 0
-  isGrabbed: 0
   blocking: 0
   breakDownStep1L: 0
   breakDownStep1R: 0
@@ -3133,6 +3218,14 @@ MonoBehaviour:
   breakDownStep3: 0
   coupDeGraceActivated: 0
   anim: {fileID: 95311279875182856}
+  audio: {fileID: 0}
+  dash: {fileID: 8300000, guid: d1737b49ba361db4eae22abe7873a70f, type: 3}
+  jump: {fileID: 8300000, guid: 35644562939c3eb46bef1fc54d22edf9, type: 3}
+  walk: {fileID: 0}
+  lightAttack: {fileID: 8300000, guid: 3afea1eac2686e1428dca375c1890c5d, type: 3}
+  mediumAttack: {fileID: 8300000, guid: 32b63488d70f94f419cfd1667c16cf4b, type: 3}
+  heavyAttack: {fileID: 0}
+  isReady: 0
 --- !u!114 &114520999701512428
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3275,6 +3368,7 @@ MonoBehaviour:
   forwardDashSpeed: 25
   backDashSpeed: 20
   dashing: 0
+  dashCD: 0
   vertJumpForce: 0.4
   horiJumpForce: 0.4
   jumpCD: 1

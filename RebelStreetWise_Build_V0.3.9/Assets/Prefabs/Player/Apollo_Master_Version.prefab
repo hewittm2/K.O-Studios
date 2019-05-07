@@ -1760,6 +1760,7 @@ GameObject:
   - component: {fileID: 136755592928423278}
   - component: {fileID: 65649196536982414}
   - component: {fileID: 114203518614071530}
+  - component: {fileID: 82330861234210398}
   m_Layer: 0
   m_Name: Apollo_Master_Version
   m_TagString: Untagged
@@ -3736,7 +3737,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1905440597093002}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -10.4, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4028576505268246}
@@ -4502,6 +4503,101 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.98, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!82 &82330861234210398
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1905440597093002}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!95 &95106280875837600
 Animator:
   serializedVersion: 3
@@ -4516,7 +4612,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_WarningMessage:
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -5245,8 +5341,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dbee0999c5ceaff48b6f5cfd53c468c9, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   FistAngle: 90
   Speed: 1
   MakeFist: 0
@@ -5265,8 +5361,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a862f0d1ebdc0f488d0398039d857a2, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   passThrough: 1
   fighter: {fileID: 114843534998498698}
   output:
@@ -5290,8 +5386,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a862f0d1ebdc0f488d0398039d857a2, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   passThrough: 0
   fighter: {fileID: 0}
   output:
@@ -5315,8 +5411,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a862f0d1ebdc0f488d0398039d857a2, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   passThrough: 0
   fighter: {fileID: 0}
   output:
@@ -5340,8 +5436,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7cf1e54995ed1db4293dc65a6c6291f3, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   specialAttackStats:
     SpecialForward:
       animSpeed: 2
@@ -5511,8 +5607,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 268fb4d91644e42409780f6594097609, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   xRotation: 0
   yRotation: 10
   zRotation: 0
@@ -5525,8 +5621,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 268fb4d91644e42409780f6594097609, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   xRotation: 0
   yRotation: 10
   zRotation: 0
@@ -5539,8 +5635,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6fc0484c8a8e3ac4a805fe427cd1dcbe, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   input: {x: 0, y: 0}
   forwardMoveSpeed: 20
   backMoveSpeed: 15
@@ -5552,9 +5648,6 @@ MonoBehaviour:
   vertJumpForce: 0.4
   horiJumpForce: 0.4
   jumpCD: 1
-  fightLine: {fileID: 0}
-  rightBoundingWall: {fileID: 0}
-  leftBoundingWall: {fileID: 0}
   character: {fileID: 0}
   fighter: {fileID: 114843534998498698}
   rigid: {fileID: 54936015757609664}
@@ -5568,8 +5661,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a862f0d1ebdc0f488d0398039d857a2, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   passThrough: 1
   fighter: {fileID: 114843534998498698}
   output:
@@ -5593,8 +5686,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a862f0d1ebdc0f488d0398039d857a2, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   passThrough: 0
   fighter: {fileID: 0}
   output:
@@ -5618,8 +5711,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 268fb4d91644e42409780f6594097609, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   xRotation: 0
   yRotation: 0
   zRotation: 3
@@ -5632,8 +5725,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dbee0999c5ceaff48b6f5cfd53c468c9, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   FistAngle: 90
   Speed: 1
   MakeFist: 0
@@ -5652,8 +5745,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c502e158d670e74888c5528bda953bd, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   PlayerOne: 0
   PlayerTwo: 0
   PlayerThree: 0
@@ -5667,8 +5760,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a862f0d1ebdc0f488d0398039d857a2, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   passThrough: 0
   fighter: {fileID: 0}
   output:
@@ -5692,8 +5785,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ebe8d14184a33734b9867fcdc548ab54, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   hitSpark: {fileID: 1021111067890572, guid: 85828bf6af64d0d41bbd16097b1693d5, type: 2}
   blockSpark: {fileID: 1263285659770724, guid: 8f4dd867f3b78744b8a5c16afe35e0a9, type: 2}
   leftFoot: {fileID: 1696458389613586}
@@ -5740,11 +5833,13 @@ MonoBehaviour:
   - {fileID: 2100000, guid: ba769ad7560b7024d8ecc199afcdea37, type: 2}
   - {fileID: 2100000, guid: d06480594dd3fee43bb868d9f45b7336, type: 2}
   hitBoxes: []
-  attackerLabel:
+  attackerLabel: 
   movement: {fileID: 0}
   attacker: {fileID: 0}
   projectile: {fileID: 0}
   isReady: 0
+  hit: {fileID: 8300000, guid: 5f8af9a2478ebb14782e0cbe085758c7, type: 3}
+  block: {fileID: 8300000, guid: fbeb71d094bd2f841b7c24ccd509a070, type: 3}
 --- !u!114 &114701613343305778
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5754,8 +5849,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a862f0d1ebdc0f488d0398039d857a2, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   passThrough: 1
   fighter: {fileID: 114843534998498698}
   output:
@@ -5779,8 +5874,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a862f0d1ebdc0f488d0398039d857a2, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   passThrough: 1
   fighter: {fileID: 114843534998498698}
   output:
@@ -5804,11 +5899,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2cd22f2e94aae874396c97ccae5d3598, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   charSprite: {fileID: 21300000, guid: 7a2eaa7dbb1e05b4d971adf4bcab0a07, type: 3}
-  playerNumber: 1
-  teamNumber: 1
+  playerNumber: 0
+  teamNumber: 0
   currentHealth: 0
   totalHealth: 1000
   defValue: 0.5
@@ -5947,16 +6042,16 @@ MonoBehaviour:
     horiDeadZone: 0.3
     vertDeadZone: 0.3
     comboTimeOut: 1
-    horiInput:
-    vertInput:
-    lightInput:
-    medInput:
-    heavyInput:
-    specialInput:
-    throwInput:
-    teamInput:
-    lockOnInput:
-    startButton:
+    horiInput: 
+    vertInput: 
+    lightInput: 
+    medInput: 
+    heavyInput: 
+    specialInput: 
+    throwInput: 
+    teamInput: 
+    lockOnInput: 
+    startButton: 
   lockOnTargets: []
   lockOnTarget: {fileID: 0}
   facingRight: 1
@@ -5971,6 +6066,13 @@ MonoBehaviour:
   breakDownStep3: 0
   coupDeGraceActivated: 0
   anim: {fileID: 95106280875837600}
+  audio: {fileID: 0}
+  dash: {fileID: 8300000, guid: d1737b49ba361db4eae22abe7873a70f, type: 3}
+  jump: {fileID: 8300000, guid: 35644562939c3eb46bef1fc54d22edf9, type: 3}
+  walk: {fileID: 0}
+  lightAttack: {fileID: 8300000, guid: 3afea1eac2686e1428dca375c1890c5d, type: 3}
+  mediumAttack: {fileID: 8300000, guid: 32b63488d70f94f419cfd1667c16cf4b, type: 3}
+  heavyAttack: {fileID: 0}
   isReady: 0
 --- !u!114 &114852447712815240
 MonoBehaviour:
@@ -5981,8 +6083,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a862f0d1ebdc0f488d0398039d857a2, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   passThrough: 1
   fighter: {fileID: 0}
   output:
@@ -6006,8 +6108,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a862f0d1ebdc0f488d0398039d857a2, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   passThrough: 1
   fighter: {fileID: 114843534998498698}
   output:
@@ -6031,8 +6133,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a862f0d1ebdc0f488d0398039d857a2, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   passThrough: 0
   fighter: {fileID: 0}
   output:

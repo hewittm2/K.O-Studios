@@ -157,6 +157,15 @@ public class FighterClass : MonoBehaviour {
 	public Animator anim;
 
     MatchTimer matchTimer;
+	[Header("SFX")][Space(.5f)]
+	[HideInInspector]
+	public AudioSource audio;
+	public AudioClip dash;
+	public AudioClip jump;
+	public AudioClip walk;
+	public AudioClip lightAttack;
+	public AudioClip mediumAttack;
+	public AudioClip heavyAttack;
 
     private bool canRestart = true;
     public bool isReady;
@@ -168,6 +177,7 @@ public class FighterClass : MonoBehaviour {
 		CurrFrameType = FrameType.Regular;
 		movement = GetComponent<BaseMovement> ();
 		hitBoxes = GetComponent<HitDetection> ();
+		audio = GetComponent<AudioSource> ();
 		currentHealth = totalHealth;
 		try{
 			stageManager = FindObjectOfType<StageManager>();
@@ -307,6 +317,7 @@ public class FighterClass : MonoBehaviour {
 				canMove = false;
 				anim.speed = moveAnimSpeeds.forwardJump;
 				movement.DiagonalJump ();
+				audio.PlayOneShot (jump);
 				anim.SetTrigger ("Jumping");
 
 
@@ -333,6 +344,7 @@ public class FighterClass : MonoBehaviour {
 					anim.speed = moveAnimSpeeds.forwardDash;
 					movement.Dash (Input.GetAxis(controllerVariables.horiInput));
 					anim.SetBool ("Walking", false);
+					audio.PlayOneShot (dash);
 					anim.SetTrigger ("Dash");
 				} else {
 					movement.Walk ();
@@ -347,6 +359,7 @@ public class FighterClass : MonoBehaviour {
 				canMove = false;
 				anim.speed = moveAnimSpeeds.forwardJump;
 				movement.DiagonalJump ();
+				audio.PlayOneShot (jump);
 				anim.SetTrigger ("Jumping");
 			//Forward+Down(L)
 			}else if(Input.GetAxis(controllerVariables.vertInput)< -controllerVariables.vertDeadZone){
@@ -368,6 +381,7 @@ public class FighterClass : MonoBehaviour {
 					anim.speed = moveAnimSpeeds.forwardDash;
 					movement.Dash (Input.GetAxis(controllerVariables.horiInput));
 					anim.SetBool ("Walking", false);
+					audio.PlayOneShot (dash);
 					anim.SetTrigger ("Dash");
 				} else {
 					anim.speed = moveAnimSpeeds.forwardWalk;
@@ -383,6 +397,7 @@ public class FighterClass : MonoBehaviour {
 				canMove = false;
 				anim.speed = moveAnimSpeeds.backwardJump;
 				movement.DiagonalJump ();
+				audio.PlayOneShot (jump);
 				anim.SetTrigger ("Jumping");
 				if (breakDownStep3) {
 					comboTimerStarted = true;
@@ -409,6 +424,7 @@ public class FighterClass : MonoBehaviour {
 					anim.speed = moveAnimSpeeds.backwardDash;
 					movement.Dash (Input.GetAxis(controllerVariables.horiInput));
 					anim.SetBool ("Walking Backwards", false);
+					audio.PlayOneShot (dash);
 					anim.SetTrigger ("Dash");
 
 				} else {
@@ -425,6 +441,7 @@ public class FighterClass : MonoBehaviour {
 				canMove = false;
 				anim.speed = moveAnimSpeeds.backwardJump;
 				movement.DiagonalJump ();
+				audio.PlayOneShot (jump);
 				anim.SetTrigger ("Jumping");
 				if (breakDownStep3) {
 					comboTimerStarted = true;
@@ -451,6 +468,7 @@ public class FighterClass : MonoBehaviour {
 					anim.speed = moveAnimSpeeds.backwardDash;
 					movement.Dash (Input.GetAxis(controllerVariables.horiInput));
 					anim.SetBool ("Walking Backwards", false);
+					audio.PlayOneShot (dash);
 					anim.SetTrigger ("Dash");
 				} else {
 					anim.speed = moveAnimSpeeds.backwardWalk;
@@ -465,16 +483,19 @@ public class FighterClass : MonoBehaviour {
 				canMove = false;
 				anim.speed = moveAnimSpeeds.forwardJump;
 				movement.DiagonalJump ();
+				audio.PlayOneShot (jump);
 				anim.SetTrigger ("Jumping");
 			} else if (Input.GetAxis (controllerVariables.horiInput) < -controllerVariables.horiDeadZone) {
 				canMove = false;
 				anim.speed = moveAnimSpeeds.backwardJump;
 				movement.DiagonalJump ();
+				audio.PlayOneShot (jump);
 				anim.SetTrigger ("Jumping");
 			} else {
 				canMove = false;
 				anim.speed = moveAnimSpeeds.jump;
 				movement.Jump ();
+				audio.PlayOneShot (jump);
 				anim.SetTrigger ("Jumping");
 			}
 		//Up Input Facing Left
@@ -483,16 +504,19 @@ public class FighterClass : MonoBehaviour {
 				canMove = false;
 				anim.speed = moveAnimSpeeds.forwardJump;
 				movement.DiagonalJump ();
+				audio.PlayOneShot (jump);
 				anim.SetTrigger ("Jumping");
 			} else if (Input.GetAxis (controllerVariables.horiInput) < -controllerVariables.horiDeadZone) {
 				canMove = false;
 				anim.speed = moveAnimSpeeds.backwardJump;
 				movement.DiagonalJump ();
+				audio.PlayOneShot (jump);
 				anim.SetTrigger ("Jumping");
 			} else {
 				canMove = false;
 				anim.speed = moveAnimSpeeds.jump;
 				movement.Jump ();
+				audio.PlayOneShot (jump);
 				anim.SetTrigger ("Jumping");
 			}
 		//Crouch Input
@@ -849,6 +873,13 @@ public class FighterClass : MonoBehaviour {
 		//output.hitType = attack.hitType;
 		//output.attDam = attack.attDam;
 		//output.meterGain = attack.meterGain;
+		if (attack.hitType == HitType.Light) {
+			audio.PlayOneShot (lightAttack);
+		} else if (attack.hitType == HitType.Medium) {
+			audio.PlayOneShot (mediumAttack);
+		} else if (attack.hitType == HitType.Heavy) {
+			audio.PlayOneShot (heavyAttack);
+		}
 		if (!facingRight) {
 			output.knockBackDirection = -output.knockBackDirection;
 		}
