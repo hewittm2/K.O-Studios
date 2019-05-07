@@ -169,13 +169,13 @@ public class CameraSystem : MonoBehaviour
 
                 if (cam.transform.position.x > GroovyMaxDistance)
                 {
-                    Debug.Log("die");
+                  
                     cam.transform.position = new Vector3(GroovyMaxDistance, cameraDestination.y, cameraDestination.z);
                 }
                 //prevents camera from zooming in to much
                 if (cam.transform.position.x < GroovyMinDistance)
                 {
-                    Debug.Log("die2");
+
                     cam.transform.position = new Vector3(GroovyMinDistance, cameraDestination.y, cameraDestination.z);
                 }
             }
