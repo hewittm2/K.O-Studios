@@ -117,7 +117,7 @@ public class CameraSystem : MonoBehaviour
                     //					furtherstApartPair.Add (Characters [1]);
                     //
                     //				}
-                    //	
+                    //
                     //
                     //			} else if (Characters.Count == 4) {
                     //have camera track midpoint of character locations
@@ -171,17 +171,16 @@ public class CameraSystem : MonoBehaviour
                     cameraDestination = midpoint - cam.transform.forward * distance * zoomFactor;
                     cam.transform.position = Vector3.Slerp(cam.transform.position, cameraDestination, followTimeDelta);
 
-                    if (cam.transform.position.x > GroovyMaxDistance)
-                    {
-                        Debug.Log("die");
-                        cam.transform.position = new Vector3(GroovyMaxDistance, cameraDestination.y, cameraDestination.z);
-                    }
-                    //prevents camera from zooming in to much
-                    if (cam.transform.position.x < GroovyMinDistance)
-                    {
-                        Debug.Log("die2");
-                        cam.transform.position = new Vector3(GroovyMinDistance, cameraDestination.y, cameraDestination.z);
-                    }
+                if (cam.transform.position.x > GroovyMaxDistance)
+                {
+
+                    cam.transform.position = new Vector3(GroovyMaxDistance, cameraDestination.y, cameraDestination.z);
+                }
+                //prevents camera from zooming in to much
+                if (cam.transform.position.x < GroovyMinDistance)
+                {
+
+                    cam.transform.position = new Vector3(GroovyMinDistance, cameraDestination.y, cameraDestination.z);
                 }
             }
             }
@@ -200,7 +199,7 @@ public class CameraSystem : MonoBehaviour
                     //					furtherstApartPair.Add (Characters [1]);
                     //
                     //				}
-                    //	
+                    //
                     //
                     //			} else if (Characters.Count == 4) {
                     //have camera track midpoint of character locations
@@ -333,7 +332,7 @@ public class CameraSystem : MonoBehaviour
                         math -= .1f;
                 }
             }
-        
+
     }
 
     public void AddPlayerToList(Transform trans)
