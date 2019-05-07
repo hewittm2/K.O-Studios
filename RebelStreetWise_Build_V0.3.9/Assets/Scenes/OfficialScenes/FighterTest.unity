@@ -11152,6 +11152,7 @@ Prefab:
 =======
     - target: {fileID: 114498145363943648, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
         type: 2}
+<<<<<<< HEAD
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 72b6e44a80a8a804285040fbc62f458f,
@@ -11173,6 +11174,16 @@ Prefab:
 >>>>>>> parent of 52b2942... FightUI
 =======
 >>>>>>> parent of 84746c7... Fight UI and Boombox
+=======
+      propertyPath: minTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114444226237978128, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
+        type: 2}
+      propertyPath: secTime
+      value: 5
+      objectReference: {fileID: 0}
+>>>>>>> parent of d494b65... Replaced Timer
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3, type: 2}
   m_IsPrefabAsset: 0
