@@ -788,6 +788,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 114141126624119442, guid: e974caa33e7ce584dbad245a3e69538d,
         type: 2}
       propertyPath: m_FirstSelected
@@ -795,6 +796,10 @@ Prefab:
 >>>>>>> parent of 84746c7... Fight UI and Boombox
       objectReference: {fileID: 89659387}
     m_RemovedComponents: []
+=======
+    m_RemovedComponents:
+    - {fileID: 114494947589257240, guid: e2384692fd234ee4fa1a7ffc5815476d, type: 2}
+>>>>>>> parent of ed08c7b... Merge branch 'Master_Implementation' of https://github.com/hewittm2/K.O-Studios into Master_Implementation
   m_SourcePrefab: {fileID: 100100000, guid: e2384692fd234ee4fa1a7ffc5815476d, type: 2}
   m_IsPrefabAsset: 0
 --- !u!114 &1368961497 stripped
@@ -1011,7 +1016,14 @@ Prefab:
       propertyPath: m_AnchoredPosition.x
       value: -4
       objectReference: {fileID: 0}
+<<<<<<< HEAD
 >>>>>>> parent of 84746c7... Fight UI and Boombox
+=======
+    - target: {fileID: 1759720177882870, guid: e7e489a928965864eaaaf35655fae8c6, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+>>>>>>> parent of ed08c7b... Merge branch 'Master_Implementation' of https://github.com/hewittm2/K.O-Studios into Master_Implementation
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7e489a928965864eaaaf35655fae8c6, type: 2}
   m_IsPrefabAsset: 0
