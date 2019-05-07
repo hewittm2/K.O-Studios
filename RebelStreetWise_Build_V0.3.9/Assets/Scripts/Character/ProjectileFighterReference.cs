@@ -36,6 +36,7 @@ public class ProjectileFighterReference : MonoBehaviour
 	private void OnDisable(){
 		output = null;
 	}
+<<<<<<< HEAD
 	private void OnTriggerEnter(Collider col){
 		if (col.GetComponent<FighterClass> () != null) {
 			if (col.GetComponent<FighterClass> ().teamNumber != fighter.teamNumber) {
@@ -48,4 +49,6 @@ public class ProjectileFighterReference : MonoBehaviour
 		}
 
 	}
+=======
+>>>>>>> parent of a3e2d5d... 2 script updates
 }
