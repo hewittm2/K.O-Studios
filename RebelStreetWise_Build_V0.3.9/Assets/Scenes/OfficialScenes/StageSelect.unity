@@ -1421,7 +1421,7 @@ MonoBehaviour:
   currentMapImage: {fileID: 2060411631}
   mapImages:
   - {fileID: 21300000, guid: c621916abfea3764e8ce32569a847038, type: 3}
-  - {fileID: 21300000, guid: 262531c0066544a42ab118e989a1b414, type: 3}
+  - {fileID: 21300000, guid: 78091be8e66f26d4991883959c20a785, type: 3}
 --- !u!1 &894088595
 GameObject:
   m_ObjectHideFlags: 0
