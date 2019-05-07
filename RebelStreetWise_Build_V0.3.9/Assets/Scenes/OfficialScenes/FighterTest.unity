@@ -2065,6 +2065,7 @@ Prefab:
 <<<<<<< HEAD
     - target: {fileID: 114189667954465666, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
         type: 2}
+<<<<<<< HEAD
       propertyPath: m_FontData.m_Font
       value: 
       objectReference: {fileID: 12800000, guid: fec97045f1cf32a4280a76cc712eab5f,
@@ -2105,12 +2106,21 @@ Prefab:
         type: 2}
       propertyPath: m_RootOrder
       value: 22
+=======
+      propertyPath: minTime
+      value: 0
+>>>>>>> parent of d494b65... Replaced Timer
       objectReference: {fileID: 0}
     - target: {fileID: 224137612706259006, guid: 8f1662eebeb2c1348bd6d2d8e628bdc3,
         type: 2}
+<<<<<<< HEAD
       propertyPath: m_RootOrder
       value: 21
 >>>>>>> parent of c6a4660... Merge branch 'UI-SaferSpace' of https://github.com/hewittm2/K.O-Studios into UI-SaferSpace
+=======
+      propertyPath: secTime
+      value: 5
+>>>>>>> parent of d494b65... Replaced Timer
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c031e80ae0eff6c48b0b8e9d4510eec6, type: 2}
