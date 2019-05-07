@@ -490,6 +490,7 @@ Transform:
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 --- !u!1001 &1827364952
 Prefab:
@@ -534,6 +535,8 @@ Prefab:
   m_SourcePrefab: {fileID: 100100000, guid: 04039de0b37e4ca42b38caeb699dd7d5, type: 2}
   m_IsPrefabAsset: 0
 >>>>>>> parent of 6c0128c... Fixed Wall Sticking Issue
+=======
+>>>>>>> parent of 317d252... Makoa Animations update
 --- !u!1001 &2012817121
 Prefab:
   m_ObjectHideFlags: 0
