@@ -19,11 +19,6 @@ public class CharacterScaling : MonoBehaviour {
         Character2.transform.localScale = Size;
         Character3.transform.localScale = Size;
         Character4.transform.localScale = Size;
-
-        //Character1.transform.eulerAngles = new Vector3(0, 0, 0);
-        //Character2.transform.eulerAngles = new Vector3(0, 0, 0);
-        //Character3.transform.eulerAngles = new Vector3(0, 0, 0);
-        //Character4.transform.eulerAngles = new Vector3(0, 0, 0);
     }
 	
 	// Update is called once per frame
