@@ -5162,6 +5162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a862f0d1ebdc0f488d0398039d857a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  passThrough: 0
   fighter: {fileID: 114843534998498698}
   output:
     animSpeed: 0
@@ -5174,8 +5175,6 @@ MonoBehaviour:
     attDam: 0
     hitBox1: {fileID: 0}
     hitBox2: {fileID: 0}
-  xSpeed: 0
-  ySpeed: 0
   hit: 0
 --- !u!114 &114076451770679952
 MonoBehaviour:
@@ -5188,6 +5187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a862f0d1ebdc0f488d0398039d857a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  passThrough: 0
   fighter: {fileID: 0}
   output:
     animSpeed: 0
@@ -5200,8 +5200,6 @@ MonoBehaviour:
     attDam: 0
     hitBox1: {fileID: 0}
     hitBox2: {fileID: 0}
-  xSpeed: 0
-  ySpeed: 0
   hit: 0
 --- !u!114 &114116358880316460
 MonoBehaviour:
@@ -5214,6 +5212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a862f0d1ebdc0f488d0398039d857a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  passThrough: 0
   fighter: {fileID: 0}
   output:
     animSpeed: 0
@@ -5226,8 +5225,6 @@ MonoBehaviour:
     attDam: 0
     hitBox1: {fileID: 0}
     hitBox2: {fileID: 0}
-  xSpeed: 0
-  ySpeed: 0
   hit: 0
 --- !u!114 &114203518614071530
 MonoBehaviour:
@@ -5434,6 +5431,9 @@ MonoBehaviour:
   vertJumpForce: 0.4
   horiJumpForce: 0.4
   jumpCD: 1
+  fightLine: {fileID: 0}
+  rightBoundingWall: {fileID: 0}
+  leftBoundingWall: {fileID: 0}
   character: {fileID: 0}
   fighter: {fileID: 114843534998498698}
   rigid: {fileID: 54936015757609664}
@@ -5449,6 +5449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a862f0d1ebdc0f488d0398039d857a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  passThrough: 0
   fighter: {fileID: 114843534998498698}
   output:
     animSpeed: 0
@@ -5461,8 +5462,6 @@ MonoBehaviour:
     attDam: 0
     hitBox1: {fileID: 0}
     hitBox2: {fileID: 0}
-  xSpeed: 0
-  ySpeed: 0
   hit: 0
 --- !u!114 &114524479869421470
 MonoBehaviour:
@@ -5510,6 +5509,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a862f0d1ebdc0f488d0398039d857a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  passThrough: 0
   fighter: {fileID: 0}
   output:
     animSpeed: 0
@@ -5522,8 +5522,6 @@ MonoBehaviour:
     attDam: 0
     hitBox1: {fileID: 0}
     hitBox2: {fileID: 0}
-  xSpeed: 0
-  ySpeed: 0
   hit: 0
 --- !u!114 &114666642581151378
 MonoBehaviour:
@@ -5581,6 +5579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a862f0d1ebdc0f488d0398039d857a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  passThrough: 0
   fighter: {fileID: 114843534998498698}
   output:
     animSpeed: 0
@@ -5593,8 +5592,6 @@ MonoBehaviour:
     attDam: 0
     hitBox1: {fileID: 0}
     hitBox2: {fileID: 0}
-  xSpeed: 0
-  ySpeed: 0
   hit: 0
 --- !u!114 &114817941814241772
 MonoBehaviour:
@@ -5607,6 +5604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a862f0d1ebdc0f488d0398039d857a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  passThrough: 0
   fighter: {fileID: 0}
   output:
     animSpeed: 0
@@ -5619,8 +5617,6 @@ MonoBehaviour:
     attDam: 0
     hitBox1: {fileID: 0}
     hitBox2: {fileID: 0}
-  xSpeed: 0
-  ySpeed: 0
   hit: 0
 --- !u!114 &114820842004935512
 MonoBehaviour:
@@ -5633,6 +5629,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a862f0d1ebdc0f488d0398039d857a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  passThrough: 0
   fighter: {fileID: 114843534998498698}
   output:
     animSpeed: 0
@@ -5645,8 +5642,6 @@ MonoBehaviour:
     attDam: 0
     hitBox1: {fileID: 0}
     hitBox2: {fileID: 0}
-  xSpeed: 0
-  ySpeed: 0
   hit: 0
 --- !u!114 &114843534998498698
 MonoBehaviour:
@@ -5830,6 +5825,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a862f0d1ebdc0f488d0398039d857a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  passThrough: 0
   fighter: {fileID: 0}
   output:
     animSpeed: 0
@@ -5842,8 +5838,6 @@ MonoBehaviour:
     attDam: 0
     hitBox1: {fileID: 0}
     hitBox2: {fileID: 0}
-  xSpeed: 0
-  ySpeed: 0
   hit: 0
 --- !u!114 &114859860863350192
 MonoBehaviour:
@@ -5856,6 +5850,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a862f0d1ebdc0f488d0398039d857a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  passThrough: 0
   fighter: {fileID: 114843534998498698}
   output:
     animSpeed: 0
@@ -5868,8 +5863,6 @@ MonoBehaviour:
     attDam: 0
     hitBox1: {fileID: 0}
     hitBox2: {fileID: 0}
-  xSpeed: 0
-  ySpeed: 0
   hit: 0
 --- !u!114 &114951008560532606
 MonoBehaviour:
@@ -5882,6 +5875,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a862f0d1ebdc0f488d0398039d857a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  passThrough: 0
   fighter: {fileID: 0}
   output:
     animSpeed: 0
@@ -5894,8 +5888,6 @@ MonoBehaviour:
     attDam: 0
     hitBox1: {fileID: 0}
     hitBox2: {fileID: 0}
-  xSpeed: 0
-  ySpeed: 0
   hit: 0
 --- !u!114 &114976781124398230
 MonoBehaviour:

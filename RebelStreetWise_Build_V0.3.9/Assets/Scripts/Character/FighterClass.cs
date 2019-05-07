@@ -149,7 +149,7 @@ public class FighterClass : MonoBehaviour {
 	StageManager stageManager;
 	public Animator anim;
 
-    MatchEnd matchEnd;
+    MatchTimer matchTimer;
 
     private bool canRestart = true;
 
@@ -197,6 +197,11 @@ public class FighterClass : MonoBehaviour {
 			if (canMove) {
 				QueueMovementInput ();
 			}
+            if (currentHealth <= 0 && canRestart == true)
+            {
+                canRestart = false;
+                matchTimer.RoundEnd();
+            }
 		}
 
 		CheckForCombo ();
@@ -215,11 +220,6 @@ public class FighterClass : MonoBehaviour {
             Debug.Log("yes");
             PauseGame pauseGame = FindObjectOfType<PauseGame>();
             pauseGame.Pause(playerNumber);
-        }
-        if(currentHealth <= 0)
-        {
-            matchEnd.Winner(teamNumber);
-            this.enabled = false;
         }
     }
 
