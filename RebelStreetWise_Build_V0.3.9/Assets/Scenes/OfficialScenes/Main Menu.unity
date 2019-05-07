@@ -561,7 +561,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 426528946}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b982d22a28bb56b42a942f387ac4c8ea, type: 3}
   m_Name: 
@@ -849,16 +849,6 @@ Prefab:
       propertyPath: m_Colors.m_HighlightedColor.b
       value: 0.27187142
       objectReference: {fileID: 0}
-    - target: {fileID: 114313336713185786, guid: e2384692fd234ee4fa1a7ffc5815476d,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 89659387}
-    - target: {fileID: 114313336713185786, guid: e2384692fd234ee4fa1a7ffc5815476d,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlayOneShot
-      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114494947589257240, guid: e2384692fd234ee4fa1a7ffc5815476d, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: e2384692fd234ee4fa1a7ffc5815476d, type: 2}
@@ -1079,11 +1069,6 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114201009562755514, guid: e7e489a928965864eaaaf35655fae8c6,
-        type: 2}
-      propertyPath: m_UiScaleMode
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7e489a928965864eaaaf35655fae8c6, type: 2}
   m_IsPrefabAsset: 0
@@ -1175,8 +1160,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2028050327}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 75.054886, y: 62.736004, z: -10.718551}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 426528947}
@@ -1191,7 +1176,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 1f143630b2d24d445af9e1031077f233, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
