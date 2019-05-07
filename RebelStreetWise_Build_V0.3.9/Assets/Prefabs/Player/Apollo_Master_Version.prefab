@@ -547,7 +547,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4737993872703340}
-  - component: {fileID: 114017714790982294}
   m_Layer: 0
   m_Name: mixamorig:LeftHand
   m_TagString: Untagged
@@ -1383,7 +1382,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4154509248313518}
-  - component: {fileID: 114524479869421470}
   m_Layer: 0
   m_Name: mixamorig:RightHand
   m_TagString: Untagged
@@ -5130,26 +5128,6 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!114 &114017714790982294
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1277907008964676}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbee0999c5ceaff48b6f5cfd53c468c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FistAngle: 90
-  Speed: 1
-  MakeFist: 0
-  releaseFist: 0
-  FingerGun: 0
-  ReleaseFingerGun: 0
-  t: 0
-  myHand: 1
-  CurrentHandState: 0
 --- !u!114 &114026792110984434
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5430,26 +5408,6 @@ MonoBehaviour:
     attDam: 0
     hitBox1: {fileID: 0}
     hitBox2: {fileID: 0}
---- !u!114 &114524479869421470
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1682397942893946}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbee0999c5ceaff48b6f5cfd53c468c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FistAngle: 90
-  Speed: 1
-  MakeFist: 0
-  releaseFist: 0
-  FingerGun: 0
-  ReleaseFingerGun: 0
-  t: 0
-  myHand: 0
-  CurrentHandState: 0
 --- !u!114 &114562189517253624
 MonoBehaviour:
   m_ObjectHideFlags: 1
