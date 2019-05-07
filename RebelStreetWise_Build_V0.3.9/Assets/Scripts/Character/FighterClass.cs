@@ -834,7 +834,9 @@ public class FighterClass : MonoBehaviour {
 		case FighterClass.delayType.Time:
 			canAttack = false;
 			canMove = false;
-			yield return new WaitForSeconds(specialAttack.activeTime / anim.speed);
+			yield return new WaitForSeconds((specialAttack.activeTime + specialAttack.startupTime + specialAttack.coolDown) / anim.speed);
+                canAttack = true;
+                canMove = true;
 			break;
 		}
 		output = new AttackStats();

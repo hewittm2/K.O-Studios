@@ -273,14 +273,14 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
     //---------------------------------------------------
     public override void JumpSA(SpecialAttacks jump)
     {
-        if (offCooldown == false)
-        {
+        //if (offCooldown == false)
+       // {
             offCooldown = true;
-            CharCheck(false, false);
+            //CharCheck(false, false);
             SetVars(jump);
             jumpSpecialActive = true;
             StartCoroutine(JumpSAC(jump.startupTime));
-        }
+        //}
     }
     IEnumerator JumpSAC(float startup)
     {
@@ -333,7 +333,7 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
         breakdownHitBox.SetActive(false);
         breakdownActive = false;
         specialAttackStats.SpecialBreakdown.objects.SetActive(false);
-        CharCheck(true, true);
+       // CharCheck(true, true);
     }
     //---------------------------------------------------
     private void Update()
@@ -349,13 +349,13 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
             customJump.SetActive(false);
             specialAttackStats.SpecialJump.objects.SetActive(false);
             getGravity.gravity = -0.7f;
-            CharCheck(true,true);
-            StartCoroutine(JumpCoolDown());
+            //CharCheck(true,true);
+            //StartCoroutine(JumpCoolDown());
         }
         if(goingUp == true)
             transform.Translate(Vector3.up * Time.deltaTime * 40 * upHeight, Space.World);
         if (jumpSpecialActive == true)
-            CharCheck(false, false);
+           // CharCheck(false, false);
 
         //Breakdown
         if (breakdownActive == true)
@@ -365,18 +365,18 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
             else
                 transform.Translate(Vector3.left * Time.deltaTime * breakdownMoveSpeed, Space.World);
 
-            CharCheck(false, false);
+            //CharCheck(false, false);
         }
 
         if (breakdownActive == true && breakdownHitBox.activeInHierarchy == false)
         {
             breakdownActive = false;
-            CharCheck(true, true);
+          //  CharCheck(true, true);
             specialAttackStats.SpecialBreakdown.objects.SetActive(false);
         }
         //Coup De Grace (Part 1 Waiting, and checking if teammate wants to stop)
         if(self.coupDeGraceActivated == true)
-            CharCheck(false, false);
+            //CharCheck(false, false);
 
         //Coup De Grace (Part 2 // Activated // After both teammates inputted
         if (moveMini == true)
@@ -454,7 +454,7 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
     void ResetCoup()
     {
         self.coupDeGraceActivated = false;
-        CharCheck(true, true);
+        //CharCheck(true, true);
         coupExplosion.SetActive(false);
         coupStar.transform.GetChild(0).gameObject.SetActive(true);
         miniStars[0].transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 5);
