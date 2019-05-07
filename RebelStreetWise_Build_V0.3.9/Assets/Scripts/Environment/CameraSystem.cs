@@ -57,12 +57,14 @@ public class CameraSystem : MonoBehaviour
 
     private int stage;
 
+    public bool isReady;
+
 
     // Use this for initialization
-    void Start()
+    IEnumerator Start()
     {
-
-
+        yield return new WaitForSeconds(0.2f);
+        isReady = true;
 
         if (SceneManager.GetActiveScene().name == GroovySceneName)
         {
@@ -100,231 +102,238 @@ public class CameraSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (stage == 1)
-        {
+            if (stage == 1)
+            {
             if (ReadyToTrack)
             {
-                //			if (Characters.Count == 2) {
-                //				center = new Vector3 ((Characters [0].position.x + Characters [1].position.x) / 2f,
-                //					(Characters [0].position.y + Characters [1].position.y) / 2f + 1f, 0f);
-                //				currDist = Mathf.Abs (Characters [0].transform.position.x - Characters [1].transform.position.x);
-                //				if (furtherstApartPair.Count == 0) {
-                //					furtherstApartPair.Add (Characters [0]);
-                //					furtherstApartPair.Add (Characters [1]);
-                //
-                //				}
-                //	
-                //
-                //			} else if (Characters.Count == 4) {
-                //have camera track midpoint of character locations
-                center = new Vector3((Characters[0].position.x + Characters[1].position.x + Characters[2].position.x + Characters[3].position.x) / 4f,
-                                    (Characters[0].position.y + Characters[1].position.y + Characters[2].position.y + Characters[3].position.y) / 4f + 1f, 0f);
-
-                //clac furtherest apart pair
-                currDist = Mathf.Abs(Characters[0].transform.position.z - Characters[1].transform.position.z);
-
-                if (Mathf.Abs(Characters[1].transform.position.z - Characters[2].transform.position.z) > currDist)
+                if (isReady)
                 {
-                    currDist = Mathf.Abs(Characters[1].transform.position.z - Characters[2].transform.position.z);
-                    furtherstApartPair.Clear();
-                    furtherstApartPair.Add(Characters[1]);
-                    furtherstApartPair.Add(Characters[2]);
+                    //			if (Characters.Count == 2) {
+                    //				center = new Vector3 ((Characters [0].position.x + Characters [1].position.x) / 2f,
+                    //					(Characters [0].position.y + Characters [1].position.y) / 2f + 1f, 0f);
+                    //				currDist = Mathf.Abs (Characters [0].transform.position.x - Characters [1].transform.position.x);
+                    //				if (furtherstApartPair.Count == 0) {
+                    //					furtherstApartPair.Add (Characters [0]);
+                    //					furtherstApartPair.Add (Characters [1]);
+                    //
+                    //				}
+                    //	
+                    //
+                    //			} else if (Characters.Count == 4) {
+                    //have camera track midpoint of character locations
+                    center = new Vector3((Characters[0].position.x + Characters[1].position.x + Characters[2].position.x + Characters[3].position.x) / 4f,
+                                        (Characters[0].position.y + Characters[1].position.y + Characters[2].position.y + Characters[3].position.y) / 4f + 1f, 0f);
+
+                    //clac furtherest apart pair
+                    currDist = Mathf.Abs(Characters[0].transform.position.z - Characters[1].transform.position.z);
+
+                    if (Mathf.Abs(Characters[1].transform.position.z - Characters[2].transform.position.z) > currDist)
+                    {
+                        currDist = Mathf.Abs(Characters[1].transform.position.z - Characters[2].transform.position.z);
+                        furtherstApartPair.Clear();
+                        furtherstApartPair.Add(Characters[1]);
+                        furtherstApartPair.Add(Characters[2]);
+                    }
+                    if (Mathf.Abs(Characters[2].transform.position.z - Characters[3].transform.position.z) > currDist)
+                    {
+                        currDist = Mathf.Abs(Characters[2].transform.position.z - Characters[3].transform.position.z);
+                        furtherstApartPair.Clear();
+                        furtherstApartPair.Add(Characters[2]);
+                        furtherstApartPair.Add(Characters[3]);
+                    }
+                    if (Mathf.Abs(Characters[3].transform.position.z - Characters[0].transform.position.z) > currDist)
+                    {
+                        currDist = Mathf.Abs(Characters[3].transform.position.z - Characters[0].transform.position.z);
+                        furtherstApartPair.Clear();
+                        furtherstApartPair.Add(Characters[3]);
+                        furtherstApartPair.Add(Characters[0]);
+                    }
+                    if (Mathf.Abs(Characters[2].transform.position.z - Characters[0].transform.position.z) > currDist)
+                    {
+                        currDist = Mathf.Abs(Characters[2].transform.position.z - Characters[0].transform.position.z);
+                        furtherstApartPair.Clear();
+                        furtherstApartPair.Add(Characters[2]);
+                        furtherstApartPair.Add(Characters[0]);
+                    }
+                    if (Mathf.Abs(Characters[3].transform.position.z - Characters[1].transform.position.z) > currDist)
+                    {
+                        currDist = Mathf.Abs(Characters[3].transform.position.z - Characters[1].transform.position.z);
+                        furtherstApartPair.Clear();
+                        furtherstApartPair.Add(Characters[3]);
+                        furtherstApartPair.Add(Characters[1]);
+                    }
+
+
+                    //midpoint between x and z
+                    midpoint = new Vector3((furtherstApartPair[0].position.x + furtherstApartPair[1].position.x) / 2f, camHeight, (furtherstApartPair[0].position.z + furtherstApartPair[1].position.z) / 2f);
+                    distance = (furtherstApartPair[0].position - furtherstApartPair[1].position).magnitude;
+
+                    cameraDestination = midpoint - cam.transform.forward * distance * zoomFactor;
+                    cam.transform.position = Vector3.Slerp(cam.transform.position, cameraDestination, followTimeDelta);
+
+                    if (cam.transform.position.x > GroovyMaxDistance)
+                    {
+                        Debug.Log("die");
+                        cam.transform.position = new Vector3(GroovyMaxDistance, cameraDestination.y, cameraDestination.z);
+                    }
+                    //prevents camera from zooming in to much
+                    if (cam.transform.position.x < GroovyMinDistance)
+                    {
+                        Debug.Log("die2");
+                        cam.transform.position = new Vector3(GroovyMinDistance, cameraDestination.y, cameraDestination.z);
+                    }
                 }
-                if (Mathf.Abs(Characters[2].transform.position.z - Characters[3].transform.position.z) > currDist)
+            }
+            }
+            if (stage == 0)
+            {
+            if (ReadyToTrack)
+            {
+                if (isReady)
                 {
-                    currDist = Mathf.Abs(Characters[2].transform.position.z - Characters[3].transform.position.z);
-                    furtherstApartPair.Clear();
-                    furtherstApartPair.Add(Characters[2]);
-                    furtherstApartPair.Add(Characters[3]);
-                }
-                if (Mathf.Abs(Characters[3].transform.position.z - Characters[0].transform.position.z) > currDist)
-                {
-                    currDist = Mathf.Abs(Characters[3].transform.position.z - Characters[0].transform.position.z);
-                    furtherstApartPair.Clear();
-                    furtherstApartPair.Add(Characters[3]);
-                    furtherstApartPair.Add(Characters[0]);
-                }
-                if (Mathf.Abs(Characters[2].transform.position.z - Characters[0].transform.position.z) > currDist)
-                {
-                    currDist = Mathf.Abs(Characters[2].transform.position.z - Characters[0].transform.position.z);
-                    furtherstApartPair.Clear();
-                    furtherstApartPair.Add(Characters[2]);
-                    furtherstApartPair.Add(Characters[0]);
-                }
-                if (Mathf.Abs(Characters[3].transform.position.z - Characters[1].transform.position.z) > currDist)
-                {
-                    currDist = Mathf.Abs(Characters[3].transform.position.z - Characters[1].transform.position.z);
-                    furtherstApartPair.Clear();
-                    furtherstApartPair.Add(Characters[3]);
-                    furtherstApartPair.Add(Characters[1]);
-                }
+                    //			if (Characters.Count == 2) {
+                    //				center = new Vector3 ((Characters [0].position.x + Characters [1].position.x) / 2f,
+                    //					(Characters [0].position.y + Characters [1].position.y) / 2f + 1f, 0f);
+                    //				currDist = Mathf.Abs (Characters [0].transform.position.x - Characters [1].transform.position.x);
+                    //				if (furtherstApartPair.Count == 0) {
+                    //					furtherstApartPair.Add (Characters [0]);
+                    //					furtherstApartPair.Add (Characters [1]);
+                    //
+                    //				}
+                    //	
+                    //
+                    //			} else if (Characters.Count == 4) {
+                    //have camera track midpoint of character locations
+                    center = new Vector3((Characters[0].position.x + Characters[1].position.x + Characters[2].position.x + Characters[3].position.x) / 4f,
+                                        (Characters[0].position.y + Characters[1].position.y + Characters[2].position.y + Characters[3].position.y) / 4f + 1f, 0f);
+
+                    //clac furtherest apart pair
+                    currDist = Mathf.Abs(Characters[0].transform.position.x - Characters[1].transform.position.x);
+
+                    if (Mathf.Abs(Characters[1].transform.position.x - Characters[2].transform.position.x) > currDist)
+                    {
+                        currDist = Mathf.Abs(Characters[1].transform.position.x - Characters[2].transform.position.x);
+                        furtherstApartPair.Clear();
+                        furtherstApartPair.Add(Characters[1]);
+                        furtherstApartPair.Add(Characters[2]);
+                    }
+                    if (Mathf.Abs(Characters[2].transform.position.x - Characters[3].transform.position.x) > currDist)
+                    {
+                        currDist = Mathf.Abs(Characters[2].transform.position.x - Characters[3].transform.position.x);
+                        furtherstApartPair.Clear();
+                        furtherstApartPair.Add(Characters[2]);
+                        furtherstApartPair.Add(Characters[3]);
+                    }
+                    if (Mathf.Abs(Characters[3].transform.position.x - Characters[0].transform.position.x) > currDist)
+                    {
+                        currDist = Mathf.Abs(Characters[3].transform.position.x - Characters[0].transform.position.x);
+                        furtherstApartPair.Clear();
+                        furtherstApartPair.Add(Characters[3]);
+                        furtherstApartPair.Add(Characters[0]);
+                    }
+                    if (Mathf.Abs(Characters[2].transform.position.x - Characters[0].transform.position.x) > currDist)
+                    {
+                        currDist = Mathf.Abs(Characters[2].transform.position.x - Characters[0].transform.position.x);
+                        furtherstApartPair.Clear();
+                        furtherstApartPair.Add(Characters[2]);
+                        furtherstApartPair.Add(Characters[0]);
+                    }
+                    if (Mathf.Abs(Characters[3].transform.position.x - Characters[1].transform.position.x) > currDist)
+                    {
+                        currDist = Mathf.Abs(Characters[3].transform.position.x - Characters[1].transform.position.x);
+                        furtherstApartPair.Clear();
+                        furtherstApartPair.Add(Characters[3]);
+                        furtherstApartPair.Add(Characters[1]);
+                    }
 
 
-                //midpoint between x and z
-                midpoint = new Vector3((furtherstApartPair[0].position.x + furtherstApartPair[1].position.x) / 2f, camHeight, (furtherstApartPair[0].position.z + furtherstApartPair[1].position.z) / 2f);
-                distance = (furtherstApartPair[0].position - furtherstApartPair[1].position).magnitude;
+                    //midpoint between x and z
+                    midpoint = new Vector3((furtherstApartPair[0].position.x + furtherstApartPair[1].position.x) / 2f, camHeight, (furtherstApartPair[0].position.z + furtherstApartPair[1].position.z) / 2f);
+                    distance = (furtherstApartPair[0].position - furtherstApartPair[1].position).magnitude;
 
-                cameraDestination = midpoint - cam.transform.forward * distance * zoomFactor;
-                cam.transform.position = Vector3.Slerp(cam.transform.position, cameraDestination, followTimeDelta);
+                    cameraDestination = midpoint - cam.transform.forward * distance * zoomFactor;
+                    cam.transform.position = Vector3.Slerp(cam.transform.position, cameraDestination, followTimeDelta);
+                }
+            }
 
-                if (cam.transform.position.x > GroovyMaxDistance)
+                //prevents camera from zooming out to far
+                if (cam.transform.position.z < SolarisMaxDistance)
                 {
-                    Debug.Log("die");
-                    cam.transform.position = new Vector3(GroovyMaxDistance, cameraDestination.y, cameraDestination.z);
+                    cam.transform.position = new Vector3(cameraDestination.x, cameraDestination.y, SolarisMaxDistance);
                 }
                 //prevents camera from zooming in to much
-                if (cam.transform.position.x < GroovyMinDistance)
+                if (cam.transform.position.z > SolarisMinDistance)
                 {
-                    Debug.Log("die2");
-                    cam.transform.position = new Vector3(GroovyMinDistance, cameraDestination.y, cameraDestination.z);
-                }
-            }
-        }
-        if (stage == 0)
-        {
-            if (ReadyToTrack)
-            {
-                //			if (Characters.Count == 2) {
-                //				center = new Vector3 ((Characters [0].position.x + Characters [1].position.x) / 2f,
-                //					(Characters [0].position.y + Characters [1].position.y) / 2f + 1f, 0f);
-                //				currDist = Mathf.Abs (Characters [0].transform.position.x - Characters [1].transform.position.x);
-                //				if (furtherstApartPair.Count == 0) {
-                //					furtherstApartPair.Add (Characters [0]);
-                //					furtherstApartPair.Add (Characters [1]);
-                //
-                //				}
-                //	
-                //
-                //			} else if (Characters.Count == 4) {
-                //have camera track midpoint of character locations
-                center = new Vector3((Characters[0].position.x + Characters[1].position.x + Characters[2].position.x + Characters[3].position.x) / 4f,
-                                    (Characters[0].position.y + Characters[1].position.y + Characters[2].position.y + Characters[3].position.y) / 4f + 1f, 0f);
-
-                //clac furtherest apart pair
-                currDist = Mathf.Abs(Characters[0].transform.position.x - Characters[1].transform.position.x);
-
-                if (Mathf.Abs(Characters[1].transform.position.x - Characters[2].transform.position.x) > currDist)
-                {
-                    currDist = Mathf.Abs(Characters[1].transform.position.x - Characters[2].transform.position.x);
-                    furtherstApartPair.Clear();
-                    furtherstApartPair.Add(Characters[1]);
-                    furtherstApartPair.Add(Characters[2]);
-                }
-                if (Mathf.Abs(Characters[2].transform.position.x - Characters[3].transform.position.x) > currDist)
-                {
-                    currDist = Mathf.Abs(Characters[2].transform.position.x - Characters[3].transform.position.x);
-                    furtherstApartPair.Clear();
-                    furtherstApartPair.Add(Characters[2]);
-                    furtherstApartPair.Add(Characters[3]);
-                }
-                if (Mathf.Abs(Characters[3].transform.position.x - Characters[0].transform.position.x) > currDist)
-                {
-                    currDist = Mathf.Abs(Characters[3].transform.position.x - Characters[0].transform.position.x);
-                    furtherstApartPair.Clear();
-                    furtherstApartPair.Add(Characters[3]);
-                    furtherstApartPair.Add(Characters[0]);
-                }
-                if (Mathf.Abs(Characters[2].transform.position.x - Characters[0].transform.position.x) > currDist)
-                {
-                    currDist = Mathf.Abs(Characters[2].transform.position.x - Characters[0].transform.position.x);
-                    furtherstApartPair.Clear();
-                    furtherstApartPair.Add(Characters[2]);
-                    furtherstApartPair.Add(Characters[0]);
-                }
-                if (Mathf.Abs(Characters[3].transform.position.x - Characters[1].transform.position.x) > currDist)
-                {
-                    currDist = Mathf.Abs(Characters[3].transform.position.x - Characters[1].transform.position.x);
-                    furtherstApartPair.Clear();
-                    furtherstApartPair.Add(Characters[3]);
-                    furtherstApartPair.Add(Characters[1]);
+                    cam.transform.position = new Vector3(cameraDestination.x, cameraDestination.y, SolarisMinDistance);
                 }
 
 
-                //midpoint between x and z
-                midpoint = new Vector3((furtherstApartPair[0].position.x + furtherstApartPair[1].position.x) / 2f, camHeight, (furtherstApartPair[0].position.z + furtherstApartPair[1].position.z) / 2f);
-                distance = (furtherstApartPair[0].position - furtherstApartPair[1].position).magnitude;
-
-                cameraDestination = midpoint - cam.transform.forward * distance * zoomFactor;
-                cam.transform.position = Vector3.Slerp(cam.transform.position, cameraDestination, followTimeDelta);
-            }
-
-            //prevents camera from zooming out to far
-            if (cam.transform.position.z < SolarisMaxDistance)
-            {
-                cam.transform.position = new Vector3(cameraDestination.x, cameraDestination.y, SolarisMaxDistance);
-            }
-            //prevents camera from zooming in to much
-            if (cam.transform.position.z > SolarisMinDistance)
-            {
-                cam.transform.position = new Vector3(cameraDestination.x, cameraDestination.y, SolarisMinDistance);
-            }
-
-
-            math = 8;
-            //stops from showing beneth stage, the bool and math vars are for smoothing
-            if (cam.transform.position.z < -20)
-            {
-                //camHeight = 8;
-                math = camHeight;
-                math2 = 8.5f;
-                if (cam.transform.position.z < -25)
+                math = 8;
+                //stops from showing beneth stage, the bool and math vars are for smoothing
+                if (cam.transform.position.z < -20)
                 {
-                    growing = true;
-                    //camHeight = 8.5f;
+                    //camHeight = 8;
                     math = camHeight;
-                    math2 = 9f;
-                    if (cam.transform.position.z < -30)
+                    math2 = 8.5f;
+                    if (cam.transform.position.z < -25)
                     {
                         growing = true;
-                        //camHeight = 9;
+                        //camHeight = 8.5f;
                         math = camHeight;
-                        math2 = 9.5f;
-                        if (cam.transform.position.z < -35)
+                        math2 = 9f;
+                        if (cam.transform.position.z < -30)
                         {
                             growing = true;
-                            //camHeight = 9.5f;
+                            //camHeight = 9;
                             math = camHeight;
-                            math2 = 10f;
-                            if (cam.transform.position.z < -38)
+                            math2 = 9.5f;
+                            if (cam.transform.position.z < -35)
                             {
                                 growing = true;
-                                camHeight = 10;
+                                //camHeight = 9.5f;
+                                math = camHeight;
+                                math2 = 10f;
+                                if (cam.transform.position.z < -38)
+                                {
+                                    growing = true;
+                                    camHeight = 10;
+                                }
+                                else
+                                {
+                                    math2 = 9.5f;
+                                    growing = false;
+                                }
                             }
                             else
                             {
-                                math2 = 9.5f;
+                                math2 = 9;
                                 growing = false;
                             }
                         }
                         else
                         {
-                            math2 = 9;
+                            math2 = 8.5f;
                             growing = false;
                         }
                     }
                     else
                     {
-                        math2 = 8.5f;
+                        math2 = 8;
                         growing = false;
                     }
                 }
-                else
+                if (growing == true)
                 {
-                    math2 = 8;
-                    growing = false;
+                    if (math < math2)
+                        math += .1f;
+                }
+                if (growing == false)
+                {
+                    if (math > math2)
+                        math -= .1f;
                 }
             }
-            if (growing == true)
-            {
-                if (math < math2)
-                    math += .1f;
-            }
-            if (growing == false)
-            {
-                if (math > math2)
-                    math -= .1f;
-            }
-        }
+        
     }
 
     public void AddPlayerToList(Transform trans)
@@ -332,6 +341,11 @@ public class CameraSystem : MonoBehaviour
         Characters.Add(trans);
         if (Characters.Count == 4)
             ReadyToTrack = true;
+    }
+    IEnumerator StartDelay()
+    {
+        yield return new WaitForSeconds(.2F);
+        isReady = true;
     }
 
 }

@@ -17,9 +17,12 @@ public class HealthUI : MonoBehaviour
     public Slider sl2;
     public Slider sl3;
     public Slider sl4;
-
-    void Start ()
+    public bool isReady = false;
+    
+    IEnumerator Start ()
     {
+        yield return new WaitForSeconds(0.2f);
+        StartCoroutine(StartDelay());
         fighters = FindObjectsOfType<FighterClass>();
 
         foreach (FighterClass fighter in fighters)
@@ -38,9 +41,16 @@ public class HealthUI : MonoBehaviour
     }
     private void Update()
     {
+        if (isReady) {
         sl1.value = sl1.maxValue - team1[0].currentHealth;
         sl2.value = sl2.maxValue - team1[1].currentHealth;
         sl3.value = sl3.maxValue - team2[0].currentHealth;
         sl4.value = sl4.maxValue - team2[1].currentHealth;
+        }
+        
+    }
+    IEnumerator StartDelay() {
+        yield return new WaitForSeconds(.2F);
+        isReady = true;
     }
 }

@@ -25,14 +25,17 @@ public class ProjectileFighterReference : MonoBehaviour
 		output = null;
 	}
 
-    private void OnTriggerEnter(Collider other)
+    private IEnumerator OnTriggerEnter(Collider other)
     {
         if (passThrough == false && other.GetComponent<FighterClass>() != null)
         {
             if (other.GetComponent<FighterClass>().teamNumber != fighter.teamNumber)
             {
+                yield return new WaitForSeconds(.1f);
                 gameObject.SetActive(false);
+  
             }
         }
     }
+ 
 }

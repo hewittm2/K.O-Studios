@@ -1,5 +1,5 @@
 ﻿//Torrel L Ethan Q
-//4/8/19
+//5/5/19
 //Apollo Special Attacks
 using System.Collections;
 using System.Collections.Generic;
@@ -13,17 +13,16 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
     private BaseMovement getGravity;
     private GameObject managerHold;
 
+    [Header("Particle Color Change")]
+    public ParticleSystem[] myParticleColors;
+    public TrailRenderer[] myTrailColors;
+    private Color myPColor;
+
+
     [Header("Forward Special Custom Variables")][Space(0.5f)]
     public GameObject forwardObj;
     [Range(1f,20f)]
     public float projectileSpeed;
-    [Range(3,5)]
-    public float xSpawn;
-    [Range(0.3f,0.7f)]
-    public float ySpawn;
-    [Tooltip("Z Spawn is Locked, Sorry!")]
-    [Range(0,0)]
-    public float zSpawn;
     private Vector3 spawn;
     private Rigidbody forwardRigidbody;
     private bool isForwardActive = false;
@@ -35,18 +34,23 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
 
     [Header("Down Special Custom Variables")][Space(0.5f)]
     public GameObject downHitBox;
+    public GameObject downParticle;
 
     [Header("Neutral Special Custom Variables")][Space(0.5f)]
     public GameObject neutralHitBox;
-    public bool nCooldown = false;
+    private bool nCooldown = false;
 
     [Header("Jump Special Custom Variables")][Space(0.5f)]
-    [Range(0.5f,15f)]
+    [Range(1.5f,1.5f)]
     public float downSpeed;
-    [Range(1f, 5f)]
-    public float minimumHeightNeeded;
+    [Range(0.5f, 0.5f)]
+    public float upHeight;
+    private bool goingUp = false;
     public GameObject customJump;
-    public bool jumpSpecialActive = false;
+    private bool jumpSpecialActive = false;
+    [Range(1,5)]
+    public int jCooldown;
+    private bool offCooldown = false;
 
     [Header("Breakdown Special Custom Variables")][Space(0.5f)]
     [Range(7,20)]
@@ -56,24 +60,25 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
     private bool isFacingRight = false;
 
     [Header("Coup De Grace")] [Space(0.5f)]
-    public int coupDamage = 10;
     [Tooltip("How fast the star moves (Start Speed)")] [Range(3, 10)]
     public float moveSpeed = 5f;
     [Tooltip("This value increases the rate at which it picks up speed ")][Range(10, 25)]
     public int speedIncreaseOT = 10;
-    [Tooltip("How fast the ministars move")][Range(1, 25)]
-    public float miniStarSpeed = 1f;
     private bool moveMini;
     private bool moveTowards;
+    [Header("Mini Stars")]
+    [Tooltip("How fast the ministars move")][Range(3, 7)]
+    public float miniStarSpeed = 3f;
+    public GameObject coupObj;
+    public GameObject[] miniStars;
+    [Header("Big Coup Star")]
+    public GameObject coupStar;
     public GameObject theTrail;
     public GameObject coupExplosion;
-    public GameObject coupObj;
-    [SerializeField]private GameObject[] miniStars;
-    public GameObject coupStar;
 
     [Header("Read Only - Value ignored.")][Space(0.5f)]
-    [SerializeField] private FighterClass[] fightersC;
-    [SerializeField] private GameObject[] enemies;
+    private List<FighterClass> theEnemies = new List<FighterClass>();
+    private List<HitDetection> doMajorDamage = new List<HitDetection> ();
 
     private void Awake()
     {
@@ -109,6 +114,20 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
     }
     void SetHitBoxes()
     {
+        if (self.teamNumber == 1)
+            myPColor = new Color(0, 0, 255);
+        else
+            myPColor = new Color(255, 0, 0);
+
+        foreach (ParticleSystem p in myParticleColors)
+        {
+            ParticleSystem.MainModule newMain = p.main;
+            newMain.startColor = myPColor;
+        }
+        foreach (TrailRenderer t in myTrailColors)
+            t.startColor = myPColor;
+
+
         managerHold = new GameObject("Player: " + self.playerNumber + "'s" + " HitBoxHolder");
         forwardObj.transform.SetParent(managerHold.transform);
         coupObj.transform.SetParent(managerHold.transform);
@@ -132,15 +151,12 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
     }
     void CoupEnemyCheck()
     {
-        enemies = new GameObject[2];
-        fightersC = FindObjectsOfType<FighterClass>();
-        int holder = 0;
+        FighterClass[] fightersC = FindObjectsOfType<FighterClass>();
         foreach (FighterClass fighter in fightersC)
         {
             if (fighter.teamNumber != self.teamNumber)
             {
-                enemies[holder] = fighter.gameObject;
-                holder++;
+                theEnemies.Add(fighter);
             }
         }
     }
@@ -156,7 +172,7 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
 		self.output.damageType = _SetVar.damageType;
 		self.output.hitType = _SetVar.hitType;
     }
-    void SetVarsClear()
+    void SetVarsCleart()
     {
         self.output.meterGain = 0;
         self.output.hitType = FighterClass.HitType.Light;
@@ -165,6 +181,18 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
         self.output.knockBackDirection = new Vector3(0,0,0);
         self.output.knockBackForce = 0;
         self.output.attDam = 0;
+    }
+    void CharCheck(bool _canNowMove, bool _canNowAttack)
+    {
+        if (_canNowMove == false)
+            self.canMove = false;
+        else
+            self.canMove = true;
+
+        if (_canNowAttack == false)
+            self.canAttack = false;
+        else
+            self.canAttack = true;
     }
     public override void NeutralSA(SpecialAttacks neutral)
     {
@@ -181,8 +209,10 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
         nCooldown = true;
         yield return new WaitForSeconds(wait);
         neutralHitBox.SetActive(true);
+        specialAttackStats.SpecialNeutral.objects.SetActive(true);
         yield return new WaitForSeconds(active);
         neutralHitBox.SetActive(false);
+        specialAttackStats.SpecialNeutral.objects.SetActive(false);
         nCooldown = false;
     }
     // --------------------------------------------------
@@ -201,8 +231,7 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
         yield return new WaitForSeconds(active);
         backHitBox.SetActive(false);
         backParticle.SetActive(false);
-        SetVarsClear();
-
+   //     SetVarsClear();
     }
     //---------------------------------------------------
     public override void ForwardSA(SpecialAttacks forward)
@@ -210,6 +239,7 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
         if (isForwardActive == false)
         {
             isForwardActive = true;
+            forwardObj.transform.GetChild(3).GetComponent<TrailRenderer>().Clear();
             SetVars(specialAttackStats.SpecialForward);
             StartCoroutine(ForwardSAC(forward.startupTime, forward.activeTime));
         }
@@ -219,9 +249,9 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
     IEnumerator ForwardSAC(float wait, float active)
     {
         if (self.facingRight == true)
-            spawn = new Vector3(transform.position.x + xSpawn, transform.position.y - ySpawn + 5, transform.position.z + zSpawn);
+            spawn = new Vector3(transform.position.x + 5, transform.position.y + 2 + 5, transform.position.z);
         else
-            spawn = new Vector3(transform.position.x + -xSpawn, transform.position.y - ySpawn + 5, transform.position.z + zSpawn);
+            spawn = new Vector3(transform.position.x + -5, transform.position.y + 2 + 5, transform.position.z);
 
         forwardObj.transform.position = spawn;
         forwardObj.SetActive(true);
@@ -243,36 +273,45 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
     //---------------------------------------------------
     public override void JumpSA(SpecialAttacks jump)
     {
-        if (transform.position.y > minimumHeightNeeded)
+        if (offCooldown == false)
         {
+            offCooldown = true;
+            CharCheck(false, false);
             SetVars(jump);
             jumpSpecialActive = true;
-
             StartCoroutine(JumpSAC(jump.startupTime));
-        }
-        else
-        {
-            Debug.Log("You're too low to activiate this special attack",gameObject);
         }
     }
     IEnumerator JumpSAC(float startup)
     {
+        goingUp = true;
         getGravity.gravity = 0;
+        specialAttackStats.SpecialJump.objects.SetActive(true);
         yield return new WaitForSeconds(startup);
+        goingUp = false;
+        yield return new WaitForSeconds(0.1f);
         getGravity.gravity = -downSpeed;
         customJump.SetActive(true);
+    }
+    IEnumerator JumpCoolDown()
+    {
+        yield return new WaitForSeconds(jCooldown);
+        offCooldown = false;
     }
     //---------------------------------------------------
     public override void DownSA(SpecialAttacks down)
     {
         SetVars(down);
-        StartCoroutine(DownSAC(down.activeTime));
+        StartCoroutine(DownSAC(down.startupTime,down.activeTime));
     }
-    IEnumerator DownSAC(float active)
+    IEnumerator DownSAC(float startup,float active)
     {
+        downParticle.SetActive(true);
+        yield return new WaitForSeconds(startup);
         downHitBox.SetActive(true);
         yield return new WaitForSeconds(active);
         downHitBox.SetActive(false);
+        downParticle.SetActive(false);
     }
     //---------------------------------------------------
     public override void BreakdownSA(SpecialAttacks breakdown)
@@ -282,6 +321,7 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
     }
     IEnumerator BreakdownSAC(float active, float startup)
     {
+        specialAttackStats.SpecialBreakdown.objects.SetActive(true);
         yield return new WaitForSeconds(startup);
         breakdownHitBox.SetActive(true);
         if (self.facingRight == true)
@@ -292,6 +332,8 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
         yield return new WaitForSeconds(active);
         breakdownHitBox.SetActive(false);
         breakdownActive = false;
+        specialAttackStats.SpecialBreakdown.objects.SetActive(false);
+        CharCheck(true, true);
     }
     //---------------------------------------------------
     private void Update()
@@ -305,8 +347,16 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
         {
             jumpSpecialActive = false;
             customJump.SetActive(false);
+            specialAttackStats.SpecialJump.objects.SetActive(false);
             getGravity.gravity = -0.7f;
+            CharCheck(true,true);
+            StartCoroutine(JumpCoolDown());
         }
+        if(goingUp == true)
+            transform.Translate(Vector3.up * Time.deltaTime * 40 * upHeight, Space.World);
+        if (jumpSpecialActive == true)
+            CharCheck(false, false);
+
         //Breakdown
         if (breakdownActive == true)
         {
@@ -314,21 +364,29 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
             transform.Translate(Vector3.right * Time.deltaTime * breakdownMoveSpeed,Space.World);
             else
                 transform.Translate(Vector3.left * Time.deltaTime * breakdownMoveSpeed, Space.World);
+
+            CharCheck(false, false);
         }
-        //Coup De Grace
-        if (moveMini == true)
+
+        if (breakdownActive == true && breakdownHitBox.activeInHierarchy == false)
         {
-            MoveMiniStars();
+            breakdownActive = false;
+            CharCheck(true, true);
+            specialAttackStats.SpecialBreakdown.objects.SetActive(false);
         }
+        //Coup De Grace (Part 1 Waiting, and checking if teammate wants to stop)
+        if(self.coupDeGraceActivated == true)
+            CharCheck(false, false);
+
+        //Coup De Grace (Part 2 // Activated // After both teammates inputted
+        if (moveMini == true)
+            MoveMiniStars();
+
         if (moveTowards == true)
         {
-            if (theTrail.activeInHierarchy == false)
-            {
-                theTrail.SetActive(true);
-            }
             moveSpeed += Time.deltaTime * speedIncreaseOT;
-            coupStar.transform.position = Vector3.MoveTowards(coupStar.transform.position, enemies[0].transform.position, 0.05f * moveSpeed);
-            float dist = Vector3.Distance(coupStar.transform.position, enemies[0].transform.position);
+            coupStar.transform.position = Vector3.MoveTowards(coupStar.transform.position, theEnemies[0].gameObject.transform.position, 0.05f * moveSpeed);
+            float dist = Vector3.Distance(coupStar.transform.position, theEnemies[0].gameObject.transform.position);
 
             if (dist <= 0.06f)
             {
@@ -338,19 +396,16 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
                 StartCoroutine(ExplosionWait());
             }
         }
+
     }
     //---------------------------------------------------
     public override void CoupDeGraceU(SpecialAttacks coup)
     {
         SetVars(coup);
         self.coupDeGraceActivated = true;
-        coupObj.SetActive(true);
-        miniStars[0].SetActive(true);
-        miniStars[1].SetActive(true);
-        miniStars[2].SetActive(true);
-        miniStars[3].SetActive(true);
-        miniStars[4].SetActive(true);
-        moveMini = true;
+        self.anim.SetTrigger("Win Pose"); //Play Win Pose here??
+        //Wait for teammate input here
+        ActivateMiniStars();
         CoupEnemyCheck();
         StartCoroutine(CoupDeGraceUE());
     }
@@ -365,14 +420,8 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
     IEnumerator CoupDeGraceUE()
     {
         yield return new WaitForSeconds(1f);
-        moveMini = false;
-        miniStars[0].SetActive(false);
-        miniStars[1].SetActive(false);
-        miniStars[2].SetActive(false);
-        miniStars[3].SetActive(false);
-        miniStars[4].SetActive(false);
-        coupObj.SetActive(false);
-        coupStar.transform.position = new Vector3(transform.position.x,transform.position.y + 15, transform.position.z);
+        StartCoroutine(PulseMiniStars());
+        coupStar.transform.position = new Vector3(transform.position.x,transform.position.y + 20, transform.position.z);
         coupStar.SetActive(true);
         for (int l = 0; l < 2; l++)
         {
@@ -380,16 +429,23 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
             coupStar.GetComponent<ParticleSystem>().Play();
         }
         yield return new WaitForSeconds(1.5f);
+        theTrail.SetActive(true);
         moveTowards = true;
     }
     IEnumerator ExplosionWait()
     {
-        HitDetection doMajorDamage = enemies[0].transform.root.gameObject.GetComponent<HitDetection>();
-        //HitDetection doMajorDamage2 = enemies[1].transform.root.gameObject.GetComponent<HitDetection>();
-        self.output.attDam = coupDamage;
-        doMajorDamage.ReceiveDamage(self.output);
-      // doMajorDamage2.ReceiveDamage(self.output);
         coupExplosion.SetActive(true);
+        foreach (FighterClass fighter in theEnemies)
+        {
+            doMajorDamage.Add(fighter.gameObject.transform.root.gameObject.GetComponent<HitDetection>());
+        }
+
+        self.output.attDam = theEnemies[0].totalHealth;
+        if (theEnemies[0] != null)
+            doMajorDamage[0].ReceiveDamage(self.output);
+        if (theEnemies[1] != null)
+            doMajorDamage[1].ReceiveDamage(self.output);
+
         yield return new WaitForSeconds(1f);
         coupStar.gameObject.SetActive(false);
         ResetCoup();
@@ -398,6 +454,7 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
     void ResetCoup()
     {
         self.coupDeGraceActivated = false;
+        CharCheck(true, true);
         coupExplosion.SetActive(false);
         coupStar.transform.GetChild(0).gameObject.SetActive(true);
         miniStars[0].transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 5);
@@ -405,5 +462,52 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
         miniStars[2].transform.position = new Vector3(transform.position.x, transform.position.y + 7, transform.position.z + 0);
         miniStars[3].transform.position = new Vector3(transform.position.x, transform.position.y + 4, transform.position.z + 5);
         miniStars[4].transform.position = new Vector3(transform.position.x, transform.position.y + 4, transform.position.z + -5);
+    }
+
+    void ActivateMiniStars()
+    {
+        ResetPositions();
+        coupObj.SetActive(true);
+        foreach (GameObject ms in miniStars)
+        {
+            ms.SetActive(true);
+        }
+        moveMini = true;
+    }
+    IEnumerator PulseMiniStars()
+    {
+        coupObj.SetActive(false);
+        foreach (TrailRenderer t in myTrailColors)
+            t.Clear();
+        ResetPositions();
+        coupObj.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        coupObj.SetActive(false);
+        foreach (TrailRenderer t in myTrailColors)
+            t.Clear();
+        ResetPositions();
+        self.output.damageType = FighterClass.DamageType.KnockDown;
+        coupObj.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        DeActivateMiniStars();
+    }
+    void DeActivateMiniStars()
+    {
+        ResetPositions();
+        moveMini = false;
+        foreach (GameObject ms in miniStars)
+        {
+            ms.SetActive(false);
+        }
+        coupObj.SetActive(false);
+
+    }
+    void ResetPositions()
+    {
+        miniStars[0].transform.position = new Vector3(transform.position.x, transform.position.y + 4, transform.position.z);
+        miniStars[1].transform.position = new Vector3(transform.position.x, transform.position.y + 4, transform.position.z);
+        miniStars[2].transform.position = new Vector3(transform.position.x, transform.position.y + 10, transform.position.z);
+        miniStars[3].transform.position = new Vector3(transform.position.x, transform.position.y + 7, transform.position.z);
+        miniStars[4].transform.position = new Vector3(transform.position.x, transform.position.y + 7, transform.position.z);
     }
 }

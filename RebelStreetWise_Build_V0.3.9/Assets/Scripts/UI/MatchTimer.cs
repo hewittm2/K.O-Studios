@@ -24,6 +24,7 @@ public class MatchTimer : MonoBehaviour {
     MatchEnd matchEnd;
 
     private IEnumerator Start () {
+        yield return new WaitForSeconds(0.2f);
         if (secTime < 10)
         {
             secText.text = "0" + secTime.ToString();
