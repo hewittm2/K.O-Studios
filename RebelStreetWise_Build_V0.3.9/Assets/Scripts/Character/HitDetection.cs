@@ -65,9 +65,12 @@ public class HitDetection : MonoBehaviour {
 	public BaseMovement movement;
 	[HideInInspector]
 	public FighterClass attacker;
-
-	private void Start(){
-		player = GetComponent<FighterClass>();
+    public ProjectileFighterReference projectile;
+    public bool isReady;
+	private IEnumerator Start(){
+        yield return new WaitForSeconds(0.2f);
+        StartCoroutine(StartDelay());
+        player = GetComponent<FighterClass>();
 		movement = GetComponent<BaseMovement> ();
 		hitSpark = Instantiate (hitSpark,player.gameObject.transform.position, Quaternion.identity);
 		blockSpark = Instantiate (blockSpark, player.gameObject.transform.position, Quaternion.identity);
@@ -136,7 +139,8 @@ public class HitDetection : MonoBehaviour {
 	}
 
 	private void Update(){
-		tempDist = Vector3.Distance(transform.position, teamMate[0].transform.position);
+        if (isReady) {
+	      tempDist = Vector3.Distance(transform.position, teamMate[0].transform.position);
 
 		if (tempDist < closeDist){
 			transform.position = Vector3.MoveTowards(transform.position, teamMate[0].transform.position, (-1 * Time.deltaTime) / 2);
@@ -147,31 +151,44 @@ public class HitDetection : MonoBehaviour {
 				transform.Translate ((Vector3.back * speed)* Time.deltaTime);
 			} 
 		}
+
+        }
+	
 	}
 
 
 	private void OnCollisionEnter(Collision col){
-		foreach (ContactPoint contact in col.contacts) {
-			if (player.canRecieveDamage) {
-				if (contact.otherCollider.tag == attackerLabel) {
-					attacker = col.gameObject.GetComponentInParent<FighterClass> ();
-					if (attacker != null) {
-						if (!player.blocking) {
-							ReceiveDamage (attacker.output);
-							hitSpark.transform.position = contact.otherCollider.transform.position;
-							hitSpark.SetActive(true);
-							attacker.superMeter += attacker.output.meterGain;
-						} else {
-							ReceiveBlockedDamage (attacker.output);
-							blockSpark.transform.position = contact.otherCollider.transform.position;
-							blockSpark.SetActive(true);
-							attacker.superMeter += (attacker.output.meterGain*player.defValue);
-						}
-					}
+        if (isReady)
+        {
+            foreach (ContactPoint contact in col.contacts)
+            {
+                if (player.canRecieveDamage)
+                {
+                    if (contact.otherCollider.tag == attackerLabel)
+                    {
+                        attacker = col.gameObject.GetComponentInParent<FighterClass>();
+                        if (attacker != null)
+                        {
+                            if (!player.blocking)
+                            {
+                                ReceiveDamage(attacker.output);
+                                hitSpark.transform.position = contact.otherCollider.transform.position;
+                                hitSpark.SetActive(true);
+                                attacker.superMeter += attacker.output.meterGain;
+                            }
+                            else
+                            {
+                                ReceiveBlockedDamage(attacker.output);
+                                blockSpark.transform.position = contact.otherCollider.transform.position;
+                                blockSpark.SetActive(true);
+                                attacker.superMeter += (attacker.output.meterGain * player.defValue);
+                            }
+                        }
 
-				}
-			}
-		}
+                    }
+                }
+            }
+        }
 	}
 
 
@@ -180,19 +197,21 @@ public class HitDetection : MonoBehaviour {
 		Debug.Log ("Projectile Hit");
 		if (col.gameObject.tag == attackerLabel) {
 			if (col.gameObject.GetComponent<ProjectileFighterReference>()) {
+                projectile = col.gameObject.GetComponent<ProjectileFighterReference>();
 				attacker = col.gameObject.GetComponent<ProjectileFighterReference> ().fighter;
+                Debug.Log(attacker.output.attDam);
 			}
 			if (attacker != null) {
 				if (!player.blocking) {
-					ReceiveDamage (attacker.output);
+					ReceiveDamage (projectile.output);
 					hitSpark.transform.position = col.transform.position;
 					hitSpark.SetActive(true);
-					attacker.superMeter += attacker.output.meterGain;
+					attacker.superMeter += projectile.output.meterGain;
 				} else {
-					ReceiveBlockedDamage (attacker.output);
+					ReceiveBlockedDamage (projectile.output);
 					blockSpark.transform.position = col.transform.position;
 					blockSpark.SetActive(true);
-					attacker.superMeter += (attacker.output.meterGain*player.defValue);
+					attacker.superMeter += (projectile.output.meterGain*player.defValue);
 				}
 			}
 		}
@@ -317,4 +336,9 @@ public class HitDetection : MonoBehaviour {
 		Physics.IgnoreCollision (ignoree.GetComponent<CharacterController> (), ignored.GetComponent<CapsuleCollider> (), isIgnored);
 		Physics.IgnoreCollision (ignoree.GetComponent<CharacterController> (), ignored.GetComponent<CharacterController> (), isIgnored);
 	}
+    IEnumerator StartDelay()
+    {
+        yield return new WaitForSeconds(.2F);
+        isReady = true;
+    }
 }

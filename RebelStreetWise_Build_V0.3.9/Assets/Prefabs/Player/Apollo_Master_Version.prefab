@@ -5546,9 +5546,10 @@ MonoBehaviour:
   forwardMoveSpeed: 20
   backMoveSpeed: 15
   gravity: -0.7
-  forwardDashSpeed: 25
-  backDashSpeed: 20
+  forwardDashSpeed: 30
+  backDashSpeed: 30
   dashing: 0
+  dashCD: 0.5
   vertJumpForce: 0.4
   horiJumpForce: 0.4
   jumpCD: 1
@@ -5740,6 +5741,7 @@ MonoBehaviour:
   attackerLabel: 
   movement: {fileID: 0}
   attacker: {fileID: 0}
+  projectile: {fileID: 0}
 --- !u!114 &114701613343305778
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5803,7 +5805,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charSprite: {fileID: 21300000, guid: 7a2eaa7dbb1e05b4d971adf4bcab0a07, type: 3}
   playerNumber: 1
-  teamNumber: 2
+  teamNumber: 1
   currentHealth: 0
   totalHealth: 1000
   defValue: 0.5

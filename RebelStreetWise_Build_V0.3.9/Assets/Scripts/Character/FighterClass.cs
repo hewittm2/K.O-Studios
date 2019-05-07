@@ -159,8 +159,11 @@ public class FighterClass : MonoBehaviour {
     MatchEnd matchEnd;
 
     private bool canRestart = true;
+    public bool isReady;
 
-	void Start () {
+	IEnumerator Start () {
+        yield return new WaitForSeconds(0.2f);
+        isReady = true;
 		specials = GetComponent<SpecialAttackTemplate> ();
 		CurrFrameType = FrameType.Regular;
 		movement = GetComponent<BaseMovement> ();
@@ -189,60 +192,77 @@ public class FighterClass : MonoBehaviour {
 	}
 
 	void Update () {
-		if (knockedDown) {
-			if (Input.GetAxis (controllerVariables.horiInput) < -controllerVariables.horiDeadZone ||Input.GetAxis(controllerVariables.horiInput) > controllerVariables.horiDeadZone) {
-				knockedDown = false;
-				anim.SetTrigger("Get Up");
-
-			}
-			return;
-		}
-		else if (!knockedDown) {
-			if (canAttack) {
-				QueueAttackInput ();
-			}
-			if (canMove) {
-				QueueMovementInput ();
-			}
-		}
-		if (isGrabbed) {
-			
-			canMove = false;
-			canAttack = false;
-
-			if (!grabCommit) {
-				//Debug.Log ("Grabbed");
-				if((Input.GetButton (controllerVariables.lightInput) && Input.GetButton (controllerVariables.medInput)) ||Input.GetAxis(controllerVariables.throwInput) > controllerVariables.horiDeadZone){
-					isGrabbed = false;
-					canMove = true;
-					canAttack = true;
-				}
-			}
-		}
-		if (grabbing) {
-			canMove = false;
-		}
-		CheckForCombo ();
-		if (lockOnTargets.Count != 0){
-			if (Input.GetButtonDown (controllerVariables.lockOnInput)) {
-				if (lockOnTarget == lockOnTargets [0]) {
-					lockOnTarget = lockOnTargets [1];
-				} else {
-					lockOnTarget = lockOnTargets [0];
-				}
-				CheckTarget (lockOnTarget);
-			}
-		}
-		if (Input.GetButtonDown(controllerVariables.startButton))
+        if (isReady)
         {
-            Debug.Log("yes");
-            PauseGame pauseGame = FindObjectOfType<PauseGame>();
-            pauseGame.Pause(playerNumber);
-        }
-        if(currentHealth <= 0)
-        {
-            matchEnd.Winner(teamNumber);
-            this.enabled = false;
+            if (knockedDown)
+            {
+                if (Input.GetAxis(controllerVariables.horiInput) < -controllerVariables.horiDeadZone || Input.GetAxis(controllerVariables.horiInput) > controllerVariables.horiDeadZone)
+                {
+                    knockedDown = false;
+                    anim.SetTrigger("Get Up");
+
+                }
+                return;
+            }
+            else if (!knockedDown)
+            {
+                if (canAttack)
+                {
+                    QueueAttackInput();
+                }
+                if (canMove)
+                {
+                    QueueMovementInput();
+                }
+            }
+            if (isGrabbed)
+            {
+
+                canMove = false;
+                canAttack = false;
+
+                if (!grabCommit)
+                {
+                    //Debug.Log ("Grabbed");
+                    if ((Input.GetButton(controllerVariables.lightInput) && Input.GetButton(controllerVariables.medInput)) || Input.GetAxis(controllerVariables.throwInput) > controllerVariables.horiDeadZone)
+                    {
+                        isGrabbed = false;
+                        canMove = true;
+                        canAttack = true;
+                    }
+                }
+            }
+            if (grabbing)
+            {
+                canMove = false;
+            }
+            CheckForCombo();
+            if (lockOnTargets.Count != 0)
+            {
+                if (Input.GetButtonDown(controllerVariables.lockOnInput))
+                {
+                    if (lockOnTarget == lockOnTargets[0])
+                    {
+                        lockOnTarget = lockOnTargets[1];
+                    }
+                    else
+                    {
+                        lockOnTarget = lockOnTargets[0];
+                    }
+                    CheckTarget(lockOnTarget);
+                }
+            }
+            if (Input.GetButtonDown(controllerVariables.startButton))
+            {
+                Debug.Log("yes");
+                PauseGame pauseGame = FindObjectOfType<PauseGame>();
+                pauseGame.Pause(playerNumber);
+            }
+            if (currentHealth <= 0)
+            {
+                matchEnd.Winner(teamNumber);
+                this.enabled = false;
+            }
         }
     }
 

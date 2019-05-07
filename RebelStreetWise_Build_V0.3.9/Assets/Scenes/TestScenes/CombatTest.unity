@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -492,7 +492,7 @@ Prefab:
     - target: {fileID: 114176483401608478, guid: d9e0f72a30bb0454f812f474322f41cf,
         type: 2}
       propertyPath: PlayerOne
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114482602755484894, guid: d9e0f72a30bb0454f812f474322f41cf,
         type: 2}
@@ -518,6 +518,10 @@ Prefab:
         type: 2}
       propertyPath: backDashSpeed
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1523036563279898, guid: d9e0f72a30bb0454f812f474322f41cf, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114453952656044530, guid: d9e0f72a30bb0454f812f474322f41cf, type: 2}
@@ -610,7 +614,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4988573521606782, guid: 1ba1523279082604185440293e9341bc, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -3.5493984
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4988573521606782, guid: 1ba1523279082604185440293e9341bc, type: 2}
       propertyPath: m_LocalRotation.x
@@ -634,7 +638,17 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1905440597093002, guid: 1ba1523279082604185440293e9341bc, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114562189517253624, guid: 1ba1523279082604185440293e9341bc,
+        type: 2}
+      propertyPath: PlayerOne
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114843534998498698, guid: 1ba1523279082604185440293e9341bc,
+        type: 2}
+      propertyPath: teamNumber
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ba1523279082604185440293e9341bc, type: 2}
