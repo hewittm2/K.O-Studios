@@ -148,14 +148,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1989359069858846}
-  m_LocalRotation: {x: -0.6857657, y: 0.17241074, z: 0.17241074, w: 0.68576574}
-  m_LocalPosition: {x: -0, y: 0.97, z: -0}
+  m_LocalRotation: {x: -0.08638895, y: 0.2428562, z: 0.02171932, w: 0.96596384}
+  m_LocalPosition: {x: 0.54, y: 5.28, z: 3.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4596323951875858}
   m_Father: {fileID: 4479997710622636}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -10.221001, y: 28.225002, z: 0}
 --- !u!4 &4285652814407014
 Transform:
   m_ObjectHideFlags: 1
@@ -218,14 +218,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1895493718203934}
-  m_LocalRotation: {x: 0.6857655, y: -0.17241147, z: 0.17241147, w: 0.6857655}
-  m_LocalPosition: {x: 0, y: -0.874, z: 0}
+  m_LocalRotation: {x: 0.6515133, y: -0.5502742, z: -0.27482802, w: 0.44407025}
+  m_LocalPosition: {x: -8.740017, y: -1.8199849, z: -3.939986}
   m_LocalScale: {x: 0.9999994, y: 1.000002, z: 1.0000025}
   m_Children:
   - {fileID: 4082829850275750}
   m_Father: {fileID: 4479997710622636}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 28.225002}
+  m_LocalEulerAnglesHint: {x: 163.968, y: 61.774994, z: 89.99999}
 --- !u!23 &23086031947560004
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -241,7 +241,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 2062b6d0a7a2d4f46b4689198aedadd9, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -276,7 +276,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 2062b6d0a7a2d4f46b4689198aedadd9, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9532,7 +9532,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 0
+  moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0
