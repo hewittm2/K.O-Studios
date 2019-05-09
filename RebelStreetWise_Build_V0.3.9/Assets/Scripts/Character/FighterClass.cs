@@ -125,9 +125,9 @@ public class FighterClass : MonoBehaviour {
 	}
 	public ControllerVariables controllerVariables = new ControllerVariables ();
 	//HiddenVariables
-	[HideInInspector]
+	//[HideInInspector]
 	public List<GameObject> lockOnTargets;
-	[HideInInspector]
+	//[HideInInspector]
 	public GameObject lockOnTarget;
 	//[HideInInspector]
 	public bool facingRight;
