@@ -54,7 +54,7 @@ public class RoundManager : MonoBehaviour {
     }
     public void Update()
     {
-        if (scene.name == "FighterTest")
+        if (scene.name == "FighterTest" || scene.name == "Groovy Graveyard")
         {
             if (team1win1.isOn == true)
             {

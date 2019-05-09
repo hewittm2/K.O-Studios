@@ -5917,13 +5917,13 @@ MonoBehaviour:
   superMeter: 0
   attackVariables:
     lightAttack:
-      animSpeed: 1
+      animSpeed: 1.25
       meterGain: 10
       hitType: 0
       hitHeight: 0
       damageType: 0
-      knockBackDirection: {x: 1, y: 1, z: 0}
-      knockBackForce: 1
+      knockBackDirection: {x: 0, y: 0, z: 0}
+      knockBackForce: 0
       attDam: 30
       hitBox1: {fileID: 1144687921321024}
       hitBox2: {fileID: 0}
@@ -5950,7 +5950,7 @@ MonoBehaviour:
       hitBox1: {fileID: 1144687921321024}
       hitBox2: {fileID: 0}
     jumpLightAttack:
-      animSpeed: 1
+      animSpeed: 1.25
       meterGain: 0
       hitType: 0
       hitHeight: 0
@@ -5976,14 +5976,14 @@ MonoBehaviour:
       meterGain: 0
       hitType: 0
       hitHeight: 0
-      damageType: 0
+      damageType: 1
       knockBackDirection: {x: 0, y: 0, z: 0}
       knockBackForce: 0
       attDam: 90
       hitBox1: {fileID: 1144687921321024}
       hitBox2: {fileID: 0}
     crouchLightAttack:
-      animSpeed: 1
+      animSpeed: 1.25
       meterGain: 0
       hitType: 0
       hitHeight: 0
@@ -6009,7 +6009,7 @@ MonoBehaviour:
       meterGain: 0
       hitType: 0
       hitHeight: 0
-      damageType: 0
+      damageType: 1
       knockBackDirection: {x: 0, y: 0, z: 0}
       knockBackForce: 0
       attDam: 90
