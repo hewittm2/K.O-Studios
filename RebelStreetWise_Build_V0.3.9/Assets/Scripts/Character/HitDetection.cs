@@ -158,10 +158,10 @@ public class HitDetection : MonoBehaviour {
 			foreach (GameObject enemy in player.lockOnTargets) {
 				if (Mathf.Abs (player.transform.position.x - enemy.transform.position.x) <= enemyDist && player.GetComponent<CharacterController> ().isGrounded && player.transform.position.y > enemy.transform.position.y) {
 					Debug.Log ("HeadTriggered");
-					IgnoreFighter (player.gameObject, enemy, true);
+					//IgnoreFighter (player.gameObject, enemy, true);
 					transform.Translate ((Vector3.back * speed) * Time.deltaTime);
 				} else if(movement.dashing == false){
-					IgnoreFighter (player.gameObject, enemy, false);
+					//IgnoreFighter (player.gameObject, enemy, false);
 				}
 			}
 
