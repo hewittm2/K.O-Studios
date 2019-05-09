@@ -155,7 +155,7 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
     void Update()
     {
 
-        opponent = GetComponent<FighterClass>().lockOnTarget.gameObject.GetComponent<BaseMovement>();
+       
         #region Up Special
         // Checks for Damage to be done with the Up/Jump special attack
         if (fireSpitTracking != null)

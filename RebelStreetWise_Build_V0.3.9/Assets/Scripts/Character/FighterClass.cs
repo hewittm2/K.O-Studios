@@ -544,10 +544,15 @@ public class FighterClass : MonoBehaviour {
 		//TeamButton
 		if(Input.GetButtonDown(controllerVariables.teamInput)){
 			if (coupDeGraceStep3) {
-				Debug.Log ("CoupDeGrace");
-				anim.SetTrigger ("Coup De Grace");
-                specials.CoupDeGraceU(specials.specialAttackStats.CoupDeGrace); //Torrel Added think this is the right spot.
-                StartCoroutine (attackDelay ());
+                Debug.Log("CoupDeGrace");
+                CoupManager holdEnergy = FindObjectOfType<CoupManager>();
+                if ((teamNumber == 1 && holdEnergy.t1SuperMeter == 1200) || (teamNumber == 2 && holdEnergy.t2SuperMeter == 1200))
+                {
+                    Debug.Log("CoupDeGrace");
+                    anim.SetTrigger("Coup De Grace");
+                    specials.CoupDeGraceU(specials.specialAttackStats.CoupDeGrace); //Torrel Added think this is the right spot.
+                    StartCoroutine(attackDelay());
+                }
 			} else {
 				//Address this semester 2
 				Debug.Log ("Parry");

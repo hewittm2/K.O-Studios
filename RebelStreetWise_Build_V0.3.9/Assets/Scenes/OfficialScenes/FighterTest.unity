@@ -6936,16 +6936,28 @@ Prefab:
     - target: {fileID: 114567622931192236, guid: 4e2a9cdff62565f4aba8b28d80efb967,
         type: 2}
       propertyPath: minTimeSet
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114567622931192236, guid: 4e2a9cdff62565f4aba8b28d80efb967,
         type: 2}
       propertyPath: secTimeSet
-      value: 15
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e2a9cdff62565f4aba8b28d80efb967, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &1200544946 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114228950322225012, guid: 4e2a9cdff62565f4aba8b28d80efb967,
+    type: 2}
+  m_PrefabInternal: {fileID: 1200544945}
+  m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &1200544947 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114826788568384268, guid: 4e2a9cdff62565f4aba8b28d80efb967,
+    type: 2}
+  m_PrefabInternal: {fileID: 1200544945}
+  m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1203742919
 GameObject:
   m_ObjectHideFlags: 0
@@ -7996,11 +8008,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   t1SuperMeter: 0
+  t1Slider: {fileID: 1200544947}
   t2SuperMeter: 0
+  t2Slider: {fileID: 1200544946}
   t1: 0
   t2: 0
   t1CoupSuccessful: 0
   t2CoupSuccessful: 0
+  playerEnergy: []
+  t1s: []
+  t2s: []
 --- !u!4 &1316765400
 Transform:
   m_ObjectHideFlags: 0

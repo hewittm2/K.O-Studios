@@ -5817,18 +5817,18 @@ MonoBehaviour:
   - {fileID: 1087820063148324}
   - {fileID: 1804170054468066}
   - {fileID: 1134814790801580}
-  lightHit: 0
-  lightBlock: 0
-  mediumHit: 0
-  mediumBlock: 0
-  heavyHit: 0
-  heavyBlock: 0
-  specMeleeHit: 0
-  specMeleeBlock: 0
-  specProjectileHit: 0
-  specProjectileBlock: 0
-  breakdownHit: 0
-  breakdownBlock: 0
+  lightHit: 12
+  lightBlock: 6
+  mediumHit: 18
+  mediumBlock: 9
+  heavyHit: 30
+  heavyBlock: 15
+  specMeleeHit: 48
+  specMeleeBlock: 15
+  specProjectileHit: 15
+  specProjectileBlock: 5
+  breakdownHit: 100
+  breakdownBlock: 30
   tempDist: 0
   closeDist: 3
   enemyDist: 5
