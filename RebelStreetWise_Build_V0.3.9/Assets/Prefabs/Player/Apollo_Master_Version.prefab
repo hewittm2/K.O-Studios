@@ -5355,6 +5355,7 @@ MonoBehaviour:
       damage: 70
       startupTime: 0.6
       activeTime: 2
+      coolDown: 0
       stunTime: 5
       recoveryTime: 16
       objects: {fileID: 0}
@@ -5371,6 +5372,7 @@ MonoBehaviour:
       damage: 70
       startupTime: 0.1
       activeTime: 2
+      coolDown: 0
       stunTime: 5
       recoveryTime: 0
       objects: {fileID: 1999431835937814}
@@ -5387,6 +5389,7 @@ MonoBehaviour:
       damage: 70
       startupTime: 0.9
       activeTime: 0.3
+      coolDown: 0
       stunTime: 0
       recoveryTime: 0
       objects: {fileID: 0}
@@ -5403,6 +5406,7 @@ MonoBehaviour:
       damage: 70
       startupTime: 0.1
       activeTime: 1
+      coolDown: 0
       stunTime: 5
       recoveryTime: 14
       objects: {fileID: 1416735483470086}
@@ -5412,13 +5416,14 @@ MonoBehaviour:
       hitHeight: 0
       hitType: 0
       damageType: 1
-      delayType: 0
+      delayType: 1
       knockback: {x: 1, y: 0, z: 0}
       knockbackForce: 5
       meterGain: 0
       damage: 70
       startupTime: 0.25
       activeTime: 1
+      coolDown: 5.51
       stunTime: 1
       recoveryTime: 1
       objects: {fileID: 1394114682318654}
@@ -5435,6 +5440,7 @@ MonoBehaviour:
       damage: 5
       startupTime: 0.05
       activeTime: 2.7
+      coolDown: 0
       stunTime: 0
       recoveryTime: 0
       objects: {fileID: 1324903601801504}
@@ -5451,6 +5457,7 @@ MonoBehaviour:
       damage: 1
       startupTime: 0
       activeTime: 0
+      coolDown: 0
       stunTime: 0
       recoveryTime: 0
       objects: {fileID: 0}
@@ -5742,6 +5749,7 @@ MonoBehaviour:
   movement: {fileID: 0}
   attacker: {fileID: 0}
   projectile: {fileID: 0}
+  isReady: 0
 --- !u!114 &114701613343305778
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5804,7 +5812,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charSprite: {fileID: 21300000, guid: 7a2eaa7dbb1e05b4d971adf4bcab0a07, type: 3}
-  playerNumber: 1
+  playerNumber: 3
   teamNumber: 1
   currentHealth: 0
   totalHealth: 1000
@@ -5968,6 +5976,7 @@ MonoBehaviour:
   breakDownStep3: 0
   coupDeGraceActivated: 0
   anim: {fileID: 95106280875837600}
+  isReady: 0
 --- !u!114 &114852447712815240
 MonoBehaviour:
   m_ObjectHideFlags: 1
