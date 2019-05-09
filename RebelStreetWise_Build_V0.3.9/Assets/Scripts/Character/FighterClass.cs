@@ -156,7 +156,7 @@ public class FighterClass : MonoBehaviour {
 	StageManager stageManager;
 	public Animator anim;
 
-    MatchEnd matchEnd;
+    MatchTimer matchTimer;
 
     private bool canRestart = true;
     public bool isReady;
@@ -260,7 +260,8 @@ public class FighterClass : MonoBehaviour {
             }
             if (currentHealth <= 0)
             {
-                matchEnd.Winner(teamNumber);
+                matchTimer = FindObjectOfType<MatchTimer>();
+                matchTimer.RoundEnd();
                 this.enabled = false;
             }
         }
@@ -295,7 +296,7 @@ public class FighterClass : MonoBehaviour {
 				anim.speed = moveAnimSpeeds.idle;
 
 				if ((Mathf.Abs (Input.GetAxis (controllerVariables.horiInput)) < controllerVariables.horiDeadZone)) {
-					blocking = false;		
+					blocking = false;
 				}
 			}
 		}
@@ -505,8 +506,8 @@ public class FighterClass : MonoBehaviour {
 			anim.speed = moveAnimSpeeds.crouch;
 			anim.SetBool ("Crouching Idle", true);
 
-				
-		}	
+
+		}
 		//if (Mathf.Abs(Input.GetAxis (controllerVariables.vertInput)) < controllerVariables.vertDeadZone) {
 			//blocking = false;
 			//(Mathf.Abs (Input.GetAxis (controllerVariables.horiInput)) < controllerVariables.horiDeadZone))&& movement.character.isGrounded

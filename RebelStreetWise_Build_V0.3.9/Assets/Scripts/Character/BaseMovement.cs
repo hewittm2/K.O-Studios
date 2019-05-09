@@ -1,4 +1,4 @@
-﻿//Ethan Quandt 
+﻿//Ethan Quandt
 //Edited 5/6/19
 using System.Collections;
 using System.Collections.Generic;
@@ -28,8 +28,8 @@ public class BaseMovement : MonoBehaviour
 	Vector2 jump;
 	HitDetection hitDetect;
 
-	//RequiredComponents
-	[HideInInspector]
+    //RequiredComponents
+    [HideInInspector]
     public CharacterController character;
 	//[HideInInspector]
 	public FighterClass fighter;
@@ -41,7 +41,7 @@ public class BaseMovement : MonoBehaviour
     private float centerOffset = 0;
 
     [HideInInspector] public bool isPaused;
-    
+
 
     private void Start(){
 		rigid = gameObject.GetComponent<Rigidbody>();
@@ -54,7 +54,12 @@ public class BaseMovement : MonoBehaviour
             heightArray[i] = character.height / (i + 1);
             centerOffset = 0.25f;
         }
-
+        //fightLine = GameObject.Find("FightLine");
+        //rightBoundingWall = GameObject.Find("RightBoundary");
+        //leftBoundingWall = GameObject.Find("LeftBoundary");
+        //rend = fightLine.GetComponent<Renderer>();
+        //leftWallRend = leftBoundingWall.GetComponent<Renderer>();
+        //rightWallRend = rightBoundingWall.GetComponent<Renderer>();
     }
 
     private void Update(){
@@ -72,7 +77,7 @@ public class BaseMovement : MonoBehaviour
 				moveSpeed = forwardMoveSpeed;
 			}
 		}
-	
+
 		movement = new Vector2(input.x * moveSpeed, verticalVelocity);
 		movement = Vector2.ClampMagnitude(movement, moveSpeed);
 		if (dashing) {
@@ -111,7 +116,7 @@ public class BaseMovement : MonoBehaviour
     public void Walk(){
         character.Move(movement);
     }
-		
+
     public void Jump(){
 		StartCoroutine(Jumping());
     }
