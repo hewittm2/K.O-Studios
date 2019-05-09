@@ -157,10 +157,12 @@ public class FighterClass : MonoBehaviour {
 	public Animator anim;
 
     MatchTimer matchTimer;
-	[Header("SFX")][Space(.5f)]
+
+
 	[HideInInspector]
 	public AudioSource audio;
-	public AudioClip dash;
+    [Header("SFX")] [Space(.5f)]
+    public AudioClip dash;
 	public AudioClip jump;
 	public AudioClip walk;
 	public AudioClip lightAttack;
