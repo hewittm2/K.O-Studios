@@ -176,9 +176,18 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1488692610115290, guid: 2b638f5b78d1e56449f13f6f7bf21db8, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b638f5b78d1e56449f13f6f7bf21db8, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &157069500 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1523036563279898, guid: d9e0f72a30bb0454f812f474322f41cf,
+    type: 2}
+  m_PrefabInternal: {fileID: 2012817121}
 --- !u!1 &251079972
 GameObject:
   m_ObjectHideFlags: 0
@@ -455,6 +464,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &652287860 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1523036563279898, guid: d9e0f72a30bb0454f812f474322f41cf,
+    type: 2}
+  m_PrefabInternal: {fileID: 401937675}
 --- !u!1001 &864687580
 Prefab:
   m_ObjectHideFlags: 0
@@ -650,6 +664,31 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 114686938674763236, guid: 04039de0b37e4ca42b38caeb699dd7d5,
+        type: 2}
+      propertyPath: lockOnTargets.Array.data[0]
+      value: 
+      objectReference: {fileID: 157069500}
+    - target: {fileID: 114686938674763236, guid: 04039de0b37e4ca42b38caeb699dd7d5,
+        type: 2}
+      propertyPath: lockOnTargets.Array.data[1]
+      value: 
+      objectReference: {fileID: 652287860}
+    - target: {fileID: 114609055619232652, guid: 04039de0b37e4ca42b38caeb699dd7d5,
+        type: 2}
+      propertyPath: fightLine
+      value: 
+      objectReference: {fileID: 594595090}
+    - target: {fileID: 114609055619232652, guid: 04039de0b37e4ca42b38caeb699dd7d5,
+        type: 2}
+      propertyPath: rightBoundingWall
+      value: 
+      objectReference: {fileID: 426747665}
+    - target: {fileID: 114609055619232652, guid: 04039de0b37e4ca42b38caeb699dd7d5,
+        type: 2}
+      propertyPath: leftBoundingWall
+      value: 
+      objectReference: {fileID: 1244790741}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04039de0b37e4ca42b38caeb699dd7d5, type: 2}
   m_IsPrefabAsset: 0

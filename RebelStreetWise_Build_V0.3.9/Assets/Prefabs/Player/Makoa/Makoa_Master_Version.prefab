@@ -5617,14 +5617,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1385199679774424}
-  m_LocalRotation: {x: -0.099396355, y: -0.5932542, z: 0.41579002, w: -0.68212056}
-  m_LocalPosition: {x: -0.3913604, y: 0.06654042, z: -0.06387645}
+  m_LocalRotation: {x: -0.23524515, y: -0.5536153, z: 0.24492323, w: -0.7603831}
+  m_LocalPosition: {x: -0.68, y: 0.32, z: -0.17}
   m_LocalScale: {x: 2.3254752, y: 2.3254747, z: 1.0860701}
   m_Children:
   - {fileID: 4200927921623440}
   m_Father: {fileID: 4788454523364292}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 38.972, y: 69.18, z: -35.304}
+  m_LocalEulerAnglesHint: {x: 38.972, y: 69.179, z: -8.283}
 --- !u!4 &4619098648750464
 Transform:
   m_ObjectHideFlags: 1
@@ -5868,7 +5868,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1135843893721968}
   m_LocalRotation: {x: -0.40949816, y: 0.3080423, z: 0.21046257, w: 0.8325424}
-  m_LocalPosition: {x: 0.016645953, y: -0.014649702, z: 0.05805342}
+  m_LocalPosition: {x: -0.3, y: -0.16, z: -0.28}
   m_LocalScale: {x: 2.3254776, y: 2.3254774, z: 1.0860678}
   m_Children: []
   m_Father: {fileID: 4346309486341978}
@@ -8114,7 +8114,7 @@ Animator:
   m_GameObject: {fileID: 1976979322315852}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: b2a420a40518e6c46a0dbc0328dcd52f, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 27cd005cdce8afd4eb7f314339bf5890, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -8151,7 +8151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   specialAttackStats:
     SpecialForward:
-      animSpeed: 0
+      animSpeed: 1
       hitHeight: 0
       hitType: 0
       damageType: 0
@@ -8167,7 +8167,7 @@ MonoBehaviour:
       objects: {fileID: 0}
       partEffect: {fileID: 0}
     SpecialBack:
-      animSpeed: 0
+      animSpeed: 1
       hitHeight: 0
       hitType: 0
       damageType: 0
@@ -8183,7 +8183,7 @@ MonoBehaviour:
       objects: {fileID: 0}
       partEffect: {fileID: 0}
     SpecialDown:
-      animSpeed: 0
+      animSpeed: 1
       hitHeight: 0
       hitType: 0
       damageType: 0
@@ -8199,7 +8199,7 @@ MonoBehaviour:
       objects: {fileID: 0}
       partEffect: {fileID: 0}
     SpecialNeutral:
-      animSpeed: 0
+      animSpeed: 1
       hitHeight: 0
       hitType: 0
       damageType: 0
@@ -8215,7 +8215,7 @@ MonoBehaviour:
       objects: {fileID: 0}
       partEffect: {fileID: 0}
     SpecialJump:
-      animSpeed: 0
+      animSpeed: 1
       hitHeight: 0
       hitType: 0
       damageType: 0
@@ -8231,7 +8231,7 @@ MonoBehaviour:
       objects: {fileID: 0}
       partEffect: {fileID: 0}
     SpecialBreakdown:
-      animSpeed: 0
+      animSpeed: 1
       hitHeight: 0
       hitType: 0
       damageType: 0
@@ -8247,7 +8247,7 @@ MonoBehaviour:
       objects: {fileID: 0}
       partEffect: {fileID: 0}
     CoupDeGrace:
-      animSpeed: 0
+      animSpeed: 1
       hitHeight: 0
       hitType: 0
       damageType: 0
@@ -8269,18 +8269,18 @@ MonoBehaviour:
   throwSpeed: 20
   rotationSpeed: 500
   breathWaitTime: 2
-  fireDamage: 0
+  fireDamage: 70
   fireBreathCooldown: 9
-  breathCooldown: 0
+  breathCooldown: 5
   fireYSpawn: 0
   spinTimeout: 1
   spinSpeed: 300
-  spinObject: {fileID: 0}
+  spinObject: {fileID: 1385199679774424}
   combinedKnives: {fileID: 0}
-  leftFireKnife: {fileID: 0}
-  rightFireKnife: {fileID: 0}
+  leftFireKnife: {fileID: 1135843893721968}
+  rightFireKnife: {fileID: 1385199679774424}
   rotationPoint: {fileID: 0}
-  breakdownKnifeSpeed: 0
+  breakdownKnifeSpeed: 300
 --- !u!114 &114391991057297264
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8292,8 +8292,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebe8d14184a33734b9867fcdc548ab54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitSpark: {fileID: 0}
-  blockSpark: {fileID: 0}
+  hitSpark: {fileID: 1021111067890572, guid: 85828bf6af64d0d41bbd16097b1693d5, type: 2}
+  blockSpark: {fileID: 1174138942220196, guid: 40c288e8cf43bf842b9d1952237088a9, type: 2}
   leftFoot: {fileID: 1466634415581198}
   rightFoot: {fileID: 1191820286402438}
   leftKnee: {fileID: 1615036425136658}
@@ -8381,8 +8381,8 @@ MonoBehaviour:
   charSprite: {fileID: 0}
   playerNumber: 1
   teamNumber: 1
-  currentHealth: 0
-  totalHealth: 0
+  currentHealth: 500
+  totalHealth: 500
   defValue: 0
   superMeter: 0
   attackVariables:
@@ -8486,7 +8486,7 @@ MonoBehaviour:
       hitBox1: {fileID: 0}
       hitBox2: {fileID: 0}
   output:
-    animSpeed: 0
+    animSpeed: 1
     meterGain: 0
     hitType: 0
     hitHeight: 0
@@ -8539,7 +8539,7 @@ MonoBehaviour:
   breakDownStep2: 0
   breakDownStep3: 0
   coupDeGraceActivated: 0
-  anim: {fileID: 0}
+  anim: {fileID: 95128247768222598}
 --- !u!135 &135265472886524572
 SphereCollider:
   m_ObjectHideFlags: 1
