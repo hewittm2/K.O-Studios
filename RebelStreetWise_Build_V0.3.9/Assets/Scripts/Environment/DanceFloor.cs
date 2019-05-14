@@ -30,8 +30,8 @@ public class DanceFloor : EditorWindow
 
         EditorGUILayout.Space();
 
-        length = EditorGUILayout.IntSlider("Length", length, 0, 100);
-        depth = EditorGUILayout.IntSlider("Depth", depth, 1, 9);
+        length = EditorGUILayout.IntSlider("Length", length, 1, 100);
+        depth = EditorGUILayout.IntSlider("Depth", depth, 1, 100);
         panelGap = EditorGUILayout.Slider("Panel Gap", panelGap, 0, 10);
 
 
