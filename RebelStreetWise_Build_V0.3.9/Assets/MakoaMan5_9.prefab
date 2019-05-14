@@ -8237,7 +8237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cd22f2e94aae874396c97ccae5d3598, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charSprite: {fileID: 21300000, guid: 7a2eaa7dbb1e05b4d971adf4bcab0a07, type: 3}
+  charSprite: {fileID: 21300000, guid: 64081f200a437754d995e3bbca643fa7, type: 3}
   playerNumber: 1
   teamNumber: 1
   currentHealth: 500
