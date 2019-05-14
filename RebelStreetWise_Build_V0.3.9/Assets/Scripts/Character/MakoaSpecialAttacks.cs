@@ -580,7 +580,7 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
             fireCountDown = 5;
             //spawns spinning object
             spinClone = Instantiate(spinObject, gameObject.transform.parent);
-            //spinClone.SetActive(true);
+            spinClone.SetActive(false);
             spinObject.SetActive(false);
             //translates to positions (most should be able to me removed after animations are IMPLEMENTED
             spinClone.transform.position = playerLocation.transform.position;
