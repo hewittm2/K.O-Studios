@@ -27,7 +27,6 @@ public class MainMenu : MonoBehaviour
     //Switch current UI Panel
     public void ChangePanel(GameObject newPanel)
     {
-        Debug.Log("LET ME IIIIIIIIIIIIIIIIIIIIIIN");
         activePanel.SetActive(false);
         activePanel = newPanel;
         activePanel.SetActive(true);

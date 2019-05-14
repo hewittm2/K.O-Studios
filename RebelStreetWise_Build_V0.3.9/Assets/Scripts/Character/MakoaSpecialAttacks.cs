@@ -79,6 +79,7 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
     public float spinTimeout = 1;
     public float spinSpeed = 300;
     public GameObject spinObject;
+    public GameObject downSpecialFireSpawnPos;
 
     private GameObject playerLocation;
     private GameObject spinClone;
@@ -129,7 +130,6 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
 
     void Start()
     {
-        
         playerLocation = this.gameObject;
         empoweredParticle = specialAttackStats.SpecialNeutral.partEffect;
         fireSpitParticles = specialAttackStats.SpecialJump.partEffect;
@@ -154,7 +154,8 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
 
     void Update()
     {
-
+        //leftFireKnife.SetActive(true);
+        //rightFireKnife.SetActive(true);
        
         #region Up Special
         // Checks for Damage to be done with the Up/Jump special attack
@@ -281,7 +282,7 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
         #region back special
         if (clone != null)
         {
-         
+            Debug.Log("Disable Location 1");
             GetComponent<HitDetection>().specialBackward = clone;
          
             if (opponent != null)
@@ -577,6 +578,9 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
             //spawns fire
            
             fire = Instantiate(specialAttackStats.SpecialDown.objects);
+            fire.transform.position = downSpecialFireSpawnPos.transform.position;
+
+
             fireCountDown = 5;
             //spawns spinning object
             spinClone = Instantiate(spinObject, gameObject.transform.parent);
@@ -706,11 +710,11 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
 
     IEnumerator BreathFire(float wait)
     {
-     
+        
         yield return new WaitForSeconds(wait);
-
+        specialAttackStats.SpecialForward.partEffect.Play();
         fireCone.fireHit = false;
-        coneOfFire.Play();
+        
     }
     #endregion
 
