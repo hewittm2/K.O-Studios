@@ -44,7 +44,6 @@ public class RoundManager : MonoBehaviour {
     public void UpdateProperties()
     {
         otherRM = FindObjectsOfType<RoundManager>();
-        print(otherRM.Length);
         if(otherRM.Length > 1)
         {
             RoundManager notThis = otherRM[0];
@@ -148,5 +147,9 @@ public class RoundManager : MonoBehaviour {
         team1win2.isOn = false;
         team2win1.isOn = false;
         team2win2.isOn = false;
+        team1win1Image.SetActive(false);
+        team1win2Image.SetActive(false);
+        team2win1Image.SetActive(false);
+        team2win2Image.SetActive(false);
     }
 }
