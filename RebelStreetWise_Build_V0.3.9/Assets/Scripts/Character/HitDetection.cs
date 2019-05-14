@@ -67,9 +67,19 @@ public class HitDetection : MonoBehaviour {
 	public FighterClass attacker;
     public ProjectileFighterReference projectile;
     public bool isReady;
+
+	[Header("SFX")][Space(.5f)]
+	//AudioSource audio;
+	public AudioClip hit;
+	public AudioClip block;
+
+
+
+
 	private IEnumerator Start(){
         yield return new WaitForSeconds(0.2f);
         StartCoroutine(StartDelay());
+		//audio = GetComponent<AudioSource> ();
         player = GetComponent<FighterClass>();
 		movement = GetComponent<BaseMovement> ();
 		hitSpark = Instantiate (hitSpark,player.gameObject.transform.position, Quaternion.identity);
@@ -142,18 +152,20 @@ public class HitDetection : MonoBehaviour {
         if (isReady) {
 	      tempDist = Vector3.Distance(transform.position, teamMate[0].transform.position);
 
-		if (tempDist < closeDist){
-			transform.position = Vector3.MoveTowards(transform.position, teamMate[0].transform.position, (-1 * Time.deltaTime) / 2);
-		}
-		foreach (GameObject enemy in player.lockOnTargets) {
-			if (Mathf.Abs (player.transform.position.x - enemy.transform.position.x) <= enemyDist && player.GetComponent<CharacterController> ().isGrounded && player.transform.position.y - enemy.transform.position.y > 1) {
-				Debug.Log ("HeadTriggered");
-				transform.Translate ((Vector3.back * speed)* Time.deltaTime);
-			} 
-		}
+			if (tempDist < closeDist){
+				transform.position = Vector3.MoveTowards(transform.position, teamMate[0].transform.position, (-1 * Time.deltaTime) / 2);
+			}
+			foreach (GameObject enemy in player.lockOnTargets) {
+				if (Mathf.Abs (player.transform.position.x - enemy.transform.position.x) <= enemyDist && player.GetComponent<CharacterController> ().isGrounded && player.transform.position.y > enemy.transform.position.y) {
+					Debug.Log ("HeadTriggered");
+					//IgnoreFighter (player.gameObject, enemy, true);
+					transform.Translate ((Vector3.back * speed) * Time.deltaTime);
+				} else if(movement.dashing == false){
+					//IgnoreFighter (player.gameObject, enemy, false);
+				}
+			}
 
         }
-	
 	}
 
 
@@ -221,6 +233,7 @@ public class HitDetection : MonoBehaviour {
 
 	public void ReceiveBlockedDamage(FighterClass.AttackStats recievedAttack){
 		player.anim.SetTrigger("Light Damage");
+		player.audio.PlayOneShot (block);
 		player.canRecieveDamage = false;
 		player.canMove = false;
 		player.canAttack = false;
@@ -262,6 +275,7 @@ public class HitDetection : MonoBehaviour {
 			player.anim.SetTrigger("Knock Out");
 			player.knockedDown = true;
 		}
+		player.audio.PlayOneShot (hit);
 		player.canRecieveDamage = false;
 		player.canMove = false;
 		player.canAttack = false;

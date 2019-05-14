@@ -26,8 +26,15 @@ public class MatchTimer : MonoBehaviour {
     public Text countdown;
     public GameObject count;
     MatchEnd matchEnd;
-
+	[Header("SFX")][Space(.5f)]
+	[HideInInspector]
+	public AudioSource audio;
+	public AudioClip announcer1;
+	public AudioClip announcer2;
+	public AudioClip announcer3;
+	public AudioClip announcerFight;
     private IEnumerator Start () {
+		audio = GetComponent<AudioSource> ();
         StartCoroutine(CountDown());
         Time.timeScale = 1;
         minTime = minTimeSet;
@@ -166,12 +173,16 @@ public class MatchTimer : MonoBehaviour {
     }
     IEnumerator CountDown()
     {
+		audio.PlayOneShot (announcer3);
         countdown.text = "3";
         yield return new WaitForSeconds(1);
+		audio.PlayOneShot (announcer2);
         countdown.text = "2";
         yield return new WaitForSeconds(1);
+		audio.PlayOneShot (announcer1);
         countdown.text = "1";
         yield return new WaitForSeconds(1);
+		audio.PlayOneShot (announcerFight);
         count.SetActive(false);
     }
 }

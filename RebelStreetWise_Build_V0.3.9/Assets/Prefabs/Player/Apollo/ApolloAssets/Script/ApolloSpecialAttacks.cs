@@ -12,6 +12,7 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
     private CharacterController moveCheck;
     private BaseMovement getGravity;
     private GameObject managerHold;
+    private CoupManager coupMang;
 
     [Header("Particle Color Change")]
     public ParticleSystem[] myParticleColors;
@@ -83,7 +84,7 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
     private void Awake()
     {
         GetPrivateComponents();
-        CheckForHitBoxErrors();
+        StartCoroutine(CheckForHitBoxErrors());
     }
     void GetPrivateComponents()
     {
@@ -92,9 +93,11 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
         getGravity = GetComponent<BaseMovement>();
         forwardObj.GetComponent<ProjectileFighterReference>().fighter = self;
         forwardRigidbody = forwardObj.GetComponent<Rigidbody>();
+        coupMang = FindObjectOfType<CoupManager>();
     }
-    void CheckForHitBoxErrors()
+    IEnumerator CheckForHitBoxErrors()
     {
+        yield return new WaitForSeconds(0.2f);
         if (neutralHitBox == null)
             Debug.LogError("No Neutral HitBox Set! - Assign the Hitbox, should be childed under Apollo - Stopping Special Attack.", gameObject);
         if (backHitBox == null)
@@ -273,14 +276,14 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
     //---------------------------------------------------
     public override void JumpSA(SpecialAttacks jump)
     {
-        if (offCooldown == false)
-        {
+        //if (offCooldown == false)
+       // {
             offCooldown = true;
-            CharCheck(false, false);
+            //CharCheck(false, false);
             SetVars(jump);
             jumpSpecialActive = true;
             StartCoroutine(JumpSAC(jump.startupTime));
-        }
+        //}
     }
     IEnumerator JumpSAC(float startup)
     {
@@ -333,7 +336,7 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
         breakdownHitBox.SetActive(false);
         breakdownActive = false;
         specialAttackStats.SpecialBreakdown.objects.SetActive(false);
-        CharCheck(true, true);
+       // CharCheck(true, true);
     }
     //---------------------------------------------------
     private void Update()
@@ -349,13 +352,13 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
             customJump.SetActive(false);
             specialAttackStats.SpecialJump.objects.SetActive(false);
             getGravity.gravity = -0.7f;
-            CharCheck(true,true);
-            StartCoroutine(JumpCoolDown());
+            //CharCheck(true,true);
+            //StartCoroutine(JumpCoolDown());
         }
         if(goingUp == true)
             transform.Translate(Vector3.up * Time.deltaTime * 40 * upHeight, Space.World);
         if (jumpSpecialActive == true)
-            CharCheck(false, false);
+           // CharCheck(false, false);
 
         //Breakdown
         if (breakdownActive == true)
@@ -365,18 +368,18 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
             else
                 transform.Translate(Vector3.left * Time.deltaTime * breakdownMoveSpeed, Space.World);
 
-            CharCheck(false, false);
+            //CharCheck(false, false);
         }
 
         if (breakdownActive == true && breakdownHitBox.activeInHierarchy == false)
         {
             breakdownActive = false;
-            CharCheck(true, true);
+          //  CharCheck(true, true);
             specialAttackStats.SpecialBreakdown.objects.SetActive(false);
         }
         //Coup De Grace (Part 1 Waiting, and checking if teammate wants to stop)
         if(self.coupDeGraceActivated == true)
-            CharCheck(false, false);
+            //CharCheck(false, false);
 
         //Coup De Grace (Part 2 // Activated // After both teammates inputted
         if (moveMini == true)
@@ -401,13 +404,8 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
     //---------------------------------------------------
     public override void CoupDeGraceU(SpecialAttacks coup)
     {
-        SetVars(coup);
-        self.coupDeGraceActivated = true;
-        self.anim.SetTrigger("Win Pose"); //Play Win Pose here??
-        //Wait for teammate input here
-        ActivateMiniStars();
-        CoupEnemyCheck();
-        StartCoroutine(CoupDeGraceUE());
+
+        StartCoroutine(CoupDeGraceUE(coup));
     }
     void MoveMiniStars()
     {
@@ -417,8 +415,37 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
         miniStars[4].transform.Translate(-10 * Time.deltaTime * miniStarSpeed, 10 * Time.deltaTime * miniStarSpeed, 0, Space.World);
         miniStars[1].transform.Translate(-10 * Time.deltaTime * miniStarSpeed, 0, 0, Space.World);
     }
-    IEnumerator CoupDeGraceUE()
+    IEnumerator CoupDeGraceUE(SpecialAttacks coup)
     {
+        Debug.Log("Coup Wait");
+        yield return new WaitForSeconds(0.1f);
+        if (self.teamNumber == 1)
+            coupMang.t1++;
+        if (self.teamNumber == 2)
+            coupMang.t2++;
+
+        if (self.teamNumber == 1 && coupMang.t1 == 2)
+        {
+            self.anim.SetTrigger("Win Pose");
+            StopCoroutine("CoupDeGraceUE");
+        }
+
+        if (self.teamNumber == 2 && coupMang.t2 == 2)
+        {
+            self.anim.SetTrigger("Win Pose");
+            StopCoroutine("CoupDeGraceUE");
+        }
+
+        if (self.teamNumber == 1)
+            yield return new WaitUntil(() => coupMang.t1CoupSuccessful == true);
+        if (self.teamNumber == 2)
+            yield return new WaitUntil(() => coupMang.t2CoupSuccessful == true);
+        SetVars(coup);
+        self.coupDeGraceActivated = true;
+        self.anim.SetTrigger("Win Pose"); //Play Win Pose here??
+        //Wait for teammate input here
+        ActivateMiniStars();
+        CoupEnemyCheck();
         yield return new WaitForSeconds(1f);
         StartCoroutine(PulseMiniStars());
         coupStar.transform.position = new Vector3(transform.position.x,transform.position.y + 20, transform.position.z);
@@ -454,7 +481,7 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
     void ResetCoup()
     {
         self.coupDeGraceActivated = false;
-        CharCheck(true, true);
+        //CharCheck(true, true);
         coupExplosion.SetActive(false);
         coupStar.transform.GetChild(0).gameObject.SetActive(true);
         miniStars[0].transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 5);

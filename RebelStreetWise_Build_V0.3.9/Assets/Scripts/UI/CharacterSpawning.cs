@@ -22,9 +22,10 @@ public class CharacterSpawning : MonoBehaviour
         {
 
             if (players[i] != null)
-            {   
-                
-                player = Instantiate(players[i], spawns[i]);
+            {
+                var emptyObject = new GameObject();
+                emptyObject.transform.position = spawns[i].transform.position;
+                player = Instantiate(players[i], emptyObject.transform);
                 player.transform.SetParent(null);
                 if (i == 0) {
                     player.GetComponent<UniversalCharInput>().PlayerOne = true;

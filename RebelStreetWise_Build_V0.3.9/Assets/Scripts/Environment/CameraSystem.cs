@@ -120,39 +120,39 @@ public class CameraSystem : MonoBehaviour
                                     (Characters[0].position.y + Characters[1].position.y + Characters[2].position.y + Characters[3].position.y) / 4f + 1f, 0f);
 
                 //clac furtherest apart pair
-                currDist = Mathf.Abs(Characters[0].transform.position.z - Characters[1].transform.position.z);
+                currDist = Mathf.Abs(Characters[0].transform.position.x - Characters[1].transform.position.x);
 
-                if (Mathf.Abs(Characters[1].transform.position.z - Characters[2].transform.position.z) > currDist)
+                if (Mathf.Abs(Characters[1].transform.position.x - Characters[2].transform.position.x) > currDist)
                 {
-                    currDist = Mathf.Abs(Characters[1].transform.position.z - Characters[2].transform.position.z);
+                    currDist = Mathf.Abs(Characters[1].transform.position.x - Characters[2].transform.position.x);
                     furtherstApartPair.Clear();
                     furtherstApartPair.Add(Characters[1]);
                     furtherstApartPair.Add(Characters[2]);
                 }
-                if (Mathf.Abs(Characters[2].transform.position.z - Characters[3].transform.position.z) > currDist)
+                if (Mathf.Abs(Characters[2].transform.position.x - Characters[3].transform.position.x) > currDist)
                 {
-                    currDist = Mathf.Abs(Characters[2].transform.position.z - Characters[3].transform.position.z);
+                    currDist = Mathf.Abs(Characters[2].transform.position.x - Characters[3].transform.position.x);
                     furtherstApartPair.Clear();
                     furtherstApartPair.Add(Characters[2]);
                     furtherstApartPair.Add(Characters[3]);
                 }
-                if (Mathf.Abs(Characters[3].transform.position.z - Characters[0].transform.position.z) > currDist)
+                if (Mathf.Abs(Characters[3].transform.position.x - Characters[0].transform.position.x) > currDist)
                 {
-                    currDist = Mathf.Abs(Characters[3].transform.position.z - Characters[0].transform.position.z);
+                    currDist = Mathf.Abs(Characters[3].transform.position.x - Characters[0].transform.position.x);
                     furtherstApartPair.Clear();
                     furtherstApartPair.Add(Characters[3]);
                     furtherstApartPair.Add(Characters[0]);
                 }
-                if (Mathf.Abs(Characters[2].transform.position.z - Characters[0].transform.position.z) > currDist)
+                if (Mathf.Abs(Characters[2].transform.position.x - Characters[0].transform.position.x) > currDist)
                 {
-                    currDist = Mathf.Abs(Characters[2].transform.position.z - Characters[0].transform.position.z);
+                    currDist = Mathf.Abs(Characters[2].transform.position.x - Characters[0].transform.position.x);
                     furtherstApartPair.Clear();
                     furtherstApartPair.Add(Characters[2]);
                     furtherstApartPair.Add(Characters[0]);
                 }
-                if (Mathf.Abs(Characters[3].transform.position.z - Characters[1].transform.position.z) > currDist)
+                if (Mathf.Abs(Characters[3].transform.position.x - Characters[1].transform.position.x) > currDist)
                 {
-                    currDist = Mathf.Abs(Characters[3].transform.position.z - Characters[1].transform.position.z);
+                    currDist = Mathf.Abs(Characters[3].transform.position.x - Characters[1].transform.position.x);
                     furtherstApartPair.Clear();
                     furtherstApartPair.Add(Characters[3]);
                     furtherstApartPair.Add(Characters[1]);

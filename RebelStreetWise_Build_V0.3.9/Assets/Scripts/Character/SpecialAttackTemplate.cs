@@ -21,6 +21,7 @@ public class SpecialAttackTemplate : MonoBehaviour
         public int damage;
         public float startupTime;
         public float activeTime;
+        public float coolDown;
         public int stunTime;
         public float recoveryTime;
         public GameObject objects;
