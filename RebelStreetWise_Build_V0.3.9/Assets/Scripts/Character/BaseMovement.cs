@@ -41,6 +41,8 @@ public class BaseMovement : MonoBehaviour
     private float centerOffset = 0;
 
     [HideInInspector] public bool isPaused;
+	public bool grounded;
+	public CapsuleCollider capsule;
 
 
     private void Start(){
@@ -176,7 +178,13 @@ public class BaseMovement : MonoBehaviour
 			}
 		}
     }
-
+	public void GroundCheck(){
+		if (character.isGrounded) {
+			if (grounded == false) {
+				character.Move (new Vector2 (0, verticalVelocity));
+			}
+		}
+	}
     //Part of Dash
 //	IEnumerator Dashing(int direction, float dashSpeed){
 //        dashing = true;
@@ -238,5 +246,19 @@ public class BaseMovement : MonoBehaviour
 	{
 		verticalVelocity = 0;
 		movement = new Vector2(0, 0);
+	}
+	private void OnCollisionStay(Collision col){
+		foreach (ContactPoint contact in col.contacts){
+			if (contact.otherCollider.tag == "Ground"){
+				grounded = true;
+				Debug.Log ("Grounded");
+			}
+		}
+	}
+	private void OnCollisionExit(Collision col){
+		if (col.gameObject.tag == "Ground") {
+				grounded = false;
+				Debug.Log ("Airborne");
+			}
 	}
 }
