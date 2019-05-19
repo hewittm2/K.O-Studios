@@ -154,6 +154,7 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
 
     void Update()
     {
+        Debug.Log(empoweredParticle);
         //leftFireKnife.SetActive(true);
         //rightFireKnife.SetActive(true);
        
@@ -440,7 +441,7 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
                 //DAMAGE BUFF
             //specialAttackVars.damage = specialAttackVars.damage / damageBuff;
             //particles end
-            empoweredParticle.gameObject.SetActive(false);
+            //empoweredParticle.gameObject.SetActive(false);
             //resets timer
             currentEmpowerTime = 0;
         }
@@ -467,11 +468,11 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
         // ===================================
         // ===== REMOVE WHEN IMPLEMENTED =====
         // ===================================
-        //if (Input.GetButtonDown("B_1"))
-        //{
-        //    CoupDeGraceU(specialAttackStats.CoupDeGrace);
-           
-        //}
+        if (Input.GetButtonDown("B_1"))
+        {
+            CoupDeGraceU(specialAttackStats.CoupDeGrace);
+
+        }
         //if (Input.GetKeyUp(KeyCode.A))
         //{
         //    BreakdownSA(specialAttackStats.SpecialBreakdown);
@@ -503,6 +504,8 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
             currentEmpowerTime = currentEmpowerTime + Time.deltaTime;
             //particles
             empoweredParticle.gameObject.SetActive(true);
+            empoweredParticle.Play();
+            //empoweredParticle.gameObject.SetActive(true);
         }
 
     }
@@ -639,6 +642,7 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
     #region Coup De Grace
     public override void CoupDeGraceU(SpecialAttacks coup)
     {
+      
         SetVars(coup);
         //if (this.gameObject.tag == "Player1")
         //{
