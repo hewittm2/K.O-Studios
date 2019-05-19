@@ -109,6 +109,8 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
     #region coupdegrace Variables
     [Header("Coup de grace Custom Variables")]
     [Space(0.5f)]
+    public Vector3 VolcanoPosition;
+    public float raiseEndHeight;
     private GameObject volcano;
     private Transform particles;
     private GameObject volcanoClone;
@@ -118,6 +120,7 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
     private bool player2;
     private bool raise;
     private float volcanoCounter;
+
 
 
     #endregion
@@ -154,7 +157,7 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
 
     void Update()
     {
-        Debug.Log(empoweredParticle);
+
         //leftFireKnife.SetActive(true);
         //rightFireKnife.SetActive(true);
        
@@ -453,7 +456,7 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
         
             volcanoClone.transform.Translate(0, 10 * Time.deltaTime, 0);
             
-            if(volcanoClone.transform.position.y > -5)
+            if(volcanoClone.transform.position.y > raiseEndHeight)
             {
                 particles.gameObject.SetActive(true);
                 raise = false;
@@ -468,11 +471,11 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
         // ===================================
         // ===== REMOVE WHEN IMPLEMENTED =====
         // ===================================
-        if (Input.GetButtonDown("B_1"))
-        {
-            CoupDeGraceU(specialAttackStats.CoupDeGrace);
+        //if (Input.GetButtonDown("B_1"))
+        //{
+        //    CoupDeGraceU(specialAttackStats.CoupDeGrace);
 
-        }
+        //}
         //if (Input.GetKeyUp(KeyCode.A))
         //{
         //    BreakdownSA(specialAttackStats.SpecialBreakdown);
@@ -654,8 +657,6 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
         //}
         //if(player1 == true && player2 == true)
         //{
-        GetComponent<BaseMovement>().ResetMovement();
-        GetComponent<BaseMovement>().enabled = false;
 
         volcanoClone = Instantiate(specialAttackStats.CoupDeGrace.objects);
         particles = volcanoClone.transform.Find("Effect19");
@@ -663,7 +664,7 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
 
         raise = true;
 
-        volcanoClone.transform.position = new Vector3(17, -25.5f, 0);
+        volcanoClone.transform.position = VolcanoPosition;
         if (gameObject.layer == 10)
         {
             if (GetComponent<FighterClass>().lockOnTargets[0] != null)
