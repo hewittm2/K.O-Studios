@@ -118,6 +118,8 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
     private GameObject enemy2;
     private bool player1;
     private bool player2;
+    private bool player3;
+    private bool player4;
     private bool raise;
     private float volcanoCounter;
 
@@ -202,6 +204,7 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
                     fireSpitTracking.doFireSpitDmg = false;
                 }
             }
+            fireSpitParticles.gameObject.SetActive(false);
         }
         #endregion
 
@@ -557,6 +560,7 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
         SetVars(jump);
         if (!movement.character.isGrounded)
         {
+            fireSpitParticles.gameObject.SetActive(true);
             //fireSpitTracking.fireSpitHit = false;
             fireSpitParticles.Play();
 
@@ -645,7 +649,7 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
     #region Coup De Grace
     public override void CoupDeGraceU(SpecialAttacks coup)
     {
-      
+
         SetVars(coup);
         //if (this.gameObject.tag == "Player1")
         //{
@@ -657,40 +661,52 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
         //}
         //if(player1 == true && player2 == true)
         //{
+        //if (this.gameObject.tag == "Player3")
+        //{
+        //    player3 = true;
 
-        volcanoClone = Instantiate(specialAttackStats.CoupDeGrace.objects);
-        particles = volcanoClone.transform.Find("Effect19");
-        particles.gameObject.SetActive(false);
+        //}
+        //if (this.gameObject.tag == "Player4")
+        //{
+        //    player4 = true;
+        //}
+        //if (player3 && player4 == true)
+        //{
 
-        raise = true;
+            volcanoClone = Instantiate(specialAttackStats.CoupDeGrace.objects);
+            particles = volcanoClone.transform.Find("Effect19");
+            particles.gameObject.SetActive(false);
 
-        volcanoClone.transform.position = VolcanoPosition;
-        if (gameObject.layer == 10)
-        {
-            if (GetComponent<FighterClass>().lockOnTargets[0] != null)
+            raise = true;
+
+            volcanoClone.transform.position = VolcanoPosition;
+            if (gameObject.layer == 10)
             {
-                enemy1 = GetComponent<FighterClass>().lockOnTargets[0];
-                enemy1.GetComponent<FighterClass>().currentHealth = 0;
+                if (GetComponent<FighterClass>().lockOnTargets[0] != null)
+                {
+                    enemy1 = GetComponent<FighterClass>().lockOnTargets[0];
+                    enemy1.GetComponent<FighterClass>().currentHealth = 0;
+                }
+                if (GetComponent<FighterClass>().lockOnTargets[1] != null)
+                {
+                    enemy2 = GetComponent<FighterClass>().lockOnTargets[1];
+                    enemy2.GetComponent<FighterClass>().currentHealth = 0;
+                }
             }
-            if (GetComponent<FighterClass>().lockOnTargets[1] != null)
+            if (gameObject.layer == 9)
             {
-                enemy2 = GetComponent<FighterClass>().lockOnTargets[1];
-                enemy2.GetComponent<FighterClass>().currentHealth = 0;
+                if (GetComponent<FighterClass>().lockOnTargets[0] != null)
+                {
+                    enemy1 = GetComponent<FighterClass>().lockOnTargets[0];
+                    enemy1.GetComponent<FighterClass>().currentHealth = 0;
+                }
+                if (GetComponent<FighterClass>().lockOnTargets[1] != null)
+                {
+                    enemy2 = GetComponent<FighterClass>().lockOnTargets[1];
+                    enemy2.GetComponent<FighterClass>().currentHealth = 0;
+                }
             }
-        }
-        if (gameObject.layer == 9)
-        {
-            if (GetComponent<FighterClass>().lockOnTargets[0] != null)
-            {
-                enemy1 = GetComponent<FighterClass>().lockOnTargets[0];
-                enemy1.GetComponent<FighterClass>().currentHealth = 0;
-            }
-            if (GetComponent<FighterClass>().lockOnTargets[1] != null)
-            {
-                enemy2 = GetComponent<FighterClass>().lockOnTargets[1];
-                enemy2.GetComponent<FighterClass>().currentHealth = 0;
-            }
-        }
+        //}
     }
     #endregion
 
