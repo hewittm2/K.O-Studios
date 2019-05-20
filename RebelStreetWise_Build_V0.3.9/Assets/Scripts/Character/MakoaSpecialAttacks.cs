@@ -56,6 +56,7 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
     public float fireBreathCooldown = 9f;
     public float breathCooldown = 0f;
     private ParticleSystem coneOfFire;
+
    
 
     private FireScript fireCone;
@@ -67,6 +68,7 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
     [Space(0.5f)]
     private ParticleSystem fireSpitParticles;
     private FireSpitTracking fireSpitTracking;
+    private GameObject parentObject;
 
 
     #endregion
@@ -139,6 +141,7 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
         empoweredParticle = specialAttackStats.SpecialNeutral.partEffect;
         fireSpitParticles = specialAttackStats.SpecialJump.partEffect;
         coneOfFire = specialAttackStats.SpecialForward.partEffect;
+        parentObject = specialAttackStats.SpecialJump.objects;
         //fireSpitTracking = fireSpitParticles.GetComponent<FireSpitTracking>();
         fireCone = coneOfFire.GetComponent<FireScript>();
         movement = GetComponent<BaseMovement>();
@@ -177,6 +180,7 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
                     // === Add code for knocking down enemy. Waiting to hear back from Ethan ===\\
                     Debug.Log("Knocked Down Enemy");
                     fireSpitTracking.knockdown = false;
+                
                 }
 
                 // If the knockdown is true and damage is also true from the particle effect, Knockdown enemy, and do damage
@@ -186,6 +190,7 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
                     // === Add code for knocking down enemy. Waiting to hear back from Ethan ===\\
                     fireSpitTracking.knockdown = false;
                     fireSpitTracking.doFireSpitDmg = false;
+                 
                 }
 
                 // If the enemy is blocking, knock them back without doing damage
@@ -194,6 +199,7 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
                     Debug.Log("Enemy Blocked. Push them back");
                     specialAttackStats.SpecialJump.knockbackForce = 5f;
                     fireSpitTracking.knockback = false;
+             
                 }
 
                 // Enemy is on the ground and fire hit them, do damage
@@ -202,15 +208,21 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
                     Debug.Log("Enemy Down. Damage Him");
                     // Add code for ranged attack damage. Need to talk to Ethan/Torrell
                     fireSpitTracking.doFireSpitDmg = false;
+             
                 }
             }
-            fireSpitParticles.gameObject.SetActive(false);
+           
         }
-        #endregion
+        if (movement.character.isGrounded)
+        {
+            parentObject.gameObject.SetActive(false);
+        }
 
-        #region Down Special
-        //checks if the staff spin spawned 
-        if (spawned == true)
+            #endregion
+
+            #region Down Special
+            //checks if the staff spin spawned 
+            if (spawned == true)
         {
             //timeout
             spinTimeout = spinTimeout - Time.deltaTime;
@@ -479,6 +491,11 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
         //    CoupDeGraceU(specialAttackStats.CoupDeGrace);
 
         //}
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            CoupDeGraceU(specialAttackStats.CoupDeGrace);
+
+        }
         //if (Input.GetKeyUp(KeyCode.A))
         //{
         //    BreakdownSA(specialAttackStats.SpecialBreakdown);
@@ -560,9 +577,10 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
         SetVars(jump);
         if (!movement.character.isGrounded)
         {
-            fireSpitParticles.gameObject.SetActive(true);
+            Debug.Log("DIE");
+            parentObject.gameObject.SetActive(true);
             //fireSpitTracking.fireSpitHit = false;
-            fireSpitParticles.Play();
+       
 
         }
     }
