@@ -985,6 +985,7 @@ GameObject:
   - component: {fileID: 65094656814480940}
   - component: {fileID: 136654804223902844}
   - component: {fileID: 114455293670623838}
+  - component: {fileID: 82897060834072616}
   m_Layer: 0
   m_Name: MakoaMan5_9
   m_TagString: Player1
@@ -4531,7 +4532,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1423573063377914}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -5.54, y: -0.69000053, z: 1.3592944}
+  m_LocalPosition: {x: -5.54, y: 2.02, z: 1.3592944}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4544731026388010}
@@ -8799,6 +8800,101 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.93, y: 1.38, z: 1.27}
   m_Center: {x: 0, y: 0.0005125701, z: 0.006210225}
+--- !u!82 &82897060834072616
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1229618202395948}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!95 &95816683198209442
 Animator:
   serializedVersion: 3
@@ -9180,7 +9276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c502e158d670e74888c5528bda953bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerOne: 1
+  PlayerOne: 0
   PlayerTwo: 0
   PlayerThree: 0
   PlayerFour: 0
@@ -9213,18 +9309,18 @@ MonoBehaviour:
   specialDown: {fileID: 0}
   specialJump: {fileID: 0}
   coupDeGrace: []
-  lightHit: 0
-  lightBlock: 0
-  mediumHit: 0
-  mediumBlock: 0
-  heavyHit: 0
-  heavyBlock: 0
-  specMeleeHit: 0
-  specMeleeBlock: 0
-  specProjectileHit: 0
-  specProjectileBlock: 0
-  breakdownHit: 0
-  breakdownBlock: 0
+  lightHit: 16
+  lightBlock: 8
+  mediumHit: 24
+  mediumBlock: 12
+  heavyHit: 40
+  heavyBlock: 20
+  specMeleeHit: 64
+  specMeleeBlock: 20
+  specProjectileHit: 20
+  specProjectileBlock: 8
+  breakdownHit: 30
+  breakdownBlock: 35
   tempDist: 16.8215
   closeDist: 3
   enemyDist: 5
@@ -9245,8 +9341,8 @@ MonoBehaviour:
   attacker: {fileID: 0}
   projectile: {fileID: 0}
   isReady: 1
-  hit: {fileID: 0}
-  block: {fileID: 0}
+  hit: {fileID: 8300000, guid: 5f8af9a2478ebb14782e0cbe085758c7, type: 3}
+  block: {fileID: 8300000, guid: fbeb71d094bd2f841b7c24ccd509a070, type: 3}
 --- !u!114 &114370848806274422
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9454,7 +9550,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charSprite: {fileID: 21300000, guid: 7a2eaa7dbb1e05b4d971adf4bcab0a07, type: 3}
-  playerNumber: 1
+  playerNumber: 2
   teamNumber: 1
   currentHealth: 500
   totalHealth: 500
@@ -9572,12 +9668,12 @@ MonoBehaviour:
     hitBox1: {fileID: 0}
     hitBox2: {fileID: 0}
   specials: {fileID: 114455293670623838}
-  grabRange: 0
-  throwDistance: 0
+  grabRange: 5
+  throwDistance: 10
   grabbing: 0
   isGrabbed: 0
   grabCommit: 0
-  throwSpeed: 0
+  throwSpeed: 5
   moveAnimSpeeds:
     forwardWalk: 1
     backwardWalk: 1
@@ -9621,11 +9717,11 @@ MonoBehaviour:
   coupDeGraceActivated: 0
   anim: {fileID: 95816683198209442}
   audio: {fileID: 0}
-  dash: {fileID: 0}
-  jump: {fileID: 0}
+  dash: {fileID: 8300000, guid: d1737b49ba361db4eae22abe7873a70f, type: 3}
+  jump: {fileID: 8300000, guid: 35644562939c3eb46bef1fc54d22edf9, type: 3}
   walk: {fileID: 0}
-  lightAttack: {fileID: 0}
-  mediumAttack: {fileID: 0}
+  lightAttack: {fileID: 8300000, guid: 3afea1eac2686e1428dca375c1890c5d, type: 3}
+  mediumAttack: {fileID: 8300000, guid: 32b63488d70f94f419cfd1667c16cf4b, type: 3}
   heavyAttack: {fileID: 0}
   isReady: 1
 --- !u!114 &114531309640405678
