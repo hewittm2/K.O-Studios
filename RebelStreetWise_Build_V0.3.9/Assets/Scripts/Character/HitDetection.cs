@@ -314,7 +314,7 @@ public class HitDetection : MonoBehaviour {
 		movement.rigid.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionZ;
 		movement.rigid.velocity = new Vector3(0, 0, 0);
 		movement.rigid.angularVelocity = new Vector3(0, 0, 0);
-        movement.rigid.velocity += (new Vector3(kbDirection.x,kbDirection.y, 0)*kbForce);
+        movement.rigid.velocity = (new Vector3(kbDirection.x,kbDirection.y, 0)*kbForce);
         yield return new WaitForSeconds(.2f);
 		movement.rigid.velocity = new Vector3(0, 0, 0);
 		movement.rigid.angularVelocity = new Vector3(0, 0, 0);

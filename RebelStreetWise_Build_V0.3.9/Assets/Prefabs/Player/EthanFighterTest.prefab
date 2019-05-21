@@ -2063,7 +2063,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1523036563279898}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -10.13, y: 0, z: 0}
+  m_LocalPosition: {x: -32.55, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4247399101214500}
@@ -3250,6 +3250,7 @@ MonoBehaviour:
       damage: 0
       startupTime: 0
       activeTime: 0
+      coolDown: 0
       stunTime: 0
       recoveryTime: 0
       objects: {fileID: 0}
@@ -3266,6 +3267,7 @@ MonoBehaviour:
       damage: 0
       startupTime: 0
       activeTime: 0
+      coolDown: 0
       stunTime: 0
       recoveryTime: 0
       objects: {fileID: 0}
@@ -3282,6 +3284,7 @@ MonoBehaviour:
       damage: 0
       startupTime: 0
       activeTime: 0
+      coolDown: 0
       stunTime: 0
       recoveryTime: 0
       objects: {fileID: 0}
@@ -3298,6 +3301,7 @@ MonoBehaviour:
       damage: 0
       startupTime: 0
       activeTime: 0
+      coolDown: 0
       stunTime: 0
       recoveryTime: 0
       objects: {fileID: 0}
@@ -3314,6 +3318,7 @@ MonoBehaviour:
       damage: 0
       startupTime: 0
       activeTime: 0
+      coolDown: 0
       stunTime: 0
       recoveryTime: 0
       objects: {fileID: 0}
@@ -3330,6 +3335,7 @@ MonoBehaviour:
       damage: 0
       startupTime: 0
       activeTime: 0
+      coolDown: 0
       stunTime: 0
       recoveryTime: 0
       objects: {fileID: 0}
@@ -3346,6 +3352,7 @@ MonoBehaviour:
       damage: 0
       startupTime: 0
       activeTime: 0
+      coolDown: 0
       stunTime: 0
       recoveryTime: 0
       objects: {fileID: 0}
@@ -3376,6 +3383,8 @@ MonoBehaviour:
   fighter: {fileID: 0}
   rigid: {fileID: 0}
   isPaused: 0
+  grounded: 0
+  capsule: {fileID: 0}
 --- !u!135 &135012640498504554
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -3458,9 +3467,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 1.5
-  m_Height: 8
+  m_Height: 9.51
   m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: -0.18, z: 0}
 --- !u!137 &137030197491491380
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

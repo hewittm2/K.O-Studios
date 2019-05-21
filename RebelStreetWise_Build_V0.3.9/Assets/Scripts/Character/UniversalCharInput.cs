@@ -47,14 +47,24 @@ public class UniversalCharInput : MonoBehaviour
     private void CheckPlayer()
     {
         //Checks which Player the Character belongs to
-        if (PlayerOne)
-            SetControls(1);
-        if (PlayerTwo)
-            SetControls(2);
-        if (PlayerThree)
-            SetControls(3);
-        if (PlayerFour)
-            SetControls(4);
+		if (PlayerOne) {
+			SetControls (1);
+			cAssign.playerNumber = 1;
+			cAssign.teamNumber = 1;
+		} else if (PlayerTwo) {
+			SetControls (2);
+			cAssign.playerNumber = 2;
+			cAssign.teamNumber = 1;
+		} else if (PlayerThree) {
+			SetControls (3);
+			cAssign.playerNumber = 3;
+			cAssign.teamNumber = 2;
+		} else if (PlayerFour) {
+			SetControls(4);
+			cAssign.playerNumber = 4;
+			cAssign.teamNumber = 2;
+		}
+            
     }
 
     private void SetControls(int playerNum)
