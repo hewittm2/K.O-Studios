@@ -56,6 +56,7 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
     public float fireBreathCooldown = 9f;
     public float breathCooldown = 0f;
     private ParticleSystem coneOfFire;
+
    
 
     private FireScript fireCone;
@@ -67,6 +68,7 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
     [Space(0.5f)]
     private ParticleSystem fireSpitParticles;
     private FireSpitTracking fireSpitTracking;
+    private GameObject parentObject;
 
 
     #endregion
@@ -79,6 +81,7 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
     public float spinTimeout = 1;
     public float spinSpeed = 300;
     public GameObject spinObject;
+    public GameObject downSpecialFireSpawnPos;
 
     private GameObject playerLocation;
     private GameObject spinClone;
@@ -108,6 +111,8 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
     #region coupdegrace Variables
     [Header("Coup de grace Custom Variables")]
     [Space(0.5f)]
+    public Vector3 VolcanoPosition;
+    public float raiseEndHeight;
     private GameObject volcano;
     private Transform particles;
     private GameObject volcanoClone;
@@ -115,8 +120,11 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
     private GameObject enemy2;
     private bool player1;
     private bool player2;
+    private bool player3;
+    private bool player4;
     private bool raise;
     private float volcanoCounter;
+
 
 
     #endregion
@@ -129,11 +137,11 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
 
     void Start()
     {
-        
         playerLocation = this.gameObject;
         empoweredParticle = specialAttackStats.SpecialNeutral.partEffect;
         fireSpitParticles = specialAttackStats.SpecialJump.partEffect;
         coneOfFire = specialAttackStats.SpecialForward.partEffect;
+        parentObject = specialAttackStats.SpecialJump.objects;
         //fireSpitTracking = fireSpitParticles.GetComponent<FireSpitTracking>();
         fireCone = coneOfFire.GetComponent<FireScript>();
         movement = GetComponent<BaseMovement>();
@@ -155,6 +163,8 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
     void Update()
     {
 
+        //leftFireKnife.SetActive(true);
+        //rightFireKnife.SetActive(true);
        
         #region Up Special
         // Checks for Damage to be done with the Up/Jump special attack
@@ -170,6 +180,7 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
                     // === Add code for knocking down enemy. Waiting to hear back from Ethan ===\\
                     Debug.Log("Knocked Down Enemy");
                     fireSpitTracking.knockdown = false;
+                
                 }
 
                 // If the knockdown is true and damage is also true from the particle effect, Knockdown enemy, and do damage
@@ -179,6 +190,7 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
                     // === Add code for knocking down enemy. Waiting to hear back from Ethan ===\\
                     fireSpitTracking.knockdown = false;
                     fireSpitTracking.doFireSpitDmg = false;
+                 
                 }
 
                 // If the enemy is blocking, knock them back without doing damage
@@ -187,6 +199,7 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
                     Debug.Log("Enemy Blocked. Push them back");
                     specialAttackStats.SpecialJump.knockbackForce = 5f;
                     fireSpitTracking.knockback = false;
+             
                 }
 
                 // Enemy is on the ground and fire hit them, do damage
@@ -195,14 +208,21 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
                     Debug.Log("Enemy Down. Damage Him");
                     // Add code for ranged attack damage. Need to talk to Ethan/Torrell
                     fireSpitTracking.doFireSpitDmg = false;
+             
                 }
             }
+           
         }
-        #endregion
+        if (movement.character.isGrounded)
+        {
+            parentObject.gameObject.SetActive(false);
+        }
 
-        #region Down Special
-        //checks if the staff spin spawned 
-        if (spawned == true)
+            #endregion
+
+            #region Down Special
+            //checks if the staff spin spawned 
+            if (spawned == true)
         {
             //timeout
             spinTimeout = spinTimeout - Time.deltaTime;
@@ -281,7 +301,7 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
         #region back special
         if (clone != null)
         {
-         
+            Debug.Log("Disable Location 1");
             GetComponent<HitDetection>().specialBackward = clone;
          
             if (opponent != null)
@@ -439,7 +459,7 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
                 //DAMAGE BUFF
             //specialAttackVars.damage = specialAttackVars.damage / damageBuff;
             //particles end
-            empoweredParticle.gameObject.SetActive(false);
+            //empoweredParticle.gameObject.SetActive(false);
             //resets timer
             currentEmpowerTime = 0;
         }
@@ -451,7 +471,7 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
         
             volcanoClone.transform.Translate(0, 10 * Time.deltaTime, 0);
             
-            if(volcanoClone.transform.position.y > -5)
+            if(volcanoClone.transform.position.y > raiseEndHeight)
             {
                 particles.gameObject.SetActive(true);
                 raise = false;
@@ -469,7 +489,12 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
         //if (Input.GetButtonDown("B_1"))
         //{
         //    CoupDeGraceU(specialAttackStats.CoupDeGrace);
-           
+
+        //}
+        //if (Input.GetKeyDown(KeyCode.B))
+        //{
+        //    CoupDeGraceU(specialAttackStats.CoupDeGrace);
+
         //}
         //if (Input.GetKeyUp(KeyCode.A))
         //{
@@ -502,6 +527,8 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
             currentEmpowerTime = currentEmpowerTime + Time.deltaTime;
             //particles
             empoweredParticle.gameObject.SetActive(true);
+            empoweredParticle.Play();
+            //empoweredParticle.gameObject.SetActive(true);
         }
 
     }
@@ -550,8 +577,10 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
         SetVars(jump);
         if (!movement.character.isGrounded)
         {
+            Debug.Log("DIE");
+            parentObject.gameObject.SetActive(true);
             //fireSpitTracking.fireSpitHit = false;
-            fireSpitParticles.Play();
+       
 
         }
     }
@@ -577,10 +606,13 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
             //spawns fire
            
             fire = Instantiate(specialAttackStats.SpecialDown.objects);
+            fire.transform.position = downSpecialFireSpawnPos.transform.position;
+
+
             fireCountDown = 5;
             //spawns spinning object
             spinClone = Instantiate(spinObject, gameObject.transform.parent);
-            //spinClone.SetActive(true);
+            spinClone.SetActive(false);
             spinObject.SetActive(false);
             //translates to positions (most should be able to me removed after animations are IMPLEMENTED
             spinClone.transform.position = playerLocation.transform.position;
@@ -635,6 +667,7 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
     #region Coup De Grace
     public override void CoupDeGraceU(SpecialAttacks coup)
     {
+
         SetVars(coup);
         //if (this.gameObject.tag == "Player1")
         //{
@@ -646,42 +679,52 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
         //}
         //if(player1 == true && player2 == true)
         //{
-        GetComponent<BaseMovement>().ResetMovement();
-        GetComponent<BaseMovement>().enabled = false;
+        //if (this.gameObject.tag == "Player3")
+        //{
+        //    player3 = true;
 
-        volcanoClone = Instantiate(specialAttackStats.CoupDeGrace.objects);
-        particles = volcanoClone.transform.Find("Effect19");
-        particles.gameObject.SetActive(false);
+        //}
+        //if (this.gameObject.tag == "Player4")
+        //{
+        //    player4 = true;
+        //}
+        //if (player3 && player4 == true)
+        //{
 
-        raise = true;
+            volcanoClone = Instantiate(specialAttackStats.CoupDeGrace.objects);
+            particles = volcanoClone.transform.Find("Effect19");
+            particles.gameObject.SetActive(false);
 
-        volcanoClone.transform.position = new Vector3(17, -25.5f, 0);
-        if (gameObject.layer == 10)
-        {
-            if (GetComponent<FighterClass>().lockOnTargets[0] != null)
+            raise = true;
+
+            volcanoClone.transform.position = VolcanoPosition;
+            if (gameObject.layer == 10)
             {
-                enemy1 = GetComponent<FighterClass>().lockOnTargets[0];
-                enemy1.GetComponent<FighterClass>().currentHealth = 0;
+                if (GetComponent<FighterClass>().lockOnTargets[0] != null)
+                {
+                    enemy1 = GetComponent<FighterClass>().lockOnTargets[0];
+                    enemy1.GetComponent<FighterClass>().currentHealth = 0;
+                }
+                if (GetComponent<FighterClass>().lockOnTargets[1] != null)
+                {
+                    enemy2 = GetComponent<FighterClass>().lockOnTargets[1];
+                    enemy2.GetComponent<FighterClass>().currentHealth = 0;
+                }
             }
-            if (GetComponent<FighterClass>().lockOnTargets[1] != null)
+            if (gameObject.layer == 9)
             {
-                enemy2 = GetComponent<FighterClass>().lockOnTargets[1];
-                enemy2.GetComponent<FighterClass>().currentHealth = 0;
+                if (GetComponent<FighterClass>().lockOnTargets[0] != null)
+                {
+                    enemy1 = GetComponent<FighterClass>().lockOnTargets[0];
+                    enemy1.GetComponent<FighterClass>().currentHealth = 0;
+                }
+                if (GetComponent<FighterClass>().lockOnTargets[1] != null)
+                {
+                    enemy2 = GetComponent<FighterClass>().lockOnTargets[1];
+                    enemy2.GetComponent<FighterClass>().currentHealth = 0;
+                }
             }
-        }
-        if (gameObject.layer == 9)
-        {
-            if (GetComponent<FighterClass>().lockOnTargets[0] != null)
-            {
-                enemy1 = GetComponent<FighterClass>().lockOnTargets[0];
-                enemy1.GetComponent<FighterClass>().currentHealth = 0;
-            }
-            if (GetComponent<FighterClass>().lockOnTargets[1] != null)
-            {
-                enemy2 = GetComponent<FighterClass>().lockOnTargets[1];
-                enemy2.GetComponent<FighterClass>().currentHealth = 0;
-            }
-        }
+        //}
     }
     #endregion
 
@@ -706,11 +749,11 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
 
     IEnumerator BreathFire(float wait)
     {
-     
+        
         yield return new WaitForSeconds(wait);
-
+        specialAttackStats.SpecialForward.partEffect.Play();
         fireCone.fireHit = false;
-        coneOfFire.Play();
+        
     }
     #endregion
 

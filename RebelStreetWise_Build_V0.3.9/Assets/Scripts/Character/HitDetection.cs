@@ -56,7 +56,7 @@ public class HitDetection : MonoBehaviour {
 	public SkinnedMeshRenderer myCoatColor;
 	public Material[] playerColors;
 
-	[HideInInspector]
+	//[HideInInspector]
 	public List<GameObject> hitBoxes;
 
 	[HideInInspector]

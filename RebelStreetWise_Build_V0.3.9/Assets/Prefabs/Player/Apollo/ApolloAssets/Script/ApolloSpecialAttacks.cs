@@ -54,7 +54,7 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
     private bool offCooldown = false;
 
     [Header("Breakdown Special Custom Variables")][Space(0.5f)]
-    [Range(7,20)]
+    [Range(0,1)]
     public float breakdownMoveSpeed;
     public GameObject breakdownHitBox;
     private bool breakdownActive = false;
@@ -319,11 +319,13 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
     //---------------------------------------------------
     public override void BreakdownSA(SpecialAttacks breakdown)
     {
+        Debug.Log("sucuessfully called");
         SetVars(breakdown);
         StartCoroutine(BreakdownSAC(breakdown.activeTime, breakdown.startupTime));
     }
     IEnumerator BreakdownSAC(float active, float startup)
     {
+        Debug.Log("went through");
         specialAttackStats.SpecialBreakdown.objects.SetActive(true);
         yield return new WaitForSeconds(startup);
         breakdownHitBox.SetActive(true);
@@ -332,6 +334,7 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
         else
             isFacingRight = false;
         breakdownActive = true;
+        Debug.Log("hit box active");
         yield return new WaitForSeconds(active);
         breakdownHitBox.SetActive(false);
         breakdownActive = false;
@@ -357,16 +360,17 @@ public class ApolloSpecialAttacks : SpecialAttackTemplate
         }
         if(goingUp == true)
             transform.Translate(Vector3.up * Time.deltaTime * 40 * upHeight, Space.World);
-        if (jumpSpecialActive == true)
-           // CharCheck(false, false);
 
-        //Breakdown
+            //Breakdown
         if (breakdownActive == true)
         {
-            if(isFacingRight == true)
-            transform.Translate(Vector3.right * Time.deltaTime * breakdownMoveSpeed,Space.World);
-            else
-                transform.Translate(Vector3.left * Time.deltaTime * breakdownMoveSpeed, Space.World);
+            if (isFacingRight == true)
+            { 
+                moveCheck.Move(new Vector3(breakdownMoveSpeed,0,0));
+            }
+            else {
+                moveCheck.Move(new Vector3(-breakdownMoveSpeed, 0, 0));
+            }
 
             //CharCheck(false, false);
         }

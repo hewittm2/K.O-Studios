@@ -5444,14 +5444,14 @@ MonoBehaviour:
       hitHeight: 0
       hitType: 4
       damageType: 1
-      delayType: 0
+      delayType: 1
       knockback: {x: 1, y: 0, z: 0}
       knockbackForce: 3
       meterGain: 0
       damage: 70
       startupTime: 0.6
       activeTime: 2
-      coolDown: 0
+      coolDown: 0.5
       stunTime: 5
       recoveryTime: 16
       objects: {fileID: 0}
@@ -5461,14 +5461,14 @@ MonoBehaviour:
       hitHeight: 0
       hitType: 3
       damageType: 2
-      delayType: 0
+      delayType: 1
       knockback: {x: 1, y: 0, z: 0}
       knockbackForce: 3
       meterGain: 0
       damage: 70
       startupTime: 0.1
       activeTime: 2
-      coolDown: 0
+      coolDown: 3
       stunTime: 5
       recoveryTime: 0
       objects: {fileID: 1999431835937814}
@@ -5478,14 +5478,14 @@ MonoBehaviour:
       hitHeight: 0
       hitType: 3
       damageType: 0
-      delayType: 0
+      delayType: 1
       knockback: {x: 2, y: 0, z: 0}
       knockbackForce: 15
       meterGain: 0
       damage: 70
       startupTime: 0.9
       activeTime: 0.3
-      coolDown: 0
+      coolDown: 2
       stunTime: 0
       recoveryTime: 0
       objects: {fileID: 0}
@@ -5494,15 +5494,15 @@ MonoBehaviour:
       animSpeed: 1
       hitHeight: 0
       hitType: 3
-      damageType: 0
-      delayType: 0
+      damageType: 1
+      delayType: 1
       knockback: {x: 10, y: 0, z: 0}
       knockbackForce: 3
       meterGain: 0
       damage: 70
       startupTime: 0.1
       activeTime: 1
-      coolDown: 0
+      coolDown: 0.25
       stunTime: 5
       recoveryTime: 14
       objects: {fileID: 1416735483470086}
@@ -5519,30 +5519,30 @@ MonoBehaviour:
       damage: 70
       startupTime: 0.25
       activeTime: 1
-      coolDown: 5.51
+      coolDown: 2
       stunTime: 1
       recoveryTime: 1
       objects: {fileID: 1394114682318654}
       partEffect: {fileID: 0}
     SpecialBreakdown:
-      animSpeed: 1
+      animSpeed: 1.75
       hitHeight: 0
       hitType: 5
-      damageType: 0
-      delayType: 0
-      knockback: {x: 1, y: 1, z: 0}
-      knockbackForce: 1
+      damageType: 1
+      delayType: 1
+      knockback: {x: 1, y: 0.5, z: 0}
+      knockbackForce: 5
       meterGain: 0
-      damage: 50
+      damage: 35
       startupTime: 0.05
-      activeTime: 2.7
-      coolDown: 0
+      activeTime: 3
+      coolDown: 3.5
       stunTime: 0
       recoveryTime: 0
       objects: {fileID: 1324903601801504}
       partEffect: {fileID: 0}
     CoupDeGrace:
-      animSpeed: 1
+      animSpeed: 2
       hitHeight: 0
       hitType: 0
       damageType: 1
@@ -5590,7 +5590,7 @@ MonoBehaviour:
   upHeight: 0.5
   customJump: {fileID: 1637598159435818}
   jCooldown: 1
-  breakdownMoveSpeed: 20
+  breakdownMoveSpeed: 0.824
   breakdownHitBox: {fileID: 1741448594713892}
   moveSpeed: 5
   speedIncreaseOT: 10
@@ -5817,18 +5817,18 @@ MonoBehaviour:
   - {fileID: 1087820063148324}
   - {fileID: 1804170054468066}
   - {fileID: 1134814790801580}
-  lightHit: 12
-  lightBlock: 6
-  mediumHit: 18
-  mediumBlock: 9
-  heavyHit: 30
-  heavyBlock: 15
-  specMeleeHit: 48
-  specMeleeBlock: 15
-  specProjectileHit: 15
-  specProjectileBlock: 5
-  breakdownHit: 100
-  breakdownBlock: 30
+  lightHit: 16
+  lightBlock: 8
+  mediumHit: 24
+  mediumBlock: 12
+  heavyHit: 40
+  heavyBlock: 20
+  specMeleeHit: 64
+  specMeleeBlock: 20
+  specProjectileHit: 20
+  specProjectileBlock: 8
+  breakdownHit: 30
+  breakdownBlock: 35
   tempDist: 0
   closeDist: 3
   enemyDist: 5
@@ -5917,7 +5917,7 @@ MonoBehaviour:
   superMeter: 0
   attackVariables:
     lightAttack:
-      animSpeed: 1.25
+      animSpeed: 1.5
       meterGain: 10
       hitType: 0
       hitHeight: 0
@@ -5928,7 +5928,7 @@ MonoBehaviour:
       hitBox1: {fileID: 1144687921321024}
       hitBox2: {fileID: 0}
     mediumAttack:
-      animSpeed: 1
+      animSpeed: 1.25
       meterGain: 0
       hitType: 0
       hitHeight: 0
@@ -5950,7 +5950,7 @@ MonoBehaviour:
       hitBox1: {fileID: 1144687921321024}
       hitBox2: {fileID: 0}
     jumpLightAttack:
-      animSpeed: 1.25
+      animSpeed: 1.5
       meterGain: 0
       hitType: 0
       hitHeight: 0
@@ -5961,7 +5961,7 @@ MonoBehaviour:
       hitBox1: {fileID: 1144687921321024}
       hitBox2: {fileID: 0}
     jumpMediumAttack:
-      animSpeed: 1
+      animSpeed: 1.25
       meterGain: 0
       hitType: 0
       hitHeight: 0
@@ -5983,7 +5983,7 @@ MonoBehaviour:
       hitBox1: {fileID: 1144687921321024}
       hitBox2: {fileID: 0}
     crouchLightAttack:
-      animSpeed: 1.25
+      animSpeed: 1.5
       meterGain: 0
       hitType: 0
       hitHeight: 0
@@ -5994,7 +5994,7 @@ MonoBehaviour:
       hitBox1: {fileID: 1144687921321024}
       hitBox2: {fileID: 0}
     crouchMediumAttack:
-      animSpeed: 1
+      animSpeed: 1.25
       meterGain: 0
       hitType: 0
       hitHeight: 0
