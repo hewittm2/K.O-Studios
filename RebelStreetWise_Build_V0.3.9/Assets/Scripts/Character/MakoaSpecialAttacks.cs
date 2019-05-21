@@ -491,11 +491,11 @@ public class MakoaSpecialAttacks : SpecialAttackTemplate {
         //    CoupDeGraceU(specialAttackStats.CoupDeGrace);
 
         //}
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            CoupDeGraceU(specialAttackStats.CoupDeGrace);
+        //if (Input.GetKeyDown(KeyCode.B))
+        //{
+        //    CoupDeGraceU(specialAttackStats.CoupDeGrace);
 
-        }
+        //}
         //if (Input.GetKeyUp(KeyCode.A))
         //{
         //    BreakdownSA(specialAttackStats.SpecialBreakdown);
